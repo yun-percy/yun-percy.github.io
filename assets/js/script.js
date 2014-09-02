@@ -11,12 +11,13 @@ if ($(window).width() <= 1280) {
 }
 
 // Variables
-    tag1       = $('.linux'),
+    tag1       = $('.全部'),
     tag2       = $('.Android'),
     tag3       = $('.语法'),
     tag4       = $('.日记'),
     tag5       = $('.photoshop'),
-    tag6       = $('.综合');
+    tag6       = $('.linux');
+    tag7       = $('.综合');
 var sidebar    = $('#sidebar'),
     container  = $('#post'),
     content    = $('#pjax'),
@@ -30,7 +31,7 @@ var clickHandler = function(k) {
     window['tag'+k].delay(50).fadeIn(350);
   }
 };
-for (var i = 1; i <= 6; i++) {
+for (var i = 1; i <= 7; i++) {
   $('#js-label' + i).on('click', clickHandler(i));
 }
 
