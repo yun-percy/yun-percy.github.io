@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 一些linux&android的常用语法
 category: linux
 comments: true
