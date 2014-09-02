@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 
-    <title>place_your_blog_title_here</title>
+    <title>{{ page.title }}</title>
     <meta name="description" content="">
 
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
@@ -38,18 +38,16 @@
         </form>
 
         <nav id="pl__container">
-        
-          <a class="linux pl__all" href="/linux/2014/09/02/somelinuxcode.html"><span class="pl__circle"></span><span class="pl__title">一些linux&android的常用语法</span><span class="pl__date">Sep 2014</span></a>
-        
+        {% for post in site.posts %}
+          <a class="{{ post.categories }} pl__all" href="{{ post.url }}"><span class="pl__circle"></span><span class="pl__title">{{ post.title }}</span><span class="pl__date">{{ post.date | date: "%b %Y" }}</span></a>
+        {% endfor %}
         </nav>
       </div> <!-- end #posts-list -->
     </aside> <!-- end #sidebar -->
 
     <div id="post">
       <div id="pjax">
-        <article id="post__content">
-  <h1 id="post__title">Welcome</h1>
-</article> <!-- end #post__content -->
+        {{ content }}
       </div> <!-- end #pjax -->
 
       <div id="post__toc-trigger">
