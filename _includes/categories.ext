@@ -1,4 +1,4 @@
-<h2> 分类 </h2>
+<h2> 分类阅读 </h2>
   <ul class="category-list">
       {% for cat in site.categories %}
             {% if cat[0] != page.category %}
