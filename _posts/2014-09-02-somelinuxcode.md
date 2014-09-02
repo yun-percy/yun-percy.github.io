@@ -1,51 +1,28 @@
 ---
 layout: post
-title: 一些linux&android的常用语法
-category: 综合
-comments: true
+title: 一些linux下的常用语法
+category: linux
 ---
 
-安装jekyll出错
+Linux常用零碎语法集
 =============
 
-错误1
+查看计算机状态
 ------
 
-		终端安装：yunsun@chenyun:~$ gem install rdiscount
-		报错如下：
-		ERROR:  While executing gem ... (Gem::FilePermissionError)
-	    You don't have write permissions into the /var/lib/gems/1.9.1 directory.
-		yunsun@chenyun:~$ sudo gem install rdiscount
-		Building native extensions.  This could take a while...
-		ERROR:  Error installing rdiscount:
-		ERROR: Failed to build gem native extension.
+		who: 查看有水在线
+		netstat -a :网络的联机状态
+		ps -aux: 察看后台执行的程序
 
-		        /usr/bin/ruby1.9.1 extconf.rb
-		/usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load such file -- mkmf (LoadError)
-			from /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
-			from extconf.rb:1:in `<main>'
 
-###解决
-		终端输入：
-		sudo apt-get install ruby1.9.1-dev
-		再次尝试安装：
-		 rdiscount RedCloth
 
-		终端输入：sudo gem install jekyll
-
-		安装完成！
-
-错误2
+关机命令
 --------
 
-###运行jekyll报错
-
-		终端输入： jekyll new blog 报错如下
-		*****in `autodetect': Could not find a JavaScript runtime.....
-		解决办法：终端输入：
-		sudo gem install execjs
-		sudo gem install therubyracer
-		sudo apt-get install nodejs
-		再次执行，搞定
+		shutdown
+		reboot
+		halt
+		poweroff
+		用法： sudo shutdown -h 3   (-h:关机 -r：重启 3代表时间，可以设置为now立即执行)
 
 
