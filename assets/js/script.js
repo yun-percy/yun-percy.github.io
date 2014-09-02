@@ -11,7 +11,7 @@ if ($(window).width() <= 1280) {
 }
 
 // Variables
-    tag1       = $('.全部'),
+    tag1       = $('.pl__all'),
     tag2       = $('.Android'),
     tag3       = $('.语法'),
     tag4       = $('.日记'),

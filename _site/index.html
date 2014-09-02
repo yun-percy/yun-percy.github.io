@@ -39,12 +39,27 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
         <form action="" id="search-form">
           <a href="/index.html" id="mobile-avatar"></a>
           <!-- NOTE: input field is disabled by default -->
+          <script>
+  (function() {
+    var cx = '000185441514692429580:zq7jjvuyqoa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
           <input id="search-input" type="text" placeholder="Search..." disabled >
         </form>
 
         <nav id="pl__container">
         
-          <a class="综合 pl__all" href="/%E7%BB%BC%E5%90%88/2014/09/02/somelinuxcode.html"><span class="pl__circle"></span><span class="pl__title">jekyll搭建过程中的错误解决办法</span><span class="pl__date">Sep 2014</span></a>
+          <a class="linux pl__all" href="/linux/2014/09/02/somelinuxcode.html"><span class="pl__circle"></span><span class="pl__title">一些linux下的常用语法</span><span class="pl__date">Sep 2014</span></a>
+        
+          <a class="综合 pl__all" href="/%E7%BB%BC%E5%90%88/2014/09/02/jekyllerrorfix.html"><span class="pl__circle"></span><span class="pl__title">jekyll搭建过程中的错误解决办法</span><span class="pl__date">Sep 2014</span></a>
         
         </nav>
       </div> <!-- end #posts-list -->
