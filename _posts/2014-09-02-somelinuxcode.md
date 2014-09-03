@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一些linux下的零碎语法和命令
-category: linux
+category: Linux
 ---
 
 Linux常用零碎语法集
