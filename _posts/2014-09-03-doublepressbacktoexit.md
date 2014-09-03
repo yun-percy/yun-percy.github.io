@@ -3,6 +3,7 @@ layout: post
 title: 双击退出程序-java代码
 category: 语法
 ---
+
 双击退出程序
 ========
 
@@ -10,6 +11,7 @@ category: 语法
 --------
 
 ###直接在函数最后一个括号“}”之前黏贴一下代码即可
+
 
 		@Override
 		public boolean onKeyDown(int keyCode, KeyEvent event) {
