@@ -1,21 +1,45 @@
 ---
 layout: index
 ---
-
+<p>
+<a href="http://yun-percy.github.io">返回 | HOME</a>
+<hr />
+<a id="top"></a>
 <article id="post__content">
+
   <h1 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h1>
   {{ content }}
+  <a href="#top" target="_parent">返回顶部 | ↑ back to top</a>
+<!-- <ahref="javascript:scroll(0,30)">返回顶部</a> -->
+<!-- <a onclick="pageScroll()">返回顶部</a> -->
+<!--  <a href="#table-of-contents" class="anchorLink btn btn-backtotop">↑ back to top</a> -->
 </article> <!-- end #post__content -->
-
+<!--
 <div id="post__share">
-  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=place_your_url_here{{ page.url }}&text={{ page.title }}" target="_blank"></a>
+  <a id="icon-twitter" class="fontello" href="https://twitter.com/intent/tweet?url=http://fangnoo.github.io{{ page.url }}&text={{ page.title }}" target="_blank"></a>
   <a id="icon-cc" class="fontello" href="http://creativecommons.org/licenses/by-nc-sa/3.0" target="_blank"></a>
-  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=place_your_url_here{{ page.url }}&title={{ page.title }}" target="_blank"></a>
-</div> <!-- end #post__share -->
+  <a id="icon-weibo" class="fontello" href="http://v.t.sina.com.cn/share/share.php?url=http://fangnoo.github.io{{ page.url }}&title={{ page.title }}" target="_blank"></a>
+</div> 
+-->
 
-<div id="disqus_thread">
+<!-- <div id="disqus_thread">
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
-</div> <!-- end #disqus_thread -->
-
-<p id="copyright">Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&nbsp;&nbsp;|&nbsp;&nbsp;Theme <a href="https://github.com/P233/3-Jekyll" target="_blank">3-Jekyll</a></p>
+</div> {{ page.title }}
+  -->
+<!-- 多说评论框 start data-title={{ content }}  -->
+  <div class="ds-thread" data-thread-key={{page.title}} data-title={{ page.title }} data-url="http://yun-percy.github.io{{ page.url }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yun-percy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<p id="copyright">邮件： <a href="mailto:464095417@qq.com" target="_blank">点我联系</a>&nbsp;&nbsp;|&nbsp;&nbsp;微博 <a href="http://weibo.com/u/2641690453" target="_blank">点我进入</a></p>
