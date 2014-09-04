@@ -4,8 +4,7 @@ title: Remarkable：Linux平台下一个新的MarkDown编辑器
 category: Linux
 ---
 
-Remarkable：Linux平台下一个新的MarkDown编辑器
-=========
+
 
 
 <td id="article_content"><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212700fiihhhy877i7ny1h.png" alt=""></p>

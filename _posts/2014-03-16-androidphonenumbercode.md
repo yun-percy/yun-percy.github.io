@@ -4,8 +4,7 @@ title: Android 4.1以上实现归属地JAVA代码
 category: android
 ---
 
-Android 4.1以上实现归属地JAVA代码
-=========
+
 
 java代码:    
 --------

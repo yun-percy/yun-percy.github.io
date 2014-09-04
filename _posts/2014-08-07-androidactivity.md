@@ -4,8 +4,7 @@ title: android 外部启动activity，自定义action，action常量大全
 category: Android
 ---
 
-android 外部启动activity，自定义action，action常量大全
-=========
+
 
 ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 
@@ -19,7 +18,8 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
          i.setAction("android.intent.action.MAIN"); 
          startActivity(i); //or startActivityForResult(i, RESULT_OK); 
 
-	> 我用这种方法时，绝大部分应用可以启动，但是像RootExplorer却无法启动，出现FC对话框,因此建议使用下面这种方式：
+> 
+我用这种方法时，绝大部分应用可以启动，但是像RootExplorer却无法启动，出现FC对话框,因此建议使用下面这种方式：
 
 + 第二种方式
 
@@ -27,8 +27,9 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 	     	it.setClassName("com.speedsoftware.rootexplorer","com.speedsoftware.rootexplorer.RootExplorer");
 	    startActivity(it);
 
-	> 如果你需要启动一个你自己写的另一个app的activity，你可以在那个的menifest.xml里自定义activity的action:
-	> 其他地方启动它：
+> 
+如果你需要启动一个你自己写的另一个app的activity，你可以在那个的menifest.xml里自定义activity的action:
+其他地方启动它：
 
 		Intent it = new Intent("com.qylk.call.main");   
 		startActivity(it);
@@ -45,10 +46,10 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 
 
 附（转载）：android系统Action常量(其实不算全)
-===========
+-------
 
-android intent和intent action大全 
---------------
+####android intent和intent action大全 
+
 
 1. 从google搜索内容 
 
@@ -273,8 +274,8 @@ android intent和intent action大全
             startActivity(Intent.createChooser(it, "Choose Email Client")); 
           
 
-★intent action大全： 
---------------
+####★intent action大全： 
+
 
 > ACTION_MAIN                         作为一个主要的进入口，而并不期望去接受数据 
 > 

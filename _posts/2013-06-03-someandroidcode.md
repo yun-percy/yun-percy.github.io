@@ -4,8 +4,7 @@ title: 一些Android的零碎语法
 category: android
 ---
 
-一些Android的零碎语法
-================
+
 
 XML篇
 -----------
