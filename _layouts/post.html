@@ -4,9 +4,14 @@ layout: index
 <p>
 <a href="http://yun-percy.github.io">返回 | HOME</a>
 <hr />
+<a name="top" id="top"></a>
 <article id="post__content">
+
   <h1 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h1>
   {{ content }}
+  <a href="#top">返回顶部 | ↑ back to top</a>
+<!-- <ahref="javascript:scroll(0,30)">返回顶部</a> -->
+<!-- <a onclick="pageScroll()">返回顶部</a> -->
 <!--  <a href="#table-of-contents" class="anchorLink btn btn-backtotop">↑ back to top</a> -->
 </article> <!-- end #post__content -->
 <!--
@@ -21,7 +26,7 @@ layout: index
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <a href="http://disqus.com" class="dsq-brlink" target="_blank">Loading Disqus comments...</a>
 </div> {{ page.title }}
-  -->{{ page.title }}  {{ page.date | date: "%Y/%m/%d" }} 
+  -->
 <!-- 多说评论框 start data-title={{ content }}  -->
   <div class="ds-thread" data-thread-key={{page.title}} data-title={{ page.title }} data-url="http://yun-percy.github.io{{ page.url }}"></div>
 <!-- 多说评论框 end -->
