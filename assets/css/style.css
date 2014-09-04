@@ -188,12 +188,12 @@ a {
 #icon-email {
   border-right: 1px solid #3c4149; }
   #icon-email:before {
-    content:url(./mail.png); }
+    content: "\e800"; }
 
 #icon-feed {
   border-left: 1px solid #525965; }
   #icon-feed:before {
-    content:url(./weibo.png);}
+    content: "\e802"; }
 
 .tags-btn {
   color: #a6a6a7;

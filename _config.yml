@@ -1,5 +1,1 @@
-highlighter: pygments
-excerpt_separator: ""
-# duoshuo comments
-duoshuo_comments: true
-duoshuo_short_name: yun-percy
+pygments: true
