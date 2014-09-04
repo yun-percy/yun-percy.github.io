@@ -77,3 +77,18 @@ category: Linux
 
 > 这个时候你就不需要输入密码了
 
+apt-get
+----
+
+###ia32-libs
+
+这是一个32位依赖包，很多常用软件依旧在是用这个依赖包，但是在ubuntu和mint的软件源里已经把这个依赖包给去掉了，那我们怎么来安装？<br/>添加软件源，下文中要添加的软件源是现在还能用的，也许以后就没了，因为安装过程中要经常使用sudo的授权，所以第一步我们就直接临时进root了。使用完了记得退出。<br/>直接上链接：
+
+	sudo -i
+	cd /etc/apt/sources.list.d
+	echo "deb http://archive.ubuntu.com/ubuntu/ raring main restricted universe multiverse" >ia32-libs-raring.list
+	apt-get update
+	apt-get -f install
+	apt-get install ia32-libs
+
+搞定

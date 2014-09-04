@@ -1,7 +1,7 @@
 ---
 layout: post
 title:省电模式部分代码 
-category: android
+category:  android
 ---
 
 ####这是我写的一个电量管理的一些代码
