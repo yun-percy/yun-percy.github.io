@@ -14,5 +14,5 @@ category: android
 >修改array.xml中的pref_camera_picturesize_entryvalues数组值
 
 使它的尺寸与官方相机拍出来的尺寸一致就可以了。<br>改完之后如图：<br><br>
-![github](camera.jpg)
+![github](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/camera.jpg)
 
