@@ -13,6 +13,7 @@ category: Linux
 		netstat -a :网络的联机状态
 		ps -aux: 察看后台执行的程序
 		ps aux --sort=pid （后面字母需小写，比如vsz）查看linux下的进程 排序问题
+		whereis  :查看命令所在文件夹
 
 
 - 关机命令
