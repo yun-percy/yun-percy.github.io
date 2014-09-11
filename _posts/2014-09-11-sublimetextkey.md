@@ -4,7 +4,7 @@ title: sublime_text 常用快捷键
 category: 综合
 ---
 
-
+<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
 <tbody>
 <tr>
 <td width="114" valign="top" style="width:85.45pt;border:none;background:white; mso-background-themecolor:background1;padding:0cm 5.4pt 0cm 5.4pt">
@@ -273,3 +273,4 @@ Backspace</span></b></p>
 </td>
 </tr>
 </tbody>
+</table>
