@@ -14,6 +14,7 @@ category: Linux
 		ps -aux: 察看后台执行的程序
 		ps aux --sort=pid （后面字母需小写，比如vsz）查看linux下的进程 排序问题
 		whereis  :查看命令所在文件夹
+		ls -lht  查看当前文件夹下面每个文件的权限，信息和大小
 
 
 - 关机命令
