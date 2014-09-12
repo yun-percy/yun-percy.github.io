@@ -16,13 +16,16 @@ Linux下有mint/ubuntu/deepin/debian/opensuse/redhat等众多平台.<br />
 
 其实不用安装，只需要用命令解压开：
 
-		tar zvxf ×××××××.tar.gz, 
+		tar zvxf jdk1.7.0_67.tar.gz, 
 
 + 参数的配置。
 
+> 将解压出来的jdk复制一份到 主系统里去（安全着想）
+
+		sudo cp -r jdk1.7.0_67/usr/local
 > 在你的/etc/profile文件中增加一条这样子的配置
 
-		export JAVA_HOME=/home/yun/software/jdk1.5.0_12(你的JDK所在文件夹)
+		export JAVA_HOME=/usr/local/jdk1.7.0_67
 
 		PATH=$JAVA_HOME/bin:$PATH
 
@@ -39,3 +42,20 @@ Linux下有mint/ubuntu/deepin/debian/opensuse/redhat等众多平台.<br />
 		java -version
 
  这几条命令检验是否已经安装好 
+
+高级   
+--------
+
+_2014年9月12更新_
+
+####切换编译时默认使用的jdk
+
+如果你之前已经安装了openjdk,或者jdk8，那么请先将jdk7添加进去：
+	
+		sudo update-alternatives --install /usr/bin/java java /usr/local/jdk1.7.0_67/bin/java 300
+		sudo update-alternatives --install /usr/bin/javac javac /usr/local/jdk1.7.0_67/bin/javac 300
+
+然后进入选择就ok：
+	
+		sudo update-alternatives --config java
+		sudo update-alternatives --config javac
