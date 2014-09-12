@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 编译一个android ROM中文指南
+title: "编译一个android ROM中文指南"
 category: android
 ---
 
