@@ -7,7 +7,7 @@ category: android
 原文连接[http://forum.xda-developers.com/showthread.php?t=1866545](http://forum.xda-developers.com/showthread.php?t=1866545)
 
 
-<center> __准备工作__</center>
+<center><strong>准备工作</strong></center>
 
 + 64位linux操作系统
 + JDK环境变量
@@ -15,14 +15,14 @@ category: android
 + [mkbootimg_tools](https://github.com/xiaolu/mkbootimg_tools) (高通) 或者[mtktools](https://github.com/bgcngm/mtk-tools) （MTK）（用来解压bootimg）
 + 测试机型
 
-<center> __知识储备__</center>
+<center><strong>知识储备</strong></center>
 
 + 小学以上文化水平
 + 会自己[安装linux系统](http://yun-percy.github.io/linux/2014/09/05/win7installlinux.html)
 + 能够熟练使用mktools和mtktools对boot.img进行解包和打包
 + 会[同步源代码以及安装好依赖包](http://yun-percy.github.io/android/2014/09/12/makeandroid.html)
 
-<center> __案例和相关文件路径__</center>
+<center><strong>案例和相关文件路径</strong></center>
 
 + 源码路径：
 	
@@ -35,7 +35,7 @@ category: android
 + recovery 类型： CM11.0自带
 
 
-<center> __教程开始，不要眨眼__</center>
+<center><strong>教程开始，不要眨眼</strong></center>
 
 1. 进入源码目录
 
@@ -54,11 +54,11 @@ category: android
 		yusun/la2w(路径)
 		AndroidBoard.mk
 		AndroidProducts.mk
-		__BoardConfig.mk__ （配置文件，出问题就要修改这里）
+		<strong>BoardConfig.mk</strong>（配置文件，出问题就要修改这里）
 		device_la2w.mk
-		__kernel__ （内核文件）
+		<strong>kernel</strong>（内核文件）
 		system.prop
-		__recovery.fstab__  （分区配置表）
+		<strong>recovery.fstab</strong>（分区配置表）
 		vendorsetup.sh 
 
 4. 现在你已经拥有相关的配置文件.在源码目录下，在终端下键入以下命令建立起编译环境
@@ -88,7 +88,7 @@ category: android
 ---------------
 
 <br>
-<center> __各种错误的解决方法__</center>
+<center><strong>各种错误的解决方法</strong></center>
 
 +  如果提示:
 
@@ -128,11 +128,11 @@ category: android
 
 		DEVICE_RESOLUTION := 720x1280（注意修改成你的分辨率）
 
-<center> __值得注意的地方__</center>
+<center><strong>值得注意的地方</strong></center>
 
 + 如果你改变了BoardConfig.mk文件，在编译期间运行"make clobber"，否则你做的更改就不会生效。
 
-<center> __相关技巧__</center>
+<center><strong>相关技巧</strong></center>
 
 + 查看分区所在位置和大小的三种方法：
 
@@ -149,7 +149,7 @@ category: android
 
 		adb shell getevent
 
-<center> __定制recovery中出现的问题和技巧__</center>
+<center><strong>定制recovery中出现的问题和技巧</strong></center>
 
 + 自定义字体和显示C文件：<br>
 在cm10/device/htc/pyramid/recovery/boardconfig.mk里最后一样添加
