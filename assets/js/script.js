@@ -18,6 +18,7 @@ if ($(window).width() <= 1280) {
     tag5       = $('.photoshop'),
     tag6       = $('.linux'),
     tag7       = $('.综合');
+    tag8       = $('.rom');
 var sidebar    = $('#sidebar'),
     container  = $('#post'),
     content    = $('#pjax'),
@@ -31,7 +32,7 @@ var clickHandler = function(k) {
     window['tag'+k].delay(50).fadeIn(350);
   }
 };
-for (var i = 1; i <= 7; i++) {
+for (var i = 1; i <= 8; i++) {
   $('#js-label' + i).on('click', clickHandler(i));
 }
 
