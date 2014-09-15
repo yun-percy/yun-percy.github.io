@@ -54,11 +54,11 @@ category: android
 		yusun/la2w(路径)
 		AndroidBoard.mk
 		AndroidProducts.mk
-		<strong>BoardConfig.mk</strong>（配置文件，出问题就要修改这里）
+		BoardConfig.mk（配置文件，出问题就要修改这里）
 		device_la2w.mk
-		<strong>kernel</strong>（内核文件）
+		kernel（内核文件）
 		system.prop
-		<strong>recovery.fstab</strong>（分区配置表）
+		recovery.fstab（分区配置表）
 		vendorsetup.sh 
 
 4. 现在你已经拥有相关的配置文件.在源码目录下，在终端下键入以下命令建立起编译环境
