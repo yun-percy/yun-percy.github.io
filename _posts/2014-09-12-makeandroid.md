@@ -96,11 +96,15 @@ SDK是包含在ADT中的，所以你可以百度“ADT”然后进入下载ADT�
 
 编译步骤太多，就不解释啦，直接上代码：
 
-		cd ~/android/system/vendor/cm
+		cd ~/code/cm-11/vendor/cm
 		./get-prebuilts
 
-上面两步是为了获取预制资源，一般是终端什么的，也可以跳过
+上面两步是为了获取预制资源，一般是终端什么的，也可以跳过,如果你执行了上面一步，在执行下一步之前，你需要回到源码目录下：
+		
+		cd ~/code/cm-11
 
+然后再继续
+		
 		. build/envsetup.sh
 
 初始化所有编译环境，将编译脚本加载到终端
@@ -109,7 +113,7 @@ SDK是包含在ADT中的，所以你可以百度“ADT”然后进入下载ADT�
 
 初始化find7的编译文件
 
-		cd ~/android/system/device/oppo/find7
+		cd ~/code/cm-11/device/oppo/find7
 		./extract-files.sh (需要连接设备)
 
 上面两步是获取vendor资源。
@@ -117,10 +121,10 @@ SDK是包含在ADT中的，所以你可以百度“ADT”然后进入下载ADT�
 		export USE_CCACHE=1
 		prebuilts/misc/linux-x86/ccache/ccache -M 50G
 
-上面两步是加速你的编译sudo
+上面两步是加速你的编译(可不选)
 
 		croot
-		brunch find7 -j32
+		brunch find7 -j32或者 brunch find7
 
 最后编译就OK了。
 
