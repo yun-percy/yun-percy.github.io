@@ -27,3 +27,7 @@ category: 语法
 		3.) String s = "" + i; 
 
 		注: Double, Float, Long 转成字串的方法大同小异.
+
+3. 将 Textview 转换成 String:
+
+		String sharedFact = theFact.getText().toString();
