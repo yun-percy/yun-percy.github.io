@@ -6,9 +6,7 @@ category: 语法
 
 
 
-1. 如何将字串 String 转换成整数 int? 
-
-有两个方法:
+1. 如何将字串 String 转换成整数 int? <br/>有两个方法:
 
 		1). 
 		int i = Integer.parseInt([String]); 
@@ -20,9 +18,7 @@ category: 语法
 
 		注: 字串转成 Double, Float, Long 的方法大同小异. 
 
-2. 如何将整数 int 转换成字串 String ? 
-
-有叁种方法:
+2. 如何将整数 int 转换成字串 String ? <br/>有叁种方法:
 
 		1.) String s = String.valueOf(i);
 
