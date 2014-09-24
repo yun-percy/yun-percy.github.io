@@ -12,10 +12,23 @@ category: Android
 
 		Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
 
-2.  关闭蓝牙：
+2.  蓝牙：
 
+        关闭：
 		BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
         bluetoothadapter.disable();
+        打开：
+        BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+        bluetoothadapter.disable();
+        是否已经打开:
+        if(!bluetoothadapter.isEnabled()){}
+        权限:
+        <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+        <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+
+
+
 
 3. wifi
 
@@ -23,10 +36,22 @@ category: Android
 		WifiManager manager =null;
     	manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
 		manager.setWifiEnabled(false);
+
         打开：
         WifiManager manager =null;
         manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
         manager.setWifiEnabled(true);
+
+        判断是否打开：
+        public String checkWifi(Activity activitiy,String string) {  
+        WifiManager mWifiManager = (WifiManager) activitiy  
+                .getSystemService(Context.WIFI_SERVICE);  
+        WifiInfo wifiInfo = mWifiManager.getConnectionInfo();  
+        int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();  
+        if (mWifiManager.isWifiEnabled() && ipAddress != 0) {return string;}
+        else {return string;}
+        } 
+        
         权限：
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
