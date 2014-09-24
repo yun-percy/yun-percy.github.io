@@ -6,7 +6,7 @@ category: 日记
 
 
 <center>
-祖国，或以梦为马<br>
+
 <br>
 			海子
 <br>

@@ -17,11 +17,19 @@ category: Android
 		BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
         bluetoothadapter.disable();
 
-3. 关闭wifi
+3. wifi
 
+        关闭：
 		WifiManager manager =null;
-    	manager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+    	manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
 		manager.setWifiEnabled(false);
+        打开：
+        WifiManager manager =null;
+        manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+        manager.setWifiEnabled(true);
+        权限：
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
 4. 降低屏幕亮度
 
@@ -73,3 +81,4 @@ category: Android
 
 		<uses-permission android:name="android.permission.WRITE_SETTINGS"/>  
 
+####最后更新时间：2014-09-24
