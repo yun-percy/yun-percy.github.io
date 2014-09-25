@@ -56,9 +56,78 @@ category: Android
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
-4. 降低屏幕亮度
+3. 数据流量：
 
-这个比较复杂,在主函数里添加：
+        打开：
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(  
+                Context.CONNECTIVITY_SERVICE); 
+        try {  
+                Class ownerClass = connectivityManager.getClass();  
+                Class[] argsClass = new Class[1];  
+                argsClass[0] = boolean.class;  
+                Method method = ownerClass.getMethod("setMobileDataEnabled", argsClass);  
+                method.invoke(connectivityManager, false);  
+            } catch (Exception e) {  
+                e.printStackTrace();  
+                System.out.println("移动数据设置错误: " + e.toString());  
+            } 
+
+        关闭：
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(  
+                Context.CONNECTIVITY_SERVICE); 
+        try {  
+            Class ownerClass = connectivityManager.getClass();  
+            Class[] argsClass = new Class[1];  
+            argsClass[0] = boolean.class;  
+            Method method = ownerClass.getMethod("setMobileDataEnabled", argsClass);  
+            method.invoke(connectivityManager, true);  
+      
+        } catch (Exception e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+            System.out.println("移动数据设置错误: " + e.toString());  
+        }
+
+        判断是否开启：
+        public String checkdata(String string) { 
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(  
+                Context.CONNECTIVITY_SERVICE);  
+        NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);  
+        if (false == networkInfo.isConnectedOrConnecting()) {  
+            string="close";
+            return string;
+        } else {              
+            string="open";
+            return string; 
+        }
+        }
+
+        权限：
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+
+4. 屏幕旋转
+
+        如果开启就关闭，关闭就开启：
+        int flag = Settings.System.getInt(getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, 0);
+        Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
+    
+        检查是否开启：
+        public String checkrotate(String string){
+        int flag = Settings.System.getInt(getContentResolver(),
+                Settings.System.ACCELEROMETER_ROTATION, 0);
+         if (0 == flag) {
+             string="close";
+                return string;
+        }
+         else {
+             string="open";
+                return string;
+         }
+        }
+
+4. 降低屏幕亮度<br>这个比较复杂,在主函数里添加：
 
 		try {  
         screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);  
@@ -79,31 +148,30 @@ category: Android
             // TODO Auto-generated catch block  
             e.printStackTrace();  
         }  
+        然后添加两个执行函数
 
-然后添加两个执行函数
+         private void setScreenMode(int value) {  
+         Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);  
+         }  
+         private void setScreenBrightness(float value) {  
+         Window mWindow = getWindow();  
+         WindowManager.LayoutParams mParams = mWindow.getAttributes();  
+         float f = value / 255.0F;  
+         mParams.screenBrightness = f;  
+         mWindow.setAttributes(mParams);  
+         
+         // 保存设置的屏幕亮度值  
+         Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);  
+         }  
 
- 		private void setScreenMode(int value) {  
-        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);  
-    }  
-    private void setScreenBrightness(float value) {  
-        Window mWindow = getWindow();  
-        WindowManager.LayoutParams mParams = mWindow.getAttributes();  
-        float f = value / 255.0F;  
-        mParams.screenBrightness = f;  
-        mWindow.setAttributes(mParams);  
-  
-        // 保存设置的屏幕亮度值  
-        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);  
-    }  
-
-还有private 几个变量 
-
-		private int screenMode;  
-    	private static final String TAG = "ScreenLuminance";
-    	private int screenBrightness;  
-
-亮度部分需要权限：
-
-		<uses-permission android:name="android.permission.WRITE_SETTINGS"/>  
+        还有private 几个变量 
+        
+        private int screenMode;  
+        private static final String TAG = "ScreenLuminance";
+        private int screenBrightness;  
+        
+        亮度部分需要权限：
+        
+        <uses-permission android:name="android.permission.WRITE_SETTINGS"/>  
 
 ####最后更新时间：2014-09-24
