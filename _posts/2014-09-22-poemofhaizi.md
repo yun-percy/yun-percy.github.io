@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 祖国，或以梦为马--海子
-category: 日记
+category: food
 ---
 
 
