@@ -126,7 +126,7 @@ category: Android
                 return string;
          }
         }
-d
+
 4. 降低屏幕亮度<br>这个比较复杂,在主函数里添加：
 
 		try {  
