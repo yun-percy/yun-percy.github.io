@@ -49,11 +49,11 @@ cron有两个配置文件，一个/etc/crontab，是一个全局配置文件，�
 
 2. 用户自己的cron
 
-用户也可以计划用户自己的cron任务，比如他想要在半夜整理他的文件，然后发送邮件给自己，只要这个用户他没有在/etc/cron.deny表中，
+	用户也可以计划用户自己的cron任务，比如他想要在半夜整理他的文件，然后发送邮件给自己，只要这个用户他没有在/etc/cron.deny表中，
 就可以使用crontab -e命令来启动自己的cron文件。
 
 3. 对cron的访问控制
 
-默认情况下，所有用户都能访问cron工具，要对cron进行访问控制，则可以生成/etc/cron.allow与/etc/cron.deny文件。<br>
+	默认情况下，所有用户都能访问cron工具，要对cron进行访问控制，则可以生成/etc/cron.allow与/etc/cron.deny文件。<br>
 (1)这两个文件都不存在时，每个用户都可以访问cron工具<br>
 (2)存在/etc/cron.allow文件时，则只有cron.allow文件中允许的用户才能访问cron工具，如果也有/etc/cron.deny文件，则忽略cron.deny文件
