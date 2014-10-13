@@ -71,5 +71,14 @@ category: android
 <p></p>
 </figure><p></p>
 
+####makefile的文件结构
+
++ LOCAL_PATH:=$(call my-dir) //获取当前目录
++ #include $(CLEAR_VARS) //make系统为子模块定义了很多的私有变量，这个调用是为了初始化所有的私有变量
++ ...
+//里面的内容根据不同的需要会出现不同的LOCAL变量
+...
++ #include $(BUILD_XXX) //执行编译任务
+
 
 
