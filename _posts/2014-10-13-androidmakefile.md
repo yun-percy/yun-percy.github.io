@@ -70,8 +70,6 @@ category: android
 </table>
 <p></p>
 </figure><p></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 
 
 
