@@ -208,7 +208,7 @@ include $(BUILD_STATIC_JAVA_LIBRARY) </code></pre>
 ###make参数
 
 + . build/envsetup.sh 可以设置环境，运行之后会支持mm命令，使make支持只编译一个模块
-<!--buildspec.mk<br> --><br>
+<br>
 用户也可以通过mm来编译指定模块，或者通过make clean-module_name来删除指定模块。
 
 + make ONE_SHOT_MAKEFILE=<path to Androiod.mk>
@@ -446,5 +446,3 @@ call all-subdis-makefiles
         </tr>
     </tbody>
 </table>
-
-
