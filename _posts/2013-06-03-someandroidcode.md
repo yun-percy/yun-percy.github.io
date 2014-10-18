@@ -12,12 +12,18 @@ XML篇
 ####AndroidManifest篇
 
 + 在 Androidmannifest.xml相应 的activity中添加条属性:
-		
+
 		android:windowSoftInputMode="adjustPan"
 
 + 禁止横屏代码:
 
 		android:screenOrientation="portrait"
+
+####控件篇
+
++ Edittext只允许输入数字
+
+		android:numeric="integer"
 
 JAVA篇
 ---------------
