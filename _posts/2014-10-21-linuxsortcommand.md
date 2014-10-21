@@ -30,15 +30,15 @@ category: 语法
             </td>
             <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;">
             <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);">
-            	<code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">-b   忽略每行前面开始出的空格字符。
-  -c   检查文件是否已经按照顺序排序。
-  -f   排序时，忽略大小写字母。
-  -M   将前面3个字母依照月份的缩写进行排序。
-  -n   依照数值的大小排序。
-  -o (输出文件)   将排序后的结果存入指定的文件。
-  -r   以相反的顺序来排序。
-  -t (分隔字符)   指定排序时所用的栏位分隔字符。
-  -k  选择以哪个区间进行排序。</code></pre>
+            	<code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">-b   忽略每行前面开始出的空格字符
+-c   检查文件是否已经按照顺序排序
+-f   排序时，忽略大小写字母
+-M   将前面3个字母依照月份的缩写进行排序
+-n   依照数值的大小排序
+-o (输出文件)   将排序后的结果存入指定的文件
+-r   以相反的顺序来排序
+-t (分隔字符)   指定排序时所用的栏位分隔字符
+-k  选择以哪个区间进行排序</code></pre>
             </td>
         </tr>
     </tbody>
@@ -264,7 +264,6 @@ pear由于重复被-u选项无情的删除了。
 19
 20
 21
-22
 </pre>
             </td>
             <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;">
