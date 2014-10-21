@@ -9,11 +9,7 @@ layout: index
 
   <h1 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h1>
   {{ content }}
-
-<!-- <ahref="javascript:scroll(0,30)">返回顶部</a> -->
-<!-- <a onclick="pageScroll()">返回顶部</a> -->
-<!--  <a href="#table-of-contents" class="anchorLink btn btn-backtotop">↑ back to top</a> -->
-</article> <!-- end #post__content -->
+</article> 
 
 <!-- 多说评论框 start data-title={{ content }}  -->
   <div class="ds-thread" data-thread-key={{page.title}} data-title={{ page.title }} data-url="http://yun-percy.github.io{{ page.url }}"></div>
@@ -26,7 +22,7 @@ var duoshuoQuery = {short_name:"yun-percy"};
     ds.type = 'text/javascript';ds.async = true;
     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
     ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
+    (document.getElementsByTagName('head')[0]
      || document.getElementsByTagName('body')[0]).appendChild(ds);
   })();
   </script>
