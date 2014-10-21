@@ -1,8 +1,9 @@
 ---
 layout: post
-title:linux shell之sort用法
+title: linux shell之sort用法
 category: 语法
 ---
+
 
 ######sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：
 
