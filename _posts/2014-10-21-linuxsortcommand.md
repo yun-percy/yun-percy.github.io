@@ -25,7 +25,7 @@ category: 语法
 6
 7
 8
-9//行数
+9
 </pre>
             </td>
             <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;">
@@ -44,7 +44,7 @@ category: 语法
 </table>
 
 
-#####Sort的使用。
+#####Sort的使用
 
 +  sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。exmaple:
 
