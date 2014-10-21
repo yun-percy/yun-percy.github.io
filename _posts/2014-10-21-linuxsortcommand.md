@@ -11,7 +11,7 @@ category: 语法
 
 ######补充说明：sort可针对文本文件的内容，以行为单位来排序。
 
-####参数：
+####参    数：
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -35,9 +35,9 @@ category: 语法
   -f   排序时，忽略大小写字母。
   -M   将前面3个字母依照月份的缩写进行排序。
   -n   依照数值的大小排序。
-  -o/<输出文件>   将排序后的结果存入指定的文件。
+  -o (输出文件)   将排序后的结果存入指定的文件。
   -r   以相反的顺序来排序。
-  -t/<分隔字符>   指定排序时所用的栏位分隔字符。
+  -t (分隔字符)   指定排序时所用的栏位分隔字符。
   -k  选择以哪个区间进行排序。</code></pre>
             </td>
         </tr>
