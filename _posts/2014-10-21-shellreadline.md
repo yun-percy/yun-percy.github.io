@@ -23,7 +23,7 @@ category: 语法
 
 		cat datafile.txt | while myline=$(line)
 		do
-		echo "LINE:"$myline
+		echo "LINE:"$myline 
 		done
 
 + 读取一行数据
