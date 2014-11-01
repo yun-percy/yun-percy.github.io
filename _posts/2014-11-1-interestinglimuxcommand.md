@@ -10,7 +10,6 @@ category: linux
 <li><a href="http://linux.cn/article-4088-1.html">Linux终端的乐趣之把玩字词计数</a></li>
 </ul>
 <p>前者包含了20个有趣的 Linux 命令/脚本(和子命令), 得到了读者的高度赞扬. 而另一篇文章虽然没有之前那篇文章那么受欢迎，包含了一些命令/脚本和改进，让你能够玩儿转文本文件、单词和字符串.</p>
-<p><img src="http://img.linux.net.cn/data/attachment/album/201410/30/234015hk8rytpyhr8hmihb.jpg" alt=""></p>
 <p>这篇文章介绍了一些新的有趣命令和单行脚本，一定会让你感到欣喜.</p>
 <h3 id="toc_1">1. pv 命令</h3>
 <p>你也许曾经看到过电影里的模拟字幕, 它们好像是被实时敲打出来的. 如果我么能在终端里实现这样的效果, 那不是很好?</p>
