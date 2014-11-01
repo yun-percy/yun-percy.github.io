@@ -7,9 +7,9 @@ layout: index
 
 <article id="post__content">
 
-  <h1 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h1>
+  <center><h3 id="post__title" data-identifier="{{ page.date | date: "%Y%m%d" }}">{{ page.title }}</h3></center>
   {{ content }}
-</article> 
+</article>
 
 <!-- 多说评论框 start data-title={{ content }}  -->
   <div class="ds-thread" data-thread-key={{page.title}} data-title={{ page.title }} data-url="http://yun-percy.github.io{{ page.url }}"></div>
