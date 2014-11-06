@@ -19,6 +19,10 @@ XML篇
 
 		android:screenOrientation="portrait"
 
++ 允许外部启动service：
+
+		android:exported="true"
+
 ####控件篇
 
 + Edittext只允许输入数字
