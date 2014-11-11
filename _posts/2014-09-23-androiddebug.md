@@ -4,28 +4,32 @@ title: adb 自动化测试
 category: android
 ---
 
+###查看常驻内存
 
-模拟按键：
+		adb shell dumpsys meminfo
+
+
+###模拟按键：
 
 		adb shell input keyevent 27
 
-模拟打电话：
+###模拟打电话：
 
 		adb shell am start -a android.intent.action.CALL -d tel:185xxxxxx
 
-模拟浏览网页：
+###模拟浏览网页：
 
-		adb shell am start -a android.intent.action.VIEW -d  http://www.baidu.com 
+		adb shell am start -a android.intent.action.VIEW -d  http://www.baidu.com
 
-模拟模拟启动应用：
+###模拟模拟启动应用：
 
 		adb shell am start -n com.android.contacts/.activities.DialtactsActivity
 
-模拟输入：
-		
-		在编辑短信时，往文本框输入文本：adb shell input text "hello" 
+###模拟输入：
 
-模拟安装卸载
+		在编辑短信时，往文本框输入文本：adb shell input text "hello"
+
+###模拟安装卸载
 
 		adb install d:\hello.apk
 		adb unstall com.huawei.hello
@@ -41,9 +45,9 @@ category: android
 		adb shell getprop | findstr "gsm" 列出包含gsm的属性
 		adb shell setprop <key> <value>  修改系统属性
 		adb shell sqlite3 可以执行sql语句查看数据库信息， 具体使用情况待调查
-		adb logcat -b radio — 查看缓冲区的相关的信息. 
-		adb logcat -b events — 查看和事件相关的的缓冲区. 
-		adb logcat -b main — 查看主要的日志缓冲区 
+		adb logcat -b radio — 查看缓冲区的相关的信息.
+		adb logcat -b events — 查看和事件相关的的缓冲区.
+		adb logcat -b main — 查看主要的日志缓冲区
 
 
 附录
@@ -135,21 +139,21 @@ android按键键值：
 		82 -->  "KEYCODE_MENU"
 		83 -->  "KEYCODE_NOTIFICATION"
 		84 -->  "KEYCODE_SEARCH"
-		85 -->  "TAG_LAST_KEYCODE" 
-		KEYCODE_FOCUS 拍照对焦键 80 
-		KEYCODE_NOTIFICATION 通知键 83 
-		KEYCODE_MUTE 话筒静音键 91 
-		KEYCODE_VOLUME_MUTE 扬声器静音键 164 
-		KEYCODE_ESCAPE ESC键 111 
-		KEYCODE_MOVE_HOME 光标移动到开始键 122 
-		KEYCODE_MOVE_END 光标移动到末尾键 123 
-		KEYCODE_PAGE_UP 向上翻页键 92 
-		KEYCODE_PAGE_DOWN 向下翻页键 93 
-		KEYCODE_FORWARD_DEL 删除键 112 
-		KEYCODE_INSERT 插入键 124 
-		KEYCODE_NUM_LOCK 小键盘锁 143 
-		KEYCODE_CAPS_LOCK 大写锁定键 115 
-		KEYCODE_BREAK Break/Pause键 121 
-		KEYCODE_SCROLL_LOCK 滚动锁定键 116 
-		KEYCODE_ZOOM_IN 放大键 168 
-		KEYCODE_ZOOM_OUT 缩小键 169 
+		85 -->  "TAG_LAST_KEYCODE"
+		KEYCODE_FOCUS 拍照对焦键 80
+		KEYCODE_NOTIFICATION 通知键 83
+		KEYCODE_MUTE 话筒静音键 91
+		KEYCODE_VOLUME_MUTE 扬声器静音键 164
+		KEYCODE_ESCAPE ESC键 111
+		KEYCODE_MOVE_HOME 光标移动到开始键 122
+		KEYCODE_MOVE_END 光标移动到末尾键 123
+		KEYCODE_PAGE_UP 向上翻页键 92
+		KEYCODE_PAGE_DOWN 向下翻页键 93
+		KEYCODE_FORWARD_DEL 删除键 112
+		KEYCODE_INSERT 插入键 124
+		KEYCODE_NUM_LOCK 小键盘锁 143
+		KEYCODE_CAPS_LOCK 大写锁定键 115
+		KEYCODE_BREAK Break/Pause键 121
+		KEYCODE_SCROLL_LOCK 滚动锁定键 116
+		KEYCODE_ZOOM_IN 放大键 168
+		KEYCODE_ZOOM_OUT 缩小键 169
