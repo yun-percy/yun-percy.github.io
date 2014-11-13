@@ -8,7 +8,6 @@ category: android
 
 		adb shell dumpsys meminfo
 
-
 ###模拟按键：
 
 		adb shell input keyevent 27
