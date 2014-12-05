@@ -53,7 +53,7 @@ category: Linux
 
 - git
 ------
- 
+
 ###去掉 git push时输入账号密码
 > __linux__
 
@@ -62,7 +62,7 @@ category: Linux
 		touch .git-credentials
 
 > 用vim编辑此文件
- 
+
 		vim .git-credentials
 
 > 输入内容格式：
@@ -71,7 +71,7 @@ category: Linux
 		example: 比如 https://aoeddklj:1233ds@github.com
 
 > + 在终端下执行  git config --global credential.helper store
- 
+
 > + 可以看到~/.gitconfig文件，会多了一项：
 
 		[credential]
@@ -94,3 +94,9 @@ apt-get
 	apt-get install ia32-libs
 
 搞定
+
+###find 命令
+
+		find . -name "*.mk"  -exec grep -l "love" {} \;
+
+在所有后缀名为.mk中查找带love的文件，并且列出文件名
