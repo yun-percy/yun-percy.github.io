@@ -50,7 +50,13 @@ category: android
 
 ###adb monkey 测试
 
++ 黑名单测试
+
 		 adb shell monkey -s 111111 --pkg-blacklist-file /data/blacklist.txt --throttle 300 --ignore-crashes --ignore-timeouts --monitor-native-crashes --ignore-native-crashes -v -v 500000 > ~/monkey.log
+
++ 白名单测试
+
+		adb shell monkey -s 111111 --pkg-whitelist-file /data/whitelist.txt --throttle 300 --ignore-crashes --ignore-timeouts --monitor-native-crashes --ignore-native-crashes -v -v 500000 > ./monkey.log
 附录
 ------------
 
