@@ -48,7 +48,9 @@ category: android
 		adb logcat -b events — 查看和事件相关的的缓冲区.
 		adb logcat -b main — 查看主要的日志缓冲区
 
+###adb monkey 测试
 
+		 adb shell monkey -s 111111 --pkg-blacklist-file /data/blacklist.txt --throttle 300 --ignore-crashes --ignore-timeouts --monitor-native-crashes --ignore-native-crashes -v -v 500000 > ~/monkey.log
 附录
 ------------
 
