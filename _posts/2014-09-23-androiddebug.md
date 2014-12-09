@@ -57,6 +57,7 @@ category: android
 + 白名单测试
 
 		adb shell monkey -s 111111 --pkg-whitelist-file /data/whitelist.txt --throttle 300 --ignore-crashes --ignore-timeouts --monitor-native-crashes --ignore-native-crashes -v -v 500000 > ./monkey.log
+
 附录
 ------------
 
