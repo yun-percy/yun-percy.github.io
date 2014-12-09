@@ -49,7 +49,7 @@ c. 产生 DSA密钥
 
 		mv identity.pub xxx_identity.pub
 		mv id_rsa.pub xxx_id_rsa.pub
-		mv  id_dsa.pub xxx_id_rsa.pub
+		mv  id_dsa.pub xxx_id_dsa.pub
 
 
 
