@@ -100,3 +100,11 @@ apt-get
 		find . -name "*.mk"  -exec grep -l "love" {} \;
 
 在所有后缀名为.mk中查找带love的文件，并且列出文件名
+
+###高通开机splash.img文件制作
+
+		convert -depth 8 logo.png  bgr:splash.img
+
+###linux下bootanimation制作
+
+		zip -0 bootanimation.zip part0/*PNG part1/*PNG desc.txt
