@@ -1,0 +1,12 @@
+---
+layout: post
+title: MakeFile零碎语法札记
+category: 语法
+---
+
+这几天改编译构架，遇到很多不合理的地方，决定花点时间把makefile编译脚本重写下。上次看makefile语法还是去年，时间间隔有点久，所以决定写一些小blog记录一些知识点
+
++ 变量赋值，个人擅长shell脚本，所以很多命令都是shll写的。所以会经常引用shell命令
+
+	MAKE_TIME :=$(shell date +%Y_%m_%d_%H_%M)
+	INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name)_$(MAKE_TIME).zip
