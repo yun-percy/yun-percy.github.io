@@ -228,27 +228,27 @@ public class FastBlur {
 调用函数:
 
 <pre>
+ @SuppressWarnings("deprecation")
 private void blur(Bundle savedInstanceState) {
-		manager = new LocalActivityManager(this, true);
+	    LocalActivityManager manager = new LocalActivityManager(this, true);
 		manager.dispatchCreate(savedInstanceState);
 		WallpaperManager wallpaperManager = WallpaperManager.getInstance(this); // 获取壁纸管理器
 		// 获取当前壁纸
 		Drawable wallpaperDrawable = wallpaperManager.getDrawable();
 		Bitmap bm = ((BitmapDrawable) wallpaperDrawable).getBitmap();
-		ll = (RelativeLayout) this.findViewById(R.id.ll);
 		float scaleFactor = 1;
 		float radius = 20;
 		// 缩放比例
 		scaleFactor = 15;
 		radius =3;
-		ll = (RelativeLayout) this.findViewById(R.id.ll);
+		rl_main = (RelativeLayout) this.findViewById(R.id.rl_main);
 		Display mDisplay = getWindowManager().getDefaultDisplay();
 		int w = mDisplay.getWidth();
 		int h = mDisplay.getHeight();
 		Bitmap overlay = Bitmap.createBitmap((int) (w / scaleFactor),
 				(int) (h / scaleFactor), Bitmap.Config.ARGB_8888);
 		Canvas canvas = new Canvas(overlay);
-		canvas.translate(-ll.getLeft() / scaleFactor, -ll.getTop()
+		canvas.translate(-rl_main.getLeft() / scaleFactor, -rl_main.getTop()
 				/ scaleFactor);
 		canvas.scale(1 / scaleFactor, 1 / scaleFactor);
 		Paint paint = new Paint();
@@ -257,6 +257,8 @@ private void blur(Bundle savedInstanceState) {
 		// 执行模糊
 		overlay = FastBlur.doBlur(overlay, (int) radius, true);
 
-		ll.setBackgroundDrawable(new BitmapDrawable(getResources(), overlay));
+		rl_main.setBackgroundDrawable(new BitmapDrawable(getResources(), overlay));
 	}
+}
+
 </pre>
