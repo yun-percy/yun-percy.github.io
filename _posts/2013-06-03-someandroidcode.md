@@ -29,6 +29,14 @@ XML篇
 
 		android:numeric="integer"
 
+####主题篇
+
++ 去掉actionbar上面的阴影
+
+		<style name="MyAppTheme" parent="android:Theme.Holo.Light">
+			<item name="android:windowContentOverlay">@null</item>
+		</style>
+
 JAVA篇
 ---------------
 
