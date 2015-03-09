@@ -108,3 +108,15 @@ apt-get
 ###linux下bootanimation制作
 
 		zip -0 bootanimation.zip part0/*PNG part1/*PNG desc.txt
+
+###ls命令参数
+
+		-h 将文件大小转换为方便阅读的单位
+		-R 遍历所有目录
+		-F 添加文件类型标记
+		-S 按文件大小排序输出
+		-t 按文件修改时间排序输出
+		-X 按文件类型输出
+
+
+
