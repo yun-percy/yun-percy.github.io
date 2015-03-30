@@ -119,4 +119,7 @@ apt-get
 		-X 按文件类型输出
 
 
+### 修改系统日期和时间
 
+		sudo dpkg-reconfigure tzdata   #修改系统时区
+		sudo hwclock --hctosys     #同步系统时间和硬件时间
