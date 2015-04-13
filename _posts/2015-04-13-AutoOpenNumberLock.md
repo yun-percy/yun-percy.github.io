@@ -8,16 +8,16 @@ category: Linux
 ---------
 
 
-1.  安装numlockx
+1.  安装numlockx：
 
-    sudo apt-get install numlockx
+        sudo apt-get install numlockx
 
-2.  编辑配置文件
+2.  编辑配置文件：
 
-    sudo gedit /etc/lightdm/lightdm.conf
+        sudo gedit /etc/lightdm/lightdm.conf
     
 最后一行加入：
 
-    greeter-setup-script=/usr/bin/numlockx on
+        greeter-setup-script=/usr/bin/numlockx on
 
 重启生效
