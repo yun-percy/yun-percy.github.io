@@ -1,8 +1,74 @@
-highlighter: pygments
-excerpt_separator: ""
-# duoshuo comments
-duoshuo_comments: true
-duoshuo_short_name: yun-percy
+# This is the default format.
+# For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
+#permalink: /:categories/:title.html
+
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+safe: true
+lsi: false
 markdown: redcarpet
+excerpt_separator: "\n\n"
+encoding: UTF-8
+
+filter: 'category'
+
+sass:
+  style: compressed
+
+######## for 3-Jekyll  end themes
+
 redcarpet:
-	extensions: ["tables"]
+  extensions: [no_intra_emphasis, fenced_code_blocks, autolink, tables, with_toc_data, highlight, quote]
+
+kramdown:
+  input: GFM
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: true
+
+  coderay:
+    coderay_wrap: div
+    coderay_line_numbers: inline
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: style
+
+title : 振云|percy
+author :
+  name : 振云
+  email : yun-percy@qq.com
+  github : https://github.com/yun-percy
+  weibo : http://weibo.com/yunpercy
+
+
+production_url : http://www.zhaoxiaodan.com
+
+JB :
+  version : 0.3.0
+
+  BASE_PATH : false
+
+  ASSET_PATH : false
+
+  archive_path: /archive.html
+  categories_path : /categories.html
+  tags_path : /tags.html
+  atom_path : /atom.xml
+
+  comments :
+    provider : disqus
+    disqus :
+      short_name : liang8305
+
+  analytics :
+    provider : custom
+    google :
+        tracking_id : ''
+    getclicky :
+      site_id :
+    mixpanel :
+        token : ''
+  sharing :
+    provider : false
