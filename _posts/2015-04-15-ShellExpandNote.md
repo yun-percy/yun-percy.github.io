@@ -1,8 +1,5 @@
----
-layout: post
-title: shell 补漏笔记
-category: linux
----
+shell 补漏笔记
+======
 
 echo
 ------
@@ -27,11 +24,11 @@ History
   !ad    将会自动执行 以ad开头的文件<br>
   HISTCONTROL=erasedups  删除重复命令<br>
   HISTCONTROL=ignoredups 不记录重复命令<br>
-
+ 
 字段分隔符
 -----
  默认分隔符为：　空格，制表符，换行符
-
+ 
 ###IFS的用法
 
         IFS=$'\n'  　　表示分隔符仅为换行符
@@ -41,9 +38,9 @@ History
 ----
 
         $#   计算参数的个数
-
+        
 #####$*和$@的区别
 
 > $* 会把　we have a question　当做　“we have a question”处理
->
+> 
 > $@ 会把　we have a question　当做　“we" "have" "a" "question”处理

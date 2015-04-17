@@ -1,0 +1,25 @@
+---
+---
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>风之子的世界</title>
+    <link>yun-percy.github.io</link>
+    <atom:link href="http://yun-percy.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <description>风之子的世界</description>
+    <language>zh-cn</language>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+
+    {% for post in site.posts limit:10 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>http://yun-percy.github.io{{ post.url }}</link>
+      <pubDate>{{ post.date | date_to_string }}</pubDate>
+      <author>振云</author>
+      <guid>http://yun-percy.github.io{{ post.id }}</guid>
+      <description>{{ post.content | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
