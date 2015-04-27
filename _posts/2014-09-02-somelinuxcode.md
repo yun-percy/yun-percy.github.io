@@ -2,6 +2,7 @@
 layout: post
 title: 一些linux下的零碎语法和命令
 category: Linux
+tags : [linux, shell]
 ---
 
 
@@ -35,21 +36,6 @@ category: Linux
 
 ###查看包名类名：
 		aapt dump badging XX.apk
-
-- sed命令
--------
-
-###删除yun.xml中包含uses的行：
-		sed -i '/uses/d' yun.xml
-
-###去掉" ' "
-		sed -i "s/'//g" yun.xml
-
-###删掉一行文字中versionCode后面的所有文字
-		sed -i 's/versionCode.*//g'  yun.xml
-
-###替换
-		sed -i 's/package: name/pkgname/g'  yun.xml
 
 - git
 ------
