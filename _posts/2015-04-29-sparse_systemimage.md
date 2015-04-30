@@ -2,7 +2,7 @@
 layout: post
 title: system.img的分解与合并
 category: android
-tags : [ , ]
+tags : [Android,system.img,分解与合并 ]
 ---
 
 首先使用:
@@ -20,5 +20,5 @@ tags : [ , ]
 转换为ext4，先挂载，然后再转换
 
 		mount -t ext4 -o loop system.img sys
-		./make_ext4fs -s -l 512M -a sytem new_system.img sys   #这个工具在源码目录下的 out/host/linux-x86/bin/下，如果没有就执行　make otatools -j16
+		./make_ext4fs -s -l 512M -a sytem new_system.img sys   #这个make_ext4fs工具在源码目录下的 out/host/linux-x86/bin/下，如果没有就执行　make otatools -j16
 
