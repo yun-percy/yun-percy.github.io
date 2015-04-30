@@ -1,13 +1,9 @@
 ---
 layout: post
 title: shell 补漏笔记
-category: linux
+category: shell
 ---
 
-echo
-------
--e 选项，允许在脚本中添加 \t 和 \n 分隔符
--en 等待用户输入，光标一闪一闪
 
 ###read
 

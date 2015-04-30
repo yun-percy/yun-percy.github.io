@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ListView特效实现
-category: 语法
+category: Android
 ---
 
 ###添加一个入场动画：

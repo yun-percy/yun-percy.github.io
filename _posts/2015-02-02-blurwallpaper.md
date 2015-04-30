@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 获取壁纸进行模糊片段代码
-category: 语法
+category: android
 ---
 
 首先当然是功能函数代码啦：
