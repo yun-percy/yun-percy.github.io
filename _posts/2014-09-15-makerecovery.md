@@ -154,7 +154,7 @@ category: android
 + 自定义字体和显示C文件：<br>
 在cm10/device/htc/pyramid/recovery/boardconfig.mk里最后一样添加
 
-		BOARD_CUSTTOM_GRAPHICS:=home/ximen/cm10/device/htc/pyramid/recovery/graphics.c
+		BOARD_CUSTTOM_GRAPHICS:=home/yun/code/cm10/device/htc/pyramid/recovery/graphics.c
 
 + 挂载分区失败：<br>
 在boardconfig.mk最后添加：
