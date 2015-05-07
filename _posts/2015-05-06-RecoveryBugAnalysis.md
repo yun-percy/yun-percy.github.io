@@ -12,16 +12,18 @@ tags : [ Android,recovery,编译,bug ]
 
 + 会查看log
 
-	adb shell "cat /cache/recovery/last_log.1"  #recovery模式下
-	adb shell su -c "cat /cache/recovery/last_log" #正常模式下
+		adb shell "cat /cache/recovery/last_log.1"  #recovery模式下
+		adb shell su -c "cat /cache/recovery/last_log" #正常模式下
 
 + 会一些常规的 adb 调试指令
 
-	adb shell "cat /dev/input/event0"  #获取设备的输入信息，在调试按键和屏幕的时候比较有用
-	adb shell "dmesg"     #selinux的相关信息
-	adb shell "cat /proc/bus/input/devices"     #输入设备的芯片和型号
+		adb shell "cat /dev/input/event0"  #获取设备的输入信息，在调试按键和屏幕的时候比较有用
+		adb shell "dmesg"     #selinux的相关信息
+		adb shell "cat /proc/bus/input/devices"     #输入设备的芯片和型号
 
 + 比较扎实的C语言功底和Makefile的基本知识。
+
++ 相当强大的google search能力
 
 
 OTA失败
@@ -149,6 +151,9 @@ atmxt-i2c.idc和atmxt-i2c.kl放进device/moto/minnow/recovery/root里面做内�
 ---> 看/proc/bus/input/devices 各个输入设备是否正常工作
 
 ---> 去网上查找设备型号对应的firmware合入即可解决问题
+
+等待补充更新中
+======
 
 
 
