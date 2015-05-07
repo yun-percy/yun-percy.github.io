@@ -118,18 +118,23 @@ __触摸屏不工作__
 
 然后在recovery下也cat一下，对比devices信息，发现少了一个设备：ABS，熟悉linux输入的人应该知道linux的触摸信息是以ABS承载并一并上报的。来看看少了的部分：
 
-		
-
-
-
-
+	I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+	N: Name="atmxt-i2c"
+	P: Phys=
+	S: Sysfs=/devices/virtual/input/input2
+	U: Uniq=
+	H: Handlers=event2 
+	B: PROP=2
+	B: EV=b
+	B: KEY=4000 0 0 0 0
+	B: ABS=6618000 0	
 
 我们看到了，这个Name叫 atmxt-i2c没有工作，去官方包里查了下atmxt_i2c，原来moto自写了一套触摸屏校准文件。于是将这些
-atmxt-i2c.idc和atmxt-i2c.kl放进device里面做内置，结果可想而知，肯定失败了。atmxt-r2.tdat
+atmxt-i2c.idc和atmxt-i2c.kl放进device/moto/minnow/recovery/root里面做内置，结果可想而知，肯定失败了。
 
 反思了一晚上，应该是C的本地层和虚拟机工作原理不一样导致的。
 
-第二天开完晨会就去网上找这个设备的源码，结果搜出来的只是github的一些校准文件，虽然没收获，但是发现这个校准文件全部都来自moto的机器，于是就搜关键字 moto atmxt firmware，立马就搜到了 atmxt-r2.tdat atmxt-r3.tdat !
+第二天开完晨会就去网上找这个设备的源码（source）或者固件(firmware)，结果搜出来的只是github的一些校准文件，虽然没收获，但是发现这个校准文件全部都来自moto的机器，于是就搜关键字 moto atmxt firmware，立马就搜到了 atmxt-r2.tdat atmxt-r3.tdat !
 
 将这两个文件放入 device/moto/minnow/recovery/root/firmware/image下面，然后执行 make recoveryimage -j16
 
