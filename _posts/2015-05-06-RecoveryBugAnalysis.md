@@ -99,3 +99,54 @@ __键值不对__
 		adb shell getevent
 
 然后复执一份 default_recovery_keys.c 到device/××××/×××/recovery目录下，重命名为recovery_keys.c，修改宏定义，宏定义可以根据你上一步获取的键值去查看 kernel/include/linux/input.h中对应的键值.然后编译即可。
+
+__触摸屏不工作__
+
+这个可能是需要长篇讲一下了，虽然只花了三个小时就解决了，但是确实费了不少心思和大量的尝试
+
+问题描述： 在适配 LG WATCH R的时候，几乎没遇到什么阻力就起来了，各项功能都运行的非常好，但是 Moto 360却是问题很多，解决了常规几个问题后（中间参考了下zero适配的其它机器的rc文件），就只剩触摸屏起不来了。
+
+解决过程：
+
+1. 打log。在recovery的文件中加满了LOGI都没一个触摸事件输出，所以在确定touch的C文件起来后，确定是触摸屏接口或者驱动，或者kernel的问题。
+
+2. 请教了下fredjgzhang,一起查看了下 /dev/input/event的抽象文件，没有任何输出，后来更换kernel后也没有解决。甚至替换了init也没有解决。
+
+3. 顺着fredjgzhang的思路看了一遍 Android的input输入系统的linux层的流程。发现/dev/input/下的event对应的设备信息存储在 /proc/bus/input/devices里面，所以cat了一下
+
+		cat /proc/bus/input/devices
+
+然后在recovery下也cat一下，对比devices信息，发现少了一个设备：ABS，熟悉linux输入的人应该知道linux的触摸信息是以ABS承载并一并上报的。来看看少了的部分：
+
+		
+
+
+
+
+
+我们看到了，这个Name叫 atmxt-i2c没有工作，去官方包里查了下atmxt_i2c，原来moto自写了一套触摸屏校准文件。于是将这些
+atmxt-i2c.idc和atmxt-i2c.kl放进device里面做内置，结果可想而知，肯定失败了。atmxt-r2.tdat
+
+反思了一晚上，应该是C的本地层和虚拟机工作原理不一样导致的。
+
+第二天开完晨会就去网上找这个设备的源码，结果搜出来的只是github的一些校准文件，虽然没收获，但是发现这个校准文件全部都来自moto的机器，于是就搜关键字 moto atmxt firmware，立马就搜到了 atmxt-r2.tdat atmxt-r3.tdat !
+
+将这两个文件放入 device/moto/minnow/recovery/root/firmware/image下面，然后执行 make recoveryimage -j16
+
+问题立马就解决了，因为以前没做过单片机什么的，所以花了比较多的时间去思考，希望能给以后有设备调不通的童鞋提供点思路。总结一下解决问题顺序：
+
+输入设备不工作
+
+---> 打recovery的log，触屏有反应就去调校准值
+
+---> 看/dev/input/下面的event是否有节点的正常反馈
+
+---> 看/proc/bus/input/devices 各个输入设备是否正常工作
+
+---> 去网上查找设备型号对应的firmware合入即可解决问题
+
+
+
+
+		
+
