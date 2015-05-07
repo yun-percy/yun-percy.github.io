@@ -1,3 +1,10 @@
+---
+layout: post
+title: Android Recovery 编译中常见问题
+category: android
+tags : [ Android,recovery,编译,bug ]
+---
+
 > 来鹅厂之前，我以为我是来写App层和Framework 的feature的，或者做前端，万万没想到，进来之后就一头栽进 Recovery的坑里了，我的主语言是java，Makefile和shell，所以本来只打算在jacky的手下打打杂工的，万万没想到就成了owner，好在以前写过一点点C，接下担子后就开始各种苦逼的解bug了
 
 调试的基本功
