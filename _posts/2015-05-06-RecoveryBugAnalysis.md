@@ -1,10 +1,3 @@
----
-layout: post
-title: Android Recovery 编译中常见问题
-category: android
-tags : [ Android,recovery,编译,bug ]
----
-
 > 来鹅厂之前，我以为我是来写App层和Framework 的feature的，或者做前端，万万没想到，进来之后就一头栽进 Recovery的坑里了，我的主语言是java，Makefile和shell，所以本来只打算在jacky的手下打打杂工的，万万没想到就成了owner，好在以前写过一点点C，接下担子后就开始各种苦逼的解bug了
 
 调试的基本功
@@ -68,7 +61,11 @@ OTA失败
 
 > 这样就好解决了，因为在分区表里与vold相关的只有 mnt_flags这些标识了，mnt_flags是从linux引入的装载标识，但是linux的装载标识的值与Android有些不同，所以只好去Android官网查，结果只查到一句：vold忽略这个值，应该被设置为defaults。这就无解了，因为如果设置为defaults的话，就挂不上 system。
 
-解决：  没什么好的解决办法，只能厚着头皮慢慢调，当我把 barrier=1这个属性加上的时候，全量升级就调通了。后面因为还有很多bug要调，没时间细究，准备将这个作为一个点，有时间了好好研究下 Android的mount 标识
+解决：  没什么好的解决办法，只能厚着头皮慢慢调，当我把 barrier=1这个属性加上的时候，全量升级就调通了。建议以后system分区的挂载写法为:
+
+        /dev/block/mmcblk0pXX       /system     ext4        rw,barrier=1            wait
+
+后面因为还有很多bug要调，没时间细究，准备将这个作为一个点，有时间了好好研究下 Android的mount 标识
 
 
 各种奇葩的设定
@@ -106,7 +103,7 @@ __触摸屏不工作__
 
 这个可能是需要长篇讲一下了，虽然只花了三个小时就解决了，但是确实费了不少心思和大量的尝试
 
-问题描述： 在适配 LG WATCH R的时候，几乎没遇到什么阻力就起来了，各项功能都运行的非常好，但是 Moto 360却是问题很多，解决了常规几个问题后（中间参考了下zero适配的其它机器的rc文件），就只剩触摸屏起不来了。
+问题描述： 在适配 LG WATCH R的时候，几乎没遇到什么阻力就起来了，各项功能都运行的非常好，但是 Moto 360却是问题很多，解决了常规几个问题后，就只剩触摸屏起不来了。
 
 解决过程：
 
@@ -154,9 +151,3 @@ atmxt-i2c.idc和atmxt-i2c.kl放进device/moto/minnow/recovery/root里面做内�
 
 等待补充更新中
 ======
-
-
-
-
-		
-
