@@ -1,9 +1,9 @@
 ---
 layout: post
 title: shell读取文件每一行的方式
-category: 语法
+category: shell
+tags : [ shell, linux,逐行  ]
 ---
-
 
 + 使用read命令读取一行数据
 
