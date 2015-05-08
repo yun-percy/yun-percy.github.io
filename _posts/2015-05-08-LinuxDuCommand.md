@@ -31,3 +31,12 @@ __du的命令参数__
 		--exclude=<目录或文件>         略过指定的目录或文件。    
 		-D或--dereference-args   显示指定符号链接的源文件大小。   
 	
+
+__使用技巧__
+
++ 只看文件夹大小，例如我只想看system文件夹的大小：
+
+		du -ch system | tail -n 1   #或者使用
+		du -sh system   #或者
+		du -max-depth=0 -h abc
+
