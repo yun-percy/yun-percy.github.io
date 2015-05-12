@@ -94,9 +94,23 @@ __Mtk-tools__
 
 一般使用这款开源工具作为mtk的解包和打包工具，我上一次使用了它对MTK6735 进行了解包命令。需要的朋友可以去[github下载](https://github.com/bgcngm/mtk-tools)。
 
+使用命令：
+
+		./unpack-MTK.pl xxx.img   #解包
+		./repack-MTK.pl --boot <kernel> <ramdisk> new-boot.img   #打包
+
+更多命令可以直接参考github上面的README 
+
 __mkbootimg_tools__
 
 支持4.1-5.0的非mtk cpu的boot解包和打包，暂时还没出现过错误，（4.1以下本人没有尝试过，需要的朋友可以自己测试），[github地址](https://github.com/xiaolu/mkbootimg_tools).
+
+使用命令：
+
+		./mkboot boot.img boot #解包
+		./mkboot boot new-boot.img #打包
+
+这个命令很人性化，如果$1为img文件，就解包，如果为目录就打包 
 
 __bootimg_tools__
 
@@ -105,12 +119,22 @@ __bootimg_tools__
 我们QROM的构架的boot.img大多数就是用这个解包与打包的.为了方便各位，我已经上传一份到 git.code.oa.com<br>
 地址：[git.code.oa.com/v_yunchen/bootimg_7.8.13](git.code.oa.com/v_yunchen/bootimg_7.8.13)
 
-另外，为了方便程(lan)序（si)员(shi),花了点时间写了两个解包和打包脚本。使用方法
+使用命令：
+
+		./umkbootimg xxx.img #解包成zImage 和 initramfs.cpio.gz
+		./unpack_ramdisk initramfs.cpio.gz #将 initramfs.cpio.gz分解为ramdisk文件夹
+		./repack_ramdisk ramdisk new-initramfs.cpio.gz  #与上面相反
+		./boot_info xxxx.img #获xxx.img的信息
+		将 umkbootimg以及 boot_info打出的信息记录下来，下面打包需要用
+		./mkbootimg ---kernel zImage --ramdisk new-initramfs.cpio.gz --pagesize $pagesize --base $base --kernel_offset $kernel_offset --ramdisk_offset $ramdisk_offset --second_offset $second_offset --tags_offset $tags_offset --cmdline "${cmdline}" -o new_boot.img 
+
+
+当然，为了方便程(lan)序（si)员(shi),花了点时间写了两个解包和打包脚本。使用方法
 
 		autounpack.sh boot.img 
 		#将会生成 ramdisk，和zImage
 		autounpack.sh boot.img 
-		#会根据boot.img的信息，将ramdisk(或者new-initramfs.cpio.gz)以及zImage打包成new-boot.img
+		#会根据boot.img的信息，将ramdisk(或者 new-initramfs.cpio.gz)以及zImage打包成new-boot.img
 
 
 
