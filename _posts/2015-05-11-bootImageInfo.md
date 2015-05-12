@@ -116,8 +116,8 @@ __bootimg_tools__
 
 这款工具是在xda上看到的，基于AOSP写的，扩展了很多参数，最新的编译版本为7.8.13 [github源码地址](https://github.com/pbatard/bootimg-tools)
 
-我们QROM的构架的boot.img大多数就是用这个解包与打包的.为了方便各位，我已经上传一份到 git.code.oa.com<br>
-地址：[git.code.oa.com/v_yunchen/bootimg_7.8.13](git.code.oa.com/v_yunchen/bootimg_7.8.13)
+我自己常用的boot.img就这个，因为自己增加了几个接口参数，确保打包无误。为了方便各位，我已经上传一份到 git.code.oa.com<br>
+地址：[https://github.com/yun-percy/bootimg_7.8.13](https://github.com/yun-percy/bootimg_7.8.13)
 
 使用命令：
 
