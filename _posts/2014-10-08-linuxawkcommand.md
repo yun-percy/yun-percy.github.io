@@ -1,8 +1,16 @@
 ---
 layout: post
 title: 如何在Linux中使用awk命令
-category: linux
+category: shell
+tags : [ awk,linux，文本处理 ]
 ---
+
+2015-05-15 新增
+-----
+
+指定多个分隔符：
+
+		awk -F "[,= ]" '{print $1}'
 
 
 <td id="article_content"><p>文本处理是Unix的核心。从管道到/proc子系统，“一切都是文件”的理念贯穿于操作系统和所有基于它构造的工具。正因为如此，轻松地处理文本是一个期望成为Linux系统管理员甚至是资深用户的最重要的技能之一，而 awk是通用编程语言之外最强大的文本处理工具之一。</p>
@@ -101,3 +109,4 @@ category: linux
                 	
 </div>
 </td>
+
