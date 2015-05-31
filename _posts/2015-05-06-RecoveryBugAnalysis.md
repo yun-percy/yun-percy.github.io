@@ -156,5 +156,9 @@ atmxt-i2c.idc和atmxt-i2c.kl放进device/moto/minnow/recovery/root里面做内�
 
 ---> 去网上查找设备型号对应的firmware合入即可解决问题
 
+__双清缓慢__
+
+		BOARD_NO_SECURE_DISCARD := true
+
 等待补充更新中
 ======
