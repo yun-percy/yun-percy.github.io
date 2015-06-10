@@ -56,7 +56,7 @@ libpng的兼容问题
 
 		libpng warning iccp not recognizing known srgb profile that has been edited
 
-虽然不会影响功能，但是作为一个严(qiang)谨(po的(zheng)程序猿，怎么允许这种情况发生呢。
+虽然不会影响功能，但是作为一个严(qiang)谨(po)的(zheng)程序猿，怎么允许这种情况发生呢。
 
 因为是libpng的报错，不是Android那边的报错，估计是兼容性出了问题，google了一下，得到的结果竟然是，google承诺下个版本会修复。这么看起来是官方的问题了，到这里，基本就是被判了死刑。鬼知道google什么时候才会修复，这不是要逼死强迫症患者吗？
 
