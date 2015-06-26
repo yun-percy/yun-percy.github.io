@@ -12,6 +12,10 @@ tags : [ shell, linux,逐行  ]
 		echo "LINE:"$myline
 		done < datafile.txt
 
+#### 解决read在这个语法中失效的问题：
+
+		read </dev/tty   #再给它重定向一次就可以了
+
 + 使用read命令读取一行数据
 
 		cat datafile.txt | while read myline
@@ -23,7 +27,7 @@ tags : [ shell, linux,逐行  ]
 
 		cat datafile.txt | while myline=$(line)
 		do
-		echo "LINE:"$myline 
+		echo "LINE:"$myline
 		done
 
 + 读取一行数据
