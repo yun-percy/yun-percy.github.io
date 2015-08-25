@@ -43,3 +43,8 @@ History
 > $* 会把　we have a question　当做　“we have a question”处理
 >
 > $@ 会把　we have a question　当做　“we" "have" "a" "question”处理
+
+wget
+=======
+
+		wget -S --spider  + URL 检测文件是否存在
