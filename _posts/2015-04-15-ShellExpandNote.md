@@ -48,3 +48,17 @@ wget
 =======
 
 		wget -S --spider  + URL 检测文件是否存在
+
+wc
+------
+
+获取文件大小
+
+		cat filename | wc -c
+
+find
+-----
+
+找出空文件，然后删掉
+
+		find /urpath -type f -size 0 -exec rm -f {} \;
