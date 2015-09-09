@@ -62,3 +62,8 @@ find
 找出空文件，然后删掉
 
 		find /urpath -type f -size 0 -exec rm -f {} \;
+
+删除重复行
+-------
+
+    sort < urfile | uniq > result.txt
