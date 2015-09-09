@@ -12,7 +12,7 @@ tags : [ linux,home,目录]
 1. 将分区格式化为 ext4  
 ----------
 
-这里我就不详细将，用fdisk分区命令或者一些磁盘管理工具就能搞定
+这里我就不详细讲，用fdisk分区命令或者一些磁盘管理工具就能搞定
 
 
 2. 挂载到/Home目录
@@ -20,7 +20,7 @@ tags : [ linux,home,目录]
 
 考虑到新加进来的分区主要是用作存放源代码，所以就直接在主目录下新建了一个目录
 
-		mkdir ~/source
+		mkdir -p ~/source
 
 然后尝试挂载 
 
@@ -45,8 +45,8 @@ tags : [ linux,home,目录]
 
 搞定！
 
-[挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux2.png)
-[挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux3.png)
+![挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux2.png)
+![挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux3.png)
 
 
 
