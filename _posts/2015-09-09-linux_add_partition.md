@@ -38,13 +38,15 @@ tags : [ linux,home,目录]
 
 看了一下语法，发现跟 Android 的recovery下的分区表语法基本一致，所以修改一下。最后改完如图：
 
+![分区表修改](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux1.png)
 
 4. 重启，验证
 ------
 
 搞定！
 
-
+[挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux2.png)
+[挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux3.png)
 
 
 
