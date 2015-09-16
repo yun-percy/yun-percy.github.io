@@ -16,7 +16,7 @@ tags : [ linux,shell, 通配符]
  
 		~/shell $ ls d*.txt
 		ls: 无法访问 d*.txt: 没有那个文件或目录
-		
+
 从上面这个实例，不知道大家有没有发现问题呢。我们先了解一下，通配符相关知识，再分析下这个实例吧。
 
 一、linux shell通配符(wildcard)
@@ -94,34 +94,23 @@ control operator
 \(反斜杠)	  又叫转义，去除其后紧跟的元字符或通配符的特殊意义。
 man bash 英文解释如下：
 
-There are three quoting mechanisms: the escape character, single quotes, and double quotes.
+		There are three quoting mechanisms: the escape character, single quotes, and double quotes.
 
 实例:
-
  
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-[chengmo@localhost ~/shell]$ ls \*.txt
-ls: 无法访问 *.txt: 没有那个文件或目录
+		~/shell $ ls \*.txt
+		ls: 无法访问 *.txt: 没有那个文件或目录
  
-[chengmo@localhost ~/shell]$ ls '*.txt'
-ls: 无法访问 *.txt: 没有那个文件或目录
+		~/shell $ ls '*.txt'
+		ls: 无法访问 *.txt: 没有那个文件或目录
  
-[chengmo@localhost ~/shell]$ ls 'a.txt'
-a.txt
+		~/shell $ ls 'a.txt'
+		a.txt
  
-[chengmo@localhost ~/shell]$ ls *.txt
-a.txt  b.txt
+		~/shell $ ls *.txt
+		a.txt  b.txt
  
-
 可以看到，加入了转义符 “*”已经失去了通配符意义了。
+
+
+增加一篇通配符文章
