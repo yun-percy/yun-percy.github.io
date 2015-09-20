@@ -483,7 +483,7 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 .post *:not(pre)>code{
 	padding:0 0.25em;
 	color:#3b4d64;
-	background:#f3f3f3
+	background:#c3c3c3
 }
 .post pre{
 
