@@ -1,6 +1,6 @@
 ---
 layout: post
-title: adb查看背景android系统相关命令
+title: adb查看android系统相关命令
 category: android
 ---
 
@@ -31,3 +31,11 @@ category: android
 ### 测试键值
 
 		adb shell getevent
+
+### 查看cpu和内存事实占用情况
+
+		adb shell top -m 15
+
+### 查看内存使用详情
+
+		adb shell dumpsys meminfo
