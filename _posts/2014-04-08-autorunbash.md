@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 如何让你的shell脚本定时运行？可以用来同步源码
+title: crontab:让你的shell脚本定时运行
 category: linux
 ---
 
@@ -57,3 +57,107 @@ cron有两个配置文件，一个/etc/crontab，是一个全局配置文件，�
 	默认情况下，所有用户都能访问cron工具，要对cron进行访问控制，则可以生成/etc/cron.allow与/etc/cron.deny文件。<br>
 (1)这两个文件都不存在时，每个用户都可以访问cron工具<br>
 (2)存在/etc/cron.allow文件时，则只有cron.allow文件中允许的用户才能访问cron工具，如果也有/etc/cron.deny文件，则忽略cron.deny文件
+
+
+
+列出crontab文件:
+使用-l参数列出crontab文件:
+
+        $ crontab -l
+        0,15,30,45,18-06 * * * /bin/echo `date` > dev/tty1
+
+可以使用这种方法在$HOME目录中对crontab文件做一备份:
+
+        $ crontab -l > $HOME/mycron
+
+这样，一旦不小心误删了crontab文件，可以用上一节所讲述的方法迅速恢复。
+
+编辑crontab文件
+如果希望添加、删除或编辑crontab文件中的条目，而EDITOR环境变量又设置为vi，那么就可以用vi来编辑crontab文件:
+
+        $ crontab -e
+可以像使用vi编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， cron会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。 我们在编辑crontab文件时，没准会加入新的条目。例如，加入下面的一条：
+
+        # DT:delete core files,at 3.30am on 1,7,14,21,26,26 days of each month
+        30 3 1,7,14,21,26 * * /bin/find -name 'core' -exec rm {} \;
+
+保存并退出。
+
+注解
+
+最好在crontab文件的每一个条目之上加入一条注释，这样就可以知道它的功能、运行时间，更为重要的是，知道这是哪位用户的定时作业。
+删除crontab文件
+
+        $crontab -r
+
+###使用实例
+
+实例1：每1分钟执行一次myCommand
+
+        * * * * * myCommand
+
+实例2：每小时的第3和第15分钟执行
+
+        3,15 * * * * myCommand
+
+实例3：在上午8点到11点的第3和第15分钟执行
+
+        3,15 8-11 * * * myCommand
+        
+实例4：每隔两天的上午8点到11点的第3和第15分钟执行
+
+        3,15 8-11 */2  *  * myCommand
+        
+实例5：每周一上午8点到11点的第3和第15分钟执行
+
+    3,15 8-11 * * 1 myCommand
+    
+实例6：每晚的21:30重启smb
+
+        30 21 * * * /etc/init.d/smb restart
+
+实例7：每月1、10、22日的4 : 45重启smb
+
+        45 4 1,10,22 * * /etc/init.d/smb restart
+
+实例8：每周六、周日的1 : 10重启smb
+
+        10 1 * * 6,0 /etc/init.d/smb restart
+        
+实例9：每天18 : 00至23 : 00之间每隔30分钟重启smb
+
+        0,30 18-23 * * * /etc/init.d/smb restart
+        
+实例10：每星期六的晚上11 : 00 pm重启smb
+
+        0 23 * * 6 /etc/init.d/smb restart
+        
+实例11：每一小时重启smb
+
+        * */1 * * * /etc/init.d/smb restart
+        
+实例12：晚上11点到早上7点之间，每隔一小时重启smb
+
+        * 23-7/1 * * * /etc/init.d/smb restart
+        
+
+其他注意事项:
+--------
+
++ 新创建的cron job，不会马上执行，至少要过2分钟才执行。如果重启cron则马上执行。
+
++ 当crontab失效时，可以尝试/etc/init.d/crond restart解决问题。或者查看日志看某个job有没有执行/报错tail -f /var/log/cron。
+
++ 千万别乱运行crontab -r。它从Crontab目录（/var/spool/cron）中删除用户的Crontab文件。删除了该用户的所有crontab都没了。
+
++ 在crontab中%是有特殊含义的，表示换行的意思。如果要用的话必须进行转义%，如经常用的date ‘+%Y%m%d’在crontab里是不会执行的，应该换成date ‘+%Y%m%d’。
+
++ 更新系统时间时区后需要重启cron,在ubuntu中服务名为cron:
+
+        $service cron restart
+
+ubuntu下启动、停止与重启cron:
+
+        $sudo /etc/init.d/cron start
+        $sudo /etc/init.d/cron stop
+        $sudo /etc/init.d/cron restart
