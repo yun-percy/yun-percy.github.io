@@ -84,11 +84,12 @@ __颜色值不对__
 
 		TAGET_RECOVERY_PIXEL_FORMAT : "RGBX_8888"
 
-实际上还有一种：
+实际上还有两种：
 
 		TAGET_RECOVERY_PIXEL_FORMAT : "BGRA_8888"
+		TAGET_RECOVERY_PIXEL_FORMAT : "ABGR_8888"	
 
-两种换着来就可以解决。
+三种换着来就可以解决。
 
 __屏幕不亮，但是adb已启动__
 
