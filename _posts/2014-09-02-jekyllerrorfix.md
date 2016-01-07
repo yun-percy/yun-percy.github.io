@@ -8,7 +8,7 @@ category: 综合
 错误1
 ------
 
-		终端安装：yunsun@chenyun:~$ gem install rdiscount
+		终端安装：yunsun@chenyun:~$ gem install --verbose rdiscount
 		报错如下：
 		ERROR:  While executing gem ... (Gem::FilePermissionError)
 	    You don't have write permissions into the /var/lib/gems/1.9.1 directory.
@@ -28,7 +28,7 @@ category: 综合
 		再次尝试安装：
 		 rdiscount RedCloth
 
-		终端输入：sudo gem install jekyll
+		终端输入：sudo gem --verbose install jekyll
 
 		安装完成！
 
@@ -40,9 +40,9 @@ category: 综合
 		终端输入： jekyll new blog 报错如下
 		*****in `autodetect': Could not find a JavaScript runtime.....
 		解决办法：终端输入：
-		sudo gem install execjs
-		sudo gem install therubyracer
-		sudo apt-get install nodejs
+		sudo gem install --verbose execjs
+		sudo gem install --verbose therubyracer
+		sudo apt-get install  nodejs
 		再次执行，搞定
 
 
