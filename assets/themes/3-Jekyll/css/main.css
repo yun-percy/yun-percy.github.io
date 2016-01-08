@@ -460,9 +460,13 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 	margin-bottom:0
 }
 .post blockquote{
-	position:relative;
-	margin:0 0 30px 2em;
-	font-style:italic
+	background: #c3c3c3;
+    padding: 0 15px;
+    color: #000;
+    border-left: 4px solid #3471BD;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-margin-before: 0.1em;
 }
 .post blockquote:before{
 	position:absolute;
