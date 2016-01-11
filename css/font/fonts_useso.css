@@ -51,7 +51,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(http://fontstatic.useso.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  src: local('Open Sans'), local('OpenSans'), url(/assets/woff/useso6.woff2) format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -67,7 +67,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
-  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSq-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(/assets/woff/useso8.woff2) format('woff2');
   unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
 }
 /* cyrillic */
@@ -75,7 +75,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
-  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSpX5f-9o1vgP2EXwfjgl7AY.woff2) format('woff2');
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(/assets/woff/useso9.woff2) format('woff2');
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* greek-ext */
@@ -83,7 +83,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
-  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNShWV49_lSm1NYrwo-zkhivY.woff2) format('woff2');
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(/assets/woff/useso10.woff2) format('woff2');
   unicode-range: U+1F00-1FFF;
 }
 /* greek */
@@ -91,7 +91,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 600;
-  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://fontstatic.useso.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSqaRobkAwv3vxw3jMhVENGA.woff2) format('woff2');
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(/assets/woff/useso11.woff2) format('woff2');
   unicode-range: U+0370-03FF;
 }
 /* vietnamese */
