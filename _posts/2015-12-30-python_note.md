@@ -8,7 +8,7 @@ tags : [linux,python ,笔记 ]
 
 ###python判断文件和文件夹是否存在
 
-```python
+```py
 import os
 os.path.isfile('test.txt') #如果不存在就返回False
 os.path.exists(directory) #如果目录不存在就返回False

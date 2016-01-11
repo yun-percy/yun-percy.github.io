@@ -7,7 +7,7 @@ tags : [linux,shell ,笔记 ]
 
 将一个字符串赋值给数组
 
-```shell
+```shell-session
 str1='test1 test2 test3 test4'
 array=($str1)    #数组赋值
 length=${#array[@]}  #数组长度
