@@ -5,7 +5,7 @@ category: android
 ---
 
 首先当然是功能函数代码啦：
-<pre>
+```java
 package com.android.systemui.killyun;
 
 import android.graphics.Bitmap;
@@ -15,8 +15,7 @@ import android.graphics.Bitmap;
  */
 public class FastBlur {
 
-	public static Bitmap doBlur(Bitmap sentBitmap, int radius,
-			boolean canReuseInBitmap) {
+	public static Bitmap doBlur(Bitmap sentBitmap, int radius,boolean canReuseInBitmap) {
 
 		Bitmap bitmap;
 		if (canReuseInBitmap) {
@@ -223,11 +222,11 @@ public class FastBlur {
 		return (bitmap);
 	}
 }
-</pre>
+```
 
 调用函数:
 
-<pre>
+```java
  @SuppressWarnings("deprecation")
 private void blur(Bundle savedInstanceState) {
 	    LocalActivityManager manager = new LocalActivityManager(this, true);
@@ -260,5 +259,4 @@ private void blur(Bundle savedInstanceState) {
 		rl_main.setBackgroundDrawable(new BitmapDrawable(getResources(), overlay));
 	}
 }
-
-</pre>
+```
