@@ -13,7 +13,7 @@ import os
 os.path.isfile('test.txt') #如果不存在就返回False
 os.path.exists(directory) #如果目录不存在就返回False
 os.environ['HOME'] #获取home目录
-os.rename（oldname,newname)
+os.rename(oldname,newname)
 os.remove()#删除文件
 os.rmdir()#删除空目录
 os.removedirs()#递归删除空目录

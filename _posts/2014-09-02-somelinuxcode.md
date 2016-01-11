@@ -32,38 +32,15 @@ tags : [linux, shell]
 
 ###直接启动应用 ：
 
-		adb shell am start -n "包名/类名"
+```sh
+adb shell am start -n "包名/类名"
+```
 
 ###查看包名类名：
-		aapt dump badging XX.apk
 
-- git
-------
-
-###去掉 git push时输入账号密码
-> __linux__
-
-> + 在~/下， touch创建文件 .git-credentials
-
-		touch .git-credentials
-
-> 用vim编辑此文件
-
-		vim .git-credentials
-
-> 输入内容格式：
-
-		https://{username}:{password}@github.com
-		example: 比如 https://aoeddklj:1233ds@github.com
-
-> + 在终端下执行  git config --global credential.helper store
-
-> + 可以看到~/.gitconfig文件，会多了一项：
-
-		[credential]
-    	helper = store
-
-> 这个时候你就不需要输入密码了
+```sh
+aapt dump badging XX.apk
+```
 
 apt-get
 ----
@@ -72,12 +49,14 @@ apt-get
 
 这是一个32位依赖包，很多常用软件依旧在是用这个依赖包，但是在ubuntu和mint的软件源里已经把这个依赖包给去掉了，那我们怎么来安装？<br/>添加软件源，下文中要添加的软件源是现在还能用的，也许以后就没了，因为安装过程中要经常使用sudo的授权，所以第一步我们就直接临时进root了。使用完了记得退出。<br/>直接上链接：
 
-	sudo -i
-	cd /etc/apt/sources.list.d
-	echo "deb http://archive.ubuntu.com/ubuntu/ raring main restricted universe multiverse" >ia32-libs-raring.list
-	apt-get update
-	apt-get -f install
-	apt-get install ia32-libs
+```sh
+sudo -i
+cd /etc/apt/sources.list.d
+echo "deb http://archive.ubuntu.com/ubuntu/ raring main restricted universe multiverse" >ia32-libs-raring.list
+apt-get update
+apt-get -f install
+apt-get install ia32-libs
+```
 
 搞定
 
@@ -107,5 +86,13 @@ apt-get
 
 ### 修改系统日期和时间
 
-		sudo dpkg-reconfigure tzdata   #修改系统时区
-		sudo hwclock --hctosys     #同步系统时间和硬件时间
+```sh
+sudo dpkg-reconfigure tzdata   #修改系统时区
+sudo hwclock --hctosys     #同步系统时间和硬件时间
+```
+
+### 使 51 Android生效
+
+```sh
+/etc/init.d/udev restart
+```
