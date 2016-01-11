@@ -103,3 +103,17 @@ date计算
 ~ ♪ date -d "20151012 1days ago" "+%Y%m%d"
 20151011
 ```
+
+大小写转换
+-----
+
+```
+git_path_target="AAaa_aaAA"
+declare -l git_path_target
+echo $git_path_target
+---> aaaa_aaaa
+git_path_target="AAaa_aaAA"
+declare -u git_path_target
+echo $git_path_target
+---> AAAA_AAAA
+```
