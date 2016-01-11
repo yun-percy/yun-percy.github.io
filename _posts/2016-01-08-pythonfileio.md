@@ -14,7 +14,7 @@ Python提供了必要的函数和方法进行默认情况下的文件基本操�
 
 语法：
 
-```
+```py
 file object = open(file_name [, access_mode][, buffering])
 ```
 
@@ -56,7 +56,7 @@ file.softspace | 如果用print输出后，必须跟一个空格符，则返回f
 
 实例：
 
-```
+```py
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 fo = open("foo.txt", "wb")
@@ -68,7 +68,7 @@ print "Softspace flag : ", fo.softspace
 
 以上实例输出结果：
 
-```
+```sh
 Name of the file:  foo.txt
 Closed or not :  False
 Opening mode :  wb
@@ -82,7 +82,7 @@ Softspace flag :  0
 
 语法：
 
-```
+```py
 fileObject.close();
 ```
 
@@ -98,7 +98,7 @@ __Write()方法不在字符串的结尾不添加换行符('\n')：__
 
 语法：
 
-```
+```py
 fileObject.write(string);
 ```
 
@@ -108,7 +108,7 @@ fileObject.write(string);
 
 语法：
 
-```
+```py
 fileObject.read([count]);
 ```
 
@@ -126,7 +126,7 @@ fileObject.read([count]);
 
 例子：
 
-```
+```py
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 fo = open("/tmp/foo.txt", "r+")
@@ -142,7 +142,7 @@ fo.close()
 
 以上实例输出结果：
 
-```
+```sh
 Read String is :  Python is
 Current file position :  10
 Again read String is :  Python is
@@ -158,7 +158,7 @@ Again read String is :  Python is
 rename()方法需要两个参数，当前的文件名和新文件名。
 语法：
 
-```
+```py
 os.rename(current_file_name, new_file_name)
 ```
 
@@ -167,7 +167,7 @@ os.rename(current_file_name, new_file_name)
 你可以用remove()方法删除文件，需要提供要删除的文件名作为参数。
 语法：
 
-```
+```py
 os.remove(file_name)
 ```
 
@@ -181,7 +181,7 @@ os.remove(file_name)
 
 语法：
 
-```
+```py
 os.mkdir("newdir")
 ```
 
@@ -195,7 +195,7 @@ os.chdir("newdir")
 getcwd()方法显示当前的工作目录。
 语法：
 
-```
+```py
 os.getcwd()
 ```
 
@@ -206,6 +206,6 @@ os.getcwd()
 
 语法：
 
-```
+```py
 os.rmdir('dirname')
 ```

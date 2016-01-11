@@ -23,7 +23,7 @@ array=      #清空array，赋给array空值
 
 ###遍历数组
 
-```
+```sh
 for ((i=0;i<${#array[@]};i++))
 do
    echo ${array[$i]}
@@ -34,7 +34,7 @@ done
 
 数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法
 
-```
+```sh
 str="abd#ddd#ff"
 str2=($(echo $str|tr '#' ' '))
 ```

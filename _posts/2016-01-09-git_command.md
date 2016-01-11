@@ -7,20 +7,20 @@ tags : [linux,git ,笔记 ]
 
 问题：
 
-```
+```sh
 git remote add origin xxxxxxx
 fatal: remote origin already exists.
 ```
 
 解决:
 
-```
+```sh
 git remote remove origin
 ```
 
 问题：
 
-```
+```sh
 git push -u origin master
 fatal: 'origin' does not appear to be a git repository
 fatal: Could not read from remote repository.
