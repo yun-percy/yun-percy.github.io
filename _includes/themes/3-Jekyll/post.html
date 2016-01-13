@@ -8,8 +8,6 @@
 
   <h1 class="post-title">{{ page.title }}</h1>
   {{ content }}
-</article>
-
 <div class="post-share">
   <div class="container">
     <a href="https://twitter.com/share?url=http://yun-percy.github.io{{ page.url | prepend: site.baseurl | prepend: site.url }}&text={{ page.title }}" target="_blank" class="post-share-icon twitter"></a>
@@ -19,6 +17,9 @@
 </div>
 
   <div class="ds-thread" data-thread-key={{page.title}} data-title={{ page.title }} data-url="http://yun-percy.github.io{{ page.url }}"></div>
+</article>
+
+
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
