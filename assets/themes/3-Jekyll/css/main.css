@@ -862,7 +862,7 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
   border: 2px solid #e5e8ec;
   border-radius: 5px; }
 #home{
-	/*padding-top:1em;*/
+	padding-top:1em;
 	font-size:18px;
 	line-height:1.8;
 	text-align:center
