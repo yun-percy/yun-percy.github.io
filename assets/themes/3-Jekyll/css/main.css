@@ -467,6 +467,8 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-margin-before: 0.1em;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
 }
 .post blockquote:before{
 	position:absolute;
@@ -491,23 +493,22 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 	background:#333
 }
 .post pre{
-
-  background: #333333;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-   font: .85em Consolas, Monaco, 'Andale Mono', monospace;
-  background: #333333;
- border-radius: 8px;
-color: #EEE;
-border: 2px solid #0AF;
+	background: #333333;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	font: .85em Consolas, Monaco, 'Andale Mono', monospace;
+	background: #333333;
+	border-radius: 8px;
+	color: #EEE;
+	border: 2px solid #0AF;
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;
     font-size: 15px;
     line-height: 1.42857143;
-    margin-right: 130px;
+    /*margin-right: 130px;*/
     -webkit-border-radius: 8px;
-  vertical-align: 2px;
+	vertical-align: 2px;
 
 }
 .post pre::-webkit-scrollbar{
