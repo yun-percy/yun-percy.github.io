@@ -64,3 +64,36 @@ helper = store
 ```
 
 > 这个时候你就不需要输入密码了
+
+###撤销git add
+
+```sh
+$ git add .
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.md
+        modified    test.cpp
+```
+
+就在 “Changes to be committed” 下面，括号中有提示，可以使用 git reset HEAD <file>... 的方式取消暂存
+
+```sh
+$ git reset HEAD test.cpp
+Unstaged changes after reset:
+M       test.cpp
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   test.cpp
+```
