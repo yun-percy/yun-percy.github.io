@@ -172,6 +172,7 @@ input::-moz-focus-inner,textarea::-moz-focus-inner,button::-moz-focus-inner{
 	z-index:20;
 	width:551px;
 
+
 	/*background:#474D57;
 	border_right:1px solid #3c4149;
 	box-shadow: inset -15px 0 15px -15px #222;
@@ -284,18 +285,20 @@ input::-moz-focus-inner,textarea::-moz-focus-inner,button::-moz-focus-inner{
 }
 #search-box{
 	position:relative;
-	margin: 20px 30px 10px 30px;
+	margin: 10px 30px 10px 30px;
 	margin-bottom:1px
 }
 #search-box:before{
 	position:absolute;
 	top:0;
-	right:15px;
-	z-index:-1;
 	font-size:24px;
 	line-height:24px;
-	margin: 5px 0px 0px 0px;
-	color:rgba(0,0,0,1.0)
+	right: 5%;
+	z-index: initial;
+	font-size: 24px;
+	line-height: 24px;
+	/*margin: 0px 0px 0px 0px;*/
+	color: rgba(0, 0, 0, 0.57);
 }
 #search-input{
 	width:100%;
@@ -933,7 +936,6 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 }
 @media screen and (max-width: 767px){
 	#sidebar{
-	background: #EEEEEE;
 	left:-100%;
 	width:100%;
 	overflow:auto;
@@ -941,6 +943,7 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 	transition:transform 0.25s cubic-bezier(0.77, 0, 0.175, 1)
 }
 #sidebar-left,#sidebar-right{
+	float:none;
 	width:100%;
 	height:auto
 }
@@ -955,15 +958,15 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 	font-size:26px
 }
 #search-box{
-	height:52px
+	/*height:80px*/
 }
 #search-box:before{
-	line-height:52px
+	line-height:40px
 }
 #search-input{
-	padding-top:10px;
-	padding-bottom:10px;
-	line-height:32px
+	/*padding-top:10px;*/
+	/*padding-bottom:10px;*/
+	line-height:40px
 }
 .post{
 	padding-top:20px;
