@@ -938,12 +938,13 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 	#sidebar{
 	left:-100%;
 	width:100%;
+	background: #EEEEEE;
 	overflow:auto;
 	-webkit-overflow-scrolling:touch;
 	transition:transform 0.25s cubic-bezier(0.77, 0, 0.175, 1)
 }
 #sidebar-left,#sidebar-right{
-	float:none;
+	/*float:none;*/
 	width:100%;
 	height:auto
 }
