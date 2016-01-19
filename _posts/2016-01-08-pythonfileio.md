@@ -209,3 +209,21 @@ os.getcwd()
 ```py
 os.rmdir('dirname')
 ```
+
+###读取文件内容
+
+```py
+f = open("foo.txt")
+line = f.readline()
+while line:
+    print line
+    line = f.readline()
+f.close()
+```
+
+或者
+
+```py
+for line in open("foo.txt"):
+    print line
+```
