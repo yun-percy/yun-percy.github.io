@@ -297,7 +297,7 @@ input::-moz-focus-inner,textarea::-moz-focus-inner,button::-moz-focus-inner{
 	z-index: initial;
 	font-size: 24px;
 	line-height: 24px;
-	/*margin: 0px 0px 0px 0px;*/
+	margin: 5px 0px 0px 0px;
 	color: rgba(0, 0, 0, 0.57);
 }
 #search-input{
@@ -985,7 +985,18 @@ h1+h2,h2+h3,h3+h4,h4+h5,h5+h6{
 #not-found{
 	font-size:16px
 }
-
+#search-box:before{
+	position:absolute;
+	top:0;
+	font-size:24px;
+	line-height:24px;
+	right: 5%;
+	z-index: initial;
+	font-size: 24px;
+	line-height: 24px;
+	/*margin: 0px 0px 0px 0px;*/
+	color: rgba(0, 0, 0, 0.57);
+}
 
 }
 
