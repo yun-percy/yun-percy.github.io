@@ -56,12 +56,6 @@ wc
 
 		cat filename | wc -c
 
-find
------
-
-找出空文件，然后删掉
-
-		find /urpath -type f -size 0 -exec rm -f {} \;
 
 删除重复行
 -------
@@ -97,7 +91,7 @@ int1 -le int2　　|　　int1小于等于int2为真
 date计算
 ----
 
-```
+```sh
 ~ ♪ date -d "20151012 1days" "+%Y%m%d"
 20151013
 ~ ♪ date -d "20151012 1days ago" "+%Y%m%d"
@@ -107,7 +101,7 @@ date计算
 大小写转换
 -----
 
-```
+```sh
 git_path_target="AAaa_aaAA"
 declare -l git_path_target
 echo $git_path_target
