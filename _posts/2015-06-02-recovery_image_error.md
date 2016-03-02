@@ -38,13 +38,13 @@ recovery图片格式需求
 
 第一种方式：（5.0以上慎用）
 
-![第一种方式](/assets/img/recovery_image1.png)
+![第一种方式](/img/recovery_image1.png)
 
 对应： bit_depth <= 8 && *channels == 1 && color_type == PNG_COLOR_TYPE_PALETTE
 
 后面尝试了另外一种方式，发现也是可以的：
 
-![第二种方式](/assets/img/recovery_image2.png)
+![第二种方式](/img/recovery_image2.png)
 
 对应：bit_depth == 8 && *channels == 3 && color_type == PNG_COLOR_TYPE_RGB
 

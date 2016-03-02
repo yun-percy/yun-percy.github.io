@@ -1,8 +1,7 @@
 
-
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-safe: true
-lsi: false
+# exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+# safe: true
+# lsi: false
 markdown: redcarpet
 excerpt_separator: "\n\n"
 encoding: UTF-8
