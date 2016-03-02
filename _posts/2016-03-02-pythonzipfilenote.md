@@ -8,6 +8,8 @@ tags : [linux,python ,zipfile ]
 > Android ota_from_target_file.py处理target_files.zip的时候，用的是标准的python zipfile类。进行生产FULL OTA包和增量OTA包。
 所以找时间翻了一下zipfile的语法，接口，以此来扩展ota_from_target_file.py的功能，比如给rom包添加一个data分区的文件。
 
+[点击阅读原文](http://python.jobbole.com/81519/)
+
 ###笔记
 
 
