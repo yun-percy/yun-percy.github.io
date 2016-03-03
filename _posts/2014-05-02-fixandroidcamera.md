@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 解决相机移植后像素无法识别完全的bug 
+title: 解决相机移植后像素无法识别完全的bug
 category: android
 ---
 
@@ -14,5 +14,5 @@ category: android
 >修改array.xml中的pref_camera_picturesize_entryvalues数组值
 
 使它的尺寸与官方相机拍出来的尺寸一致就可以了。<br>改完之后如图：<br><br>
-![github](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/camera.jpg)
+![github](/img/camera.jpg)
 

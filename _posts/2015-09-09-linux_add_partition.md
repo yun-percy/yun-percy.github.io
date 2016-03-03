@@ -9,7 +9,7 @@ tags : [ linux,home,目录]
 
 > 网上看了很多教程，都太过啰嗦。自己根据Android经验，自己摸索了一番。搞定，只花了半小时。
 
-1. 将分区格式化为 ext4  
+1. 将分区格式化为 ext4
 ----------
 
 这里我就不详细讲，用fdisk分区命令或者一些磁盘管理工具就能搞定
@@ -22,7 +22,7 @@ tags : [ linux,home,目录]
 
 		mkdir -p ~/source
 
-然后尝试挂载 
+然后尝试挂载
 
 		mount /dev/sdb7 /home/percy/source
 
@@ -38,15 +38,15 @@ tags : [ linux,home,目录]
 
 看了一下语法，发现跟 Android 的recovery下的分区表语法基本一致，所以修改一下。最后改完如图：
 
-![分区表修改](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux1.png)
+![分区表修改](/img/linux1.png)
 
 4. 重启，验证
 ------
 
 搞定！
 
-![挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux2.png)
-![挂载到目录](https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/assets/img/linux3.png)
+![挂载到目录](/img/linux2.png)
+![挂载到目录](/img/linux3.png)
 
 
 
