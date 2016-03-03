@@ -2,7 +2,10 @@
 # exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 # safe: true
 # lsi: false
-markdown: redcarpet
+markdown: kramdown
+kramdown:
+    input: GFM
+# highlighter: rouge
 excerpt_separator: "\n\n"
 encoding: UTF-8
 
