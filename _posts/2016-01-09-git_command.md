@@ -26,13 +26,16 @@ fatal: 'origin' does not appear to be a git repository
 fatal: Could not read from remote repository.
 ```
 
-####同步master修改：
+同步master修改：
+-----
 
 1. master修改后， 使用 `git log` 记下`commit id`
 2. 切换到dev分支:`git checkout dev`
 3. `git merge [id]` 即可
 
-###去掉 git push时输入账号密码
+去掉 git push时输入账号密码
+-----
+
 > __linux__
 
 > + 在~/下， touch创建文件 .git-credentials
@@ -65,7 +68,8 @@ helper = store
 
 > 这个时候你就不需要输入密码了
 
-###撤销git add
+撤销git add
+-----
 
 ```sh
 $ git add .
@@ -97,3 +101,44 @@ Changes not staged for commit:
 
         modified:   test.cpp
 ```
+
+代码回滚到上个版本，并提交git
+---
+
+```sh
+git revert HEAD
+git push origin master
+```
+
++ 取消对文件的修改。还原到最近的版本，废弃本地做的修改。
+
+`git checkout -- <file>`
+
++ 取消已经暂存的文件。即，撤销先前"git add"的操作
+
+`git reset HEAD <file>...`
+
++ 修改最后一次提交。用于修改上一次的提交信息，或漏提交文件等情况。
+
+`git commit --amend`
+
++ 回退所有内容到上一个版本
+
+`git reset HEAD^`
+
++ 回退a.py这个文件的版本到上一个版本
+
+`git reset HEAD^ a.py`
+
++ 向前回退到第3个版本
+
+`git reset –soft HEAD~3`
+
++ 将本地的状态回退到和远程的一样
+
+`git reset –hard origin/master`
+
++ 回退到某个版本
+
+`git reset 057d`
+
