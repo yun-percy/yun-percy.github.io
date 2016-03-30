@@ -111,3 +111,5 @@ declare -u git_path_target
 echo $git_path_target
 ---> AAAA_AAAA
 ```
+
+or user tr command
