@@ -5,20 +5,6 @@ category: 语法
 ---
 
 
-sed的替换
---------------------
-
-####语法
-
-	sed -i 's/\'"$a"'/\'"$b"'/' c
-
-例子： 一键移植init.rc中的jar包。读取lewajar.jar文件中的内容 替换init.rc中匹配offcail.jar的段落
-
-	offcialjar=`cat offcaijar`
-	echo $offcialjar
-	lewajar=`cat lewajar `
-	sed -i 's/\'"$offcialjar"'/\'"$lewajar"'/' init.rc
-
 失败重复执行
 -------------
 
