@@ -1,7 +1,7 @@
 ---
 layout: post
 title: shell读取文件每一行的方式
-category: shell
+category: Shell
 tags : [ shell, linux,逐行  ]
 ---
 

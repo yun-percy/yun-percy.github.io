@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Linux 下firefox浏览安装flash插件
-category: linux
+category: Linux
 tags : [ linux,浏览器,firefox]
 ---
 

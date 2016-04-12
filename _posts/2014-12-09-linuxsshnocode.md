@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux下 ssh登录免密码
-category: linux
+category: Linux
 ---
 
 ##前言

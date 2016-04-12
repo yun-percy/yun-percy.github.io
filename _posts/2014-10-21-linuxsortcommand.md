@@ -1,7 +1,7 @@
 ---
 layout: post
 title: sort的用法
-category: shell
+category: Shell
 tags : [shell,sort,排序]
 ---
 

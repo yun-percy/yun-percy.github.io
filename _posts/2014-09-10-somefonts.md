@@ -1,14 +1,14 @@
 ---
 layout: post
 title: 专业设计师最常用的中文字体
-category: photoshop
+category: Photoshop
 ---
 
 原文地址：[http://www.80ue.com/chinese-fonts-for-designer/](http://www.80ue.com/chinese-fonts-for-designer/)
 
 
 <div class="post" id="post-1086">
-			
+
 
 		<div class="entry">
 				以下这些中文字体是我根据一些知名的设计师推荐及网络流行程度收集的，好不好使请自己看。

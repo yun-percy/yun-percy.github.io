@@ -1,7 +1,7 @@
 ---
 layout: post
 title: adb 自动化测试
-category: android
+category: Android
 ---
 
 ###查看常驻内存

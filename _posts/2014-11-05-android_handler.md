@@ -1,7 +1,7 @@
 ---
 layout: post
 title: service中用Handler更新UI
-category: android
+category: Android
 ---
 
 > service里面更新UI还是用Handler好一点，之前一直用broadcast，发现太浪费资源了.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android Makefile 编译过程讲解
-category: android
+category: Android
 ---
 
 ###android make 系统

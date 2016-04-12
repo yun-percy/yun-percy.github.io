@@ -94,7 +94,7 @@ category: Android
         @raw/favicon_bbc
         @raw/thumb_bbc
 
-   
+
 > 对应的图片在 packages\apps\Browser\res\raw
 
 3.LockScreen 解锁界面四个方向添加一个setting入口
@@ -128,7 +128,7 @@ category: Android
 	            final int resId = mGlowPadView.getResourceIdForTarget(target);
 	            switch (resId) {
 	                 case com.android.internal.R.drawable.ic_lockscreen_settings: //启动setting 应用
-	                    launchActivity(new Intent().setComponent(new ComponentName("com.android.settings","com.android.settings.Settings")));   
+	                    launchActivity(new Intent().setComponent(new ComponentName("com.android.settings","com.android.settings.Settings")));
 	                    mCallback.pokeWakelock();
 	                    break;
 
@@ -147,7 +147,7 @@ category: Android
 		        15  // STREAM_TTS
 		    };
 
- 
+
 
 ###进入frameworks/base/media/java/android/media/AudioManager.java
 

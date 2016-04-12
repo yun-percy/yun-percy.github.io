@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 代码布局的一些零碎语法
-category: android
+category: Android
 ---
 
 ###前言

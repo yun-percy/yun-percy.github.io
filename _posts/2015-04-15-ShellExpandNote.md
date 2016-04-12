@@ -1,7 +1,7 @@
 ---
 layout: post
 title: shell 补漏笔记
-category: shell
+category: Shell
 ---
 
 

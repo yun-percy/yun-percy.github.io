@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于作死的java环境变量设置（linux）
-category: linux
+category: Linux
 ---
 
 ###之前

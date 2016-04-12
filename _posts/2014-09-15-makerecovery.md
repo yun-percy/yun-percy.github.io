@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 编译一个自己机型的recovery
-category: android
+category: Android
 ---
 
 原文连接[http://forum.xda-developers.com/showthread.php?t=1866545](http://forum.xda-developers.com/showthread.php?t=1866545)
@@ -25,7 +25,7 @@ category: android
 <center><strong>案例和相关文件路径</strong></center>
 
 + 源码路径：
-	
+
 		～/code/cm-11/
 
 + jdk version : openjdk 1.6
@@ -50,7 +50,7 @@ category: android
 		build/tools/device/mkvendor.sh yusun la2w ./boot.img
 
 3. 如果所有都工作正常，你将看到"Done!"这样的确认信息。<br>mkvendor.sh脚本也将在源码树的device中创建以下目录和文件：
-		
+
 		yusun/la2w(路径)
 		AndroidBoard.mk
 		AndroidProducts.mk
@@ -59,7 +59,7 @@ category: android
 		kernel（内核文件）
 		system.prop
 		recovery.fstab（分区配置表）
-		vendorsetup.sh 
+		vendorsetup.sh
 
 4. 现在你已经拥有相关的配置文件.在源码目录下，在终端下键入以下命令建立起编译环境
 
@@ -74,8 +74,8 @@ category: android
 		make recoveryimage -j4
 		到这里我相信你已经不止一次用到了 -j4或者-j8 或者-j32的命令
 		这个命令是代表编译的线程的意思
-		-j4代表4线程，以此类推，如果你只有4线程，也可用-j32，这个时候等价于-j4 
-		
+		-j4代表4线程，以此类推，如果你只有4线程，也可用-j32，这个时候等价于-j4
+
 3. 这个命令用于编译recovery镜像，你也可以使用下面这个命令建立一个自己的卡刷包
 		make -j4 recoveryzip
 
@@ -92,12 +92,12 @@ category: android
 
 +  如果提示:
 
-		unpackbootimgnotfound. 				  
+		unpackbootimgnotfound.
 		Isyourandroidbuildenvironmentsetupandhavethehosttoolsbeenbuilt?
 		"make -j4 otatools" don't compile all dependencies needed.
 
 解决办法：<br>
-只需将unpackbootimg所在目录out/host/linux-x86/bin加入环境变量即可。 
+只需将unpackbootimg所在目录out/host/linux-x86/bin加入环境变量即可。
 
 + 关于
 
@@ -105,9 +105,9 @@ category: android
 		for product "full_u8833"。 停止。
 		** Don't have a product spec for: 'full_u8833'
 		** Do you have the right repo manifest?
- 
+
 解决办法：<br>
-只是修改源码目录下的vendor/cm/vendorsetup.sh,在 
+只是修改源码目录下的vendor/cm/vendorsetup.sh,在
 
 		add_lunch_combo $combo
 
@@ -120,8 +120,8 @@ category: android
 		done
 
 改好之后执行. build/envsetup.sh
-再执行   lunch	
-	
+再执行   lunch
+
 + 在编译 TWRPrecovery的时候，如果出现fuse冲突,可以先移除extenal中间的fuse文件夹
 
 + 如果出现cp recovery/gui/devices//res  错误，请在devices相关机型下面的boardconfig.mk下面中间添加一句：
@@ -158,7 +158,7 @@ category: android
 
 + 挂载分区失败：<br>
 在boardconfig.mk最后添加：
-		
+
 		# USB Mounting
 		BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 		TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file

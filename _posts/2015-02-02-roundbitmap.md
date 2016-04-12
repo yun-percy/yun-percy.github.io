@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android 圆角Bitmap代码
-category: android
+category: Android
 ---
 
 	//生成圆角图片

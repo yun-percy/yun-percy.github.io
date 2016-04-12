@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux下 解压zip,tar等压缩文件详解
-category: linux
+category: Linux
 tags : [linux,zip ,压缩 ]
 ---
 

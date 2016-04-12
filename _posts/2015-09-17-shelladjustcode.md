@@ -10,10 +10,10 @@ tags : [ linux,shell, 通配符]
 
 		~/shell $ ls
 		a.txt  b.txt  c.old
- 
+
 		~/shell $ ls *.txt
 		a.txt  b.txt
- 
+
 		~/shell $ ls d*.txt
 		ls: 无法访问 d*.txt: 没有那个文件或目录
 
@@ -24,15 +24,15 @@ tags : [ linux,shell, 通配符]
 通配符是由shell处理的（不是由所涉及到命令语句处理的，其实我们在shell各个命令中也没有发现有这些通配符介绍）, 它只会出现在 命令的“参数”里（它不用在 命令名称里， 也不用在 操作符上）。<br>
 当shell在“参数”中遇到了通配符时，shell会将其当作路径或文件名去在磁盘上搜寻可能的匹配：若符合要求的匹配存在，则进行代换(路径扩展)；否则就将该通配符作为一个普通字符传递给“命令”，然后再由命令进行处理。总之，通配符 实际上就是一种shell实现的路径扩展功能。在 通配符被处理后, shell会先完成该命令的重组，然后再继续处理重组后的命令，直至执行该命令。
 
- 
+
 
 我们回过头分析上面命令吧：在第2个命令中，*.txt 实际shell搜索文件,找到了符合条件的文件，命令会变成：
 
-	    ls a.txt b.txt 
+	    ls a.txt b.txt
 
 所以说实际在执行ls 时候传给它的是 `a.txt` `b.txt` .
 
- 
+
 
 而命令3，d*.txt 由于当前目录下面没有这样的文件或目录，直接将`d*.txt` 作为ls 参数，传给了 ls .这个时候”*” 只是一个普通的 ls 参数而已，已经失去了它通配意义。 由于找不到文件，所以会出现：无法访问提示！
 
@@ -47,13 +47,13 @@ shell常见通配符：
 `[!list]` 	匹配 除list 中的任意单一字符	`a[!0-9]b`  a与b之间必须也只能有一个字符, 但不能是阿拉伯数字, 如`axb`, `aab`, `a-b`。<br>
 `[c1-c2]`	匹配 c1-c2 中的任意单一字符 如：`[0-9]` `[a-z]`	`a[0-9]b`  0与9之间必须也只能有一个字符 如`a0b`, `a1b`... `a9b`。<br>
 `{string1,string2,...}`	匹配 sring1 或 string2 (或更多)其一字符串	`a{abc,xyz,123}b`    a与b之间只能是abc或xyz或123这三个字符串之一。<br>
- 
+
 
 需要说明的是：通配符看起来有点象正则表达式语句，但是它与正则表达式不同的，不能相互混淆。把通配符理解为shell 特殊代号字符就可。而且涉及的只有，`*`,`?` `[]` ,`{}` 这几种。
 
- 
 
- 
+
+
 
 二、shell元字符（特殊字符 Meta）
 
@@ -76,7 +76,7 @@ shell 除了有通配符之外，由shell 负责预先先解析后，将处理�
 		!	执行 history 列表中的命令。*
 		加入”*” 都是作用在命令名直接。可以看到shell 元字符，基本是作用在命令上面，用作多命令分割（或者参数分割）。因此看到与通配符有相同的字符，但是实际上作用范围不同。所以不会出现混淆。
 
- 
+
 
 以下是man bash 得到的英文解析：
 
@@ -87,7 +87,7 @@ control operator
               A token that performs a control function.  It is one of the following symbols:
               || & && ; ;; ( ) | <newline>
 
- 
+
 
 三、shell转义符
 
@@ -103,19 +103,19 @@ man bash 英文解释如下：
 		There are three quoting mechanisms: the escape character, single quotes, and double quotes.
 
 实例:
- 
+
 		~/shell $ ls \*.txt
 		ls: 无法访问 *.txt: 没有那个文件或目录
- 
+
 		~/shell $ ls '*.txt'
 		ls: 无法访问 *.txt: 没有那个文件或目录
- 
+
 		~/shell $ ls 'a.txt'
 		a.txt
- 
+
 		~/shell $ ls *.txt
 		a.txt  b.txt
- 
+
 可以看到，加入了转义符 “*”已经失去了通配符意义了。
 
 

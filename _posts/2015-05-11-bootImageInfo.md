@@ -1,7 +1,7 @@
 ---
 layout: post
 title: boot.img的结构，生成，分解与打包
-category: android
+category: Android
 tags : [ boot.img,Android,解包， 打包]
 ---
 
@@ -99,7 +99,7 @@ __Mtk-tools__
 		./unpack-MTK.pl xxx.img   #解包
 		./repack-MTK.pl --boot <kernel> <ramdisk> new-boot.img   #打包
 
-更多命令可以直接参考github上面的README 
+更多命令可以直接参考github上面的README
 
 __mkbootimg_tools__
 
@@ -110,7 +110,7 @@ __mkbootimg_tools__
 		./mkboot boot.img boot #解包
 		./mkboot boot new-boot.img #打包
 
-这个命令很人性化，如果$1为img文件，就解包，如果为目录就打包 
+这个命令很人性化，如果$1为img文件，就解包，如果为目录就打包
 
 __bootimg_tools__
 
@@ -126,14 +126,14 @@ __bootimg_tools__
 		./repack_ramdisk ramdisk new-initramfs.cpio.gz  #与上面相反
 		./boot_info xxxx.img #获xxx.img的信息
 		将 umkbootimg以及 boot_info打出的信息记录下来，下面打包需要用
-		./mkbootimg ---kernel zImage --ramdisk new-initramfs.cpio.gz --pagesize $pagesize --base $base --kernel_offset $kernel_offset --ramdisk_offset $ramdisk_offset --second_offset $second_offset --tags_offset $tags_offset --cmdline "${cmdline}" -o new_boot.img 
+		./mkbootimg ---kernel zImage --ramdisk new-initramfs.cpio.gz --pagesize $pagesize --base $base --kernel_offset $kernel_offset --ramdisk_offset $ramdisk_offset --second_offset $second_offset --tags_offset $tags_offset --cmdline "${cmdline}" -o new_boot.img
 
 
 当然，为了方便程(lan)序（si)员(shi),花了点时间写了两个解包和打包脚本。使用方法
 
-		autounpack.sh boot.img 
+		autounpack.sh boot.img
 		#将会生成 ramdisk，和zImage
-		autounpack.sh boot.img 
+		autounpack.sh boot.img
 		#会根据boot.img的信息，将ramdisk(或者 new-initramfs.cpio.gz)以及zImage打包成new-boot.img
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux下解包 Android system.img方法
-category: android
+category: Android
 ---
 
 
@@ -31,5 +31,5 @@ make_ext4fs、simg2img、mkusering.sh这三个工具可以在源码编译之后�
 命令：
 
 		make_ext4fs -s -l 239M -a system system.img tmp
-  
-关于make_ext4fs、simg2img、mkusering.sh的参数含义可以在终端中直接输入命令，并回车查看。 
+
+关于make_ext4fs、simg2img、mkusering.sh的参数含义可以在终端中直接输入命令，并回车查看。

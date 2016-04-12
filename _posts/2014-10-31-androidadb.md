@@ -1,7 +1,7 @@
 ---
 layout: post
 title: adb查看android系统相关命令
-category: android
+category: Android
 ---
 
 ####其实很多命令我在其它文章中都介绍过了，今天整合一下

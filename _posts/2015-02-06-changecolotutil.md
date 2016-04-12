@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android 变色封装类
-category: android
+category: Android
 ---
 
 工具类的作用，将传人的bitmap转为黑色后输出bitmap，将传入TextView变色后输出

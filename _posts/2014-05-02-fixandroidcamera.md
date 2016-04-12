@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 解决相机移植后像素无法识别完全的bug
-category: android
+category: Android
 ---
 
 

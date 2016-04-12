@@ -1,7 +1,7 @@
 ---
 layout: post
 title: system.img的分解与合并
-category: android
+category: Android
 tags : [Android,system.img,分解与合并 ]
 ---
 

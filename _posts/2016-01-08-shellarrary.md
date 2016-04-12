@@ -1,7 +1,7 @@
 ---
 layout: post
 title: shell 数组操作
-category: shell
+category: Shell
 tags : [linux,shell ,笔记 ]
 ---
 

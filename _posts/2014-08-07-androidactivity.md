@@ -12,13 +12,13 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 
 + 第一种方式
 
-		Intent i = new Intent(); 
-         ComponentName cn = new ComponentName("com.book.android2",  "com.book.android2.AndroidSearch"); 
-         i.setComponent(cn); 
-         i.setAction("android.intent.action.MAIN"); 
-         startActivity(i); //or startActivityForResult(i, RESULT_OK); 
+		Intent i = new Intent();
+         ComponentName cn = new ComponentName("com.book.android2",  "com.book.android2.AndroidSearch");
+         i.setComponent(cn);
+         i.setAction("android.intent.action.MAIN");
+         startActivity(i); //or startActivityForResult(i, RESULT_OK);
 
-> 
+>
 我用这种方法时，绝大部分应用可以启动，但是像RootExplorer却无法启动，出现FC对话框,因此建议使用下面这种方式：
 
 + 第二种方式
@@ -27,11 +27,11 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 	     	it.setClassName("com.speedsoftware.rootexplorer","com.speedsoftware.rootexplorer.RootExplorer");
 	    startActivity(it);
 
-> 
+>
 如果你需要启动一个你自己写的另一个app的activity，你可以在那个的menifest.xml里自定义activity的action:
 其他地方启动它：
 
-		Intent it = new Intent("com.qylk.call.main");   
+		Intent it = new Intent("com.qylk.call.main");
 		startActivity(it);
 
 ###使用adb启动activity：
@@ -48,299 +48,299 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 附（转载）：android系统Action常量(其实不算全)
 -------
 
-####android intent和intent action大全 
+####android intent和intent action大全
 
 
-1. 从google搜索内容 
+1. 从google搜索内容
 
-		Intent intent = new Intent(); 
-		intent.setAction(Intent.ACTION_WEB_SEARCH); 
-		intent.putExtra(SearchManager.QUERY,"searchString") 
-		startActivity(intent); 
+		Intent intent = new Intent();
+		intent.setAction(Intent.ACTION_WEB_SEARCH);
+		intent.putExtra(SearchManager.QUERY,"searchString")
+		startActivity(intent);
 
-2. 浏览网页 
+2. 浏览网页
 
-		Uri uri = Uri.parse("http://www.google.com"); 
-		Intent it  = new Intent(Intent.ACTION_VIEW,uri); 
-		startActivity(it); 
+		Uri uri = Uri.parse("http://www.google.com");
+		Intent it  = new Intent(Intent.ACTION_VIEW,uri);
+		startActivity(it);
 
-3. 显示地图 
+3. 显示地图
 
-		Uri uri = Uri.parse("geo:38.899533,-77.036476"); 
-		Intent it = new Intent(Intent.Action_VIEW,uri); 
-		startActivity(it); 
+		Uri uri = Uri.parse("geo:38.899533,-77.036476");
+		Intent it = new Intent(Intent.Action_VIEW,uri);
+		startActivity(it);
 
-4. 路径规划 
+4. 路径规划
 
-		Uri uri = Uri.parse("http://maps.google.com/maps?f=dsaddr=startLat startLng&daddr=endLat endLng&hl=en"); 
-		Intent it = new Intent(Intent.ACTION_VIEW,URI); 
-		startActivity(it); 
+		Uri uri = Uri.parse("http://maps.google.com/maps?f=dsaddr=startLat startLng&daddr=endLat endLng&hl=en");
+		Intent it = new Intent(Intent.ACTION_VIEW,URI);
+		startActivity(it);
 
-5. 拨打电话 
+5. 拨打电话
 
-		Uri uri = Uri.parse("tel:xxxxxx"); 
-		Intent it = new Intent(Intent.ACTION_DIAL, uri);   
-		startActivity(it); 
+		Uri uri = Uri.parse("tel:xxxxxx");
+		Intent it = new Intent(Intent.ACTION_DIAL, uri);
+		startActivity(it);
 
 
-6. 调用发短信的程序 
+6. 调用发短信的程序
 
-		Intent it = new Intent(Intent.ACTION_VIEW);    
-		it.putExtra("sms_body", "The SMS text");    
-		it.setType("vnd.android-dir/mms-sms");    
-		startActivity(it); 
+		Intent it = new Intent(Intent.ACTION_VIEW);
+		it.putExtra("sms_body", "The SMS text");
+		it.setType("vnd.android-dir/mms-sms");
+		startActivity(it);
 
-7. 发送短信 
+7. 发送短信
 
-		Uri uri = Uri.parse("smsto:0800000123");    
-		Intent it = new Intent(Intent.ACTION_SENDTO, uri);    
-		it.putExtra("sms_body", "The SMS text");    
-		startActivity(it); 
+		Uri uri = Uri.parse("smsto:0800000123");
+		Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+		it.putExtra("sms_body", "The SMS text");
+		startActivity(it);
 
-		String body="this is sms demo"; 
-		Intent mmsintent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("smsto", number, null)); 
-		mmsintent.putExtra(Messaging.KEY_ACTION_SENDTO_MESSAGE_BODY, body); 
-		mmsintent.putExtra(Messaging.KEY_ACTION_SENDTO_COMPOSE_MODE, true); 
-		mmsintent.putExtra(Messaging.KEY_ACTION_SENDTO_EXIT_ON_SENT, true); 
-		startActivity(mmsintent); 
+		String body="this is sms demo";
+		Intent mmsintent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("smsto", number, null));
+		mmsintent.putExtra(Messaging.KEY_ACTION_SENDTO_MESSAGE_BODY, body);
+		mmsintent.putExtra(Messaging.KEY_ACTION_SENDTO_COMPOSE_MODE, true);
+		mmsintent.putExtra(Messaging.KEY_ACTION_SENDTO_EXIT_ON_SENT, true);
+		startActivity(mmsintent);
 
-8.	发送彩信 
+8.	发送彩信
 
-		Uri uri = Uri.parse("content://media/external/images/media/23");    
-		Intent it = new Intent(Intent.ACTION_SEND);    
-		it.putExtra("sms_body", "some text");    
-		it.putExtra(Intent.EXTRA_STREAM, uri);    
-		it.setType("image/png");    
-		startActivity(it); 
+		Uri uri = Uri.parse("content://media/external/images/media/23");
+		Intent it = new Intent(Intent.ACTION_SEND);
+		it.putExtra("sms_body", "some text");
+		it.putExtra(Intent.EXTRA_STREAM, uri);
+		it.setType("image/png");
+		startActivity(it);
 
-		StringBuilder sb = new StringBuilder(); 
-		sb.append("file://"); 
-		sb.append(fd.getAbsoluteFile()); 
-		Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mmsto", number, null)); 
-		// Below extra datas are all optional. 
-		intent.putExtra(Messaging.KEY_ACTION_SENDTO_MESSAGE_SUBJECT, subject); 
-		intent.putExtra(Messaging.KEY_ACTION_SENDTO_MESSAGE_BODY, body); 
-		intent.putExtra(Messaging.KEY_ACTION_SENDTO_CONTENT_URI, sb.toString()); 
-		intent.putExtra(Messaging.KEY_ACTION_SENDTO_COMPOSE_MODE, composeMode); 
-		intent.putExtra(Messaging.KEY_ACTION_SENDTO_EXIT_ON_SENT, exitOnSent); 
-		startActivity(intent); 
+		StringBuilder sb = new StringBuilder();
+		sb.append("file://");
+		sb.append(fd.getAbsoluteFile());
+		Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mmsto", number, null));
+		// Below extra datas are all optional.
+		intent.putExtra(Messaging.KEY_ACTION_SENDTO_MESSAGE_SUBJECT, subject);
+		intent.putExtra(Messaging.KEY_ACTION_SENDTO_MESSAGE_BODY, body);
+		intent.putExtra(Messaging.KEY_ACTION_SENDTO_CONTENT_URI, sb.toString());
+		intent.putExtra(Messaging.KEY_ACTION_SENDTO_COMPOSE_MODE, composeMode);
+		intent.putExtra(Messaging.KEY_ACTION_SENDTO_EXIT_ON_SENT, exitOnSent);
+		startActivity(intent);
 
-9. 发送Email 
+9. 发送Email
 
-		Uri uri = Uri.parse("mailto:xxx@abc.com"); 
-		Intent it = new Intent(Intent.ACTION_SENDTO, uri); 
-		startActivity(it); 
+		Uri uri = Uri.parse("mailto:xxx@abc.com");
+		Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+		startActivity(it);
 
-		Intent it = new Intent(Intent.ACTION_SEND);    
-		it.putExtra(Intent.EXTRA_EMAIL, "me@abc.com");    
-		it.putExtra(Intent.EXTRA_TEXT, "The email body text");    
-		it.setType("text/plain");   
-		 
-		startActivity(Intent.createChooser(it, "Choose Email Client")); 
-		Intent it=new Intent(Intent.ACTION_SEND);      
-		String[] tos={"me@abc.com"};      
-		String[] ccs={"you@abc.com"};      
-		it.putExtra(Intent.EXTRA_EMAIL, tos);      
-		it.putExtra(Intent.EXTRA_CC, ccs);      
-		it.putExtra(Intent.EXTRA_TEXT, "The email body text");      
-		it.putExtra(Intent.EXTRA_SUBJECT, "The email subject text");      
-		it.setType("message/rfc822");      
-		startActivity(Intent.createChooser(it, "Choose Email Client"));    
+		Intent it = new Intent(Intent.ACTION_SEND);
+		it.putExtra(Intent.EXTRA_EMAIL, "me@abc.com");
+		it.putExtra(Intent.EXTRA_TEXT, "The email body text");
+		it.setType("text/plain");
 
-		Intent it = new Intent(Intent.ACTION_SEND);    
-		it.putExtra(Intent.EXTRA_SUBJECT, "The email subject text");    
-		it.putExtra(Intent.EXTRA_STREAM, "file:///sdcard/mysong.mp3");    
-		sendIntent.setType("audio/mp3");    
-		startActivity(Intent.createChooser(it, "Choose Email Client")); 
+		startActivity(Intent.createChooser(it, "Choose Email Client"));
+		Intent it=new Intent(Intent.ACTION_SEND);
+		String[] tos={"me@abc.com"};
+		String[] ccs={"you@abc.com"};
+		it.putExtra(Intent.EXTRA_EMAIL, tos);
+		it.putExtra(Intent.EXTRA_CC, ccs);
+		it.putExtra(Intent.EXTRA_TEXT, "The email body text");
+		it.putExtra(Intent.EXTRA_SUBJECT, "The email subject text");
+		it.setType("message/rfc822");
+		startActivity(Intent.createChooser(it, "Choose Email Client"));
 
-10. 播放多媒体  
+		Intent it = new Intent(Intent.ACTION_SEND);
+		it.putExtra(Intent.EXTRA_SUBJECT, "The email subject text");
+		it.putExtra(Intent.EXTRA_STREAM, "file:///sdcard/mysong.mp3");
+		sendIntent.setType("audio/mp3");
+		startActivity(Intent.createChooser(it, "Choose Email Client"));
 
-		Intent it = new Intent(Intent.ACTION_VIEW); 
-		Uri uri = Uri.parse("file:///sdcard/song.mp3"); 
-		it.setDataAndType(uri, "audio/mp3"); 
-		startActivity(it); 
+10. 播放多媒体
 
-		Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL_CONTENT_URI, "1");    
-		Intent it = new Intent(Intent.ACTION_VIEW, uri);    
-		startActivity(it); 
+		Intent it = new Intent(Intent.ACTION_VIEW);
+		Uri uri = Uri.parse("file:///sdcard/song.mp3");
+		it.setDataAndType(uri, "audio/mp3");
+		startActivity(it);
+
+		Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL_CONTENT_URI, "1");
+		Intent it = new Intent(Intent.ACTION_VIEW, uri);
+		startActivity(it);
 
 11. 卸载
 
-		Uri uri = Uri.fromParts("package", strPackageName, null);    
-		Intent it = new Intent(Intent.ACTION_DELETE, uri);    
-		startActivity(it); 
+		Uri uri = Uri.fromParts("package", strPackageName, null);
+		Intent it = new Intent(Intent.ACTION_DELETE, uri);
+		startActivity(it);
 
 12. 安装
 
-		Uri installUri = Uri.fromParts("package", "xxx", null); 
-		returnIt = new Intent(Intent.ACTION_PACKAGE_ADDED, installUri); 
+		Uri installUri = Uri.fromParts("package", "xxx", null);
+		returnIt = new Intent(Intent.ACTION_PACKAGE_ADDED, installUri);
 
-13. 打开照相机 
+13. 打开照相机
 
-	    Intent i = new Intent(Intent.ACTION_CAMERA_BUTTON, null); 
+	    Intent i = new Intent(Intent.ACTION_CAMERA_BUTTON, null);
 	    this.sendBroadcast(i);
-	 
-	    long dateTaken = System.currentTimeMillis(); 
-	    String name = createName(dateTaken) + ".jpg"; 
-	    fileName = folder + name; 
-	    ContentValues values = new ContentValues(); 
-	    values.put(Images.Media.TITLE, fileName); 
-	    values.put("_data", fileName); 
-	    values.put(Images.Media.PICASA_ID, fileName); 
-	    values.put(Images.Media.DISPLAY_NAME, fileName); 
-	    values.put(Images.Media.DESCRIPTION, fileName); 
-	    values.put(Images.ImageColumns.BUCKET_DISPLAY_NAME, fileName); 
-	    Uri photoUri = getContentResolver().insert( 
-	                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values); 
-	    Intent inttPhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); 
-	    inttPhoto.putExtra(MediaStore.EXTRA_OUTPUT, photoUri); 
-	    startActivityForResult(inttPhoto, 10); 
 
-14. 从gallery选取图片 
+	    long dateTaken = System.currentTimeMillis();
+	    String name = createName(dateTaken) + ".jpg";
+	    fileName = folder + name;
+	    ContentValues values = new ContentValues();
+	    values.put(Images.Media.TITLE, fileName);
+	    values.put("_data", fileName);
+	    values.put(Images.Media.PICASA_ID, fileName);
+	    values.put(Images.Media.DISPLAY_NAME, fileName);
+	    values.put(Images.Media.DESCRIPTION, fileName);
+	    values.put(Images.ImageColumns.BUCKET_DISPLAY_NAME, fileName);
+	    Uri photoUri = getContentResolver().insert(
+	                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+	    Intent inttPhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	    inttPhoto.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+	    startActivityForResult(inttPhoto, 10);
 
-		  Intent i = new Intent(); 
-		  i.setType("image/*"); 
-		  i.setAction(Intent.ACTION_GET_CONTENT); 
-		  startActivityForResult(i, 11); 
+14. 从gallery选取图片
 
-15. 打开录音机 
+		  Intent i = new Intent();
+		  i.setType("image/*");
+		  i.setAction(Intent.ACTION_GET_CONTENT);
+		  startActivityForResult(i, 11);
 
-		   Intent mi = new Intent(Media.RECORD_SOUND_ACTION); 
-		   startActivity(mi); 
+15. 打开录音机
 
-16. 显示应用详细列表       
+		   Intent mi = new Intent(Media.RECORD_SOUND_ACTION);
+		   startActivity(mi);
 
-		Uri uri = Uri.parse("market://details?id=app_id");         
-		Intent it = new Intent(Intent.ACTION_VIEW, uri);         
-		startActivity(it);         
-     
-17. 寻找应用    
+16. 显示应用详细列表
 
-	> 刚才找app id未果，结果发现用package name也可以 
+		Uri uri = Uri.parse("market://details?id=app_id");
+		Intent it = new Intent(Intent.ACTION_VIEW, uri);
+		startActivity(it);
 
-		Uri uri = Uri.parse("market://details?id="); 
+17. 寻找应用
 
-	> 这个简单多了 
- 
-		Uri uri = Uri.parse("market://search?q=pname:pkg_name");         
-		Intent it = new Intent(Intent.ACTION_VIEW, uri);         
-		startActivity(it); 
-     
-18. 打开联系人列表   
+	> 刚才找app id未果，结果发现用package name也可以
 
-           Intent i = new Intent(); 
-           i.setAction(Intent.ACTION_GET_CONTENT); 
-           i.setType("vnd.android.cursor.item/phone"); 
-           startActivityForResult(i, REQUEST_TEXT); 
+		Uri uri = Uri.parse("market://details?id=");
 
-            Uri uri = Uri.parse("content://contacts/people"); 
-            Intent it = new Intent(Intent.ACTION_PICK, uri); 
-            startActivityForResult(it, REQUEST_TEXT); 
+	> 这个简单多了
 
-20. 调用系统编辑添加联系人（高版本SDK有效）： 
+		Uri uri = Uri.parse("market://search?q=pname:pkg_name");
+		Intent it = new Intent(Intent.ACTION_VIEW, uri);
+		startActivity(it);
 
-  		Intent it = new Intent(Intent.ACTION_INSERT_OR_EDIT); 
-                it.setType("vnd.android.cursor.item/contact"); 
-                // it.setType(Contacts.CONTENT_ITEM_TYPE); 
-                it.putExtra("name", "myName"); 
-                it.putExtra(android.provider.Contacts.Intents.Insert.COMPANY,  "organization"); 
-                it.putExtra(android.provider.Contacts.Intents.Insert.EMAIL, "email"); 
-                it.putExtra(android.provider.Contacts.Intents.Insert.PHONE,"homePhone"); 
-                it.putExtra( android.provider.Contacts.Intents.Insert.SECONDARY_PHONE, 
-                                "mobilePhone"); 
-                it.putExtra(  android.provider.Contacts.Intents.Insert.TERTIARY_PHONE, 
-                                "workPhone"); 
-                it.putExtra(android.provider.Contacts.Intents.Insert.JOB_TITLE,"title"); 
-                startActivity(it); 
+18. 打开联系人列表
 
-21.	调用系统编辑添加联系人（全有效）： 
+           Intent i = new Intent();
+           i.setAction(Intent.ACTION_GET_CONTENT);
+           i.setType("vnd.android.cursor.item/phone");
+           startActivityForResult(i, REQUEST_TEXT);
 
-		Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT); 
-            intent.setType(People.CONTENT_ITEM_TYPE); 
-            intent.putExtra(Contacts.Intents.Insert.NAME, "My Name"); 
-            intent.putExtra(Contacts.Intents.Insert.PHONE, "+1234567890"); 
-            intent.putExtra(Contacts.Intents.Insert.PHONE_TYPE, Contacts.PhonesColumns.TYPE_MOBILE); 
-            intent.putExtra(Contacts.Intents.Insert.EMAIL, "com@com.com"); 
-            intent.putExtra(Contacts.Intents.Insert.EMAIL_TYPE, Contacts.ContactMethodsColumns.TYPE_WORK); 
-            startActivity(intent); 
+            Uri uri = Uri.parse("content://contacts/people");
+            Intent it = new Intent(Intent.ACTION_PICK, uri);
+            startActivityForResult(it, REQUEST_TEXT);
 
+20. 调用系统编辑添加联系人（高版本SDK有效）：
 
+  		Intent it = new Intent(Intent.ACTION_INSERT_OR_EDIT);
+                it.setType("vnd.android.cursor.item/contact");
+                // it.setType(Contacts.CONTENT_ITEM_TYPE);
+                it.putExtra("name", "myName");
+                it.putExtra(android.provider.Contacts.Intents.Insert.COMPANY,  "organization");
+                it.putExtra(android.provider.Contacts.Intents.Insert.EMAIL, "email");
+                it.putExtra(android.provider.Contacts.Intents.Insert.PHONE,"homePhone");
+                it.putExtra( android.provider.Contacts.Intents.Insert.SECONDARY_PHONE,
+                                "mobilePhone");
+                it.putExtra(  android.provider.Contacts.Intents.Insert.TERTIARY_PHONE,
+                                "workPhone");
+                it.putExtra(android.provider.Contacts.Intents.Insert.JOB_TITLE,"title");
+                startActivity(it);
 
-23. 最基本的share 信息的intent，可以传一段text信息到各个手机上已安装程序：如SMS，Email，sina微波，米聊，facebook，twitter等等 
+21.	调用系统编辑添加联系人（全有效）：
 
-            Intent it = new Intent(Intent.ACTION_SEND);     
-    		it.putExtra(Intent.EXTRA_TEXT, "The email subject text"); 
-            it.setType("text/plain"); 
-            startActivity(Intent.createChooser(it, "Choose Email Client")); 
-          
-
-####★intent action大全： 
+		Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
+            intent.setType(People.CONTENT_ITEM_TYPE);
+            intent.putExtra(Contacts.Intents.Insert.NAME, "My Name");
+            intent.putExtra(Contacts.Intents.Insert.PHONE, "+1234567890");
+            intent.putExtra(Contacts.Intents.Insert.PHONE_TYPE, Contacts.PhonesColumns.TYPE_MOBILE);
+            intent.putExtra(Contacts.Intents.Insert.EMAIL, "com@com.com");
+            intent.putExtra(Contacts.Intents.Insert.EMAIL_TYPE, Contacts.ContactMethodsColumns.TYPE_WORK);
+            startActivity(intent);
 
 
-> ACTION_MAIN                         作为一个主要的进入口，而并不期望去接受数据 
-> 
-> ACTION_VIEW                         向用户去显示数据 
-> 
-> ACTION_ATTACH_DATA                  用于指定一些数据应该附属于一些其他的地方，例如，图片数据应该附属于联系人 
-> 
-> ACTION_EDIT                         访问已给的数据，提供明确的可编辑 
-> 
-> ACTION_PICK                         从数据中选择一个子项目，并返回你所选中的项目 
-> 
-> ACTION_CHOOSER                      显示一个activity选择器，允许用户在进程之前选择他们想要的 
-> 
-> ACTION_GET_CONTENT                  允许用户选择特殊种类的数据，并返回（特殊种类的数据：照一张相片或录一段音） 
-> 
-> ACTION_DIAL                         拨打一个指定的号码，显示一个带有号码的用户界面，允许用户去启动呼叫 
-> 
-> ACTION_CALL                         根据指定的数据执行一次呼叫（ACTION_CALL在应用中启动一次呼叫有缺陷，多数应用ACTION_DIAL，ACTION_CALL不能用在紧急呼叫上，紧急呼叫可以用ACTION_DIAL来实现） 
-> 
-> ACTION_SEND                         传递数据，被传送的数据没有指定，接收的action请求用户发数据 
-> 
-> ACTION_SENDTO                       发送一跳信息到指定的某人 
-> 
-> ACTION_ANSWER                       处理一个打进电话呼叫 
-> 
-> ACTION_INSERT                       插入一条空项目到已给的容器 
-> 
-> ACTION_DELETE                       从容器中删除已给的数据 
-> 
-> ACTION_RUN                          运行数据，无论怎么 
-> 
-> ACTION_SYNC                         同步执行一个数据 
-> 
-> ACTION_PICK_ACTIVITY                为已知的Intent选择一个Activity，返回选中的类 
-> 
-> ACTION_SEARCH                       执行一次搜索 
-> 
-> ACTION_WEB_SEARCH                   执行一次web搜索 
-> 
-> ACTION_FACTORY_TEST                 工场测试的主要进入点， 
+
+23. 最基本的share 信息的intent，可以传一段text信息到各个手机上已安装程序：如SMS，Email，sina微波，米聊，facebook，twitter等等
+
+            Intent it = new Intent(Intent.ACTION_SEND);
+    		it.putExtra(Intent.EXTRA_TEXT, "The email subject text");
+            it.setType("text/plain");
+            startActivity(Intent.createChooser(it, "Choose Email Client"));
+
+
+####★intent action大全：
+
+
+> ACTION_MAIN                         作为一个主要的进入口，而并不期望去接受数据
+>
+> ACTION_VIEW                         向用户去显示数据
+>
+> ACTION_ATTACH_DATA                  用于指定一些数据应该附属于一些其他的地方，例如，图片数据应该附属于联系人
+>
+> ACTION_EDIT                         访问已给的数据，提供明确的可编辑
+>
+> ACTION_PICK                         从数据中选择一个子项目，并返回你所选中的项目
+>
+> ACTION_CHOOSER                      显示一个activity选择器，允许用户在进程之前选择他们想要的
+>
+> ACTION_GET_CONTENT                  允许用户选择特殊种类的数据，并返回（特殊种类的数据：照一张相片或录一段音）
+>
+> ACTION_DIAL                         拨打一个指定的号码，显示一个带有号码的用户界面，允许用户去启动呼叫
+>
+> ACTION_CALL                         根据指定的数据执行一次呼叫（ACTION_CALL在应用中启动一次呼叫有缺陷，多数应用ACTION_DIAL，ACTION_CALL不能用在紧急呼叫上，紧急呼叫可以用ACTION_DIAL来实现）
+>
+> ACTION_SEND                         传递数据，被传送的数据没有指定，接收的action请求用户发数据
+>
+> ACTION_SENDTO                       发送一跳信息到指定的某人
+>
+> ACTION_ANSWER                       处理一个打进电话呼叫
+>
+> ACTION_INSERT                       插入一条空项目到已给的容器
+>
+> ACTION_DELETE                       从容器中删除已给的数据
+>
+> ACTION_RUN                          运行数据，无论怎么
+>
+> ACTION_SYNC                         同步执行一个数据
+>
+> ACTION_PICK_ACTIVITY                为已知的Intent选择一个Activity，返回选中的类
+>
+> ACTION_SEARCH                       执行一次搜索
+>
+> ACTION_WEB_SEARCH                   执行一次web搜索
+>
+> ACTION_FACTORY_TEST                 工场测试的主要进入点，
 
 
 标准的广播Actions
------------ 
+-----------
 
-> ACTION_TIME_TICK                   当前时间改变，每分钟都发送，不能通过组件声明来接收，只有通过Context.registerReceiver()方法来注册 
-> 
-> ACTION_TIME_CHANGED                时间被设置 
-> 
-> ACTION_TIMEZONE_CHANGED            时间区改变 
-> 
-> ACTION_BOOT_COMPLETED              系统完成启动后，一次广播 
-> 
-> ACTION_PACKAGE_ADDED               一个新应用包已经安装在设备上，数据包括包名（最新安装的包程序不能接收到这个广播） 
-> 
-> ACTION_PACKAGE_CHANGED             一个已存在的应用程序包已经改变，包括包名 
-> 
-> ACTION_PACKAGE_REMOVED             一个已存在的应用程序包已经从设备上移除，包括包名（正在被安装的包程序不能接收到这个广播） 
-> 
-> ACTION_PACKAGE_RESTARTED           用户重新开始一个包，包的所有进程将被杀死，所有与其联系的运行时间状态应该被移除，包括包名（重新开始包程序不能接收到这个广播） 
-> 
-> ACTION_PACKAGE_DATA_CLEARED        用户已经清除一个包的数据，包括包名（清除包程序不能接收到这个广播） 
-> 
-> ACTION_BATTERY_CHANGED             电池的充电状态、电荷级别改变，不能通过组建声明接收这个广播，只有通过Context.registerReceiver()注册 
-> 
+> ACTION_TIME_TICK                   当前时间改变，每分钟都发送，不能通过组件声明来接收，只有通过Context.registerReceiver()方法来注册
+>
+> ACTION_TIME_CHANGED                时间被设置
+>
+> ACTION_TIMEZONE_CHANGED            时间区改变
+>
+> ACTION_BOOT_COMPLETED              系统完成启动后，一次广播
+>
+> ACTION_PACKAGE_ADDED               一个新应用包已经安装在设备上，数据包括包名（最新安装的包程序不能接收到这个广播）
+>
+> ACTION_PACKAGE_CHANGED             一个已存在的应用程序包已经改变，包括包名
+>
+> ACTION_PACKAGE_REMOVED             一个已存在的应用程序包已经从设备上移除，包括包名（正在被安装的包程序不能接收到这个广播）
+>
+> ACTION_PACKAGE_RESTARTED           用户重新开始一个包，包的所有进程将被杀死，所有与其联系的运行时间状态应该被移除，包括包名（重新开始包程序不能接收到这个广播）
+>
+> ACTION_PACKAGE_DATA_CLEARED        用户已经清除一个包的数据，包括包名（清除包程序不能接收到这个广播）
+>
+> ACTION_BATTERY_CHANGED             电池的充电状态、电荷级别改变，不能通过组建声明接收这个广播，只有通过Context.registerReceiver()注册
+>
 > ACTION_UID_REMOVED      一个用户ID已经从系统中移除
 
 
@@ -372,11 +372,11 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 		android.settings.WIFI_SETTINGS
 		android.settings.WIRELESS_SETTINGS
 
-> 
+>
 > 在android SDK文档中有这样一个类，android.provider.Settings类提供android系统各个页面的跳转常量：
-> 
+>
 > 使用实例例：startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS))，即可跳到android手机网络设置页面。
-> 
+>
 > 如果要launch Mobile Networks Setting页面按如下方法：
 
 		Intent intent=new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
@@ -456,7 +456,7 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 		显示设置，以允许Wi – Fi配置 Activity Action: Show settings to allow configuration of Wi-Fi.
 		String ACTION_WIRELESS_SETTINGS
 		显示设置，以允许配置，如Wi – Fi，蓝牙和移动网络的无线控制 Activity Action: Show settings to allow configuration of wireless controls such as Wi-Fi, Bluetooth and Mobile networks.
-		String AUTHORITY 
+		String AUTHORITY
 		String EXTRA_AUTHORITIES
 		在推出活动的基础上给予的权力限制可选项。 Activity Extra: Limit available options in launched activity based on the given authority.
 		String EXTRA_INPUT_METHOD_ID

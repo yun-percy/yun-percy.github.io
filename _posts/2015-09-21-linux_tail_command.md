@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux tail命令的使用方法详解
-category: shell
+category: Shell
 tags : [linux,shell ,tail ]
 ---
 

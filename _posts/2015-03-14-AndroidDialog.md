@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于Dialog的学习
-category: android
+category: Android
 ---
 
 这里的Dialog是用的AlertDialog.build实现的，而且，支持多种方式自定义

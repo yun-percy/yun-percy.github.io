@@ -50,15 +50,15 @@ category: Linux
 <p>via: <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a></p>
 <p>作者：<a href="http://www.unixmen.com/author/seth/">Enock Seth Nyamador</a> 译者：<a href="https://github.com/su-kaiyao">su-kaiyao</a> 校对：<a href="https://github.com/carolinewuyan">Caroline</a></p>
 <p>本文由 <a href="https://github.com/LCTT/TranslateProject">LCTT</a> 原创翻译，<a href="http://linux.cn/">Linux中国</a> 荣誉推出</p>
-  				
+
 <div class="copyright">
     <div>来源： unixmen</div>    <div>
     	原文： <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/" target="_blank">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a>&nbsp;&nbsp;&nbsp;&nbsp;    	作者： Enock Seth Nyamador    </div>
-    
+
     <div>
     	    	译者： su-kaiyao    </div>
 
                 	<div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3741-1.html">http://linux.cn/article-3741-1.html</a></href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div>
-                	
+
 </div>
 </td>

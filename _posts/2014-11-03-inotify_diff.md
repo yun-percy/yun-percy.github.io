@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 文件夹检测，同步实例
-category: linux
+category: Linux
 ---
 
 > 为了防止被黑化，我这里只讲 如何利用inotify+shell+diff进行文件夹的监控，实现简单的同步功能。

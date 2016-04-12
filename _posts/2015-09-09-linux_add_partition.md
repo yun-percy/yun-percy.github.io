@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linunx 扩充HOME目录的方法
-category: linux
+category: Linux
 tags : [ linux,home,目录]
 ---
 

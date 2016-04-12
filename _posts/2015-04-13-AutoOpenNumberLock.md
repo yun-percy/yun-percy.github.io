@@ -15,7 +15,7 @@ category: Linux
 2.  编辑配置文件：
 
         sudo gedit /etc/lightdm/lightdm.conf
-    
+
 最后一行加入：
 
         greeter-setup-script=/usr/bin/numlockx on

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 终端中的乐趣：6个有趣的Linux命令行工具
-category: linux
+category: Linux
 ---
 
 <td id="article_content"><p>之前, 我们展示了一些有关有趣的 Linux 命令行命令的文章, 这些文章告诉我们, Linux 并不像看起来那样复杂, 如果我们知道如何使用的话, 反而会非常有趣. Linux 命令行可以简洁而完美地执行一些复杂的任务, 并且十分有趣.</p>

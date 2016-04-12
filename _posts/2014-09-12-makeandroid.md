@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "编译一个android ROM中文指南"
-category: android
+category: Android
 ---
 
 ###关于 [Android](http://baike.baidu.com/subview/1241829/9322617.htm?fr=aladdin)
@@ -30,14 +30,14 @@ android是一个开源系统，意味着任何人都可以参与到android的开
 -----------------
 
 ###1. 准备设备私有文件
-	
+
 如果你的设备是CM官方支持的机型，那么私有文件肯定是可以在github上找到的，你可以直接在github上搜索：
-		
+
 		android_devices_xxxx_xxxx
 		android_kernel_xxxx_xxxx
 
 比如oppo的find7 你就可以分别搜索：
-		
+
 		android_devices_oppo_find7
 		android_kernel_oppo_find7
 
@@ -45,7 +45,7 @@ android是一个开源系统，意味着任何人都可以参与到android的开
 
 		git clone 网址
 
-###2. 安装SDK	
+###2. 安装SDK
 
 SDK是包含在ADT中的，所以你可以百度“ADT”然后进入下载ADT得到，如果下载不下来，或者某个网页打不来，呵呵，你懂的，请自行准备梯子FQ。<br/>下载得到的adt压缩包和，解压得到一个sdk文件夹和eclipse文件夹，解压开放在你的用户目录。<br/>
 另外，建议将sdk/platform-tools加入系统环境变量，这样你就可以adb和fastboot了。
@@ -61,7 +61,7 @@ SDK是包含在ADT中的，所以你可以百度“ADT”然后进入下载ADT�
 ###4.建立文件夹，准备获取代码
 
 直接在终端里输入：
-		
+
 		mkdir -p ~/bin
 		mkdir -p ~/code
 
@@ -100,11 +100,11 @@ SDK是包含在ADT中的，所以你可以百度“ADT”然后进入下载ADT�
 		./get-prebuilts
 
 上面两步是为了获取预制资源，一般是终端什么的，也可以跳过,如果你执行了上面一步，在执行下一步之前，你需要回到源码目录下：
-		
+
 		cd ~/code/cm-11
 
 然后再继续
-		
+
 		. build/envsetup.sh
 
 初始化所有编译环境，将编译脚本加载到终端
@@ -134,12 +134,12 @@ SDK是包含在ADT中的，所以你可以百度“ADT”然后进入下载ADT�
 
 
 一个个字码起来的，转载请保留原地址：[http://yun-percy.github.io/android/2014/09/12/makeandroid.html](http://yun-percy.github.io/android/2014/09/12/makeandroid.html)
-		
 
 
 
 
-	
+
+
 
 
 

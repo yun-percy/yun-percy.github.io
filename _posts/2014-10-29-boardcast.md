@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 广播的注册发送和接受
-category: android
+category: Android
 ---
 
 ###发送

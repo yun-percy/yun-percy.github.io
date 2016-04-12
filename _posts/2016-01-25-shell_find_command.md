@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux,shell,find拾遗
-category: shell
+category: Shell
 tags : [linux,shell ,find ]
 ---
 

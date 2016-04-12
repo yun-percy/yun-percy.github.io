@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一些Android的零碎语法
-category: android
+category: Android
 ---
 
 

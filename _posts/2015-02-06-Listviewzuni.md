@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android 阻尼回弹 ListView控件
-category: android
+category: Android
 ---
 
 [原帖地址](http://my.oschina.net/helu/blog/145502)

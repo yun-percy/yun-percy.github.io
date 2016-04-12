@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 高通平台android
-category: android
+category: Android
 ---
 
 

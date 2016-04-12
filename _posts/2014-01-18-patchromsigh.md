@@ -26,18 +26,18 @@ category: Android
     LewaSecurity2.apk
     NetworkLocation.apk
     LewaQrcodeScanner.apk
-    
+
     Use '-e =' to specify a key (which may be an
     empty string to not sign this apk).
     Build full ota package: /home/lixin/code/lewa/finder/out/fullota.zip
     unzipping target target-files...
     warning [/home/lixin/code/lewa/finder/out/target_files.zip]:  zipfile is empty
-    
+
     ERROR: failed to unzip input target-files "/home/lixin/code/lewa/finder/out/target_files.zip"
-    
+
     cp: 无法获取"/home/lixin/code/lewa/finder/out/fullota.zip" 的文件状态(stat): 没有那个文件或目录
     make: *** [fullota] 错误 1
-    
+
 
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 设置默认的shell
-category: linux
+category: Linux
 tags : [shell,bash,zsh,linux ]
 ---
 
@@ -19,7 +19,7 @@ tags : [shell,bash,zsh,linux ]
 首先你要知道你的shell在哪里，比如我想设置bash为默认shell
 
 	～$ which bash   #获取shell路径
-	/usr/bin/bash 
+	/usr/bin/bash
 	~$ chsh
 	passwd:
 然后将你的shell路劲输入即可

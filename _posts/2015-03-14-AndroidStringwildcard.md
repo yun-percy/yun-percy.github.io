@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android 中 字符替代的用法
-category: android
+category: Android
 ---
 
 一. 使用xliff的用法：

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于 recovrey 图片的说明
-category: android
+category: Android
 tags : [ linux,Android,recovery， 图片]
 ---
 

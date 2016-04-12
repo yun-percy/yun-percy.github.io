@@ -1,7 +1,7 @@
 ---
 layout: post
 title: for循环的应用（shell）
-category: shell
+category: Shell
 ---
 
 for循环遍历语句

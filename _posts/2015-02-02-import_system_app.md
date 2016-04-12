@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 将系统应用导入eclipse进行开发
-category: android
+category: Android
 ---
 
 文章为转载，[原文地址](http://www.hovercool.com/en/%E5%B0%86packages/apps/%E4%B8%8B%E7%9A%84app%E5%AF%BC%E5%85%A5eclipse#a_1.E3.80.81.E5.B0.86Settings.E6.95.B4.E4.B8.AA.E6.96.87.E4.BB.B6.E5.A4.B9.E6.8B.B7.E8.B4.9D.E4.B8.80.E4.BB.BD.E5.A4.87.E7.94.A8)

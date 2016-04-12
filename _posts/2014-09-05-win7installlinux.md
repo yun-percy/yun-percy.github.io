@@ -1,7 +1,7 @@
 ---
 layout: post
 title: win7下使用easybcd硬盘安装linux+分区建议
-category: linux
+category: Linux
 ---
 
 

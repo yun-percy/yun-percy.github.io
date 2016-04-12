@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android Recovery 编译中常见问题
-category: android
+category: Android
 tags : [ Android,recovery,编译,bug ]
 ---
 
@@ -42,7 +42,7 @@ OTA失败
 
 		ls -al /dev/block/platform/????/by-name
 
-对比发现 system本来对应的分区 mmcblk0p24在手机上给对应成了 
+对比发现 system本来对应的分区 mmcblk0p24在手机上给对应成了
 
 	/dev/block/platform/????/by-name/APP
 
@@ -87,7 +87,7 @@ __颜色值不对__
 实际上还有两种：
 
 		TAGET_RECOVERY_PIXEL_FORMAT : "BGRA_8888"
-		TAGET_RECOVERY_PIXEL_FORMAT : "ABGR_8888"	
+		TAGET_RECOVERY_PIXEL_FORMAT : "ABGR_8888"
 
 三种换着来就可以解决。
 
@@ -130,11 +130,11 @@ __触摸屏不工作__
 	P: Phys=
 	S: Sysfs=/devices/virtual/input/input2
 	U: Uniq=
-	H: Handlers=event2 
+	H: Handlers=event2
 	B: PROP=2
 	B: EV=b
 	B: KEY=4000 0 0 0 0
-	B: ABS=6618000 0	
+	B: ABS=6618000 0
 
 我们看到了，这个Name叫 atmxt-i2c没有工作，去官方包里查了下atmxt_i2c，原来moto自写了一套触摸屏校准文件。于是将这些
 atmxt-i2c.idc和atmxt-i2c.kl放进device/moto/minnow/recovery/root里面做内置，结果可想而知，肯定失败了。

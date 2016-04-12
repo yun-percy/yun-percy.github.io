@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 转载：4 款漂亮的 Linux 图标主题
-category: linux
+category: Linux
 ---
 
 
@@ -28,11 +28,11 @@ category: linux
 <p>可以下载手动安装，通过gnome-look下载（链接如下）或通过nitrux艺术品PPA：</p>
 <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">sudo add</span><span class="pun">-</span><span class="pln">apt</span><span class="pun">-</span><span class="pln">repository ppa</span><span class="pun">:</span><span class="pln">nitrux</span><span class="pun">/</span><span class="pln">nitrux</span><span class="pun">-</span><span class="pln">artwork</span></li><li class="L1"><span class="pln">sudo apt</span><span class="pun">-</span><span class="kwd">get</span><span class="pln"> update</span></li><li class="L2"><span class="pln">sudo apt</span><span class="pun">-</span><span class="kwd">get</span><span class="pln"> install compass</span><span class="pun">-</span><span class="pln">icon</span><span class="pun">-</span><span class="pln">theme</span></li></ol></pre>
 <p><a href="http://gnome-look.org/content/show.php/Compass?content=160629" target="_blank">Compass 主题下载</a></p>
-  				
+
 <div class="copyright">
     <div>来源： IMCN</div>    <div>
     	原文： <a href="http://imcn.me/html/y2014/21831.html" target="_blank">http://imcn.me/html/y2014/21831.html</a>&nbsp;&nbsp;&nbsp;&nbsp;    	    </div>
-    
+
     <div>
     	    	    </div>
 

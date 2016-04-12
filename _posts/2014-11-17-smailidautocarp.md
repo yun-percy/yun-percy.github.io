@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于源码到smail id值的自动获取
-category: android
+category: Android
 ---
 
 ###麻烦

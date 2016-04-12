@@ -1,7 +1,7 @@
 ---
 layout: post
 title: cp命令详解【转】
-category: shell
+category: Shell
 ---
 [原帖地址](http://www.linuxso.com/command/cp.html)
 

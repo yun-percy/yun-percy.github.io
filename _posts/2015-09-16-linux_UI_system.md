@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 五个你可能闻所未闻的出色的 Ubuntu 替代发行版
-category: linux
+category: Linux
 tags : [ linux,UI,系统 ]
 ---
 
@@ -51,12 +51,12 @@ tags : [ linux,UI,系统 ]
 <p><strong>如此说来，这些是最华丽的发行版吗?</strong></p>
 <p>你觉得如何？你会将哪些造型美观的 Linux 发行版推荐给喜欢赏心悦目的操作系统的人士？还是说你会安装一个不同的桌面？欢迎留言交流！</p>
 <p class="copyright">
-    	 
+
     		    			<span class="z">来源：51CTO &nbsp;&nbsp;</span>    			<span class="z">原文：<a href="http://www.makeuseof.com/tag/five-stunning-ubuntu-alternatives-youve-never-heard/" target="_blank" class="ext" rel="external nofollow">http://www.makeuseof.com/tag/five-stunning-ubuntu-alternatives-youve-never-heard/</a></span>
     		    		<span class="y">作者： Christian Cawley</span>    		<br class="clear">
     	    	<span class="z">译文：<a href="http://os.51cto.com/art/201509/491243.htm" target="_blank" class="ext" rel="external nofollow">http://os.51cto.com/art/201509/491243.htm</a></span>
 <span class="y">译者： 布加迪</span>    		<br class="clear">
     	</p>
 
-  				
+
 </div>

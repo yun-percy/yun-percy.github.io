@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux桌面环境的安装
-category: linux
+category: Linux
 ---
 
 ###elementary OS 桌面环境的安装：

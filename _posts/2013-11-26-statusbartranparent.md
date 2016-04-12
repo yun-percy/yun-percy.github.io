@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Android 4.0-4.3 状态栏全透明教程（源码） 
-category: android
+title: Android 4.0-4.3 状态栏全透明教程（源码）
+category: Android
 ---
 
 
@@ -19,7 +19,7 @@ android4.0到4.3
 >
 首先找到android/frameworks/base/policy/src/com/android/internal/policy/impl中的PhoneWindowManager.java类
 然后找到 public int getSystemDecorRectLw(Rect systemRect) 的方法
-> 原来的方法内容是： 
+> 原来的方法内容是：
 
 		public int getSystemDecorRectLw(Rect systemRect) {
 		        systemRect.left = mSystemLeft;
@@ -31,7 +31,7 @@ android4.0到4.3
 		        return 0;
 		    }
 
-> 
+>
 在这里修改该方法为
 
 		public int getSystemDecorRectLw(Rect systemRect) {

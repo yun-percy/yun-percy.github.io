@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android获取分区信息
-category: android
+category: Android
 tags : [ 分区, adb,Android ]
 ---
 
