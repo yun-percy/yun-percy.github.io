@@ -75,6 +75,50 @@ category: TimeLine
             <p class="attribution">2015年04月23日</p>
         </div>
     </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我坐在左手边的座位上/海在右手边/如水的日子总是流淌得很快/你说这样挺好/说不定下次还能这样过</p>
+            </div>
+            <p class="attribution">2015年04月08日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>在某个回家的夜晚，发现自己手上重新沾满了雨水，就这样，吹着口哨，走了5站路。</p>
+            </div>
+            <p class="attribution">2015年04月08日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>夜晚之于叹息，像是岁月带不走的忧愁与美丽</p>
+            </div>
+            <p class="attribution">2015年04月07日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>愿岁月抹去我的故事，愿我所有的诗句归于尘土</p>
+            </div>
+            <p class="attribution">2015年02月27日</p>
+        </div>
+    </article>
 
 
 
