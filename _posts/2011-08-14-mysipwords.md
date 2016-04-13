@@ -295,6 +295,139 @@ category: TimeLine
             <p class="attribution">2012年10月28日</p>
         </div>
     </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>夜里的虫鸣再外扩张一点/我就能忘记了/有多久这样/安然舒适的看着自己/躺下仅仅为了休息/醒着仅仅为了更好的看见自己</p>
+            </div>
+            <p class="attribution">2012年10月10日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>他们两个并排躺着，像两个互相安慰的死者，面对着秋天的田野……</p>
+            </div>
+            <p class="attribution">2012年10月04日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我们走过亿亿万万的山峦，穿过重重叠叠的迷雾，重复着纷纷扬扬的碎梦。早安，那些个惊醒的清晨</p>
+            </div>
+            <p class="attribution">2012年09月22日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我在清晨的时候出发/去经历一段旅途/在雾气渐渐散去的田野里/我已看不到播种的希望/车鸣碾过一层又一层稀薄的空气/远方只剩下无声无息</p>
+            </div>
+            <p class="attribution">2012年10月28日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>你深陷在人群中,望着我,在夕阳下，写满疲倦</p>
+            </div>
+            <p class="attribution">2012年09月15日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我在自己四周封闭的世界里，眼看着世界渐渐昏暗下去，骨骼渐渐长满霉菌</p>
+            </div>
+            <p class="attribution">2012年09月13日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>夜晚因为脆弱而美丽，像是远处的一点灯火，照亮的不仅仅是回家的路</p>
+            </div>
+            <p class="attribution">2012年08月03日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我们闭上疲倦的双眼/谁看到了梦中雪白的湖？/我打开雨水和天空/把幽远的秘密和诗歌撒在人间/我们都记不起橡皮泥的味道</p>
+            </div>
+            <p class="attribution">2012年07月25日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我们在车上看一路阳光/闷热的空气掉进去一个/深色的洞里/没有温度、没有声音/一切都令人恼怒而不可言</p>
+            </div>
+            <p class="attribution">2012年07月21日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我们看循环往复的季节、公交车/ 却不知道搭哪辆车去哪个地方/我们看着自己苍老而古板/时间是一个静止的隧道或公式……</p>
+            </div>
+            <p class="attribution">2012年07月16日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我们躺在水底/ 看星空在头顶荡漾/ 我们储藏好诗歌、舞蹈和篝火/等待谁来喝下我面前的交杯酒？</p>
+            </div>
+            <p class="attribution">2012年07月07日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>窗台上的那盆小玫瑰突然的冒出了一朵黄玫瑰，生命给我们的惊喜远不止这些。</p>
+            </div>
+            <p class="attribution">2012年06月07日</p>
+        </div>
+    </article>
+
 
 
 
