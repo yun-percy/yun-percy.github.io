@@ -191,9 +191,108 @@ category: TimeLine
         </a>
         <div class="comment-body">
             <div class="text">
-              <p>  暮霭沉沉的一片湖水/是归途中央的斑马线/太阳过去，行人过去/当我想你时/远没有什么比这来得更加巧妙/归途是重复最初的选择/就像爱你永远都不会消散</p>
+              <p>暮霭沉沉的一片湖水/是归途中央的斑马线/太阳过去，行人过去/当我想你时/远没有什么比这来得更加巧妙/归途是重复最初的选择/就像爱你永远都不会消散</p>
             </div>
-            <p class="attribution">2014年06月30日</p>
+            <p class="attribution">2013年06月30日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>有时候能够木讷的看到/自己空洞的身体/和莲藕一起枯萎了</p>
+            </div>
+            <p class="attribution">2013年05月25日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>散落一地，夜色凉</p>
+            </div>
+            <p class="attribution">2013年01月25日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我穿过黑暗，回到家乡，满带一身疲倦。</p>
+            </div>
+            <p class="attribution">2013年01月19日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>田野里只剩下黄土，我们的内心只剩下挣扎和无尽的等待，但最终，我们都会消失在这世界，融化在泥土里，然后像春花一样，灿烂的重来</p>
+            </div>
+            <p class="attribution">2012年12月15日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>黑夜中我不停地颤抖,像暴雨撕裂的湖水.</p>
+            </div>
+            <p class="attribution">2012年12月12日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>归途一场细腻散着香的风景/在悲伤往事和新的思念中徐徐拉开</p>
+            </div>
+            <p class="attribution">2012年12月03日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>回家了，家里依然宁静，鸡鸣和雾气中的桔园，缓缓升起的往事和想念，真希望你也在这里</p>
+            </div>
+            <p class="attribution">2012年12月02日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>夜晚醒来的时候/手指触摸到海水/像花一样绽放/像火一样燃烧</p>
+            </div>
+            <p class="attribution">2012年11月13日</p>
+        </div>
+    </article>
+    <article class="comment">
+        <a class="comment-img" href="#non">
+            <img src="/img/avatar@2X.png" alt="" width="50" height="50" />
+        </a>
+        <div class="comment-body">
+            <div class="text">
+              <p>我在清晨的时候出发/去经历一段旅途/在雾气渐渐散去的田野里/我已看不到播种的希望/车鸣碾过一层又一层稀薄的空气/远方只剩下无声无息</p>
+            </div>
+            <p class="attribution">2012年10月28日</p>
         </div>
     </article>
 
