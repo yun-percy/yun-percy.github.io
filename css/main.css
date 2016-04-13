@@ -399,7 +399,7 @@ input::-moz-focus-inner,textarea::-moz-focus-inner,button::-moz-focus-inner{
 	/*max-width:800px;*/
 	width:90%;
 	margin:auto;
-	background: #fff;
+	background: rgba(255,255,255,0.9);
 	box-shadow: 0 0 0 0,0 6px 12px rgba(34,34,34,0.1);
 	padding:0 10px
 }
