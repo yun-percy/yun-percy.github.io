@@ -5,7 +5,6 @@ subtitle: 零碎的时光
 category: TimeLine
 ---
 
-
 <section class="comments">
     <article class="comment">
         <a class="comment-img" href="#non">
@@ -13,9 +12,9 @@ category: TimeLine
         </a>
         <div class="comment-body">
             <div class="text">
-              <p>我在二十五六岁的时候，跟周围的人说，我以后会出国定居，会引来一片笑声。就想我十三四岁时，跟周围人说，我三年能就能挣二十万，也同样引发了一片笑声</p>
+              <p>我在二十五六岁的时候，跟周围的人说，我以后会出国定居，引来了一片笑声。其实在我十三四岁时，跟周围人说，我三年能就能挣二十万，也同样引发了一片笑声</p>
             </div>
-            <p class="attribution">2016年04月13日 12:02</p>
+            <p class="attribution">2016-04-13 12:58</p>
         </div>
     </article>
     <article class="comment">
