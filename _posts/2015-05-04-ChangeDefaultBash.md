@@ -24,3 +24,13 @@ tags : [shell,bash,zsh,linux ]
 	passwd:
 然后将你的shell路劲输入即可
 
+修改默认的服务器 shell：
+---------
+
+> 现在很多服务器都是默认使用的dash,dash相比bash，语法要轻很多，很多在bash中没问题的语句，到dash就会出现问题。
+
+执行下面的语句，选否就可以了
+
+```sh
+sudo dpkg-reconfigure dash
+```
