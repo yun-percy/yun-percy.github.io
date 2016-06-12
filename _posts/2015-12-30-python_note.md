@@ -17,15 +17,24 @@ os.rename(oldname,newname)
 os.remove()#删除文件
 os.rmdir()#删除空目录
 os.removedirs()#递归删除空目录
+os.makedirs(path)#递归创建目录
 #删除非空目录
 import shutil
 shutil.rmtree()
+shutil.copyfile(src, dst) #文件到文件的拷贝，其中dst必须是一个文件
+shutil.copy(src, dst) #文件拷贝，src必须是一个文件，dst可以是一个文件或者目录
+shutil.copy2(src, dst) #同上，但是拷贝的文件带着原有属性，类似于Linux系统里的cp -p命令
+shutil.move(src, dst) #移动一个文件或者目录到指定的位置，src和dst都可以是文件或者目录
+shutil.copytree(src, dst, symlinks=False, ignore=None) #目录的复制
 ```
-###sys.exit(0)
+
+sys.exit(0)
+
 
 退出值设定
 
-###获取当前路径
+获取当前路径
+-----
 
 ```
 import sys
