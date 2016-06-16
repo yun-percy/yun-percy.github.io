@@ -6,41 +6,70 @@ tags : [linux,python ,笔记 ]
 ---
 
 
-###python判断文件和文件夹是否存在
+python的文件操作
+----
 
-```py
-import os
-os.path.isfile('test.txt') #如果不存在就返回False
-os.path.exists(directory) #如果目录不存在就返回False
-os.environ['HOME'] #获取home目录
-os.rename(oldname,newname)
-os.remove()#删除文件
-os.rmdir()#删除空目录
-os.removedirs()#递归删除空目录
-os.makedirs(path)#递归创建目录
-#删除非空目录
-import shutil
-shutil.rmtree()
-shutil.copyfile(src, dst) #文件到文件的拷贝，其中dst必须是一个文件
-shutil.copy(src, dst) #文件拷贝，src必须是一个文件，dst可以是一个文件或者目录
-shutil.copy2(src, dst) #同上，但是拷贝的文件带着原有属性，类似于Linux系统里的cp -p命令
-shutil.move(src, dst) #移动一个文件或者目录到指定的位置，src和dst都可以是文件或者目录
-shutil.copytree(src, dst, symlinks=False, ignore=None) #目录的复制
-```
+函数|描述
+---|---
+os.environ['HOME']|获取home目录
+os.rename(oldname,newname)|重命名文件
+os.remove()|删除文件
+os.unlink()|删除link文件
+os.symlink()|创建符号链接
+os.utime()|更新时间戳
+os.tmpfile()|创建并打('w'+'b')一个新的临时文件
+os.walk()|生成一个目录树下所有文件名
+os.chdir()|修改当前工作目录
+os.chroot()|修改当前进程的根目录
+os.listdir()|列出指定目录的文件
+os.getcwd()|返回一个unicode对象的当前工作目录
+os.mkdir()|创建目录
+os.makedirs(path)|递归创建目录
+os.rmdir()|删除空目录
+os.removedirs()|递归删除空目录
+os.access()|校验权限模式
+os.chmod()|改变权限模式
+os.chown()|改变拥有者
+os.umask()|设置默认权限模式
 
-sys.exit(0)
+shutil类
+----
+
+函数|描述
+---|---
+shutil.rmtree()|删除目录树
+shutil.copyfile(src, dst) |文件到文件的拷贝，其中dst必须是一个文件
+shutil.copy(src, dst) |文件拷贝，src必须是一个文件，dst可以是一个文件或者目录
+shutil.copy2(src, dst) |同上，但是拷贝的文件带着原有属性，类似于Linux系统里的cp -p命令
+shutil.move(src, dst) |移动一个文件或者目录到指定的位置，src和dst都可以是文件或者目录
+shutil.copytree(src, dst, symlinks=False, ignore=None) |目录的复制
 
 
-退出值设定
-
-获取当前路径
+os.path类
 -----
 
-```
-import sys
-LOCAL_PATH=sys.path[0]
-LOCAL_PATH=os.getcwd()
-```
+函数|描述
+---|---
+os.path.isfile('test.txt') |如果不存在就返回False
+os.path.exists(directory)|如果目录不存在就返回False
+os.path.basename()|去掉路径，返回文件名
+os.path.dirname()|去掉文件名，返回目录路径
+os.path.join()|将参数组成路径
+os.path.split()|将路径转换成元组
+os.path.getsize()|返回文件大小
+os.path.isabs()|路径是否为绝对路径
+os.path.islink()|是否为链接文件
+
+
+sys类函数
+----
+
+函数|描述
+---|---
+sys.exit(0)|退出
+sys.path[0]|当前路劲
+
+
 
 python类型转换
 -------
