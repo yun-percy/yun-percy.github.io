@@ -11,7 +11,7 @@ tags : [python,exception ,异常]
 
 
 异常名称|描述
----
+---|---
 BaseException|所有异常的基类
 SystemExit|解释器请求退出
 KeyboardInterrupt|用户中断执行(通常是输入^C)
