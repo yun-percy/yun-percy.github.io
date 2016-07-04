@@ -75,3 +75,16 @@ positional arg:  1
 keyword_arg:  2
 dict_arg: a=>b
 ```
+
+调用脚本传入的参数
+----
+
+```py
+import sys
+def foo(*test):
+    for i in test:
+        print "The First args is"，i
+foo(*sys.argv)
+```
+
+字典类似上面方法，关键在于`*`
