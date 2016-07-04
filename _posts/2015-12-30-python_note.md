@@ -68,7 +68,7 @@ sys类函数
 ---|---
 sys.exit(0)|退出
 sys.path[0]|当前路劲
-
+sys.path|系统环境变量
 
 
 python类型转换
