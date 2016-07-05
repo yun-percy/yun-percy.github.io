@@ -61,3 +61,15 @@ sudo apt-get install htop iotop
 ```
 
 使用： 直接打`htop`和`iotop`就可以了
+
+5.黑客帝国字幕
+-----
+
+
+安装：
+
+```sh
+sudo apt-get install cmatrix
+```
+
+使用： 直接打`cmatrix`就可以了
