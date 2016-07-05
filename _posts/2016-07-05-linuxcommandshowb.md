@@ -51,6 +51,7 @@ alias slurm='slurm -i eth0'
 ```
 
 4.htop & iotop命令
+-----
 
 htop 和 iotop  用来查看进程，内存和IO负载
 
