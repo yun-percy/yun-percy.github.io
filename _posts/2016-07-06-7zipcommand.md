@@ -1,8 +1,8 @@
 ---
 layout: post
-title: linux装逼命令行，瞬间黑客范
+title: 7z命令行详解及示例
 category: Linux
-tags : [linux,bash ,装逼指南 ]
+tags : [linux,7z ,命令行 ]
 ---
 
 
