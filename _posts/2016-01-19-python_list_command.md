@@ -51,6 +51,18 @@ arr.insert(n, 值)#插入
 arr += [数组元素]
 ```
 
+> 数组转字符串
+
+```py
+test=' '.join(list)
+```
+
+> 数组去重，并排序
+
+```py
+test=list(set(list))
+```
+
 ###Tuple 元组
 
 > Tuple 是不可变 list，一旦创建了一个 tuple 就不能以任何方式改变它。
