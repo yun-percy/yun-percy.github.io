@@ -25,7 +25,7 @@ keytool -list -v -keystore test.keystore
 
 ```sh
 keytool -genkey -alias test -keyalg RSA -validity 20000 -keystore test.keystore
-```sh
+```
 
 参数|含义
 ---|---

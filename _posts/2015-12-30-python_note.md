@@ -59,6 +59,7 @@ os.path.split()|将路径转换成元组
 os.path.getsize()|返回文件大小
 os.path.isabs()|路径是否为绝对路径
 os.path.islink()|是否为链接文件
+os.path.abspath()|获取对象的绝对路径
 
 
 sys类函数
