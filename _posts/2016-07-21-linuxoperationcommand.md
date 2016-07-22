@@ -11,6 +11,7 @@ tags : [Linux,bash ,运维]
 + 创建用户
 
 创建test用户，并且指定Home目录
+
 ```sh
 sudo useradd -d [userHomeDirc] -m -G root [name]
 #ex：
