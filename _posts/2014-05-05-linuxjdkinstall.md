@@ -22,13 +22,16 @@ Linux下有mint/ubuntu/deepin/debian/opensuse/redhat等众多平台.<br />
 
 > 将解压出来的jdk复制一份到 主系统里去（安全着想）
 
-		sudo cp -r jdk1.7.0_67/usr/local
+```sh
+sudo cp -r jdk1.7.0_67 /usr/local
+```
+
 > 在你的/etc/profile文件中增加一条这样子的配置
 
-		export JAVA_HOME=/usr/local/jdk1.7.0_67
-
-		PATH=$JAVA_HOME/bin:$PATH
-
+```sh
+export JAVA_HOME=/usr/local/jdk1.7.0_67
+PATH=$JAVA_HOME/bin:$PATH
+```
 
 
 然后用
