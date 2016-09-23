@@ -1,12 +1,41 @@
 ---
 layout: post
-title: linux下 ssh登录免密码
+title: linux下ssh远程登录笔记
 category: Linux
 ---
 
-##前言
+2016-09-23更新
+----
 
-公司要求我们自己搭建一个本地git服务器，自己花了半天搭建起来后每次进入都需要输入密码，我很烦，于是就找了一下相关的文章，依葫芦画瓢就成功了。相当自在。
+sftp使用笔记
+
+对于scp拷贝文件的时候，部分server端要求进行加密传输，于是拷贝文件的时候就会报错：
+
+```sh
+scp: warning: Executing scp1.
+scp: FATAL: Executing ssh1 in compatibility mode failed (Check that scp1 is in your PATH).
+lost connection
+```
+
+这个时候就要用到sftp来进行拷贝了
+
+如果登陆远程机器不是为了上传下载文件，而是要修改远程主机上的某些文件。可以
+
+```sh
+sftp -P [port]  user@ip
+sftp> get /home/percychen/test.zip  /home/percychen/tmp/
+#这条语句将从远程主机的 /home/percychen/test.zip 下载到本地:/home/percychen/tmp/
+
+sftp> put /home/percychen/test.zip /home/percychen/tmp/
+#这条语句将把本地 /home/percychen/test.zip 上传至远程主机/home/percychen/tmp/
+```
+
+
+
+前言
+-----
+
+> 公司要求我们自己搭建一个本地git服务器，自己花了半天搭建起来后每次进入都需要输入密码，我很烦，于是就找了一下相关的文章，依葫芦画瓢就成功了。相当自在。
 
 原文地址[http://josephj.com/article/understand-ssh-key/](http://josephj.com/article/understand-ssh-key/)
 

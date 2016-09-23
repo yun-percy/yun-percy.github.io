@@ -141,6 +141,26 @@ x != y     |             不等于(与<>相同)
 x >= y     |             大于等于
 x <= y     |             小于等于
 
+filter函数的使用
+-----
+
+```py
+testtext = ‘abcd123.;!4567ef[.,]gh’
+
+#只保留数字
+filter(str.isdigit, testtext)
+‘1234567’
+
+#只保留字母
+filter(str.isalpha, testtext)
+‘abcdefgh’
+
+#只保留字母和数字
+filter(str.isalnum, testtext)
+‘abcd1234567efgh’
+```
+
+
 配置文件
 ------
 
