@@ -1,4 +1,9 @@
-
+---
+layout: post
+title: js调用python
+category: 语法
+tags : [python,js]
+---
 
 js调用python
 ------
