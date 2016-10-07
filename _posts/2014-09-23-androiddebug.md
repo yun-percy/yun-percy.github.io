@@ -4,36 +4,36 @@ title: adb 自动化测试
 category: Android
 ---
 
-###查看常驻内存
+### 查看常驻内存
 
 		adb shell dumpsys meminfo
 
-###模拟按键：
+### 模拟按键：
 
 		adb shell input keyevent 27
 
-###模拟打电话：
+### 模拟打电话：
 
 		adb shell am start -a android.intent.action.CALL -d tel:185xxxxxx
 
-###模拟浏览网页：
+### 模拟浏览网页：
 
 		adb shell am start -a android.intent.action.VIEW -d  http://www.baidu.com
 
-###模拟模拟启动应用：
+### 模拟模拟启动应用：
 
 		adb shell am start -n com.android.contacts/.activities.DialtactsActivity
 
-###模拟输入：
+### 模拟输入：
 
 		在编辑短信时，往文本框输入文本：adb shell input text "hello"
 
-###模拟安装卸载
+### 模拟安装卸载
 
 		adb install d:\hello.apk
 		adb unstall com.huawei.hello
 
-####查看系统状态和信息 系列
+#### 查看系统状态和信息 系列
 
 		adb shell procrank 查询各进程内存使用情况
 		adb shell service list 查看services信息
