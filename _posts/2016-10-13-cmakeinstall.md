@@ -6,6 +6,7 @@ tags : [python,mysql ,note ]
 ---
 
 cmake版本 2.8.10.2
+
 ### [下载地址](https://cmake.org/download/)
 
 ### 解压

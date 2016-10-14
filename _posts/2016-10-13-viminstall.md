@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [转]Linux中源码安装编译Vim
+title: 转:Linux中源码安装编译Vim
 category: 综合
 tags : [source,linux ,vim ]
 ---
