@@ -1,0 +1,1788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux,7z,命令行," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/cloud.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="常规简单用法127z a -tzip -p111 archive.7z txt.txt#压缩 密码为1117z x -tzip -p111 archive.7z#解压 密码为111
+
+7z 是 7-Zip 的命令行版本。包含命令如下：
+
+命令行选项
+127z [命令行] [[选项]...] [基本档案名称] [[参数变量]...]7z [command] [[switch]...] [base_a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7z命令行详解及示例">
+<meta property="og:url" content="http://percychen.com/2016/10/14/2016-07-06-7zipcommand/index.html">
+<meta property="og:site_name" content="风之子的世界">
+<meta property="og:description" content="常规简单用法127z a -tzip -p111 archive.7z txt.txt#压缩 密码为1117z x -tzip -p111 archive.7z#解压 密码为111
+
+7z 是 7-Zip 的命令行版本。包含命令如下：
+
+命令行选项
+127z [命令行] [[选项]...] [基本档案名称] [[参数变量]...]7z [command] [[switch]...] [base_a">
+<meta property="og:updated_time" content="2016-10-14T11:32:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7z命令行详解及示例">
+<meta name="twitter:description" content="常规简单用法127z a -tzip -p111 archive.7z txt.txt#压缩 密码为1117z x -tzip -p111 archive.7z#解压 密码为111
+
+7z 是 7-Zip 的命令行版本。包含命令如下：
+
+命令行选项
+127z [命令行] [[选项]...] [基本档案名称] [[参数变量]...]7z [command] [[switch]...] [base_a">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 8780122,
+      author: '振云'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> 7z命令行详解及示例 | 风之子的世界 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58976570";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">风之子的世界</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                7z命令行详解及示例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-14T17:23:52+08:00" content="2016-10-14">
+              2016-10-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/14/2016-07-06-7zipcommand/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/2016-07-06-7zipcommand/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/14/2016-07-06-7zipcommand/" class="leancloud_visitors" data-flag-title="7z命令行详解及示例">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="常规简单用法"><a href="#常规简单用法" class="headerlink" title="常规简单用法"></a>常规简单用法</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip -p111 archive.7z txt.txt<span class="comment">#压缩 密码为111</span></div><div class="line">7z x -tzip -p111 archive.7z<span class="comment">#解压 密码为111</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>7z 是 7-Zip 的命令行版本。包含命令如下：</p>
+</blockquote>
+<p><strong>命令行选项</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z [命令行] [[选项]...] [基本档案名称] [[参数变量]...]</div><div class="line">7z [<span class="built_in">command</span>] [[switch]...] [base_archive_name] [[arguments]...]</div></pre></td></tr></table></figure>
+<ul>
+<li>文件列表</li>
+</ul>
+<blockquote>
+<p>您可以使用文件列表来对要操作的文件进行批量操作。在文件中的文件名必须用空格或另起一行隔开。(如使用空格，需要加引号)。</p>
+</blockquote>
+<p>example:</p>
+<p>listfile.txt包含下列内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;My programs\*.cpp&quot;</div><div class="line">Src\*.cpp</div></pre></td></tr></table></figure>
+<p>命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip @listfile.txt</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>添加</td>
+</tr>
+<tr>
+<td>d</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>e</td>
+<td>释放</td>
+</tr>
+<tr>
+<td>l</td>
+<td>列表</td>
+</tr>
+<tr>
+<td>t</td>
+<td>测试</td>
+</tr>
+<tr>
+<td>u</td>
+<td>更新</td>
+</tr>
+<tr>
+<td>x</td>
+<td>完整路径释放</td>
+</tr>
+</tbody>
+</table>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>设置压缩算法</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设置压缩档案格式</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>更新选项</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>设置工作目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>a (添加) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip subdir\*</div><div class="line"><span class="comment">#从 subdir 文件夹添加所有文件到 archive.zip 压缩档案。</span></div><div class="line">7z a -tzip Files.zip <span class="string">"Program files\*"</span> -r</div><div class="line"><span class="comment">#从 Program 文件夹添加所有文件到 Files.zip 压缩档案。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>d (删除) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z d archive.zip *.bak</div><div class="line"><span class="comment">#从 archive.zip 压缩档案中删除 *.bak 文件。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>e (释放) 命令</li>
+</ul>
+<p>7z 冲突回应：<br>回应 |简写|描述<br>—|—|—<br>Yes(是) |y<br>No(否)| n<br>Always(总是)|a| 将所有的询问以 YES 来对待<br>Skip(跳过)| s |将所有的询问以 NO 来对待<br>Quit(退出)|q |退出程序</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z e archive.zip</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放所有文件到当前文件夹。</span></div><div class="line">7z e archive.zip -oc:\soft *.cpp</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-ao</td>
+<td>覆盖模式</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>设置输出目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>全是</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>全否</td>
+</tr>
+<tr>
+<td>x</td>
+<td>完整路径释放</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>l (列表) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z l archive.zip</div><div class="line"><span class="comment">#列出压缩档案 archive.zip 的内容。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>t (测试) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t archive.zip *.doc</div><div class="line"><span class="comment">#在压缩档案 archive.zip 中测试 *.doc 文件的完整性。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>u(更新)命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z u archive.zip *.doc</div><div class="line"><span class="comment">#在压缩档案 archive.zip 中更新 *.doc 文件。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>设置压缩算法</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设置压缩档案格式</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>更新选项</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>设置工作目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>x (完整路径释放) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z x archive.zip</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放所有文件到当前文件夹。</span></div><div class="line">7z x archive.zip -oc:\soft *.cpp</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-ao</td>
+<td>覆盖模式</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>设置输出目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>全是</td>
+</tr>
+</tbody>
+</table>
+<h2 id="命令行选项"><a href="#命令行选项" class="headerlink" title="命令行选项"></a>命令行选项</h2><p>选项要点参考</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–-</td>
+<td>阻止选项解析</td>
+</tr>
+<tr>
+<td>-ai</td>
+<td>附件档案文件名</td>
+</tr>
+<tr>
+<td>-an</td>
+<td>不解析档案名称</td>
+</tr>
+<tr>
+<td>-ao</td>
+<td>覆盖模式</td>
+</tr>
+<tr>
+<td>-ax</td>
+<td>排除档案文件名</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>设置压缩算法</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>设置输出目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-sfx</td>
+<td>创建自释放档案</td>
+</tr>
+<tr>
+<td>-si</td>
+<td>从StdIn 读取数据</td>
+</tr>
+<tr>
+<td>-so</td>
+<td>从StdOut 写入数据</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设置档案类型</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>更新选项</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>创建分卷</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>设置工作目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>文件名排除</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>全是</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>– (阻止选项解析) 选项</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -- -ArchiveName.7z</div><div class="line">测试 -ArchiveName.7z 压缩档案.</div></pre></td></tr></table></figure>
+<ul>
+<li>-ai (附件档案文件名) 开关</li>
+</ul>
+<blockquote>
+<p>指定附加文件，包括压缩档案文件名及通配符。此选项可同时附加多个类型。</p>
+</blockquote>
+<p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-ai[[recurse_type]][file_ref]</div><div class="line">[recurse_type] ::= r[- | 0]</div><div class="line">[file_ref] ::= @&#123;listfile&#125; | !&#123;wildcard&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>-an (不解析档案名称) 选项</li>
+</ul>
+<blockquote>
+<p>不解析命令行中的 archive_name 区域。此选项必须和 -i (附加文件) 开关一起使用。比如您为压缩档案使用列表文件，您就需要指定 -ai 选项，所以您需要禁止解析命令行中的 archive_name 区域。</p>
+</blockquote>
+<p>语法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -ai!*.7z -ax!a*.7z</div><div class="line">测试除 a*.7z 之外的 *.7z 压缩档案。</div></pre></td></tr></table></figure>
+<ul>
+<li>-ao (覆盖模式) 选项</li>
+</ul>
+<blockquote>
+<p>指定在释放期间如何覆盖硬盘上现有的同名文件。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-aoa</td>
+<td>直接覆盖现有文件，而没有任何提示。</td>
+</tr>
+<tr>
+<td>-aos</td>
+<td>跳过现有文件，其不会被覆盖。</td>
+</tr>
+<tr>
+<td>-aou</td>
+<td>如果相同文件名的文件已存在，将自动重命名被释放的文件。例如，文件 file.txt 将被自动重命名为 file_1.txt。</td>
+</tr>
+<tr>
+<td>-aot</td>
+<td>如果相同文件名的文件已存在，将自动重命名现有的文件。例如，文件 file.txt 将被自动重命名为 file_1.txt。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z x test.zip -aoa</div><div class="line"><span class="comment">#从压缩档案 test.zip 中释放所有文件并却不做提示直接覆盖现有文件。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-ax (排除档案文件名) 选项</li>
+</ul>
+<blockquote>
+<p>指定必须从操作中排除的压缩档案，此选项可同时排除多个类型。<br>语法</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -ai!*.7z -ax!a*.7z</div><div class="line"><span class="comment">#测试除 a*.7z 之外的 *.7z 压缩档案</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-an (不解析档案名称)</li>
+</ul>
+<blockquote>
+<p>指定通配符及文件名，此选项在这里必须使用。如果此选项未被指定，那么将自动使用递归。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{listfile}</td>
+<td>指定文件列表的文件名。参见 列表文件 的说明。</td>
+</tr>
+<tr>
+<td>{wildcard}</td>
+<td>指定通配符或文件名。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -air!*.7z</div><div class="line"><span class="comment">#在当前目录及子目录下测试 *.7z 压缩档案</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-i (附加文件) 选项</li>
+</ul>
+<blockquote>
+<p>指定附加文件或一类文件，此选项可附件添加多个类型。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{listfile}</td>
+<td>指定文件列表。请参考 文件列表 相关信息。</td>
+</tr>
+<tr>
+<td>{wildcard}</td>
+<td>指定文件名或通配符。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip src.zip *.txt -ir!DIR1\*.cpp</div><div class="line"><span class="comment">#从当前目录中添加 *.txt 文件，和 DIR1 目录及其子目录中的 *.cpp 文件到 src.zip 压缩档案。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-m (设置压缩算法) 选项</li>
+</ul>
+<blockquote>
+<p>指定压缩算法。此选项的格式依压缩档案的类型而定。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Zip参数</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x=[0 \</td>
+<td>5\</td>
+<td>9 ]</td>
+<td>5</td>
+<td>设置压缩等级。</td>
+</tr>
+<tr>
+<td>m={MethodID}</td>
+<td>Deflate</td>
+<td>设置压缩算法：Copy、Deflate、Deflate64、BZip2。</td>
+</tr>
+<tr>
+<td>fb={NumFastBytes}</td>
+<td>32</td>
+<td>设置 Deflate 编码器的单词大小。</td>
+</tr>
+<tr>
+<td>pass={NumPasses}</td>
+<td>1</td>
+<td>设置 Deflate 编码器的传送大小。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>X=[0 | 5 | 9 ]</li>
+</ul>
+<blockquote>
+<p>设置压缩等级</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>压缩等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>不压缩。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>默认的压缩等级。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>最大压缩等级。压缩后的文件会更小。但是在压缩的时候会比较慢而且需要较多的物理内存。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>fb={NumFastBytes}</li>
+</ul>
+<blockquote>
+<p>设置 Deflate 编码器的单词大小。您可以在3到 255 范围之内更改。在 <code>Deflate</code> 算法下，它的默认值是 <code>32</code>；在 <code>Deflate 64</code> 算法下，它的默认值是<code>64</code>。</p>
+</blockquote>
+<ul>
+<li>pass={NumPasses}</li>
+</ul>
+<blockquote>
+<p>设置 Deflate 编码器的传送大小。</p>
+</blockquote>
+<p>您可以在 1 到 4 范围之内更改。在 <code>Deflate</code> 算法下，它的默认值是 <code>1</code>；在 Deflate 64 算法下，它的默认值是 3。此项可略微提升压缩比，但并不明显。</p>
+<h2 id="7z默认参数"><a href="#7z默认参数" class="headerlink" title="7z默认参数"></a>7z默认参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x=[0 \</td>
+<td>1 \</td>
+<td>5 \</td>
+<td>7 \</td>
+<td>9 ]</td>
+<td>5</td>
+<td>设置压缩等级。</td>
+</tr>
+<tr>
+<td>s=[off \</td>
+<td>on \</td>
+<td>[e] [{N}f] [{N}b \</td>
+<td>{N}k \</td>
+<td>{N}m \</td>
+<td>{N}g]</td>
+<td>on</td>
+<td>设置固实模式。</td>
+</tr>
+<tr>
+<td>f=[off \</td>
+<td>on]</td>
+<td>on</td>
+<td>开启或关闭可执行文件压缩过滤器。</td>
+</tr>
+<tr>
+<td>hc=[off \</td>
+<td>on]</td>
+<td>on</td>
+<td>开启或关闭档案文件头压缩。</td>
+</tr>
+<tr>
+<td>hcf=[off \</td>
+<td>on]</td>
+<td>on</td>
+<td>开启或关闭档案文件头完全压缩。</td>
+</tr>
+<tr>
+<td>he=[off \</td>
+<td>on]</td>
+<td>off</td>
+<td>开启或关闭档案文件头加密。</td>
+</tr>
+<tr>
+<td>b{C1}[s{S1}]:{C2}[s{S2}]</td>
+<td></td>
+<td>设置编码器之间绑定。</td>
+</tr>
+<tr>
+<td>{N}={MethodID}[:param1][:param2][..]</td>
+<td></td>
+<td>LZMA设置压缩算法：LZMA、PPMd、BZip2、Deflate、BCJ、BCJ2、Copy。</td>
+</tr>
+<tr>
+<td>mt=[off \</td>
+<td>on]</td>
+<td>off</td>
+<td>设置多线程模式。</td>
+</tr>
+</tbody>
+</table>
+<p>支持的压缩算法：</p>
+<table>
+<thead>
+<tr>
+<th>MethodID</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LZMA</td>
+<td>基于 LZ 之上的压缩算法。</td>
+</tr>
+<tr>
+<td>PPMd</td>
+<td>基于 Dmitry Shkarin 之上的算法 PPMdH 并加以优化。通常能对纯文本提供高压缩比及较快的解压缩速度。</td>
+</tr>
+<tr>
+<td>Bzip2</td>
+<td>基于 BWT 的标准压缩算法。通常能对纯文本提供较高压缩比及相当不错的解压缩速度。</td>
+</tr>
+<tr>
+<td>Deflate</td>
+<td>ZIP 及 GZip 格式的标准压缩算法。没有很高的压缩比。但是它拥有十分快的压缩及解压缩速度。Deflate 压缩算法只支持 32 KB 字典大小。</td>
+</tr>
+<tr>
+<td>BCJ</td>
+<td>(CALL、JUMP)32 位 x86 可执行文件转换器。</td>
+</tr>
+<tr>
+<td>BCJ2</td>
+<td>(CALL、JUMP、JCC)32 位 x86 可执行文件转换器(第二版)。</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>不压缩。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.jpg -m0</div><div class="line"><span class="comment">#不压缩而直接将 *.jpg 文件添加到 archive.zip 档案。</span></div><div class="line">7z a -t7z archive.7z *.exe *.dll -m0=BCJ -m1=LZMA:d=21 -ms -mmt</div><div class="line"><span class="comment">#添加 *.exe 及 *.dll 文件到固实压缩档案 archive.7z。使用 LZMA 压缩算法、2 MB 字典大小及 BCJ 转换器。压缩将开启多线程优化(如果可用)。</span></div><div class="line">7z a -t7z archive.7z *.exe *.dll -m0=BCJ2 -m1=LZMA:d23 -m2=LZMA:d19 -m3=LZMA:d19 -mb0:1 -mb0s1:2 -mb0s2:3</div><div class="line"><span class="comment">#添加 *.exe 及 *.dll 文件到压缩档案 archive.7z。使用 LZMA 压缩算法、BCJ2 转换器、为主输出流(s0)使用 8 MB 字典大小、LZMA 算法为 BCJ2 转换器的 s1 及 s2 输出流使用 512 KB 字典大小。</span></div><div class="line">7z a -t7z archive.7z *.txt -m0=PPMd</div><div class="line"><span class="comment">#添加 *.txt 文件到压缩档案 archive.7z。 使用 PPMd 压缩算法。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z x archive.zip -psecret</div><div class="line"><span class="comment">#将设有密码“secret”的压缩档案 archive.zip 中所有文件释放。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip -r src\*.cpp src\*.h</div><div class="line">将 src 目录及其子目录中的 *.cpp 及 *.h 文件添加到 archive.zip 压缩档案。</div></pre></td></tr></table></figure>
+<h2 id="sfx-创建自释放档案-选项"><a href="#sfx-创建自释放档案-选项" class="headerlink" title="-sfx (创建自释放档案) 选项"></a>-sfx (创建自释放档案) 选项</h2><blockquote>
+<p>创建自释放档案。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>SFX_Module</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7zC.sfx</td>
+<td>Windows 版本。</td>
+</tr>
+<tr>
+<td>7zCon.sfx</td>
+<td>命令行(DOS)版本。</td>
+</tr>
+<tr>
+<td>7zS.sfx</td>
+<td>Windows 安装版本。</td>
+</tr>
+<tr>
+<td>7zSD.sfx</td>
+<td>Windows 安装版本(需调用 MSVCRT.dll)。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>自释放安装模块</li>
+</ul>
+<p>自释放安装模块(7zS.sfx 和 7zSD.sfx)可让您创建软件的安装程序。这类模块将释放文件到一临时文件夹，然后运行指定的程序来进行安装。安装之后再自动删除临时文件。 要创建自释放档案必须有三个文件：自释放模块、安装程序配置、7z 压缩档案。其中安装程序配置文件是可选的。您可以使用下列命令来创建安装程序：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copy /b 7zS.sfx + config.txt + archive.7z archive.exe</div></pre></td></tr></table></figure>
+<p>请注意上述文件的输入顺序：<em>.sfx、</em>.txt、*.7z。最后的 archive.exe 即为生成的安装程序。<br>选项 -y 使用在自释放安装模块中可设置释放时是否为安静模式。</p>
+<p>安装程序配置文件格式</p>
+<p>配置文件包括安装程序的命令行。文件要以字串 ;!@Install@!UTF-8! 开头，以 ;!@InstallEnd@! 结尾。且文件必须使用 UTF-8 编码。文件中还需包含下列变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID_String</td>
+<td>说明</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>对话框信息标题。</td>
+</tr>
+<tr>
+<td>BeginPrompt</td>
+<td>安装前提示信息。</td>
+</tr>
+<tr>
+<td>RunProgram</td>
+<td>欲执行命令。若添加子命令 %%T 则会把文件释放到系统的临时目录。</td>
+</tr>
+</tbody>
+</table>
+<p>您可以省略上述任何一部分。</p>
+<p>配置文件示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">;!@Install@!UTF-8!</div><div class="line">Title=&quot;7-Zip 1.00&quot;</div><div class="line">BeginPrompt=&quot;应用程序将安装 7-Zip 1.00，是否继续？&quot;</div><div class="line">RunProgram=&quot;Setup.exe /T:%%T&quot;</div><div class="line">;!@InstallEnd@!</div></pre></td></tr></table></figure>
+<p>程序将以 BeginPrompt 中的信息提示用户，再执行 RunProgram 中的命令。然后程序将使用 .inf 文件的内容并调用压缩包中的 advpack.dll 文件进行安装。</p>
+<p>示例:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z a -sfx a.exe *.txt</div><div class="line">添加 *.txt 文件到自释放档案 a.exe 并使用默认的命令行自释放模块。</div><div class="line">7z a -sfx7zC.sfx a.exe * -r</div><div class="line">添加所有文件到自释放档案 a.exe 并使用 7zC.sfx Windows 版本的自释放模块。</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a archive.gz -tgzip -siDoc2.txt [ Doc.txt</div><div class="line"><span class="comment">#使用 Doc2.txt 文件名压缩输入流从文件 Doc.txt 到压缩档案 archive.gz。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z x archive.gz -so ] Doc.txt</div><div class="line"><span class="comment">#解压缩 archive.gz 输出流并将该输出流写入到 Doc.txt 文件。</span></div><div class="line">7z a dummy -tgzip -so Doc.txt ] archive.gz</div><div class="line"><span class="comment">#压缩 Doc.txt 输出流并将该输出流写入到 archive.gz 压缩档案。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.txt</div><div class="line"><span class="comment">#使用 zip 格式从当前目录中添加所有 *.txt 文件到压缩档案 archive.zip。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z u c:\1\exist.7z -u- -up0q3x2z0!c:\1\update.7z * -r</div><div class="line"><span class="comment">#创建新压缩档案 update.7z 并将当前目录中的 exist.7z 压缩档案里所有不同文件写入此压缩档案。并不更改 exist.7z 压缩档案的内容。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a a.7z *.txt -v10k -v15k -v2m</div><div class="line"><span class="comment">#创建 a.7z 分卷压缩档案。第一个分卷为 10 KB，第二个为 15 KB，剩下全部为 2 MB。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.cpp -wc:\temp</div><div class="line"><span class="comment">#添加 *.cpp 文件到 archive.zip 压缩档案，并将临时压缩档案创建到 c:\temp 文件夹。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.txt -x!temp.*</div><div class="line"><span class="comment">#添加除 temp.* 文件之外的所有 *.txt 文件到压缩档案 archive.zip。</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/7z/" rel="tag"># 7z</a>
+          
+            <a href="/tags/命令行/" rel="tag"># 命令行</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/14/2016-07-08-pythonREnote/" rel="next" title="Python RE 正则表达式笔记">
+                <i class="fa fa-chevron-left"></i> Python RE 正则表达式笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/14/2016-07-05-linuxcommandshowb/" rel="prev" title="linux装逼命令行，瞬间黑客范">
+                linux装逼命令行，瞬间黑客范 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/14/2016-07-06-7zipcommand/"
+     data-title="7z命令行详解及示例"
+     data-content=""
+     data-url="http://percychen.com/2016/10/14/2016-07-06-7zipcommand/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/14/2016-07-06-7zipcommand/"
+           data-title="7z命令行详解及示例" data-url="http://percychen.com/2016/10/14/2016-07-06-7zipcommand/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/yunicon.png"
+               alt="percy|振云" />
+          <p class="site-author-name" itemprop="name">percy|振云</p>
+          <p class="site-description motion-element" itemprop="description">愿我从此不再提起，再不提起过去，痛苦与幸福</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">135</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yunpercy" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yun-percy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://user.qzone.qq.com/464095417" target="_blank" title="QQ空间">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  QQ空间
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiangsunzi.com/" title="生活与小怪兽" target="_blank">生活与小怪兽</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常规简单用法"><span class="nav-number">1.</span> <span class="nav-text">常规简单用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行选项"><span class="nav-number">2.</span> <span class="nav-text">命令行选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7z默认参数"><span class="nav-number">3.</span> <span class="nav-text">7z默认参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sfx-创建自释放档案-选项"><span class="nav-number">4.</span> <span class="nav-text">-sfx (创建自释放档案) 选项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">percy|振云</span>
+</div>
+
+<div class="powered-by">
+  由 percy 先生维护制作
+</div>
+
+<div class="theme-info">
+  关于 -
+  <a class="theme-link" href="http://percychen.com">
+    percy先生
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"percychen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ( $('#local-search-input').size() === 0) {
+        return;
+      }
+
+      // Popup Window;
+      var isfetched = false;
+      // Search DB path;
+      var search_path = "search.xml";
+      if (search_path.length == 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      // monitor main search box;
+
+      function proceedsearch() {
+        $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+        $('.popup').toggle();
+
+      }
+      // search function;
+      var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+          url: path,
+          dataType: "xml",
+          async: true,
+          success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+              return {
+                title: $( "title", this ).text(),
+                content: $("content",this).text(),
+                url: $( "url" , this).text()
+              };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+              var matchcounts = 0;
+              var str='<ul class=\"search-result-list\">';
+              var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+              $resultContent.innerHTML = "";
+              if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                  var isMatch = true;
+                  var content_index = [];
+                  var data_title = data.title.trim().toLowerCase();
+                  var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                  var data_url = data.url;
+                  var index_title = -1;
+                  var index_content = -1;
+                  var first_occur = -1;
+                  // only match artiles with not empty titles and contents
+                  if(data_title != '' && data_content != '') {
+                    keywords.forEach(function(keyword, i) {
+                      index_title = data_title.indexOf(keyword);
+                      index_content = data_content.indexOf(keyword);
+                      if( index_title < 0 && index_content < 0 ){
+                        isMatch = false;
+                      } else {
+                        if (index_content < 0) {
+                          index_content = 0;
+                        }
+                        if (i == 0) {
+                          first_occur = index_content;
+                        }
+                      }
+                    });
+                  }
+                  // show search results
+                  if (isMatch) {
+                    matchcounts += 1;
+                    str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                    var content = data.content.trim().replace(/<[^>]+>/g,"");
+                    if (first_occur >= 0) {
+                      // cut out 100 characters
+                      var start = first_occur - 20;
+                      var end = first_occur + 80;
+                      if(start < 0){
+                        start = 0;
+                      }
+                      if(start == 0){
+                        end = 50;
+                      }
+                      if(end > content.length){
+                        end = content.length;
+                      }
+                      var match_content = content.substring(start, end);
+                      // highlight all keywords
+                      keywords.forEach(function(keyword){
+                        var regS = new RegExp(keyword, "gi");
+                        match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                      });
+
+                      str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    }
+                    str += "</li>";
+                  }
+                })};
+              str += "</ul>";
+              if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+              if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+              $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+          }
+        });}
+
+      // handle and trigger popup window;
+      $('.popup-trigger').mousedown(function(e) {
+        e.stopPropagation();
+        if (isfetched == false) {
+          searchFunc(path, 'local-search-input', 'local-search-result');
+        } else {
+          proceedsearch();
+        };
+
+      });
+
+      $('.popup-btn-close').click(function(e){
+        $('.popup').hide();
+        $(".popoverlay").remove();
+        $('body').css('overflow', '');
+      });
+      $('.popup').click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7d74DeOPOEXkqoHL2A6jD1Ov-gzGzoHsz", "UU5DcLV69esGTGlJCglVXSiE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+  
+
+
+</body>
+</html>

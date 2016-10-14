@@ -1,0 +1,995 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/cloud.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="CURL&amp;nbsp;—&amp;nbsp;命令行浏览器这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑1)二话不说，先从这里开始吧！curl&amp;nbsp;http://www.yahoo.com回车之后，www.yahoo.com&amp;nbsp;的html就稀里哗啦地显示在屏幕上了~2)嗯，要想把读过来页面存下来，是不是要这样呢？curl&amp;nbsp;http://www.yahoo.com&amp;n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命令行浏览器 curl 命令详解">
+<meta property="og:url" content="http://percychen.com/2016/10/14/2014-10-18-curlcommand/index.html">
+<meta property="og:site_name" content="风之子的世界">
+<meta property="og:description" content="CURL&amp;nbsp;—&amp;nbsp;命令行浏览器这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑1)二话不说，先从这里开始吧！curl&amp;nbsp;http://www.yahoo.com回车之后，www.yahoo.com&amp;nbsp;的html就稀里哗啦地显示在屏幕上了~2)嗯，要想把读过来页面存下来，是不是要这样呢？curl&amp;nbsp;http://www.yahoo.com&amp;n">
+<meta property="og:updated_time" content="2016-10-14T09:29:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="命令行浏览器 curl 命令详解">
+<meta name="twitter:description" content="CURL&amp;nbsp;—&amp;nbsp;命令行浏览器这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑1)二话不说，先从这里开始吧！curl&amp;nbsp;http://www.yahoo.com回车之后，www.yahoo.com&amp;nbsp;的html就稀里哗啦地显示在屏幕上了~2)嗯，要想把读过来页面存下来，是不是要这样呢？curl&amp;nbsp;http://www.yahoo.com&amp;n">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 8780122,
+      author: '振云'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> 命令行浏览器 curl 命令详解 | 风之子的世界 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58976570";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">风之子的世界</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                命令行浏览器 curl 命令详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-14T17:23:52+08:00" content="2016-10-14">
+              2016-10-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/14/2014-10-18-curlcommand/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/2014-10-18-curlcommand/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/14/2014-10-18-curlcommand/" class="leancloud_visitors" data-flag-title="命令行浏览器 curl 命令详解">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="content" class="content mod-cs-content text-content clearfix"> <p>CURL&nbsp;—&nbsp;命令行浏览器<br><br>这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑<br><br>1)<br>二话不说，先从这里开始吧！<br><br>curl&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>回车之后，www.yahoo.com&nbsp;的html就稀里哗啦地显示在屏幕上了<del>~</del><br><br>2)<br>嗯，要想把读过来页面存下来，是不是要这样呢？<br>curl&nbsp;<a href="http://www.yahoo.com&nbsp;&gt;&nbsp;page.html" target="_blank" rel="external">http://www.yahoo.com&nbsp;&gt;&nbsp;page.html</a><br><br>当然可以，但不用这么麻烦的！<br>用curl的内置option就好，存下http的结果，用这个option:&nbsp;-o<br>curl&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，你就可以看到屏幕上出现一个下载页面进度指示。等进展到100%，自然就OK咯<br><br>3)<br>什么什么？！访问不到？肯定是你的proxy没有设定了。<br>使用curl的时候，用这个option可以指定http访问所使用的proxy服务器及其端口：&nbsp;-x<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br><br>4)<br>访问有些网站的时候比较讨厌，他使用cookie来记录session信息。<br>像IE/NN这样的浏览器，当然可以轻易处理cookie信息，但我们的curl呢？…..<br>我们来学习这个option:&nbsp;-D&nbsp;&lt;–&nbsp;这个是把http的response里面的cookie信息存到一个特别的文件中去<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，当页面被存到page.html的同时，cookie信息也被存到了cookie0001.txt里面了<br><br><br>5）<br>那么，下一次访问的时候，如何继续使用上次留下的cookie信息呢？要知道，很多网站都是靠监视你的cookie信息，<br>来判断你是不是不按规矩访问他们的网站的。<br>这次我们使用这个option来把上次的cookie信息追加到http&nbsp;request里面去：&nbsp;-b<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page1.html&nbsp;-D&nbsp;cookie0002.txt&nbsp;-b&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，我们就可以几乎模拟所有的IE操作，去访问网页了！<br><br><br>6）<br>稍微等等<del>~</del>我好像忘记什么了<del>~</del><br>对了！是浏览器信息<del>~~<br><br>有些讨厌的网站总要我们使用某些特定的浏览器去访问他们，有时候更过分的是，还要使用某些特定的版本</del><del><br>NND，哪里有时间为了它去找这些怪异的浏览器呢！？<br><br>好在curl给我们提供了一个有用的option，可以让我们随意指定自己这次访问所宣称的自己的浏览器信息：&nbsp;-A<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，服务器端接到访问的要求，会认为你是一个运行在Windows&nbsp;2000上的IE6.0，嘿嘿嘿，其实也许你用的是苹果机呢！<br><br>而”Mozilla/4.73&nbsp;[en]&nbsp;(X11;&nbsp;U;&nbsp;Linux&nbsp;2.2;&nbsp;15&nbsp;i686”则可以告诉对方你是一台PC上跑着的Linux，用的是Netscape&nbsp;4.73，呵呵呵<br><br><br>7）<br>另外一个服务器端常用的限制方法，就是检查http访问的referer。比如你先访问首页，再访问里面所指定的下载页，这第二次访问的referer地址就是第一次访问成功后的页面地址。这样，服务器端只要发现对下载页面某次访问的referer地址不&nbsp;是首页的地址，就可以断定那是个盗连了</del><del>~<br><br>讨厌讨厌</del>~我就是要盗连<del>~</del>！！<br>幸好curl给我们提供了设定referer的option：&nbsp;-e<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-e&nbsp;”mail.yahoo.com”&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，就可以骗对方的服务器，你是从mail.yahoo.com点击某个链接过来的了，呵呵呵<br><br><br>8）<br>写着写着发现漏掉什么重要的东西了！—–&nbsp;利用curl&nbsp;下载文件<br><br>刚才讲过了，下载页面到一个文件里，可以使用&nbsp;-o&nbsp;，下载文件也是一样。<br>比如，&nbsp;curl&nbsp;-o&nbsp;1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这里教大家一个新的option：&nbsp;-O<br>大写的O，这么用：&nbsp;curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这样，就可以按照服务器上的文件名，自动存在本地了！<br><br>再来一个更好用的。<br>如果screen1.JPG以外还有screen2.JPG、screen3.JPG、….、screen10.JPG需要下载，难不成还要让我们写一个script来完成这些操作？<br>不干！<br>在curl里面，这么写就可以了：<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG</a><br><br>呵呵呵，厉害吧？！<del>~<br><br>9）<br>再来，我们继续讲解下载！<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>这样产生的下载，就是<br>~zzh/001.JPG<br>~zzh/002.JPG<br>…<br>~zzh/201.JPG<br>~nick/001.JPG<br>~nick/002.JPG<br>…<br>~nick/201.JPG<br><br>够方便的了吧？哈哈哈<br><br>咦？高兴得太早了。<br>由于zzh/nick下的文件名都是001，002…，201，下载下来的文件重名，后面的把前面的文件都给覆盖掉了</del>~<br><br>没关系，我们还有更狠的！<br>curl&nbsp;-o&nbsp;#2_#1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>–这是…..自定义文件名的下载？<br>–对头，呵呵！<br><br>#1是变量，指的是{zzh,nick}这部分，第一次取值zzh，第二次取值nick<br>#2代表的变量，则是第二段可变部分—[001-201]，取值从001逐一加到201<br>这样，自定义出来下载下来的文件名，就变成了这样：<br>原来：&nbsp;~zzh/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-zzh.JPG<br>原来：&nbsp;~nick/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-nick.JPG<br><br>这样一来，就不怕文件重名啦，呵呵<br><br><br>9）<br>继续讲下载<br>我们平时在windows平台上，flashget这样的工具可以帮我们分块并行下载，还可以断线续传。<br>curl在这些方面也不输给谁，嘿嘿<br><br>比如我们下载screen1.JPG中，突然掉线了，我们就可以这样开始续传<br>curl&nbsp;-c&nbsp;-O&nbsp;<a href="http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG</a><br><br>当然，你不要拿个flashget下载了一半的文件来糊弄我<del>~~别的下载软件的半截文件可不一定能用哦</del>~<br><br>分块下载，我们使用这个option就可以了：&nbsp;-r<br>举例说明<br>比如我们有一个<a href="http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）</a><br>我们就可以用这样的命令：<br>curl&nbsp;-r&nbsp;0-10240&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;10241-20480&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;20481-40960&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;40961-&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3<br><br>这样就可以分块下载啦。<br>不过你需要自己把这些破碎的文件合并起来<br>如果你用UNIX或苹果，用&nbsp;cat&nbsp;zhao.part*&nbsp;&gt;&nbsp;zhao.mp3就可以<br>如果用的是Windows，用copy&nbsp;/b&nbsp;来解决吧，呵呵<br><br>上面讲的都是http协议的下载，其实ftp也一样可以用。<br>用法嘛，<br>curl&nbsp;-u&nbsp;name:passwd&nbsp;ftp://ip:port/path/file<br>或者大家熟悉的<br>curl&nbsp;ftp://name:passwd@ip:port/path/file<br><br><br><br>10)<br>说完了下载，接下来自然该讲上传咯<br>上传的option是&nbsp;-T<br><br>比如我们向ftp传一个文件：&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;-u&nbsp;name:passwd&nbsp;ftp://upload_site:port/path/<br><br>当然，向http服务器上传文件也可以<br>比如&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi</a><br>注意，这时候，使用的协议是HTTP的PUT&nbsp;method<br><br>刚才说到PUT，嘿嘿，自然让老服想起来了其他几种methos还没讲呢！<br>GET和POST都不能忘哦。<br><br>http提交一个表单，比较常用的是POST模式和GET模式<br><br>GET模式什么option都不用，只需要把变量写在url里面就可以了<br>比如：<br>curl&nbsp;<a href="http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345" target="_blank" rel="external">http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345</a><br><br>而POST模式的option则是&nbsp;-d<br><br>比如，curl&nbsp;-d&nbsp;”user=nickwolfe&amp;password=12345”&nbsp;<a href="http://www.yahoo.com/login.cgi" target="_blank" rel="external">http://www.yahoo.com/login.cgi</a><br>就相当于向这个站点发出一次登陆申请<del>~</del><br><br>到底该用GET模式还是POST模式，要看对面服务器的程序设定。<br><br>一点需要注意的是，POST模式下的文件上的文件上传，比如<br>&lt;form&nbsp;method=”POST”&nbsp;enctype=”multipar/form-data”&nbsp;action=”<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt</a>;<br>&lt;input&nbsp;type=file&nbsp;name=upload&gt;<br>&lt;input&nbsp;type=submit&nbsp;name=nick&nbsp;value=”go”&gt;<br>&lt;/form&gt;<br>这样一个HTTP表单，我们要用curl进行模拟，就该是这样的语法：<br>curl&nbsp;-F&nbsp;upload=@localfile&nbsp;-F&nbsp;nick=go&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi</a><br><br>罗罗嗦嗦讲了这么多，其实curl还有很多很多技巧和用法<br>比如&nbsp;https的时候使用本地证书，就可以这样<br>curl&nbsp;-E&nbsp;localcert.pem&nbsp;<a href="https://remote_server" target="_blank" rel="external">https://remote_server</a><br><br>再比如，你还可以用curl通过dict协议去查字典<del>~</del><br>curl&nbsp;dict://dict.org/d:computer <br></p> </div>
+
+<p>文章转自：<a href="http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff" target="_blank" rel="external">http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/14/2014-10-18-zipcommand/" rel="next" title="linux下 解压zip,tar等压缩文件详解">
+                <i class="fa fa-chevron-left"></i> linux下 解压zip,tar等压缩文件详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/14/2014-10-13-androidmakefile/" rel="prev" title="Android Makefile 编译过程讲解">
+                Android Makefile 编译过程讲解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/14/2014-10-18-curlcommand/"
+     data-title="命令行浏览器 curl 命令详解"
+     data-content=""
+     data-url="http://percychen.com/2016/10/14/2014-10-18-curlcommand/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/14/2014-10-18-curlcommand/"
+           data-title="命令行浏览器 curl 命令详解" data-url="http://percychen.com/2016/10/14/2014-10-18-curlcommand/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/yunicon.png"
+               alt="percy|振云" />
+          <p class="site-author-name" itemprop="name">percy|振云</p>
+          <p class="site-description motion-element" itemprop="description">愿我从此不再提起，再不提起过去，痛苦与幸福</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">135</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yunpercy" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yun-percy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://user.qzone.qq.com/464095417" target="_blank" title="QQ空间">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  QQ空间
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiangsunzi.com/" title="生活与小怪兽" target="_blank">生活与小怪兽</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">percy|振云</span>
+</div>
+
+<div class="powered-by">
+  由 percy 先生维护制作
+</div>
+
+<div class="theme-info">
+  关于 -
+  <a class="theme-link" href="http://percychen.com">
+    percy先生
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"percychen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ( $('#local-search-input').size() === 0) {
+        return;
+      }
+
+      // Popup Window;
+      var isfetched = false;
+      // Search DB path;
+      var search_path = "search.xml";
+      if (search_path.length == 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      // monitor main search box;
+
+      function proceedsearch() {
+        $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+        $('.popup').toggle();
+
+      }
+      // search function;
+      var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+          url: path,
+          dataType: "xml",
+          async: true,
+          success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+              return {
+                title: $( "title", this ).text(),
+                content: $("content",this).text(),
+                url: $( "url" , this).text()
+              };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+              var matchcounts = 0;
+              var str='<ul class=\"search-result-list\">';
+              var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+              $resultContent.innerHTML = "";
+              if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                  var isMatch = true;
+                  var content_index = [];
+                  var data_title = data.title.trim().toLowerCase();
+                  var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                  var data_url = data.url;
+                  var index_title = -1;
+                  var index_content = -1;
+                  var first_occur = -1;
+                  // only match artiles with not empty titles and contents
+                  if(data_title != '' && data_content != '') {
+                    keywords.forEach(function(keyword, i) {
+                      index_title = data_title.indexOf(keyword);
+                      index_content = data_content.indexOf(keyword);
+                      if( index_title < 0 && index_content < 0 ){
+                        isMatch = false;
+                      } else {
+                        if (index_content < 0) {
+                          index_content = 0;
+                        }
+                        if (i == 0) {
+                          first_occur = index_content;
+                        }
+                      }
+                    });
+                  }
+                  // show search results
+                  if (isMatch) {
+                    matchcounts += 1;
+                    str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                    var content = data.content.trim().replace(/<[^>]+>/g,"");
+                    if (first_occur >= 0) {
+                      // cut out 100 characters
+                      var start = first_occur - 20;
+                      var end = first_occur + 80;
+                      if(start < 0){
+                        start = 0;
+                      }
+                      if(start == 0){
+                        end = 50;
+                      }
+                      if(end > content.length){
+                        end = content.length;
+                      }
+                      var match_content = content.substring(start, end);
+                      // highlight all keywords
+                      keywords.forEach(function(keyword){
+                        var regS = new RegExp(keyword, "gi");
+                        match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                      });
+
+                      str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    }
+                    str += "</li>";
+                  }
+                })};
+              str += "</ul>";
+              if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+              if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+              $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+          }
+        });}
+
+      // handle and trigger popup window;
+      $('.popup-trigger').mousedown(function(e) {
+        e.stopPropagation();
+        if (isfetched == false) {
+          searchFunc(path, 'local-search-input', 'local-search-result');
+        } else {
+          proceedsearch();
+        };
+
+      });
+
+      $('.popup-btn-close').click(function(e){
+        $('.popup').hide();
+        $(".popoverlay").remove();
+        $('body').css('overflow', '');
+      });
+      $('.popup').click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7d74DeOPOEXkqoHL2A6jD1Ov-gzGzoHsz", "UU5DcLV69esGTGlJCglVXSiE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+  
+
+
+</body>
+</html>

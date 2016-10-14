@@ -1,89 +1,75 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
 
-# exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-# safe: true
-# lsi: false
-markdown: kramdown
-kramdown:
-    input: GFM
-highlighter: rouge
-excerpt_separator: "\n\n"
-encoding: UTF-8
+# Site
+title: 风之子的世界
+subtitle:
+description: 愿我从此不再提起，再不提起过去，痛苦与幸福 
+author: percy|振云
+language: zh-Hans
+timezone:
 
-filter: 'category'
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://percychen.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
 
-sass:
-  style: compressed
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
 
-######## for 3-Jekyll  end themes
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
 
-redcarpet:
-  extensions: [no_intra_emphasis, fenced_code_blocks, autolink, tables, with_toc_data, highlight, quote]
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
 
-kramdown:
-  input: GFM
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-  enable_coderay: true
-  syntax_highlighter: rouge
-  coderay:
-    coderay_line_numbers:  nil
-# kramdown:
-#   input: GFM
-#   auto_ids: true
-#   footnote_nr: 1
-#   entity_output: as_char
-#   toc_levels: 1..6
-#   enable_coderay: true
-#   syntax_highlighter: coderay
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
 
-#   coderay:
-#     coderay_wrap: div
-#     coderay_line_numbers: inline
-#     coderay_line_numbers_start: 1
-#     coderay_tab_width: 4
-#     coderay_bold_every: 10
-#     coderay_css: style
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 8
+pagination_dir: page
+search:
+  path: search.xml
+  field: post
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: hexo-theme-next
 
-title : 振云|percy
-author :
-  name : 振云
-  email : yun-percy@qq.com
-  github : https://github.com/yun-percy
-  weibo : http://weibo.com/yunpercy
-
-
-JB :
-  version : 0.3.0
-
-  BASE_PATH : false
-
-  ASSET_PATH : false
-
-  archive_path: /archive.html
-  categories_path : /categories.html
-  tags_path : /tags.html
-  atom_path : /atom.xml
-
-  comments :
-    provider : disqus
-    disqus :
-      short_name : liang8305
-
-  analytics :
-    provider : custom
-    google :
-        tracking_id : ''
-    getclicky :
-      site_id :
-    mixpanel :
-        token : ''
-  sharing :
-    provider : false
-
-# highlighter: pygments
-excerpt_separator: ""
-# duoshuo comments
-duoshuo_comments: true
-duoshuo_short_name: yun-percy
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repository: https://github.com/yun-percy/yun-percy.github.io.git
+  branch: master
