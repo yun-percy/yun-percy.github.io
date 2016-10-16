@@ -1,0 +1,1103 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/cloud.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="来鹅厂之前，我以为我是来写App层和Framework 的feature的，或者做前端，万万没想到，进来之后就一头栽进 Recovery的坑里了，我的主语言是java，Makefile和shell，所以本来只打算在jacky的手下打打杂工的，万万没想到就成了owner，好在以前写过一点点C，接下担子后就开始各种苦逼的解bug了
+
+调试的基本功
+会查看log
+adb shell &amp;quot;cat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Recovery 编译中常见问题">
+<meta property="og:url" content="http://percychen.com/2015/05/06/2015-05-06-RecoveryBugAnalysis/index.html">
+<meta property="og:site_name" content="风之子的世界">
+<meta property="og:description" content="来鹅厂之前，我以为我是来写App层和Framework 的feature的，或者做前端，万万没想到，进来之后就一头栽进 Recovery的坑里了，我的主语言是java，Makefile和shell，所以本来只打算在jacky的手下打打杂工的，万万没想到就成了owner，好在以前写过一点点C，接下担子后就开始各种苦逼的解bug了
+
+调试的基本功
+会查看log
+adb shell &amp;quot;cat">
+<meta property="og:updated_time" content="2015-05-06T05:14:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Recovery 编译中常见问题">
+<meta name="twitter:description" content="来鹅厂之前，我以为我是来写App层和Framework 的feature的，或者做前端，万万没想到，进来之后就一头栽进 Recovery的坑里了，我的主语言是java，Makefile和shell，所以本来只打算在jacky的手下打打杂工的，万万没想到就成了owner，好在以前写过一点点C，接下担子后就开始各种苦逼的解bug了
+
+调试的基本功
+会查看log
+adb shell &amp;quot;cat">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 8780122,
+      author: '振云'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+  <title> Android Recovery 编译中常见问题 | 风之子的世界 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58976570";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">风之子的世界</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Recovery 编译中常见问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-06T13:14:00+08:00" content="2015-05-06">
+              2015-05-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/06/2015-05-06-RecoveryBugAnalysis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/06/2015-05-06-RecoveryBugAnalysis/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/05/06/2015-05-06-RecoveryBugAnalysis/" class="leancloud_visitors" data-flag-title="Android Recovery 编译中常见问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>来鹅厂之前，我以为我是来写App层和Framework 的feature的，或者做前端，万万没想到，进来之后就一头栽进 Recovery的坑里了，我的主语言是java，Makefile和shell，所以本来只打算在jacky的手下打打杂工的，万万没想到就成了owner，好在以前写过一点点C，接下担子后就开始各种苦逼的解bug了</p>
+</blockquote>
+<h2 id="调试的基本功"><a href="#调试的基本功" class="headerlink" title="调试的基本功"></a>调试的基本功</h2><ul>
+<li><p>会查看log</p>
+<pre><code>adb shell &quot;cat /cache/recovery/last_log.1&quot;  #recovery模式下
+adb shell su -c &quot;cat /cache/recovery/last_log&quot; #正常模式下
+</code></pre></li>
+<li><p>会一些常规的 adb 调试指令</p>
+<pre><code>adb shell &quot;cat /dev/input/event0&quot;  #获取设备的输入信息，在调试按键和屏幕的时候比较有用
+adb shell &quot;dmesg&quot;     #selinux的相关信息
+adb shell &quot;cat /proc/bus/input/devices&quot;     #输入设备的芯片和型号
+</code></pre></li>
+<li><p>比较扎实的C语言功底和Makefile的基本知识。</p>
+</li>
+<li><p>相当强大的google search能力</p>
+</li>
+</ul>
+<h2 id="OTA失败"><a href="#OTA失败" class="headerlink" title="OTA失败"></a>OTA失败</h2><p>这种问题在新机型的适配中比较常见，出错根源主要分为三种：</p>
+<ul>
+<li><strong>空间不足</strong></li>
+</ul>
+<p>这算是非常喜闻乐见的bug了，直接对包做一些精简就能解决这个问题，不需要去动recovery</p>
+<ul>
+<li><strong>挂载失败</strong></li>
+</ul>
+<p>之前MI3TD就遇到了这种问题，链接表是从官方表中导出的，OTA了十几个版本都没问题，突然一天就失败了，像这种无厘头的bug只能挠挠头老老实实去分析了。<br>看了下updater_script的挂载地址，然后</p>
+<pre><code>ls -al /dev/block/platform/????/by-name
+</code></pre><p>对比发现 system本来对应的分区 mmcblk0p24在手机上给对应成了</p>
+<pre><code>/dev/block/platform/????/by-name/APP
+</code></pre><p>于是修改分区表，将分区表中的：</p>
+<pre><code>/dev/block/platform/????/by-name/system
+</code></pre><p>改成：</p>
+<pre><code>/dev/block/platform/????/by-name/APP
+</code></pre><p>启动编译，验证OK了。当然这不是最好的解决方式，为了分区表的可读性我们往往会使用by-name的链接写法，但是个人是比较建议使用实际地址的方式来写分区表的，这样不管你的链接表怎么变化，我们都能准确的找到对应的分区挂载。</p>
+<ul>
+<li><strong>全量包无法写入</strong></li>
+</ul>
+<blockquote>
+<p>问题描述，卡刷没问题，增量刷机没问题，其实就是各种刷机各种折腾都没问题，除了刷全量包的时候，这是遇到最头疼的事情了.</p>
+<p>分析，因为只有一台手机出现了这种情况，所以问题应该是在device上，看log是system不可写入部分文件，导致刷机失败。所以定位问题是出现在分区表的写法上。</p>
+<p>分区表是从官方里拖出来的，分区地址应该是没问题</p>
+<p>折腾了一个小时后发现，在recovery下写command进行全量包的刷机竟然可以成功，但是正常模式下写command刷机会失败，故推导出可能是 vold 服务区别的原因</p>
+<p>这样就好解决了，因为在分区表里与vold相关的只有 mnt_flags这些标识了，mnt_flags是从linux引入的装载标识，但是linux的装载标识的值与Android有些不同，所以只好去Android官网查，结果只查到一句：vold忽略这个值，应该被设置为defaults。这就无解了，因为如果设置为defaults的话，就挂不上 system。</p>
+</blockquote>
+<p>解决：  没什么好的解决办法，只能厚着头皮慢慢调，当我把 barrier=1这个属性加上的时候，全量升级就调通了。建议以后system分区的挂载写法为:</p>
+<pre><code>/dev/block/mmcblk0pXX       /system     ext4        rw,barrier=1            wait
+</code></pre><p>后面因为还有很多bug要调，没时间细究，准备将这个作为一个点，有时间了好好研究下 Android的mount 标识</p>
+<h2 id="各种奇葩的设定"><a href="#各种奇葩的设定" class="headerlink" title="各种奇葩的设定"></a>各种奇葩的设定</h2><p><strong>颜色值不对</strong></p>
+<p>我们默认的是：</p>
+<pre><code>TAGET_RECOVERY_PIXEL_FORMAT : &quot;RGBX_8888&quot;
+</code></pre><p>实际上还有两种：</p>
+<pre><code>TAGET_RECOVERY_PIXEL_FORMAT : &quot;BGRA_8888&quot;
+TAGET_RECOVERY_PIXEL_FORMAT : &quot;ABGR_8888&quot;
+</code></pre><p>三种换着来就可以解决。</p>
+<p><strong>屏幕不亮，但是adb已启动</strong></p>
+<pre><code>TAGET_RECOVERY_LCD_BACKLIGHT_PATH :=\&quot;/sys/class/leds/lcd-backlight/brightness\&quot;
+</code></pre><p><strong>屏幕花屏</strong></p>
+<pre><code>RECOVERY_GRAPHICS_USE_LINELENGTH :=true
+</code></pre><p><strong>键值不对</strong></p>
+<p>可以在正常系统下测试各个键值：</p>
+<pre><code>adb shell getevent
+</code></pre><p>然后复执一份 default_recovery_keys.c 到device/××××/×××/recovery目录下，重命名为recovery_keys.c，修改宏定义，宏定义可以根据你上一步获取的键值去查看 kernel/include/linux/input.h中对应的键值.然后编译即可。</p>
+<p><strong>触摸屏不工作</strong></p>
+<p>这个可能是需要长篇讲一下了，虽然只花了三个小时就解决了，但是确实费了不少心思和大量的尝试</p>
+<p>问题描述： 在适配 LG WATCH R的时候，几乎没遇到什么阻力就起来了，各项功能都运行的非常好，但是 Moto 360却是问题很多，解决了常规几个问题后，就只剩触摸屏起不来了。</p>
+<p>解决过程：</p>
+<ol>
+<li><p>打log。在recovery的文件中加满了LOGI都没一个触摸事件输出，所以在确定touch的C文件起来后，确定是触摸屏接口或者驱动，或者kernel的问题。</p>
+</li>
+<li><p>请教了下fredjgzhang,一起查看了下 /dev/input/event的抽象文件，没有任何输出，后来更换kernel后也没有解决。甚至替换了init也没有解决。</p>
+</li>
+<li><p>顺着fredjgzhang的思路看了一遍 Android的input输入系统的linux层的流程。发现/dev/input/下的event对应的设备信息存储在 /proc/bus/input/devices里面，所以cat了一下</p>
+<pre><code>cat /proc/bus/input/devices
+</code></pre></li>
+</ol>
+<p>然后在recovery下也cat一下，对比devices信息，发现少了一个设备：ABS，熟悉linux输入的人应该知道linux的触摸信息是以ABS承载并一并上报的。来看看少了的部分：</p>
+<pre><code>I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name=&quot;atmxt-i2c&quot;
+P: Phys=
+S: Sysfs=/devices/virtual/input/input2
+U: Uniq=
+H: Handlers=event2
+B: PROP=2
+B: EV=b
+B: KEY=4000 0 0 0 0
+B: ABS=6618000 0
+</code></pre><p>我们看到了，这个Name叫 atmxt-i2c没有工作，去官方包里查了下atmxt_i2c，原来moto自写了一套触摸屏校准文件。于是将这些<br>atmxt-i2c.idc和atmxt-i2c.kl放进device/moto/minnow/recovery/root里面做内置，结果可想而知，肯定失败了。</p>
+<p>反思了一晚上，应该是C的本地层和虚拟机工作原理不一样导致的。</p>
+<p>第二天开完晨会就去网上找这个设备的源码（source）或者固件(firmware)，结果搜出来的只是github的一些校准文件，虽然没收获，但是发现这个校准文件全部都来自moto的机器，于是就搜关键字 moto atmxt firmware，立马就搜到了 atmxt-r2.tdat atmxt-r3.tdat !</p>
+<p>将这两个文件放入 device/moto/minnow/recovery/root/firmware/image下面，然后执行 make recoveryimage -j16</p>
+<p>问题立马就解决了，因为以前没做过单片机什么的，所以花了比较多的时间去思考，希望能给以后有设备调不通的童鞋提供点思路。总结一下解决问题顺序：</p>
+<p>输入设备不工作</p>
+<p>—&gt; 打recovery的log，触屏有反应就去调校准值</p>
+<p>—&gt; 看/dev/input/下面的event是否有节点的正常反馈</p>
+<p>—&gt; 看/proc/bus/input/devices 各个输入设备是否正常工作</p>
+<p>—&gt; 去网上查找设备型号对应的firmware合入即可解决问题</p>
+<p><strong>双清缓慢</strong></p>
+<pre><code>BOARD_NO_SECURE_DISCARD := true
+</code></pre><h1 id="等待补充更新中"><a href="#等待补充更新中" class="headerlink" title="等待补充更新中"></a>等待补充更新中</h1>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/05/2015-05-05-GetBlockInfomation/" rel="next" title="Android获取分区信息">
+                <i class="fa fa-chevron-left"></i> Android获取分区信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/08/2015-05-08-LinuxDuCommand/" rel="prev" title="Linux 的du 命令详解">
+                Linux 的du 命令详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/05/06/2015-05-06-RecoveryBugAnalysis/"
+     data-title="Android Recovery 编译中常见问题"
+     data-content=""
+     data-url="http://percychen.com/2015/05/06/2015-05-06-RecoveryBugAnalysis/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/05/06/2015-05-06-RecoveryBugAnalysis/"
+           data-title="Android Recovery 编译中常见问题" data-url="http://percychen.com/2015/05/06/2015-05-06-RecoveryBugAnalysis/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/yunicon.png"
+               alt="percy|振云" />
+          <p class="site-author-name" itemprop="name">percy|振云</p>
+          <p class="site-description motion-element" itemprop="description">愿我从此不再提起，再不提起过去，痛苦与幸福</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yunpercy" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yun-percy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://user.qzone.qq.com/464095417" target="_blank" title="QQ空间">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  QQ空间
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xiangsunzi.com/" title="生活与小怪兽" target="_blank">生活与小怪兽</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#调试的基本功"><span class="nav-number">1.</span> <span class="nav-text">调试的基本功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OTA失败"><span class="nav-number">2.</span> <span class="nav-text">OTA失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各种奇葩的设定"><span class="nav-number">3.</span> <span class="nav-text">各种奇葩的设定</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#等待补充更新中"><span class="nav-number"></span> <span class="nav-text">等待补充更新中</span></a></div>
+            
+
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">percy|振云</span>
+</div>
+
+<div class="powered-by">
+  由 percy 先生维护制作
+</div>
+
+<div class="theme-info">
+  关于 -
+  <a class="theme-link" href="http://percychen.com">
+    percy先生
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"percychen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ( $('#local-search-input').size() === 0) {
+        return;
+      }
+
+      // Popup Window;
+      var isfetched = false;
+      // Search DB path;
+      var search_path = "search.xml";
+      if (search_path.length == 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      // monitor main search box;
+
+      function proceedsearch() {
+        $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+        $('.popup').toggle();
+
+      }
+      // search function;
+      var searchFunc = function(path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+          url: path,
+          dataType: "xml",
+          async: true,
+          success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+              return {
+                title: $( "title", this ).text(),
+                content: $("content",this).text(),
+                url: $( "url" , this).text()
+              };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+              var matchcounts = 0;
+              var str='<ul class=\"search-result-list\">';
+              var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+              $resultContent.innerHTML = "";
+              if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                  var isMatch = true;
+                  var content_index = [];
+                  var data_title = data.title.trim().toLowerCase();
+                  var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                  var data_url = data.url;
+                  var index_title = -1;
+                  var index_content = -1;
+                  var first_occur = -1;
+                  // only match artiles with not empty titles and contents
+                  if(data_title != '' && data_content != '') {
+                    keywords.forEach(function(keyword, i) {
+                      index_title = data_title.indexOf(keyword);
+                      index_content = data_content.indexOf(keyword);
+                      if( index_title < 0 && index_content < 0 ){
+                        isMatch = false;
+                      } else {
+                        if (index_content < 0) {
+                          index_content = 0;
+                        }
+                        if (i == 0) {
+                          first_occur = index_content;
+                        }
+                      }
+                    });
+                  }
+                  // show search results
+                  if (isMatch) {
+                    matchcounts += 1;
+                    str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                    var content = data.content.trim().replace(/<[^>]+>/g,"");
+                    if (first_occur >= 0) {
+                      // cut out 100 characters
+                      var start = first_occur - 20;
+                      var end = first_occur + 80;
+                      if(start < 0){
+                        start = 0;
+                      }
+                      if(start == 0){
+                        end = 50;
+                      }
+                      if(end > content.length){
+                        end = content.length;
+                      }
+                      var match_content = content.substring(start, end);
+                      // highlight all keywords
+                      keywords.forEach(function(keyword){
+                        var regS = new RegExp(keyword, "gi");
+                        match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                      });
+
+                      str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    }
+                    str += "</li>";
+                  }
+                })};
+              str += "</ul>";
+              if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+              if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+              $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+          }
+        });}
+
+      // handle and trigger popup window;
+      $('.popup-trigger').mousedown(function(e) {
+        e.stopPropagation();
+        if (isfetched == false) {
+          searchFunc(path, 'local-search-input', 'local-search-result');
+        } else {
+          proceedsearch();
+        };
+
+      });
+
+      $('.popup-btn-close').click(function(e){
+        $('.popup').hide();
+        $(".popoverlay").remove();
+        $('body').css('overflow', '');
+      });
+      $('.popup').click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("7d74DeOPOEXkqoHL2A6jD1Ov-gzGzoHsz", "UU5DcLV69esGTGlJCglVXSiE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+  
+
+
+</body>
+</html>

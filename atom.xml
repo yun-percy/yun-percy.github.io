@@ -1,0 +1,2583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风之子的世界</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://percychen.com/"/>
+  <updated>2016-10-13T05:14:00.000Z</updated>
+  <id>http://percychen.com/</id>
+  
+  <author>
+    <name>percy|振云</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>转:Linux中源码安装编译Vim</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-viminstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-viminstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-13T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/zhongcq/p/3615980.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux下学习工作少不了编辑器，Vim能
+    
+    </summary>
+    
+      <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+    
+    
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
+    
+      <category term="source" scheme="http://percychen.com/tags/source/"/>
+    
+      <category term="vim" scheme="http://percychen.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>转:使用Python的Pexpect模块执行SSH登陆</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-pythonexpect/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-13T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://guweigang.com/blog/2012/10/25/using-python-ssh-landing-module-performs-pexpect/" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Pexpect 的使用范围很广，可以用来实现与 ssh, ftp , telnet 等程序的自动交互；可以用来自动复制软件安装包并在不同机器自动安装；还可以用来实现软件测试中与命令行交互的自动化。</p>
+</blockquote>
+<h3 id="下载安装："><a href="#下载安装：" class="headerlink" title="下载安装："></a>下载安装：</h3><pre><code class="sh">download pexpect-2.3.tar.gz
+tar zxvf pexpect-2.3.tar.gz
+<span class="built_in">cd</span> pexpect-2.3
+python setup.py install (<span class="keyword">do</span> this as root)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 其实这个过程一点都不难，唯一的问题就是登陆之后终端尺寸的大小（我理解是buffer），因为Pexpect在代码里面有hardcode，把终端尺寸默认设成(24, 80)了。所以你连上后打开emacs会发现，emacs只占据了整个终端的一小部分。```# pexpect hard-codes the terminal size as (24,80) (rows,columns).# This causes problems because any line longer than 80 characters gets# completely overwrapped on the printed outptut (even though# internally the code runs fine).  We reset this to 99 rows X 200# columns (arbitrarily chosen), which should avoid problems in all# reasonable cases.c.setwinsize(24,80)</div></pre></td></tr></table></figure>
+
+
+OK, 知道问题了我们可以开始解决，既然支持`child.setwinsize()`，那我们就想办法获取当前终端大小，并且在ssh目标主机之后设置终端大小。
+
+<span class="comment">### 获取窗口大小</span>
+
+```py
+def getwinsize():
+    <span class="string">""</span><span class="string">"This returns the window size of the child tty.
+    The return value is a tuple of (rows, cols).
+    "</span><span class="string">""</span>
+    <span class="keyword">if</span> <span class="string">'TIOCGWINSZ'</span> <span class="keyword">in</span> dir(termios):
+        TIOCGWINSZ = termios.TIOCGWINSZ
+    <span class="keyword">else</span>:
+        TIOCGWINSZ = 1074295912L <span class="comment"># Assume</span>
+    s = struct.pack(<span class="string">'HHHH'</span>, 0, 0, 0, 0)
+    x = fcntl.ioctl(sys.stdout.fileno(), TIOCGWINSZ, s)
+    <span class="built_in">return</span> struct.unpack(<span class="string">'HHHH'</span>, x)[0:2]
+＃ 设置大小
+    child.expect(<span class="string">'-bash-baidu-ssl.*'</span>)
+    child.sendline(<span class="string">'ssh '</span> + host)
+    winsize = getwinsize();
+    child.setwinsize(winsize[0], winsize[1])
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OK, 一切正常。打开emacs，感觉很幸福，但连接后我发现连接之前终端窗口本来就很小，现在想把窗终窗口最大化，一试就杯具了，窗口的确最大化了，但是emacs所占区域仍旧没有变化，也就是说连接后的子窗口尺寸和当前窗口尺雨不匹配，Signal终于要派上用场了：```pydef sigwinch_passthrough (sig, data):    winsize = getwinsize()    global child    child.setwinsize(winsize[0],winsize[1])#最后监听事件：signal.signal(signal.SIGWINCH, sigwinch_passthrough)</div></pre></td></tr></table></figure>
+
+
+一切正常！
+
+<span class="comment">## 下面贴上所有代码：</span>
+
+
+```py
+<span class="comment">#!/usr/bin/python</span>
+
+import sys
+import time
+import pexpect
+import os
+import struct
+import fcntl
+import termios
+import signal
+
+def sigwinch_passthrough (sig, data):
+    winsize = getwinsize()
+    global child
+    child.setwinsize(winsize[0],winsize[1])
+
+def getwinsize():
+    <span class="string">""</span><span class="string">"This returns the window size of the child tty.
+    The return value is a tuple of (rows, cols).
+    "</span><span class="string">""</span>
+    <span class="keyword">if</span> <span class="string">'TIOCGWINSZ'</span> <span class="keyword">in</span> dir(termios):
+        TIOCGWINSZ = termios.TIOCGWINSZ
+    <span class="keyword">else</span>:
+        TIOCGWINSZ = 1074295912L <span class="comment"># Assume</span>
+    s = struct.pack(<span class="string">'HHHH'</span>, 0, 0, 0, 0)
+    x = fcntl.ioctl(sys.stdout.fileno(), TIOCGWINSZ, s)
+    <span class="built_in">return</span> struct.unpack(<span class="string">'HHHH'</span>, x)[0:2]
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    user   = <span class="string">'username'</span>
+    passwd = <span class="string">'password'</span>
+    host   = <span class="string">'example.com'</span>
+    <span class="built_in">print</span> <span class="string">'ssh '</span> + user + <span class="string">'@'</span> + host + <span class="string">' ...'</span>
+
+    time.sleep(1)
+
+    child = pexpect.spawn(<span class="string">'ssh relay'</span>, env = {<span class="string">"TERM"</span> : <span class="string">"xterm-256color"</span>})
+
+    signal.signal(signal.SIGWINCH, sigwinch_passthrough)
+
+    <span class="keyword">if</span> len(sys.argv) &gt; 1:
+        child.expect(<span class="string">"Enter PASSCODE:"</span>)
+        child.sendline(<span class="string">"PIN-CODE"</span> + sys.argv[1])
+
+    child.expect(<span class="string">'-bash-baidu-ssl.*'</span>)
+    child.sendline(<span class="string">'ssh '</span> + host)
+
+    winsize = getwinsize();
+    child.setwinsize(winsize[0], winsize[1])
+
+    child.expect(<span class="string">'.*password:.*'</span>)
+    child.sendline(passwd)
+
+    child.interact()
+    pass
+</code></pre>
+<p><a href="http://pexpect.sourceforge.net/pexpect.html" target="_blank" rel="external">参考链接</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://guweigang.com/blog/2012/10/25/using-python-ssh-landing-module-performs-pexpect/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="note" scheme="http://percychen.com/tags/note/"/>
+    
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cmake的安装</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-16T06:17:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
+&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python mysql查询笔迹</title>
+    <link href="http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/"/>
+    <id>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</id>
+    <published>2016-09-26T05:14:00.000Z</published>
+    <updated>2016-09-26T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
+<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<p>更新数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;连接数据库&quot;&gt;&lt;a href=&quot;#连接数据库&quot; class=&quot;headerlink&quot; title=&quot;连接数据库&quot;&gt;&lt;/a&gt;连接数据库&lt;/h2&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="note" scheme="http://percychen.com/tags/note/"/>
+    
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql重置密码</title>
+    <link href="http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/"/>
+    <id>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</id>
+    <published>2016-09-26T05:14:00.000Z</published>
+    <updated>2016-09-26T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/abbuggy/article/details/8245464" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>忘了MySQL密码，从网上找到的解决方案记录在这里。</p>
+</blockquote>
+<ul>
+<li><p>编辑mysql的配置文件<code>/etc/mysql/my.cnf</code>，在[mysqld]段下加入一行<code>skip-grant-tables</code>。</p>
+</li>
+<li><p>重启mysql服务</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure>
+<ul>
+<li>用空密码进入mysql管理命令行，切换到mysql库。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~$ mysql</div><div class="line">mysql&gt; use mysql</div><div class="line"><span class="comment"># 把密码重置为new_pass。退出数据库管理。</span></div><div class="line">mysql&gt; update user <span class="built_in">set</span> password=PASSWORD(<span class="string">"new_pass"</span>) <span class="built_in">where</span> user=<span class="string">'root'</span>;</div><div class="line">mysql&gt;quit</div></pre></td></tr></table></figure>
+<ul>
+<li>回到vim <code>/etc/mysql/my.cnf</code>，把刚才加入的那一行<code>skip-grant-tables</code>注释或删除掉。</li>
+</ul>
+<p>再次重启mysql服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure>
+<p>使用新的密码登陆，修改成功。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~$ mysql -uroot -pnew_pass</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/abbuggy/article/details/8245464&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;忘了MySQL密码，从网上找
+    
+    </summary>
+    
+      <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+    
+    
+      <category term="password" scheme="http://percychen.com/tags/password/"/>
+    
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
+      <category term="reset" scheme="http://percychen.com/tags/reset/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js调用python</title>
+    <link href="http://percychen.com/2016/08/13/2016-08-13-nodejsNotes/"/>
+    <id>http://percychen.com/2016/08/13/2016-08-13-nodejsNotes/</id>
+    <published>2016-08-13T05:14:00.000Z</published>
+    <updated>2016-08-13T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="js调用python"><a href="#js调用python" class="headerlink" title="js调用python"></a>js调用python</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"><span class="keyword">var</span> arg1 = <span class="string">'hello'</span></div><div class="line">exec(<span class="string">'python test.py '</span>+arg1,<span class="function"><span class="keyword">function</span>(<span class="params">error,stdout,stderr</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(stdout.length &gt;<span class="number">1</span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'you offer args:\n'</span>,stdout);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'you don\'t offer args'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(error) &#123;</div><div class="line">        <span class="built_in">console</span>.info(<span class="string">'stderr : '</span>+stderr);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="打印对象类型"><a href="#打印对象类型" class="headerlink" title="打印对象类型:"></a>打印对象类型:</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">typeof</span>(stdout)&#125;</span>`</span>);</div></pre></td></tr></table></figure>
+<h2 id="获取当前文件路径"><a href="#获取当前文件路径" class="headerlink" title="获取当前文件路径"></a>获取当前文件路径</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">`Current directory: <span class="subst">$&#123;process.cwd()&#125;</span>`</span>);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;js调用python&quot;&gt;&lt;a href=&quot;#js调用python&quot; class=&quot;headerlink&quot; title=&quot;js调用python&quot;&gt;&lt;/a&gt;js调用python&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="js" scheme="http://percychen.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nodejs调用python,python返回json</title>
+    <link href="http://percychen.com/2016/08/08/2016-08-08-nodejsallpython/"/>
+    <id>http://percychen.com/2016/08/08/2016-08-08-nodejsallpython/</id>
+    <published>2016-08-08T05:14:00.000Z</published>
+    <updated>2016-08-08T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Nodejs调用python</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</div><div class="line"><span class="keyword">var</span> arg1 = <span class="string">'arg1'</span></div><div class="line"><span class="keyword">var</span> arg2 = <span class="string">'arg2'</span></div><div class="line">exec(<span class="string">'python py_test.py '</span>+ arg1+<span class="string">' '</span>+arg2+<span class="string">' '</span>,<span class="function"><span class="keyword">function</span>(<span class="params">error,stdout,stderr</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(stdout.length &gt;<span class="number">1</span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'you offer args:'</span>,stdout);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'you don\'t offer args'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(error) &#123;</div><div class="line">        <span class="built_in">console</span>.info(<span class="string">'stderr : '</span>+stderr);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>python输出json格式</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> json</div><div class="line"></div><div class="line">json_dict=&#123;&#125;<span class="comment">#字典</span></div><div class="line">d1 = json.dumps(json_dict,sort_keys=<span class="keyword">True</span>,indent=<span class="number">4</span>)</div><div class="line"><span class="keyword">print</span> d1</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Nodejs调用python&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;d
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://percychen.com/categories/Linux/"/>
+    
+    
+      <category term="bash" scheme="http://percychen.com/tags/bash/"/>
+    
+      <category term="Linux" scheme="http://percychen.com/tags/Linux/"/>
+    
+      <category term="运维" scheme="http://percychen.com/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux 运维相关知识</title>
+    <link href="http://percychen.com/2016/07/21/2016-07-21-linuxoperationcommand/"/>
+    <id>http://percychen.com/2016/07/21/2016-07-21-linuxoperationcommand/</id>
+    <published>2016-07-21T05:14:00.000Z</published>
+    <updated>2016-07-21T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="创建、删除、管理用户"><a href="#创建、删除、管理用户" class="headerlink" title="创建、删除、管理用户"></a>创建、删除、管理用户</h2><ul>
+<li>创建用户</li>
+</ul>
+<p>创建test用户，并且指定Home目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo useradd <span class="_">-d</span> [userHomeDirc] -m -G root [name]</div><div class="line"><span class="comment">#ex：</span></div><div class="line">sudo useradd <span class="_">-d</span> /data/<span class="built_in">test</span> -m -G root <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<ul>
+<li>删除用户</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo userdel -r <span class="built_in">test</span> <span class="comment">#删除用户：test</span></div></pre></td></tr></table></figure>
+<ul>
+<li>创建、修改用户密码</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo passwd <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<ul>
+<li>修改用户shell</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/passwd</div><div class="line"><span class="comment">#修改 /bin/sh 为/bin/bash</span></div></pre></td></tr></table></figure>
+<ul>
+<li>将账户添加root权限</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chmod u+w /etc/sudoers</div><div class="line">vim /etc/sudoers</div><div class="line"><span class="comment">#在下面仿照其他用户加上</span></div><div class="line"><span class="built_in">test</span> ALL=(ALL:ALL) ALL</div></pre></td></tr></table></figure>
+<h2 id="用户监视"><a href="#用户监视" class="headerlink" title="用户监视"></a>用户监视</h2><ul>
+<li>查看当前登录用户</li>
+</ul>
+<p><code>who</code></p>
+<p>缺省输出包括用户名、终端类型、登陆日期以及远程主机。</p>
+<p><code>who /var/log/wtmp</code></p>
+<p>可以查看自从wtmp文件创建以来的每一次登陆情况</p>
+<p>（1）-b：查看系统最近一次启动时间</p>
+<p>（2）-H：打印每列的标题</p>
+<p><code>last</code></p>
+<p>默认打印所有用户的登陆信息。</p>
+<p>如果想打印某个用户的登陆信息，可以使用</p>
+<p><code>last username</code></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-x</td>
+<td>显示系统开关机以及执行等级信息</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>将登陆ip显示在最后一行</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>读取特定文件，可以选择 -f /var/log/btmp文件</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>将IP地址转换为主机名</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>列出名单的显示列数</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>指定时间的用户登录历史</td>
+</tr>
+</tbody>
+</table>
+<p><code>lastlog</code></p>
+<p>查看所有用户最近一次登录历史</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>选项</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-u</td>
+<td>最后一次登陆历史</td>
+<td>lastlog -u test</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>最近几天之内的用户登录历史</td>
+<td>lastlog -t 1</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>查看指定天数之前的用户登录历史</td>
+<td>lastlog -b 60</td>
+</tr>
+</tbody>
+</table>
+<p><code>ac</code></p>
+<p>根据/var/log/wtmp文件中的登陆和退出时间报告用户连接的时间（小时），默认输出报告总时间</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>显示每个用户的连接时间</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示每天的连接时间</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>显示年份，和-d配合使用</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;创建、删除、管理用户&quot;&gt;&lt;a href=&quot;#创建、删除、管理用户&quot; class=&quot;headerlink&quot; title=&quot;创建、删除、管理用户&quot;&gt;&lt;/a&gt;创建、删除、管理用户&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;创建用户&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;创建test用户，并且指定
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://percychen.com/categories/Linux/"/>
+    
+    
+      <category term="bash" scheme="http://percychen.com/tags/bash/"/>
+    
+      <category term="Linux" scheme="http://percychen.com/tags/Linux/"/>
+    
+      <category term="运维" scheme="http://percychen.com/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WxPython初学笔记</title>
+    <link href="http://percychen.com/2016/07/18/2016-07-18-wxpythonnote/"/>
+    <id>http://percychen.com/2016/07/18/2016-07-18-wxpythonnote/</id>
+    <published>2016-07-18T05:14:00.000Z</published>
+    <updated>2016-07-18T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="获取屏幕分辨率"><a href="#获取屏幕分辨率" class="headerlink" title="获取屏幕分辨率"></a>获取屏幕分辨率</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">screen_size=wx.DisplaySize()</div><div class="line"><span class="keyword">print</span> screen_size[<span class="number">0</span>],screen_size[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<h2 id="设置图标"><a href="#设置图标" class="headerlink" title="设置图标"></a>设置图标</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">icon=wx.EmptyIcon()</div><div class="line">icon.LoadFile(<span class="string">"loadIcon.ico"</span>,wx.BITMAP_TYPE_ICO)</div><div class="line">frame.SetIcon(icon)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;获取屏幕分辨率&quot;&gt;&lt;a href=&quot;#获取屏幕分辨率&quot; class=&quot;headerlink&quot; title=&quot;获取屏幕分辨率&quot;&gt;&lt;/a&gt;获取屏幕分辨率&lt;/h2&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="wxpython" scheme="http://percychen.com/tags/wxpython/"/>
+    
+      <category term="note" scheme="http://percychen.com/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python RE 正则表达式笔记</title>
+    <link href="http://percychen.com/2016/07/08/2016-07-08-pythonREnote/"/>
+    <id>http://percychen.com/2016/07/08/2016-07-08-pythonREnote/</id>
+    <published>2016-07-08T05:14:00.000Z</published>
+    <updated>2016-07-08T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>之前写shell的时候积累了一些正则经验，转到python上来的时候发现怎么也匹配不成功。于是花了几天时间看了下python正则表达式(RE)的部分，做了一些笔记</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>匹配字符串的开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的末尾。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配任意字符，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>用来表示一组字符,单独列出：[amk] 匹配 ‘a’，’m’或’k’</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>不在[]中的字符：[^abc] 匹配除了a,b,c之外的字符。</td>
+</tr>
+<tr>
+<td>re*</td>
+<td>匹配0个或多个的表达式。</td>
+</tr>
+<tr>
+<td>re+</td>
+<td>匹配1个或多个的表达式。</td>
+</tr>
+<tr>
+<td>re?</td>
+<td>匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式</td>
+</tr>
+<tr>
+<td>re{ n}</td>
+<td></td>
+</tr>
+<tr>
+<td>re{ n,}</td>
+<td>精确匹配n个前面表达式。</td>
+</tr>
+<tr>
+<td>re{ n, m}</td>
+<td>匹配 n 到 m 次由前面的正则表达式定义的片段，贪婪方式</td>
+</tr>
+<tr>
+<td>a\</td>
+<td>b</td>
+<td>匹配a或b</td>
+</tr>
+<tr>
+<td>(re)</td>
+<td>G匹配括号内的表达式，也表示一个组</td>
+</tr>
+<tr>
+<td>(?imx)</td>
+<td>正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td>(?-imx)</td>
+<td>正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td>(?: re)</td>
+<td>类似 (…), 但是不表示一个组</td>
+</tr>
+<tr>
+<td>(?imx: re)</td>
+<td>在括号中使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td>(?-imx: re)</td>
+<td>在括号中不使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td>(?#…)</td>
+<td>注释.</td>
+</tr>
+<tr>
+<td>(?= re)</td>
+<td>前向肯定界定符。如果所含正则表达式，以 … 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。</td>
+</tr>
+<tr>
+<td>(?! re)</td>
+<td>前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功</td>
+</tr>
+<tr>
+<td>(?&gt; re)</td>
+<td>匹配的独立模式，省去回溯。</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母数字</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配非字母数字</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意空白字符，等价于 [\t\n\r\f].</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任意非空字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配任意数字，等价于 [0-9].</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配任意非数字</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>匹配字符串开始</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。c</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>匹配字符串结束</td>
+</tr>
+<tr>
+<td>\G</td>
+<td>匹配最后匹配完成的位置。</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配一个单词边界，也就是指单词和空格间的位置。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td>\n, \t, 等.</td>
+<td>匹配一个换行符。匹配一个制表符。等</td>
+</tr>
+<tr>
+<td>\1…\9</td>
+<td>匹配第n个分组的子表达式。</td>
+</tr>
+<tr>
+<td>\10</td>
+<td>匹配第n个分组的子表达式，如果它经匹配。否则指的是八进制字符码的表达式。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="正则表达式实例"><a href="#正则表达式实例" class="headerlink" title="正则表达式实例"></a>正则表达式实例</h2><ul>
+<li>字符类</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>实例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Pp]ython</td>
+<td>匹配 “Python” 或 “python”</td>
+</tr>
+<tr>
+<td>rub[ye]</td>
+<td>匹配 “ruby” 或 “rube”</td>
+</tr>
+<tr>
+<td>[aeiou]</td>
+<td>匹配中括号内的任意一个字母</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>匹配任何数字。类似于 [0123456789]</td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td>匹配任何小写字母</td>
+</tr>
+<tr>
+<td>[A-Z]</td>
+<td>匹配任何大写字母</td>
+</tr>
+<tr>
+<td>[a-zA-Z0-9]</td>
+<td>匹配任何字母及数字</td>
+</tr>
+<tr>
+<td>[^aeiou]</td>
+<td>除了aeiou字母以外的所有字符</td>
+</tr>
+<tr>
+<td>[^0-9]</td>
+<td>匹配除了数字外的字符</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>特殊字符类</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>实例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除 “\n” 之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用象 ‘[.\n]’ 的模式。</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配一个数字字符。等价于 [0-9]。</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配一个非数字字符。等价于 [^0-9]。</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’。</td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配任何非单词字符。等价于 ‘[^A-Za-z0-9_]’。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="正则表达式修饰符-可选标志"><a href="#正则表达式修饰符-可选标志" class="headerlink" title="正则表达式修饰符 - 可选标志"></a>正则表达式修饰符 - 可选标志</h2><blockquote>
+<p>正则表达式可以包含一些可选标志修饰符来控制匹配的模式。修饰符被指定为一个可选的标志。多个标志可以通过按位 OR(|) 它们来指定。如 re.I | re.M 被设置成 I 和 M 标志：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re.I</td>
+<td>使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td>re.L</td>
+<td>做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td>re.M</td>
+<td>多行匹配，影响 ^ 和 $</td>
+</tr>
+<tr>
+<td>re.S</td>
+<td>使 . 匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td>re.U</td>
+<td>根据Unicode字符集解析字符。这个标志影响 \w, \W, \b, \B.</td>
+</tr>
+<tr>
+<td>re.X</td>
+<td>该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解。</td>
+</tr>
+</tbody>
+</table>
+<p>实例：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">phone = <span class="string">"2004-959-559 # This is Phone Number"</span></div><div class="line"></div><div class="line"><span class="comment"># Delete Python-style comments</span></div><div class="line">num = re.sub(<span class="string">r'#.*$'</span>, <span class="string">""</span>, phone)</div><div class="line"><span class="keyword">print</span> <span class="string">"Phone Num : "</span>, num</div><div class="line"></div><div class="line"><span class="comment"># Remove anything other than digits</span></div><div class="line">num = re.sub(<span class="string">r'\D'</span>, <span class="string">""</span>, phone)</div><div class="line"><span class="keyword">print</span> <span class="string">"Phone Num : "</span>, num 以上实例执行结果如下：</div><div class="line">Phone Num :  <span class="number">2004</span><span class="number">-959</span><span class="number">-559</span></div><div class="line">Phone Num :  <span class="number">2004959559</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;之前写shell的时候积累了一些正则经验，转到python上来的时候发现怎么也匹配不成功。于是花了几天时间看了下python正则表达式(RE)的部分，做了一些笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="re" scheme="http://percychen.com/tags/re/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>7z命令行详解及示例</title>
+    <link href="http://percychen.com/2016/07/06/2016-07-06-7zipcommand/"/>
+    <id>http://percychen.com/2016/07/06/2016-07-06-7zipcommand/</id>
+    <published>2016-07-06T05:14:00.000Z</published>
+    <updated>2016-07-06T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常规简单用法"><a href="#常规简单用法" class="headerlink" title="常规简单用法"></a>常规简单用法</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip -p111 archive.7z txt.txt<span class="comment">#压缩 密码为111</span></div><div class="line">7z x -tzip -p111 archive.7z<span class="comment">#解压 密码为111</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>7z 是 7-Zip 的命令行版本。包含命令如下：</p>
+</blockquote>
+<p><strong>命令行选项</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z [命令行] [[选项]...] [基本档案名称] [[参数变量]...]</div><div class="line">7z [<span class="built_in">command</span>] [[switch]...] [base_archive_name] [[arguments]...]</div></pre></td></tr></table></figure>
+<ul>
+<li>文件列表</li>
+</ul>
+<blockquote>
+<p>您可以使用文件列表来对要操作的文件进行批量操作。在文件中的文件名必须用空格或另起一行隔开。(如使用空格，需要加引号)。</p>
+</blockquote>
+<p>example:</p>
+<p>listfile.txt包含下列内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;My programs\*.cpp&quot;</div><div class="line">Src\*.cpp</div></pre></td></tr></table></figure>
+<p>命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip @listfile.txt</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>添加</td>
+</tr>
+<tr>
+<td>d</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>e</td>
+<td>释放</td>
+</tr>
+<tr>
+<td>l</td>
+<td>列表</td>
+</tr>
+<tr>
+<td>t</td>
+<td>测试</td>
+</tr>
+<tr>
+<td>u</td>
+<td>更新</td>
+</tr>
+<tr>
+<td>x</td>
+<td>完整路径释放</td>
+</tr>
+</tbody>
+</table>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>设置压缩算法</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设置压缩档案格式</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>更新选项</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>设置工作目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>a (添加) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip subdir\*</div><div class="line"><span class="comment">#从 subdir 文件夹添加所有文件到 archive.zip 压缩档案。</span></div><div class="line">7z a -tzip Files.zip <span class="string">"Program files\*"</span> -r</div><div class="line"><span class="comment">#从 Program 文件夹添加所有文件到 Files.zip 压缩档案。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>d (删除) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z d archive.zip *.bak</div><div class="line"><span class="comment">#从 archive.zip 压缩档案中删除 *.bak 文件。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>e (释放) 命令</li>
+</ul>
+<p>7z 冲突回应：<br>回应 |简写|描述<br>—|—|—<br>Yes(是) |y<br>No(否)| n<br>Always(总是)|a| 将所有的询问以 YES 来对待<br>Skip(跳过)| s |将所有的询问以 NO 来对待<br>Quit(退出)|q |退出程序</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z e archive.zip</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放所有文件到当前文件夹。</span></div><div class="line">7z e archive.zip -oc:\soft *.cpp</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-ao</td>
+<td>覆盖模式</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>设置输出目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>全是</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>全否</td>
+</tr>
+<tr>
+<td>x</td>
+<td>完整路径释放</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>l (列表) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z l archive.zip</div><div class="line"><span class="comment">#列出压缩档案 archive.zip 的内容。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>t (测试) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t archive.zip *.doc</div><div class="line"><span class="comment">#在压缩档案 archive.zip 中测试 *.doc 文件的完整性。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>u(更新)命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z u archive.zip *.doc</div><div class="line"><span class="comment">#在压缩档案 archive.zip 中更新 *.doc 文件。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项:</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>设置压缩算法</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设置压缩档案格式</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>更新选项</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>设置工作目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>x (完整路径释放) 命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z x archive.zip</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放所有文件到当前文件夹。</span></div><div class="line">7z x archive.zip -oc:\soft *.cpp</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。</span></div></pre></td></tr></table></figure>
+<p>可以和此命令结合使用的选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-ao</td>
+<td>覆盖模式</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>设置输出目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>排除文件</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>全是</td>
+</tr>
+</tbody>
+</table>
+<h2 id="命令行选项"><a href="#命令行选项" class="headerlink" title="命令行选项"></a>命令行选项</h2><p>选项要点参考</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–-</td>
+<td>阻止选项解析</td>
+</tr>
+<tr>
+<td>-ai</td>
+<td>附件档案文件名</td>
+</tr>
+<tr>
+<td>-an</td>
+<td>不解析档案名称</td>
+</tr>
+<tr>
+<td>-ao</td>
+<td>覆盖模式</td>
+</tr>
+<tr>
+<td>-ax</td>
+<td>排除档案文件名</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>包括文件名</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>设置压缩算法</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>设置输出目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置密码</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归子目录</td>
+</tr>
+<tr>
+<td>-sfx</td>
+<td>创建自释放档案</td>
+</tr>
+<tr>
+<td>-si</td>
+<td>从StdIn 读取数据</td>
+</tr>
+<tr>
+<td>-so</td>
+<td>从StdOut 写入数据</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设置档案类型</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>更新选项</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>创建分卷</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>设置工作目录</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>文件名排除</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>全是</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>– (阻止选项解析) 选项</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -- -ArchiveName.7z</div><div class="line">测试 -ArchiveName.7z 压缩档案.</div></pre></td></tr></table></figure>
+<ul>
+<li>-ai (附件档案文件名) 开关</li>
+</ul>
+<blockquote>
+<p>指定附加文件，包括压缩档案文件名及通配符。此选项可同时附加多个类型。</p>
+</blockquote>
+<p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-ai[[recurse_type]][file_ref]</div><div class="line">[recurse_type] ::= r[- | 0]</div><div class="line">[file_ref] ::= @&#123;listfile&#125; | !&#123;wildcard&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>-an (不解析档案名称) 选项</li>
+</ul>
+<blockquote>
+<p>不解析命令行中的 archive_name 区域。此选项必须和 -i (附加文件) 开关一起使用。比如您为压缩档案使用列表文件，您就需要指定 -ai 选项，所以您需要禁止解析命令行中的 archive_name 区域。</p>
+</blockquote>
+<p>语法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -ai!*.7z -ax!a*.7z</div><div class="line">测试除 a*.7z 之外的 *.7z 压缩档案。</div></pre></td></tr></table></figure>
+<ul>
+<li>-ao (覆盖模式) 选项</li>
+</ul>
+<blockquote>
+<p>指定在释放期间如何覆盖硬盘上现有的同名文件。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-aoa</td>
+<td>直接覆盖现有文件，而没有任何提示。</td>
+</tr>
+<tr>
+<td>-aos</td>
+<td>跳过现有文件，其不会被覆盖。</td>
+</tr>
+<tr>
+<td>-aou</td>
+<td>如果相同文件名的文件已存在，将自动重命名被释放的文件。例如，文件 file.txt 将被自动重命名为 file_1.txt。</td>
+</tr>
+<tr>
+<td>-aot</td>
+<td>如果相同文件名的文件已存在，将自动重命名现有的文件。例如，文件 file.txt 将被自动重命名为 file_1.txt。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z x test.zip -aoa</div><div class="line"><span class="comment">#从压缩档案 test.zip 中释放所有文件并却不做提示直接覆盖现有文件。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-ax (排除档案文件名) 选项</li>
+</ul>
+<blockquote>
+<p>指定必须从操作中排除的压缩档案，此选项可同时排除多个类型。<br>语法</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -ai!*.7z -ax!a*.7z</div><div class="line"><span class="comment">#测试除 a*.7z 之外的 *.7z 压缩档案</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-an (不解析档案名称)</li>
+</ul>
+<blockquote>
+<p>指定通配符及文件名，此选项在这里必须使用。如果此选项未被指定，那么将自动使用递归。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{listfile}</td>
+<td>指定文件列表的文件名。参见 列表文件 的说明。</td>
+</tr>
+<tr>
+<td>{wildcard}</td>
+<td>指定通配符或文件名。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -air!*.7z</div><div class="line"><span class="comment">#在当前目录及子目录下测试 *.7z 压缩档案</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-i (附加文件) 选项</li>
+</ul>
+<blockquote>
+<p>指定附加文件或一类文件，此选项可附件添加多个类型。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{listfile}</td>
+<td>指定文件列表。请参考 文件列表 相关信息。</td>
+</tr>
+<tr>
+<td>{wildcard}</td>
+<td>指定文件名或通配符。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip src.zip *.txt -ir!DIR1\*.cpp</div><div class="line"><span class="comment">#从当前目录中添加 *.txt 文件，和 DIR1 目录及其子目录中的 *.cpp 文件到 src.zip 压缩档案。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>-m (设置压缩算法) 选项</li>
+</ul>
+<blockquote>
+<p>指定压缩算法。此选项的格式依压缩档案的类型而定。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Zip参数</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x=[0 \</td>
+<td>5\</td>
+<td>9 ]</td>
+<td>5</td>
+<td>设置压缩等级。</td>
+</tr>
+<tr>
+<td>m={MethodID}</td>
+<td>Deflate</td>
+<td>设置压缩算法：Copy、Deflate、Deflate64、BZip2。</td>
+</tr>
+<tr>
+<td>fb={NumFastBytes}</td>
+<td>32</td>
+<td>设置 Deflate 编码器的单词大小。</td>
+</tr>
+<tr>
+<td>pass={NumPasses}</td>
+<td>1</td>
+<td>设置 Deflate 编码器的传送大小。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>X=[0 | 5 | 9 ]</li>
+</ul>
+<blockquote>
+<p>设置压缩等级</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>压缩等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>不压缩。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>默认的压缩等级。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>最大压缩等级。压缩后的文件会更小。但是在压缩的时候会比较慢而且需要较多的物理内存。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>fb={NumFastBytes}</li>
+</ul>
+<blockquote>
+<p>设置 Deflate 编码器的单词大小。您可以在3到 255 范围之内更改。在 <code>Deflate</code> 算法下，它的默认值是 <code>32</code>；在 <code>Deflate 64</code> 算法下，它的默认值是<code>64</code>。</p>
+</blockquote>
+<ul>
+<li>pass={NumPasses}</li>
+</ul>
+<blockquote>
+<p>设置 Deflate 编码器的传送大小。</p>
+</blockquote>
+<p>您可以在 1 到 4 范围之内更改。在 <code>Deflate</code> 算法下，它的默认值是 <code>1</code>；在 Deflate 64 算法下，它的默认值是 3。此项可略微提升压缩比，但并不明显。</p>
+<h2 id="7z默认参数"><a href="#7z默认参数" class="headerlink" title="7z默认参数"></a>7z默认参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x=[0 \</td>
+<td>1 \</td>
+<td>5 \</td>
+<td>7 \</td>
+<td>9 ]</td>
+<td>5</td>
+<td>设置压缩等级。</td>
+</tr>
+<tr>
+<td>s=[off \</td>
+<td>on \</td>
+<td>[e] [{N}f] [{N}b \</td>
+<td>{N}k \</td>
+<td>{N}m \</td>
+<td>{N}g]</td>
+<td>on</td>
+<td>设置固实模式。</td>
+</tr>
+<tr>
+<td>f=[off \</td>
+<td>on]</td>
+<td>on</td>
+<td>开启或关闭可执行文件压缩过滤器。</td>
+</tr>
+<tr>
+<td>hc=[off \</td>
+<td>on]</td>
+<td>on</td>
+<td>开启或关闭档案文件头压缩。</td>
+</tr>
+<tr>
+<td>hcf=[off \</td>
+<td>on]</td>
+<td>on</td>
+<td>开启或关闭档案文件头完全压缩。</td>
+</tr>
+<tr>
+<td>he=[off \</td>
+<td>on]</td>
+<td>off</td>
+<td>开启或关闭档案文件头加密。</td>
+</tr>
+<tr>
+<td>b{C1}[s{S1}]:{C2}[s{S2}]</td>
+<td></td>
+<td>设置编码器之间绑定。</td>
+</tr>
+<tr>
+<td>{N}={MethodID}[:param1][:param2][..]</td>
+<td></td>
+<td>LZMA设置压缩算法：LZMA、PPMd、BZip2、Deflate、BCJ、BCJ2、Copy。</td>
+</tr>
+<tr>
+<td>mt=[off \</td>
+<td>on]</td>
+<td>off</td>
+<td>设置多线程模式。</td>
+</tr>
+</tbody>
+</table>
+<p>支持的压缩算法：</p>
+<table>
+<thead>
+<tr>
+<th>MethodID</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LZMA</td>
+<td>基于 LZ 之上的压缩算法。</td>
+</tr>
+<tr>
+<td>PPMd</td>
+<td>基于 Dmitry Shkarin 之上的算法 PPMdH 并加以优化。通常能对纯文本提供高压缩比及较快的解压缩速度。</td>
+</tr>
+<tr>
+<td>Bzip2</td>
+<td>基于 BWT 的标准压缩算法。通常能对纯文本提供较高压缩比及相当不错的解压缩速度。</td>
+</tr>
+<tr>
+<td>Deflate</td>
+<td>ZIP 及 GZip 格式的标准压缩算法。没有很高的压缩比。但是它拥有十分快的压缩及解压缩速度。Deflate 压缩算法只支持 32 KB 字典大小。</td>
+</tr>
+<tr>
+<td>BCJ</td>
+<td>(CALL、JUMP)32 位 x86 可执行文件转换器。</td>
+</tr>
+<tr>
+<td>BCJ2</td>
+<td>(CALL、JUMP、JCC)32 位 x86 可执行文件转换器(第二版)。</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td>不压缩。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.jpg -m0</div><div class="line"><span class="comment">#不压缩而直接将 *.jpg 文件添加到 archive.zip 档案。</span></div><div class="line">7z a -t7z archive.7z *.exe *.dll -m0=BCJ -m1=LZMA:d=21 -ms -mmt</div><div class="line"><span class="comment">#添加 *.exe 及 *.dll 文件到固实压缩档案 archive.7z。使用 LZMA 压缩算法、2 MB 字典大小及 BCJ 转换器。压缩将开启多线程优化(如果可用)。</span></div><div class="line">7z a -t7z archive.7z *.exe *.dll -m0=BCJ2 -m1=LZMA:d23 -m2=LZMA:d19 -m3=LZMA:d19 -mb0:1 -mb0s1:2 -mb0s2:3</div><div class="line"><span class="comment">#添加 *.exe 及 *.dll 文件到压缩档案 archive.7z。使用 LZMA 压缩算法、BCJ2 转换器、为主输出流(s0)使用 8 MB 字典大小、LZMA 算法为 BCJ2 转换器的 s1 及 s2 输出流使用 512 KB 字典大小。</span></div><div class="line">7z a -t7z archive.7z *.txt -m0=PPMd</div><div class="line"><span class="comment">#添加 *.txt 文件到压缩档案 archive.7z。 使用 PPMd 压缩算法。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z x archive.zip -psecret</div><div class="line"><span class="comment">#将设有密码“secret”的压缩档案 archive.zip 中所有文件释放。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip -r src\*.cpp src\*.h</div><div class="line">将 src 目录及其子目录中的 *.cpp 及 *.h 文件添加到 archive.zip 压缩档案。</div></pre></td></tr></table></figure>
+<h2 id="sfx-创建自释放档案-选项"><a href="#sfx-创建自释放档案-选项" class="headerlink" title="-sfx (创建自释放档案) 选项"></a>-sfx (创建自释放档案) 选项</h2><blockquote>
+<p>创建自释放档案。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>SFX_Module</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7zC.sfx</td>
+<td>Windows 版本。</td>
+</tr>
+<tr>
+<td>7zCon.sfx</td>
+<td>命令行(DOS)版本。</td>
+</tr>
+<tr>
+<td>7zS.sfx</td>
+<td>Windows 安装版本。</td>
+</tr>
+<tr>
+<td>7zSD.sfx</td>
+<td>Windows 安装版本(需调用 MSVCRT.dll)。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>自释放安装模块</li>
+</ul>
+<p>自释放安装模块(7zS.sfx 和 7zSD.sfx)可让您创建软件的安装程序。这类模块将释放文件到一临时文件夹，然后运行指定的程序来进行安装。安装之后再自动删除临时文件。 要创建自释放档案必须有三个文件：自释放模块、安装程序配置、7z 压缩档案。其中安装程序配置文件是可选的。您可以使用下列命令来创建安装程序：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copy /b 7zS.sfx + config.txt + archive.7z archive.exe</div></pre></td></tr></table></figure>
+<p>请注意上述文件的输入顺序：<em>.sfx、</em>.txt、*.7z。最后的 archive.exe 即为生成的安装程序。<br>选项 -y 使用在自释放安装模块中可设置释放时是否为安静模式。</p>
+<p>安装程序配置文件格式</p>
+<p>配置文件包括安装程序的命令行。文件要以字串 ;!@Install@!UTF-8! 开头，以 ;!@InstallEnd@! 结尾。且文件必须使用 UTF-8 编码。文件中还需包含下列变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID_String</td>
+<td>说明</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>对话框信息标题。</td>
+</tr>
+<tr>
+<td>BeginPrompt</td>
+<td>安装前提示信息。</td>
+</tr>
+<tr>
+<td>RunProgram</td>
+<td>欲执行命令。若添加子命令 %%T 则会把文件释放到系统的临时目录。</td>
+</tr>
+</tbody>
+</table>
+<p>您可以省略上述任何一部分。</p>
+<p>配置文件示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">;!@Install@!UTF-8!</div><div class="line">Title=&quot;7-Zip 1.00&quot;</div><div class="line">BeginPrompt=&quot;应用程序将安装 7-Zip 1.00，是否继续？&quot;</div><div class="line">RunProgram=&quot;Setup.exe /T:%%T&quot;</div><div class="line">;!@InstallEnd@!</div></pre></td></tr></table></figure>
+<p>程序将以 BeginPrompt 中的信息提示用户，再执行 RunProgram 中的命令。然后程序将使用 .inf 文件的内容并调用压缩包中的 advpack.dll 文件进行安装。</p>
+<p>示例:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z a -sfx a.exe *.txt</div><div class="line">添加 *.txt 文件到自释放档案 a.exe 并使用默认的命令行自释放模块。</div><div class="line">7z a -sfx7zC.sfx a.exe * -r</div><div class="line">添加所有文件到自释放档案 a.exe 并使用 7zC.sfx Windows 版本的自释放模块。</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a archive.gz -tgzip -siDoc2.txt [ Doc.txt</div><div class="line"><span class="comment">#使用 Doc2.txt 文件名压缩输入流从文件 Doc.txt 到压缩档案 archive.gz。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z x archive.gz -so ] Doc.txt</div><div class="line"><span class="comment">#解压缩 archive.gz 输出流并将该输出流写入到 Doc.txt 文件。</span></div><div class="line">7z a dummy -tgzip -so Doc.txt ] archive.gz</div><div class="line"><span class="comment">#压缩 Doc.txt 输出流并将该输出流写入到 archive.gz 压缩档案。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.txt</div><div class="line"><span class="comment">#使用 zip 格式从当前目录中添加所有 *.txt 文件到压缩档案 archive.zip。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z u c:\1\exist.7z -u- -up0q3x2z0!c:\1\update.7z * -r</div><div class="line"><span class="comment">#创建新压缩档案 update.7z 并将当前目录中的 exist.7z 压缩档案里所有不同文件写入此压缩档案。并不更改 exist.7z 压缩档案的内容。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a a.7z *.txt -v10k -v15k -v2m</div><div class="line"><span class="comment">#创建 a.7z 分卷压缩档案。第一个分卷为 10 KB，第二个为 15 KB，剩下全部为 2 MB。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.cpp -wc:\temp</div><div class="line"><span class="comment">#添加 *.cpp 文件到 archive.zip 压缩档案，并将临时压缩档案创建到 c:\temp 文件夹。</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.txt -x!temp.*</div><div class="line"><span class="comment">#添加除 temp.* 文件之外的所有 *.txt 文件到压缩档案 archive.zip。</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;常规简单用法&quot;&gt;&lt;a href=&quot;#常规简单用法&quot; class=&quot;headerlink&quot; title=&quot;常规简单用法&quot;&gt;&lt;/a&gt;常规简单用法&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://percychen.com/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
+    
+      <category term="7z" scheme="http://percychen.com/tags/7z/"/>
+    
+      <category term="命令行" scheme="http://percychen.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux装逼命令行，瞬间黑客范</title>
+    <link href="http://percychen.com/2016/07/05/2016-07-05-linuxcommandshowb/"/>
+    <id>http://percychen.com/2016/07/05/2016-07-05-linuxcommandshowb/</id>
+    <published>2016-07-05T05:14:00.000Z</published>
+    <updated>2016-07-05T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最简单的往往是最好的，先看看我的装逼截图</p>
+<p><img src="/img/article1.png" alt="终端图"></p>
+<h2 id="1-busy命令："><a href="#1-busy命令：" class="headerlink" title="1. busy命令："></a>1. busy命令：</h2><p><code>cat /dev/urandom | hexdump -C | grep &#39;ca fe&#39;</code></p>
+<p>可以在 .bashrc里面配置：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> busy=cat /dev/urandom | hexdump -C | grep <span class="string">'ca fe'</span></div></pre></td></tr></table></figure>
+<h2 id="2-dstat命令"><a href="#2-dstat命令" class="headerlink" title="2.dstat命令"></a>2.dstat命令</h2><p>安装：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install dstat</div></pre></td></tr></table></figure>
+<p>可以在 .bashrc里面配置：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> dstat=<span class="string">'dstat -cdlmnpsy'</span></div></pre></td></tr></table></figure>
+<h2 id="3-slurm命令"><a href="#3-slurm命令" class="headerlink" title="3.slurm命令"></a>3.slurm命令</h2><p>安装：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install slurm</div></pre></td></tr></table></figure>
+<p>可以在 .bashrc里面配置：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> slurm=<span class="string">'slurm -i eth0'</span></div></pre></td></tr></table></figure>
+<h2 id="4-htop-amp-iotop命令"><a href="#4-htop-amp-iotop命令" class="headerlink" title="4.htop &amp; iotop命令"></a>4.htop &amp; iotop命令</h2><p>htop 和 iotop  用来查看进程，内存和IO负载</p>
+<p>安装：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install htop iotop</div></pre></td></tr></table></figure>
+<p>使用： 直接打<code>htop</code>和<code>iotop</code>就可以了</p>
+<h2 id="5-黑客帝国字幕"><a href="#5-黑客帝国字幕" class="headerlink" title="5.黑客帝国字幕"></a>5.黑客帝国字幕</h2><p>安装：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install cmatrix</div></pre></td></tr></table></figure>
+<p>使用： 直接打<code>cmatrix</code>就可以了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最简单的往往是最好的，先看看我的装逼截图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/article1.png&quot; alt=&quot;终端图&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-busy命令：&quot;&gt;&lt;a href=&quot;#1-busy命令：&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://percychen.com/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
+    
+      <category term="bash" scheme="http://percychen.com/tags/bash/"/>
+    
+      <category term="装逼指南" scheme="http://percychen.com/tags/%E8%A3%85%E9%80%BC%E6%8C%87%E5%8D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 函数中可变长度的参数args</title>
+    <link href="http://percychen.com/2016/07/04/2016-07-04-pythondefargs/"/>
+    <id>http://percychen.com/2016/07/04/2016-07-04-pythondefargs/</id>
+    <published>2016-07-04T05:14:00.000Z</published>
+    <updated>2016-07-04T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.pythoner.com/4.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>在编程的过程中，我们可能会遇到函数参数个数不固定的情况。这时就需要使用可变长度的函数参数来实现我们的功能。<br>在Python中，有两种变长参数，分别是元组（非关键字参数）和字典（关键字参数）。其调用方式是：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">func( *tuple_args, **dict_args )</div></pre></td></tr></table></figure>
+<h2 id="非关键字可变长参数（元组）"><a href="#非关键字可变长参数（元组）" class="headerlink" title="非关键字可变长参数（元组）"></a>非关键字可变长参数（元组）</h2><blockquote>
+<p>当函数调用中包括一个元组变长参数<code>*tuple_args</code>时，除去前面固定位置参数和关键字参数的其余参数将按顺序插入一个元组进行访问，这和C语言中的varargs的功能相同。</p>
+</blockquote>
+<p>假设有这样一个函数（其中，<code>positional_arg</code>是位置固定的标准调用参数，<code>keyword_arg</code>是关键字参数）：</p>
+<p>元组变长参数示例:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">( positional_arg, keyword_arg=<span class="string">'default'</span>, *tuple_arg )</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"positional arg: "</span>, positional_arg</div><div class="line">    <span class="keyword">print</span> <span class="string">"keyword_arg: "</span>, keyword_arg</div><div class="line">    <span class="keyword">for</span> each_additional_arg <span class="keyword">in</span> tuple_arg:</div><div class="line">        <span class="keyword">print</span> <span class="string">"additional_arg: "</span>, each_additional_arg</div></pre></td></tr></table></figure>
+<p>我们使用一些示例来了解它是怎么工作的：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>foo(<span class="number">1</span>)</div><div class="line">positional arg:  <span class="number">1</span></div><div class="line">keyword_arg:  default</div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>foo(<span class="number">1</span>, <span class="number">2</span>)</div><div class="line">positional arg:  <span class="number">1</span></div><div class="line">keyword_arg:  <span class="number">2</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>foo(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">positional arg:  <span class="number">1</span></div><div class="line">keyword_arg:  <span class="number">2</span></div><div class="line">additional_arg:  <span class="number">3</span></div></pre></td></tr></table></figure>
+<h2 id="2-字典变长参数"><a href="#2-字典变长参数" class="headerlink" title="2.字典变长参数"></a>2.字典变长参数</h2><p>既然Python中允许关键字参数，那么也应该有一种方式实现关键字的变长参数，这就是字典变长参数。</p>
+<blockquote>
+<p>字典变长参数中，额外的关键字参数被放入了一个字典进行使用。字典中，键为参数名，值为相应的参数值。其表示方式是放在函数参数最后的<strong>开头的参数，如`</strong>dict_grp_kw_args`。（需要注意的是，**被重载以不与幂运算混淆。）</p>
+</blockquote>
+<p>以下是一个字典变长参数的示例函数：</p>
+<p>字典变长参数的示例函数:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">( positional_arg, keyword_arg=<span class="string">'default'</span>, **dict_arg )</span>:</span></div><div class="line">    <span class="keyword">print</span> <span class="string">"positional arg: "</span>, positional_arg</div><div class="line">    <span class="keyword">print</span> <span class="string">"keyword_arg: "</span>, keyword_arg</div><div class="line">    <span class="keyword">for</span> each_dict_arg <span class="keyword">in</span> dict_arg.keys():</div><div class="line">        <span class="keyword">print</span> <span class="string">"dict_arg: %s=&gt;%s"</span> % ( each_dict_arg, str( dict_arg[each_dict_arg] ) )</div></pre></td></tr></table></figure>
+<p>下面是一段演示结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; foo(1, 2, a=&quot;b&quot;)</div><div class="line">positional arg:  1</div><div class="line">keyword_arg:  2</div><div class="line">dict_arg: a=&gt;b</div></pre></td></tr></table></figure>
+<h2 id="调用脚本传入的参数"><a href="#调用脚本传入的参数" class="headerlink" title="调用脚本传入的参数"></a>调用脚本传入的参数</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*test)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> test:</div><div class="line">        <span class="keyword">print</span> <span class="string">"The First args is"</span>，i</div><div class="line">foo(*sys.argv)</div></pre></td></tr></table></figure>
+<p>字典类似上面方法，关键在于<code>*</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.pythoner.com/4.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编程的过程中，我们可能会遇到函数参数个数不固定的情况。这时就需要使用可
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="args" scheme="http://percychen.com/tags/args/"/>
+    
+      <category term="函数" scheme="http://percychen.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python exception异常处理</title>
+    <link href="http://percychen.com/2016/06/16/2016-06-16-pythonexception/"/>
+    <id>http://percychen.com/2016/06/16/2016-06-16-pythonexception/</id>
+    <published>2016-06-16T05:14:00.000Z</published>
+    <updated>2016-06-16T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.runoob.com/python/python-exceptions.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>python提供了两个非常重要(exception和Assertions)的功能来处理python程序在运行中出现的异常和错误。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>异常名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BaseException</td>
+<td>所有异常的基类</td>
+</tr>
+<tr>
+<td>SystemExit</td>
+<td>解释器请求退出</td>
+</tr>
+<tr>
+<td>KeyboardInterrupt</td>
+<td>用户中断执行(通常是输入^C)</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>常规错误的基类</td>
+</tr>
+<tr>
+<td>StopIteration</td>
+<td>迭代器没有更多的值</td>
+</tr>
+<tr>
+<td>GeneratorExit</td>
+<td>生成器(generator)发生异常来通知退出</td>
+</tr>
+<tr>
+<td>StandardError</td>
+<td>所有的内建标准异常的基类</td>
+</tr>
+<tr>
+<td>ArithmeticError</td>
+<td>所有数值计算错误的基类</td>
+</tr>
+<tr>
+<td>FloatingPointError</td>
+<td>浮点计算错误</td>
+</tr>
+<tr>
+<td>OverflowError</td>
+<td>数值运算超出最大限制</td>
+</tr>
+<tr>
+<td>ZeroDivisionError</td>
+<td>除(或取模)零(所有数据类型)</td>
+</tr>
+<tr>
+<td>AssertionError</td>
+<td>断言语句失败</td>
+</tr>
+<tr>
+<td>AttributeError</td>
+<td>对象没有这个属性</td>
+</tr>
+<tr>
+<td>EOFError</td>
+<td>没有内建输入,到达EOF标记</td>
+</tr>
+<tr>
+<td>EnvironmentError</td>
+<td>操作系统错误的基类</td>
+</tr>
+<tr>
+<td>IOError</td>
+<td>输入/输出操作失败</td>
+</tr>
+<tr>
+<td>OSError</td>
+<td>操作系统错误</td>
+</tr>
+<tr>
+<td>WindowsError</td>
+<td>系统调用失败</td>
+</tr>
+<tr>
+<td>ImportError</td>
+<td>导入模块/对象失败</td>
+</tr>
+<tr>
+<td>LookupError</td>
+<td>无效数据查询的基类</td>
+</tr>
+<tr>
+<td>IndexError</td>
+<td>序列中没有此索引(index)</td>
+</tr>
+<tr>
+<td>KeyError</td>
+<td>映射中没有这个键</td>
+</tr>
+<tr>
+<td>MemoryError</td>
+<td>内存溢出错误(对于Python解释器不是致命的)</td>
+</tr>
+<tr>
+<td>NameError</td>
+<td>未声明/初始化对象(没有属性)</td>
+</tr>
+<tr>
+<td>UnboundLocalError</td>
+<td>访问未初始化的本地变量</td>
+</tr>
+<tr>
+<td>ReferenceError</td>
+<td>弱引用(Weakreference)试图访问已经垃圾回收了的对象</td>
+</tr>
+<tr>
+<td>RuntimeError</td>
+<td>一般的运行时错误</td>
+</tr>
+<tr>
+<td>NotImplementedError</td>
+<td>尚未实现的方法</td>
+</tr>
+<tr>
+<td>SyntaxError</td>
+<td>Python语法错误</td>
+</tr>
+<tr>
+<td>IndentationError</td>
+<td>缩进错误</td>
+</tr>
+<tr>
+<td>TabError</td>
+<td>Tab和空格混用</td>
+</tr>
+<tr>
+<td>SystemError</td>
+<td>一般的解释器系统错误</td>
+</tr>
+<tr>
+<td>TypeError</td>
+<td>对类型无效的操作</td>
+</tr>
+<tr>
+<td>ValueError</td>
+<td>传入无效的参数</td>
+</tr>
+<tr>
+<td>UnicodeError</td>
+<td>Unicode相关的错误</td>
+</tr>
+<tr>
+<td>UnicodeDecodeError</td>
+<td>Unicode解码时的错误</td>
+</tr>
+<tr>
+<td>UnicodeEncodeError</td>
+<td>Unicode编码时错误</td>
+</tr>
+<tr>
+<td>UnicodeTranslateError</td>
+<td>Unicode转换时错误</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>警告的基类</td>
+</tr>
+<tr>
+<td>DeprecationWarning</td>
+<td>关于被弃用的特征的警告</td>
+</tr>
+<tr>
+<td>FutureWarning</td>
+<td>关于构造将来语义会有改变的警告</td>
+</tr>
+<tr>
+<td>OverflowWarning</td>
+<td>旧的关于自动提升为长整型(long)的警告</td>
+</tr>
+<tr>
+<td>PendingDeprecationWarning</td>
+<td>关于特性将会被废弃的警告</td>
+</tr>
+<tr>
+<td>RuntimeWarning</td>
+<td>可疑的运行时行为(runtime behavior)的警告</td>
+</tr>
+<tr>
+<td>SyntaxWarning</td>
+<td>可疑的语法的警告</td>
+</tr>
+<tr>
+<td>UserWarning</td>
+<td>用户代码生成的警告</td>
+</tr>
+</tbody>
+</table>
+<h2 id="什么是异常？"><a href="#什么是异常？" class="headerlink" title="什么是异常？"></a>什么是异常？</h2><blockquote>
+<p>异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。<br>一般情况下，在Python无法正常处理程序时就会发生一个异常。</p>
+<p>异常是Python对象，表示一个错误。<br>当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
+</blockquote>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><blockquote>
+<p>捕捉异常可以使用try/except语句。<br>try/except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。<br>如果你不想在异常发生时结束你的程序，只需在try里捕获它。</p>
+</blockquote>
+<p>try….except…else的语法：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line"><span class="comment">#&lt;语句&gt;        #运行别的代码</span></div><div class="line"><span class="keyword">except</span> &lt;名字&gt;：</div><div class="line"><span class="comment">#&lt;语句&gt;        #如果在try部份引发了'name'异常</span></div><div class="line"><span class="keyword">except</span> &lt;名字&gt;，&lt;数据&gt;:</div><div class="line"><span class="comment">#&lt;语句&gt;        #如果引发了'name'异常，获得附加的数据</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line"><span class="comment">#&lt;语句&gt;        #如果没有异常发生</span></div></pre></td></tr></table></figure>
+<p>try的工作原理是，当开始一个try语句后，python就在当前程序的上下文中作标记，这样当异常出现时就可以回到这里，try子句先执行，接下来会发生什么依赖于执行时是否出现异常。</p>
+<p>如果当try后的语句执行时发生异常，python就跳回到try并执行第一个匹配该异常的except子句，异常处理完毕，控制流就通过整个try语句（除非在处理异常时又引发新的异常）。</p>
+<p>如果在try后的语句里发生了异常，却没有匹配的except子句，异常将被递交到上层的try，或者到程序的最上层（这样将结束程序，并打印缺省的出错信息）。</p>
+<p>如果在try子句执行时没有发生异常，python将执行else语句后的语句（如果有else的话），然后控制流通过整个try语句。</p>
+<p><strong>实例</strong></p>
+<blockquote>
+<p>下面是简单的例子，它打开一个文件，在该文件中的内容写入内容，且并未发生异常：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line"><span class="keyword">except</span> IOError:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"内容写入文件成功"</span></div><div class="line">    fh.close()</div></pre></td></tr></table></figure>
+<p>以上程序输出结果：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div></pre></td></tr></table></figure>
+<p>内容写入文件成功</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cat testfile       <span class="comment"># 查看写入的内容</span></div><div class="line">这是一个测试文件，用于测试异常!!</div></pre></td></tr></table></figure>
+<blockquote>
+<p>下面是简单的例子，它打开一个文件，在该文件中的内容写入内容，但文件没有写入权限，发生了异常：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line"><span class="keyword">except</span> IOError:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"内容写入文件成功"</span></div><div class="line">    fh.close()</div></pre></td></tr></table></figure>
+<p>在执行代码前为了测试方便，我们可以先去掉 testfile 文件的写权限，命令如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod -w testfile</div></pre></td></tr></table></figure>
+<p>再执行以上代码：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">Error: 没有找到文件或读取文件失败</div></pre></td></tr></table></figure>
+<p>使用except而不带任何异常类型<br>你可以不带任何异常类型使用except，如下实例：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常的操作</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">except</span>:</div><div class="line">    <span class="comment">#发生异常，执行这块代码</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="comment">#如果没有异常执行这块代码</span></div></pre></td></tr></table></figure>
+<p>以上方式try-except语句捕获所有发生的异常。<br>但这不是一个很好的方式，我们不能通过该程序识别出具体的异常信息。因为它捕获所有的异常。<br>使用except而带多种异常类型<br>你也可以使用相同的except语句来处理多个异常信息，如下所示：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常的操作</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">except</span>(Exception1[, Exception2[,...ExceptionN]]]):</div><div class="line">    <span class="comment">#发生以上多个异常中的一个，执行这块代码</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="comment">#如果没有异常执行这块代码</span></div></pre></td></tr></table></figure>
+<h2 id="try-finally-语句"><a href="#try-finally-语句" class="headerlink" title="try-finally 语句"></a>try-finally 语句</h2><blockquote>
+<p>try-finally 语句无论是否发生异常都将执行最后的代码。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#&lt;语句&gt;</span></div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    <span class="comment">#&lt;语句&gt;    #退出try时总会执行</span></div><div class="line"><span class="keyword">raise</span></div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div></pre></td></tr></table></figure>
+<p>如果打开的文件没有可写权限，输出如下所示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">Error: 没有找到文件或读取文件失败</div></pre></td></tr></table></figure>
+<p>同样的例子也可以写成如下方式：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">"关闭文件"</span></div><div class="line">        fh.close()</div><div class="line"><span class="keyword">except</span> IOError:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div></pre></td></tr></table></figure>
+<p>当在try块中抛出一个异常，立即执行finally块代码。<br>finally块中的所有语句执行后，异常被再次触发，并执行except块代码。<br>参数的内容不同于异常。<br>异常的参数<br>一个异常可以带上参数，可作为输出的异常信息参数。<br>你可以通过except语句来捕获异常的参数，如下所示：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常的操作</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">except</span> ExceptionType, Argument:</div><div class="line">    <span class="comment">#你可以在这输出 Argument 的值...</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>变量接收的异常值通常包含在异常的语句中。在元组的表单中变量可以接收一个或者多个值。<br>元组通常包含错误字符串，错误数字，错误位置。</p>
+</blockquote>
+<p>以下为单个异常的实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```py</div><div class="line">#!/usr/bin/python</div><div class="line"># -*- coding: UTF-8 -*-</div><div class="line"></div><div class="line"># 定义函数</div><div class="line">def temp_convert(var):</div><div class="line">    try:</div><div class="line">        return int(var)</div><div class="line">    except ValueError, Argument:</div><div class="line">        print &quot;参数没有包含数字\n&quot;, Argument</div><div class="line">temp_convert(&quot;xyz&quot;);</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">参数没有包含数字</div><div class="line">invalid literal <span class="keyword">for</span> int() with base 10: <span class="string">'xyz'</span></div></pre></td></tr></table></figure>
+<h2 id="触发异常"><a href="#触发异常" class="headerlink" title="触发异常"></a>触发异常</h2><blockquote>
+<p>我们可以使用raise语句自己触发异常</p>
+</blockquote>
+<p>raise语法格式如下：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">raise</span> [Exception [, args [, traceback]]]</div></pre></td></tr></table></figure>
+<p>语句中Exception是异常的类型（例如，NameError）参数是一个异常参数值。该参数是可选的，如果不提供，异常的参数是”None”。<br>最后一个参数是可选的（在实践中很少使用），如果存在，是跟踪异常对象。</p>
+<p><strong>实例</strong></p>
+<p>一个异常可以是一个字符串，类或对象。 Python的内核提供的异常，大多数都是实例化的类，这是一个类的实例的参数。<br>定义一个异常非常简单，如下所示：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">functionName</span><span class="params">( level )</span>:</span></div><div class="line">    <span class="keyword">if</span> level &lt; <span class="number">1</span>:</div><div class="line">        <span class="keyword">raise</span> Exception(<span class="string">"Invalid level!"</span>, level)</div><div class="line">        <span class="comment"># 触发异常后，后面的代码就不会再执行</span></div></pre></td></tr></table></figure>
+<ul>
+<li>注意：为了能够捕获异常，”except”语句必须有用相同的异常来抛出类对象或者字符串。<br>例如我们捕获以上异常，”except”语句如下所示：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常逻辑</span></div><div class="line"><span class="keyword">except</span> <span class="string">"Invalid level!"</span>:</div><div class="line">    <span class="comment">#触发自定义异常</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="comment">#其余代码</span></div></pre></td></tr></table></figure>
+<p><strong>实例</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="comment"># 定义函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">mye</span><span class="params">( level )</span>:</span></div><div class="line">    <span class="keyword">if</span> level &lt; <span class="number">1</span>:</div><div class="line">        <span class="keyword">raise</span> Exception(<span class="string">"Invalid level!"</span>, level)</div><div class="line">        <span class="comment"># 触发异常后，后面的代码就不会再执行</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    mye(<span class="number">0</span>)                // 触发异常</div><div class="line"><span class="keyword">except</span> <span class="string">"Invalid level!"</span>:</div><div class="line">    <span class="keyword">print</span> <span class="number">1</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="number">2</span></div></pre></td></tr></table></figure>
+<p>执行以上代码，输出结果为：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"test.py"</span>, line 11, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    mye(0)</div><div class="line">  File <span class="string">"test.py"</span>, line 7, <span class="keyword">in</span> mye</div><div class="line">    raise Exception(<span class="string">"Invalid level!"</span>, level)</div><div class="line">Exception: (<span class="string">'Invalid level!'</span>, 0)</div></pre></td></tr></table></figure>
+<h2 id="用户自定义异常"><a href="#用户自定义异常" class="headerlink" title="用户自定义异常"></a>用户自定义异常</h2><blockquote>
+<p>通过创建一个新的异常类，程序可以命名它们自己的异常。异常应该是典型的继承自Exception类，通过直接或间接的方式。<br>以下为与RuntimeError相关的实例,实例中创建了一个类，基类为RuntimeError，用于在异常触发时输出更多的信息。<br>在try语句块中，用户自定义的异常后执行except块语句，变量 e 是用于创建Networkerror类的实例。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Networkerror</span><span class="params">(RuntimeError)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg)</span>:</span></div><div class="line">        self.args = arg</div></pre></td></tr></table></figure>
+<p>在你定义以上类后，你可以触发该异常，如下所示：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="keyword">raise</span> Networkerror(<span class="string">"Bad hostname"</span>)</div><div class="line"><span class="keyword">except</span> Networkerror,e:</div><div class="line">    <span class="keyword">print</span> e.args</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.runoob.com/python/python-exceptions.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;python提供了两个非常重要
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="exception" scheme="http://percychen.com/tags/exception/"/>
+    
+      <category term="异常" scheme="http://percychen.com/tags/%E5%BC%82%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python中的time</title>
+    <link href="http://percychen.com/2016/06/08/2016-06-08-pythontime/"/>
+    <id>http://percychen.com/2016/06/08/2016-06-08-pythontime/</id>
+    <published>2016-06-08T05:14:00.000Z</published>
+    <updated>2016-06-08T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。时间间隔是以秒为单位的浮点小数。每个时间戳都以自从1970年1月1日午夜（历元）经过了多长时间来表示。</p>
+</blockquote>
+<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><p>头:<code>import time</code></p>
+<table>
+<thead>
+<tr>
+<th>常用表达式</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time.time()</td>
+<td>1459994552.51</td>
+</tr>
+<tr>
+<td>time.localtime(time.time())</td>
+<td>time.struct_time(tm_year=2016, tm_mon=4, tm_mday=7, tm_hour=10, tm_min=3, tm_sec=27, tm_wday=3, tm_yday=98, tm_isdst=0)</td>
+</tr>
+<tr>
+<td>time.asctime( time.localtime(time.time()) )</td>
+<td>Thu Apr  7 10:05:21 2016</td>
+</tr>
+<tr>
+<td>time.strftime(“%Y-%m-%d %H:%M:%S”, time.localtime())</td>
+<td>2016-04-07 10:25:09</td>
+</tr>
+<tr>
+<td>print time.strftime(“%a %b %d %H:%M:%S %Y”, time.localtime())</td>
+<td>Thu Apr 07 10:25:09 2016</td>
+</tr>
+<tr>
+<td>print time.mktime(time.strptime(a,”%a %b %d %H:%M:%S %Y”))</td>
+<td>1459175064.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="日历"><a href="#日历" class="headerlink" title="日历"></a>日历</h2><p>头：<code>import calendar</code></p>
+<p>常用表达式：</p>
+<p><code>calendar.month(2016, 1)</code></p>
+<p>输出</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    January 2016</div><div class="line">Mo Tu We Th Fr Sa Su</div><div class="line">             1  2  3</div><div class="line"> 4  5  6  7  8  9 10</div><div class="line">11 12 13 14 15 16 17</div><div class="line">18 19 20 21 22 23 24</div><div class="line">25 26 27 28 29 30 31</div></pre></td></tr></table></figure>
+<h2 id="time常用函数"><a href="#time常用函数" class="headerlink" title="time常用函数"></a>time常用函数</h2><blockquote>
+<p>Time 模块包含了以下内置函数，既有时间处理相的，也有转换时间格式的：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time.altzone</td>
+<td>返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。</td>
+</tr>
+<tr>
+<td>time.asctime([tupletime])</td>
+<td>接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2008”（2008年12月11日 周二18时07分14秒）的24个字符的字符串。</td>
+</tr>
+<tr>
+<td>time.clock( )</td>
+<td>用以浮点数计算的秒数返回当前的CPU时间。用来衡量不同程序的耗时，比time.time()更有用。</td>
+</tr>
+<tr>
+<td>time.ctime([secs])</td>
+<td>作用相当于asctime(localtime(secs))，未给参数相当于asctime()</td>
+</tr>
+<tr>
+<td>time.gmtime([secs])</td>
+<td>接收时间辍（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0</td>
+</tr>
+<tr>
+<td>time.localtime([secs])</td>
+<td>接收时间辍（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。</td>
+</tr>
+<tr>
+<td>time.mktime(tupletime)</td>
+<td>接受时间元组并返回时间辍（1970纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td>time.sleep(secs)</td>
+<td>推迟调用线程的运行，secs指秒数。</td>
+</tr>
+<tr>
+<td>time.strftime(fmt[,tupletime])</td>
+<td>接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。</td>
+</tr>
+<tr>
+<td>time.strptime(str,fmt=’%a %b %d %H:%M:%S %Y’)</td>
+<td>根据fmt的格式把一个时间字符串解析为时间元组。</td>
+</tr>
+<tr>
+<td>time.time( )</td>
+<td>返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td>time.tzset()</td>
+<td>根据环境变量TZ重新初始化时间相关设置。</td>
+</tr>
+<tr>
+<td>time.timezone</td>
+<td>属性time.timezone是当地时区（未启动夏令时）距离格林威治的偏移秒数（&gt;0，美洲;&lt;=0大部分欧洲，亚洲，非洲）。</td>
+</tr>
+<tr>
+<td>time.tzname</td>
+<td>属性time.tzname包含一对根据情况的不同而不同的字符串，分别是带夏令时的本地时区名称，和不带的。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="日历（Calendar）模块"><a href="#日历（Calendar）模块" class="headerlink" title="日历（Calendar）模块"></a>日历（Calendar）模块</h2><blockquote>
+<p>此模块的函数都是日历相关的，例如打印某月的字符月历。<br>星期一是默认的每周第一天，星期天是默认的最后一天。更改设置需调用calendar.setfirstweekday()函数。模块包含了以下内置函数：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>calendar.calendar(year,w=2,l=1,c=6)</td>
+<td>返回一个多行字符串格式的year年年历，3个月一行，间隔距离为c。 每日宽度间隔为w字符。每行长度为21<em> W+18+2</em> C。l是每星期行数。</td>
+</tr>
+<tr>
+<td>calendar.firstweekday( )</td>
+<td>返回当前每周起始日期的设置。默认情况下，首次载入caendar模块时返回0，即星期一。</td>
+</tr>
+<tr>
+<td>calendar.isleap(year)</td>
+<td>是闰年返回True，否则为false。</td>
+</tr>
+<tr>
+<td>calendar.leapdays(y1,y2)</td>
+<td>返回在Y1，Y2两年之间的闰年总数。</td>
+</tr>
+<tr>
+<td>calendar.month(year,month,w=2,l=1)</td>
+<td>返回一个多行字符串格式的year年month月日历，两行标题，一周一行。每日宽度间隔为w字符。每行的长度为7* w+6。l是每星期的行数。</td>
+</tr>
+<tr>
+<td>calendar.monthcalendar(year,month)</td>
+<td>返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year年month月外的日期都设为0;范围内的日子都由该月第几日表示，从1开始。</td>
+</tr>
+<tr>
+<td>calendar.monthrange(year,month)</td>
+<td>返回两个整数。第一个是该月的星期几的日期码，第二个是该月的日期码。日从0（星期一）到6（星期日）;月从1到12。</td>
+</tr>
+<tr>
+<td>calendar.prcal(year,w=2,l=1,c=6)</td>
+<td>相当于 print calendar.calendar(year,w,l,c).</td>
+</tr>
+<tr>
+<td>calendar.prmonth(year,month,w=2,l=1)</td>
+<td>相当于 print calendar.calendar（year，w，l，c）。</td>
+</tr>
+<tr>
+<td>calendar.setfirstweekday(weekday)</td>
+<td>设置每周的起始日期码。0（星期一）到6（星期日）。</td>
+</tr>
+<tr>
+<td>calendar.timegm(tupletime)</td>
+<td>和time.gmtime相反：接受一个时间元组形式，返回该时刻的时间辍（1970纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td>calendar.weekday(year,month,day)</td>
+<td>返回给定日期的日期码。0（星期一）到6（星期日）。月份为 1（一月） 到 12（12月）。</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。时间间隔是以秒为单位的浮点小数。每个时间戳都以自从1970年1月1日午夜（历元）经过
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="time" scheme="http://percychen.com/tags/time/"/>
+    
+      <category term="时间戳" scheme="http://percychen.com/tags/%E6%97%B6%E9%97%B4%E6%88%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>keytool命令笔记</title>
+    <link href="http://percychen.com/2016/06/07/2016-06-07-keytoolCommandNote/"/>
+    <id>http://percychen.com/2016/06/07/2016-06-07-keytoolCommandNote/</id>
+    <published>2016-06-07T05:14:00.000Z</published>
+    <updated>2016-06-07T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="查看密钥"><a href="#查看密钥" class="headerlink" title="查看密钥"></a>查看密钥</h2><ul>
+<li>针对RSA/x509.pem型密钥:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -printcert -file test.RSA</div></pre></td></tr></table></figure>
+<ul>
+<li>针对keystore型密钥</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -list -v -keystore test.keystore</div></pre></td></tr></table></figure>
+<h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkey -alias <span class="built_in">test</span> -keyalg RSA -validity 20000 -keystore test.keystore</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-genkey</td>
+<td>生成密钥</td>
+</tr>
+<tr>
+<td>-alias</td>
+<td>指定别名</td>
+</tr>
+<tr>
+<td>-keyalg</td>
+<td>签名证书的算法</td>
+</tr>
+<tr>
+<td>-validity</td>
+<td>签名证书的有效期</td>
+</tr>
+<tr>
+<td>-keystore</td>
+<td>输出名</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;查看密钥&quot;&gt;&lt;a href=&quot;#查看密钥&quot; class=&quot;headerlink&quot; title=&quot;查看密钥&quot;&gt;&lt;/a&gt;查看密钥&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;针对RSA/x509.pem型密钥:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight s
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
+    
+      <category term="keytool" scheme="http://percychen.com/tags/keytool/"/>
+    
+      <category term="密钥" scheme="http://percychen.com/tags/%E5%AF%86%E9%92%A5/"/>
+    
+      <category term="签名" scheme="http://percychen.com/tags/%E7%AD%BE%E5%90%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dos2unix：一条命令搞定换行符问题</title>
+    <link href="http://percychen.com/2016/06/06/2016-06-06-dos2unix/"/>
+    <id>http://percychen.com/2016/06/06/2016-06-06-dos2unix/</id>
+    <published>2016-06-06T05:14:00.000Z</published>
+    <updated>2016-06-06T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>项目伊始，开始拿着代码搭构建,刚开始无疑是痛苦的，各种编译出错。只能一个个解决，今天解掉了换行符问题，于是记录一下。</p>
+</blockquote>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li>windows中的换行符是\r\n，</li>
+<li>linux/unix下的换行符是\n。</li>
+</ul>
+<p>其中:<br>回车符：\r=0x0d  (13)          return； #回车（carriage return）<br>换行符：\n=0x0a (10)           newline。#换行（newline）</p>
+<p>文本文件的行结束符,windows 用 CRLF，mac用CR，unix 用 LF。【CR – 回车符，c语言’\r’】。【LF – 换行符， c语言’\n’】。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>整个项目开发环境比较复杂，大多数是用windows进行开发。但是一些公共组件是采用的mac，还有一些脚本类是采用的linux开发。所以，所有的文本都有可能换行符不会。</p>
+<p>首先，我们要找出所有的文件</p>
+<p><code>find . -type f</code></p>
+<p>找到之后，我们要对每个文件进行检测，是什么换行符</p>
+<p><code>file $file &gt; file.txt</code></p>
+<p>然后过滤出windows的换行符出来，既过滤带有 <code>CRLF</code>关键字的输出</p>
+<p><code>cat file.txt| grep CRLF &gt;output.txt</code></p>
+<p>分离出文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> line;<span class="keyword">do</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$line</span> |awk -F : <span class="string">'&#123;print $1&#125;'</span>&gt;output2.txt</div><div class="line"><span class="keyword">done</span>&lt; output.txt</div></pre></td></tr></table></figure>
+<p>最后进行转换处理</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> line;<span class="keyword">do</span></div><div class="line">    dos2unix <span class="variable">$line</span></div><div class="line"><span class="keyword">done</span>&lt; output2.txt</div></pre></td></tr></table></figure>
+<p>整个过程就搞定了</p>
+<h2 id="写代码"><a href="#写代码" class="headerlink" title="写代码"></a>写代码</h2><p><code>find . -type f| xargs file | grep CRLF| awk -F : &#39;{print $1}&#39;|xargs dos2unix</code></p>
+<p>就完成了上面第二步中所有的代码</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;项目伊始，开始拿着代码搭构建,刚开始无疑是痛苦的，各种编译出错。只能一个个解决，今天解掉了换行符问题，于是记录一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="xargs" scheme="http://percychen.com/tags/xargs/"/>
+    
+      <category term="find" scheme="http://percychen.com/tags/find/"/>
+    
+      <category term="换行符" scheme="http://percychen.com/tags/%E6%8D%A2%E8%A1%8C%E7%AC%A6/"/>
+    
+      <category term="dos2unix" scheme="http://percychen.com/tags/dos2unix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python argparse笔记</title>
+    <link href="http://percychen.com/2016/05/31/2016-05-31-pythonargparse/"/>
+    <id>http://percychen.com/2016/05/31/2016-05-31-pythonargparse/</id>
+    <published>2016-05-31T05:14:00.000Z</published>
+    <updated>2016-05-31T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#demo.py</span></div><div class="line"><span class="keyword">import</span> argparse</div><div class="line">op=argparse.ArgumentParser(descripttion=<span class="string">"script description"</span>);</div><div class="line">op.add_argument(<span class="string">"-a"</span>,help=<span class="string">"a option"</span>)</div><div class="line">option=op.parse_args()</div></pre></td></tr></table></figure>
+<p>上面我们初始化了一个 选项化脚本，随后使用<code>demo.py -a test</code>即可测试</p>
+<h2 id="add-argument内建参数"><a href="#add-argument内建参数" class="headerlink" title="add_argument内建参数"></a>add_argument内建参数</h2><ul>
+<li>action</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>action动作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action=’store_const’</td>
+<td>默认返回值为None</td>
+</tr>
+<tr>
+<td>action=’store_true’</td>
+<td>空值返回为False</td>
+</tr>
+<tr>
+<td>action=’store_false’</td>
+<td>空值返回True</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>指定输入选项类型</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type=int</div><div class="line">type=str</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;初始化&quot;&gt;&lt;a href=&quot;#初始化&quot; class=&quot;headerlink&quot; title=&quot;初始化&quot;&gt;&lt;/a&gt;初始化&lt;/h2&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div 
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="argparse" scheme="http://percychen.com/tags/argparse/"/>
+    
+      <category term="选项" scheme="http://percychen.com/tags/%E9%80%89%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux,wc命令详解</title>
+    <link href="http://percychen.com/2016/05/10/2016-05-10-shellwccommand/"/>
+    <id>http://percychen.com/2016/05/10/2016-05-10-shellwccommand/</id>
+    <published>2016-05-10T05:14:00.000Z</published>
+    <updated>2016-05-10T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Linux系统中的wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。</p>
+</blockquote>
+<ul>
+<li>命令功能：</li>
+</ul>
+<p>统计指定文件中的字节数、字数、行数，并将统计结果显示输出。该命令统计指定文件中的字节数、字数、行数。如果没有给出文件名，则从标准输入读取。wc同时也给出所指定文件的总统计数。</p>
+<ul>
+<li>命令参数：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>统计字节数。</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>统计行数。</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>统计字符数。这个标志不能与 -c 标志一起使用。</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>统计字数。一个字被定义为由空白、跳格或换行字符分隔的字符串。</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>打印最长行的长度。</td>
+</tr>
+<tr>
+<td>-help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>–version</td>
+<td>显示版本信息</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>使用实例：</li>
+</ul>
+<p>实例1：查看文件的字节数、字数、行数</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc test.txt</span></div><div class="line"> 7  8 70 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -l test.txt</span></div><div class="line">7 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -c test.txt</span></div><div class="line">70 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -w test.txt</span></div><div class="line">8 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -m test.txt</span></div><div class="line">70 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -L test.txt</span></div><div class="line">17 test.txt</div><div class="line">```sh</div><div class="line"></div><div class="line">说明：</div><div class="line"></div><div class="line">7     8     70     test.txt</div><div class="line"></div><div class="line">行数 单词数 字节数 文件名</div><div class="line"></div><div class="line"></div><div class="line">实例2：用wc命令怎么做到只打印统计数字不打印文件名</div><div class="line"></div><div class="line">```sh</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># cat test.txt |wc -l</span></div><div class="line">7</div></pre></td></tr></table></figure>
+<p>实例3：用来统计当前目录下的文件数</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">test</span>6]<span class="comment"># ls -l | wc -l</span></div><div class="line">8</div></pre></td></tr></table></figure>
+<p>说明：<br>数量中包含当前目录</p>
+<h2 id="计算字符串长度"><a href="#计算字符串长度" class="headerlink" title="计算字符串长度"></a>计算字符串长度</h2><ol>
+<li>字节长度</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">expr length <span class="string">"统计"</span></div></pre></td></tr></table></figure>
+<ol>
+<li>字符数</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"统计"</span> | wc -m</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Linux系统中的wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;命令功能：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;统计指定文件中的字节数、字数、行数，
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://percychen.com/categories/Shell/"/>
+    
+    
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
+    
+      <category term="shell" scheme="http://percychen.com/tags/shell/"/>
+    
+      <category term="wc" scheme="http://percychen.com/tags/wc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>keytool生成密钥/keytool查看密钥</title>
+    <link href="http://percychen.com/2016/04/07/2016-04-07-keytoolcommand/"/>
+    <id>http://percychen.com/2016/04/07/2016-04-07-keytoolcommand/</id>
+    <published>2016-04-07T05:14:00.000Z</published>
+    <updated>2016-04-07T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><p>`keytool -genkey -alias 密匙别名 -keyalg 密匙类型 -validity 有效时间 -keystore  储存密匙路径/密匙名</p>
+<p>然后按照提示输入密码/国家，组织etc.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkey -alias percychen -keyalg RSA -validity 20000 -keystore  ./percychenReleaseKey.keystore</div></pre></td></tr></table></figure>
+<h2 id="查看密匙"><a href="#查看密匙" class="headerlink" title="查看密匙"></a>查看密匙</h2><p><code>keytool -list -v -keystore 储存密匙路径/密匙名 -storepass 储存密匙密码</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -list -v -keystore percychenReleaseKey.keystore -storepass xxxxxxxx</div></pre></td></tr></table></figure>
+<p>对于RSA和pem格式的密钥信息使用下面方式查看</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -printcert -file pem/rsa文件信息</div></pre></td></tr></table></figure>
+<h1 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">KEYSTORE_PATH=签名文件路径</div><div class="line">STOREPASS=密钥密码</div><div class="line">keypass=签名密码(在生成密钥文件时最后输入的那个密码，默认与STOREPASS一样)</div><div class="line">../out_<span class="variable">$&#123;TARGET_APP_DEBUG&#125;</span>=需要签名的文件</div><div class="line">Alias=别名</div><div class="line">jarsigner -keystore <span class="variable">$KEYSTORE_PATH</span> -storepass <span class="variable">$STOREPASS</span> -keypass <span class="variable">$KEYPASS</span> ../out_<span class="variable">$&#123;TARGET_APP_DEBUG&#125;</span> <span class="variable">$ALIAS</span></div></pre></td></tr></table></figure>
+<p>就可以生辰签名的apk文件</p>
+<h1 id="附上keytool参数以及jarsigner参数"><a href="#附上keytool参数以及jarsigner参数" class="headerlink" title="附上keytool参数以及jarsigner参数:"></a>附上keytool参数以及jarsigner参数:</h1><p>keytool用法：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line">-certreq     [-v] [-protected]</div><div class="line">             [-alias &lt;别名&gt;] [-sigalg &lt;sigalg&gt;]</div><div class="line">             [-file &lt;csr_file&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-changealias [-v] [-protected] -alias &lt;别名&gt; -destalias &lt;目标别名&gt;</div><div class="line">             [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-delete      [-v] [-protected] -alias &lt;别名&gt;</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-exportcert  [-v] [-rfc] [-protected]</div><div class="line">             [-alias &lt;别名&gt;] [-file &lt;认证文件&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-genkeypair  [-v] [-protected]</div><div class="line">             [-alias &lt;别名&gt;]</div><div class="line">             [-keyalg &lt;keyalg&gt;] [-keysize &lt;密钥大小&gt;]</div><div class="line">             [-sigalg &lt;sigalg&gt;] [-dname &lt;dname&gt;]</div><div class="line">             [-validity &lt;valDays&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-genseckey   [-v] [-protected]</div><div class="line">             [-alias &lt;别名&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keyalg &lt;keyalg&gt;] [-keysize &lt;密钥大小&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-help</div><div class="line">-importcert  [-v] [-noprompt] [-trustcacerts] [-protected]</div><div class="line">             [-alias &lt;别名&gt;]</div><div class="line">             [-file &lt;认证文件&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-importkeystore [-v]</div><div class="line">             [-srckeystore &lt;源密钥库&gt;] [-destkeystore &lt;目标密钥库&gt;]</div><div class="line">             [-srcstoretype &lt;源存储类型&gt;] [-deststoretype &lt;目标存储类型&gt;]</div><div class="line">             [-srcstorepass &lt;源存储库口令&gt;] [-deststorepass &lt;目标存储库口令&gt;]</div><div class="line">             [-srcprotected] [-destprotected]</div><div class="line">             [-srcprovidername &lt;源提供方名称&gt;]</div><div class="line">             [-destprovidername &lt;目标提供方名称&gt;]</div><div class="line">             [-srcalias &lt;源别名&gt; [-destalias &lt;目标别名&gt;]</div><div class="line">               [-srckeypass &lt;源密钥库口令&gt;] [-destkeypass &lt;目标密钥库口令&gt;]]</div><div class="line">             [-noprompt]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-keypasswd   [-v] [-alias &lt;别名&gt;]</div><div class="line">             [-keypass &lt;旧密钥库口令&gt;] [-new &lt;新密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-list        [-v | -rfc] [-protected]</div><div class="line">             [-alias &lt;别名&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-printcert   [-v] [-file &lt;认证文件&gt;]</div><div class="line">-storepasswd [-v] [-new &lt;新存储库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">jarsigner用法： [选项] jar 文件别名</div><div class="line">----</div><div class="line">       jarsigner -verify [选项] jar 文件</div><div class="line">            [-keystore &lt;url&gt;]           密钥库位置</div><div class="line">            [-storepass &lt;口令&gt;]         用于密钥库完整性的口令</div><div class="line">            [-storetype &lt;类型&gt;]         密钥库类型</div><div class="line">            [-keypass &lt;口令&gt;]           专用密钥的口令（如果不同）</div><div class="line">            [-sigfile &lt;文件&gt;]           .SF/.DSA 文件的名称</div><div class="line">            [-signedjar &lt;文件&gt;]         已签名的 JAR 文件的名称</div><div class="line">            [-digestalg &lt;算法&gt;]    摘要算法的名称</div><div class="line">            [-sigalg &lt;算法&gt;]       签名算法的名称</div><div class="line">            [-verify]                   验证已签名的 JAR 文件</div><div class="line">            [-verbose]                  签名/验证时输出详细信息</div><div class="line">            [-certs]                    输出详细信息和验证时显示证书</div><div class="line">            [-tsa &lt;url&gt;]                时间戳机构的位置</div><div class="line">            [-tsacert &lt;别名&gt;]           时间戳机构的公共密钥证书</div><div class="line">            [-altsigner &lt;类&gt;]           替代的签名机制的类名</div><div class="line">            [-altsignerpath &lt;路径列表&gt;] 替代的签名机制的位置</div><div class="line">            [-internalsf]               在签名块内包含 .SF 文件</div><div class="line">            [-sectionsonly]             不计算整个清单的散列</div><div class="line">            [-protected]                密钥库已保护验证路径</div><div class="line">            [-providerName &lt;名称&gt;]      提供者名称</div><div class="line">            [-providerClass &lt;类&gt;        加密服务提供者的名称</div><div class="line">            [-providerArg &lt;参数&gt;]] ... 主类文件和构造函数参数</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;生成密钥&quot;&gt;&lt;a href=&quot;#生成密钥&quot; class=&quot;headerlink&quot; title=&quot;生成密钥&quot;&gt;&lt;/a&gt;生成密钥&lt;/h2&gt;&lt;p&gt;`keytool -genkey -alias 密匙别名 -keyalg 密匙类型 -validity 有效时间 -keys
+    
+    </summary>
+    
+      <category term="linux" scheme="http://percychen.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
+    
+      <category term="keytool" scheme="http://percychen.com/tags/keytool/"/>
+    
+      <category term="密钥" scheme="http://percychen.com/tags/%E5%AF%86%E9%92%A5/"/>
+    
+  </entry>
+  
+</feed>
