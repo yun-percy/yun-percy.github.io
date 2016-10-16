@@ -6,6 +6,7 @@ while read line;do
     echo "set $line to time $time"
     echo "touch -t ${time}1314.00 $line"
     touch -t ${time}1314.00 $line
+    echo $?
 done < /tmp/post_list
 rm /tmp/post_list
 cd -

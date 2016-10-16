@@ -5,7 +5,7 @@
 # Site
 title: 风之子的世界
 subtitle:
-description: 愿我从此不再提起，再不提起过去，痛苦与幸福 
+description: 愿我从此不再提起，再不提起过去，痛苦与幸福
 author: percy|振云
 language: zh-Hans
 timezone:
@@ -59,9 +59,7 @@ time_format: HH:mm:ss
 ## Set per_page to 0 to disable pagination
 per_page: 8
 pagination_dir: page
-search:
-  path: search.xml
-  field: post
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
@@ -73,3 +71,7 @@ deploy:
   type: git
   repository: https://github.com/yun-percy/yun-percy.github.io.git
   branch: master
+
+search:
+  path: search.xml
+  field: post
