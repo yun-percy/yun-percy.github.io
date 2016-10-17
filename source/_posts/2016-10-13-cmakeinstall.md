@@ -3,9 +3,8 @@ title: Cmake的安装
 category: 语法
 tags:
   - python
-  - mysql
-  - note
- ---
+  - 笔记
+---
 
 cmake版本 2.8.10.2
 

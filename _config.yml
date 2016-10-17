@@ -75,3 +75,5 @@ deploy:
 search:
   path: search.xml
   field: post
+  labels:
+    input_placeholder: Search for Posts
