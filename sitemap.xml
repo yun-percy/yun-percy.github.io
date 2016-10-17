@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</loc>
+    <loc>http://percychen.com/about/index.html</loc>
     
-    <lastmod>2016-10-16T06:17:23.000Z</lastmod>
+    <lastmod>2016-10-17T02:56:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/about/index.html</loc>
+    <loc>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</loc>
     
-    <lastmod>2016-10-16T05:46:02.000Z</lastmod>
+    <lastmod>2016-10-16T06:17:23.000Z</lastmod>
     
   </url>
   
@@ -58,14 +58,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</loc>
+    <loc>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</loc>
     
     <lastmod>2016-09-26T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</loc>
+    <loc>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</loc>
     
     <lastmod>2016-09-26T05:14:00.000Z</lastmod>
     
@@ -436,14 +436,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2015/02/06/2015-02-06-changecolotutil/</loc>
+    <loc>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</loc>
     
     <lastmod>2015-02-06T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</loc>
+    <loc>http://percychen.com/2015/02/06/2015-02-06-changecolotutil/</loc>
     
     <lastmod>2015-02-06T05:14:00.000Z</lastmod>
     
@@ -576,14 +576,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/31/2014-10-31-androidadb/</loc>
+    <loc>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</loc>
     
     <lastmod>2014-10-31T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</loc>
+    <loc>http://percychen.com/2014/10/31/2014-10-31-androidadb/</loc>
     
     <lastmod>2014-10-31T05:14:00.000Z</lastmod>
     
@@ -618,7 +618,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</loc>
+    <loc>http://percychen.com/2014/10/18/2014-10-18-codelayout/</loc>
     
     <lastmod>2014-10-18T05:14:00.000Z</lastmod>
     
@@ -632,7 +632,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/18/2014-10-18-codelayout/</loc>
+    <loc>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</loc>
     
     <lastmod>2014-10-18T05:14:00.000Z</lastmod>
     
@@ -660,6 +660,13 @@
   </url>
   
   <url>
+    <loc>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</loc>
+    
+    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/</loc>
     
     <lastmod>2014-10-08T05:14:00.000Z</lastmod>
@@ -674,21 +681,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</loc>
-    
-    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</loc>
+    <loc>http://percychen.com/2014/09/28/2014-09-28-fastblursmailcode/</loc>
     
     <lastmod>2014-09-28T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/28/2014-09-28-fastblursmailcode/</loc>
+    <loc>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</loc>
     
     <lastmod>2014-09-28T05:14:00.000Z</lastmod>
     
@@ -744,7 +744,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</loc>
     
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
     
@@ -765,7 +765,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</loc>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
     
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
     
@@ -814,6 +814,13 @@
   </url>
   
   <url>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
+    
+    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://percychen.com/2014/09/03/2014-09-03-color/</loc>
     
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
@@ -842,13 +849,6 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
-    
-    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</loc>
     
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
@@ -870,14 +870,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</loc>
+    <loc>http://percychen.com/2014/08/07/2014-08-07-androidactivity/</loc>
     
     <lastmod>2014-08-07T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/08/07/2014-08-07-androidactivity/</loc>
+    <loc>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</loc>
     
     <lastmod>2014-08-07T05:14:00.000Z</lastmod>
     
