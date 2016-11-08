@@ -295,8 +295,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/13/2016-10-13-viminstall/" itemprop="url">
-                  转:Linux中源码安装编译Vim
+                <a class="post-title-link" href="/2016/11/08/macinstallant/" itemprop="url">
+                  Mac下安装Ant
                 </a>
               
             
@@ -309,8 +309,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-13T13:14:00+08:00" content="2016-10-13">
-              2016-10-13
+            <time itemprop="dateCreated" datetime="2016-11-08T19:06:25+08:00" content="2016-11-08">
+              2016-11-08
             </time>
           </span>
 
@@ -339,8 +339,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/13/2016-10-13-viminstall/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/2016-10-13-viminstall/" itemprop="commentsCount"></span>
+                <a href="/2016/11/08/macinstallant/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/08/macinstallant/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +350,7 @@
 
           
           
-             <span id="/2016/10/13/2016-10-13-viminstall/" class="leancloud_visitors" data-flag-title="转:Linux中源码安装编译Vim">
+             <span id="/2016/11/08/macinstallant/" class="leancloud_visitors" data-flag-title="Mac下安装Ant">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -374,13 +374,289 @@
       
         
           
-          原文地址
+          
+如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：wikipedia-ant 或者这里 baidu-ant
 
-Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码
+原文地址 在此基础上有删减和更新及改进
+最近整理了一下ant的下载和安装方法，步骤如下：
+1. 下载ant：官网下载当前最新版是Apache
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/13/2016-10-13-viminstall/#more" rel="contents">
+            <a class="btn" href="/2016/11/08/macinstallant/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/08/antnote/" itemprop="url">
+                  Ant笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T18:54:01+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/语法/" itemprop="url" rel="index">
+                    <span itemprop="name">语法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/08/antnote/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/08/antnote/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/08/antnote/" class="leancloud_visitors" data-flag-title="Ant笔记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          condition1. istrue isfalse:断言 真 假123456789101112131415&lt;project name="testCondition"&gt;    &lt;target name="test"&gt;        &lt;condition property
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/08/antnote/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/13/2016-10-13-cmakeinstall/" itemprop="url">
+                  Cmake的安装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-13T13:14:00+08:00" content="2016-10-13">
+              2016-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/语法/" itemprop="url" rel="index">
+                    <span itemprop="name">语法</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/13/2016-10-13-cmakeinstall/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/2016-10-13-cmakeinstall/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/13/2016-10-13-cmakeinstall/" class="leancloud_visitors" data-flag-title="Cmake的安装">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          cmake版本 2.8.10.2
+下载地址解压安装123./configuremakesudo make install
+检查是否安装成功：输入shell命令: cmake --version
+给出一下信息表示安装成功
+cmake 会默认安装在 /usr/local/bin 下面
+要改变安装路径，在
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/13/2016-10-13-cmakeinstall/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -570,8 +846,8 @@ tar zxvf pe
             
               
                 
-                <a class="post-title-link" href="/2016/10/13/2016-10-13-cmakeinstall/" itemprop="url">
-                  Cmake的安装
+                <a class="post-title-link" href="/2016/10/13/2016-10-13-viminstall/" itemprop="url">
+                  转:Linux中源码安装编译Vim
                 </a>
               
             
@@ -598,8 +874,8 @@ tar zxvf pe
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/语法/" itemprop="url" rel="index">
-                    <span itemprop="name">语法</span>
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
                   </a>
                 </span>
 
@@ -614,8 +890,8 @@ tar zxvf pe
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/13/2016-10-13-cmakeinstall/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/2016-10-13-cmakeinstall/" itemprop="commentsCount"></span>
+                <a href="/2016/10/13/2016-10-13-viminstall/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/2016-10-13-viminstall/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -625,7 +901,7 @@ tar zxvf pe
 
           
           
-             <span id="/2016/10/13/2016-10-13-cmakeinstall/" class="leancloud_visitors" data-flag-title="Cmake的安装">
+             <span id="/2016/10/13/2016-10-13-viminstall/" class="leancloud_visitors" data-flag-title="转:Linux中源码安装编译Vim">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -649,16 +925,13 @@ tar zxvf pe
       
         
           
-          cmake版本 2.8.10.2
-下载地址解压安装123./configuremakesudo make install
-检查是否安装成功：输入shell命令: cmake --version
-给出一下信息表示安装成功
-cmake 会默认安装在 /usr/local/bin 下面
-要改变安装路径，在
+          原文地址
+
+Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/13/2016-10-13-cmakeinstall/#more" rel="contents">
+            <a class="btn" href="/2016/10/13/2016-10-13-viminstall/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1104,285 +1377,6 @@ cmake 会默认安装在 /usr/local/bin 下面
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/08/2016-08-08-nodejsallpython/" itemprop="url">
-                  Nodejs调用python,python返回json
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T13:14:00+08:00" content="2016-08-08">
-              2016-08-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/08/2016-08-08-nodejsallpython/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/2016-08-08-nodejsallpython/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/08/2016-08-08-nodejsallpython/" class="leancloud_visitors" data-flag-title="Nodejs调用python,python返回json">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-Nodejs调用python
-
-12345678910111213var exec = require('child_process').exec;var arg1 = 'arg1'var arg2 = 'arg2'exec('python py_test.py '+ arg1+' '+arg2+
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/08/2016-08-08-nodejsallpython/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/21/2016-07-21-linuxoperationcommand/" itemprop="url">
-                  linux 运维相关知识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-21T13:14:00+08:00" content="2016-07-21">
-              2016-07-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/21/2016-07-21-linuxoperationcommand/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/2016-07-21-linuxoperationcommand/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/21/2016-07-21-linuxoperationcommand/" class="leancloud_visitors" data-flag-title="linux 运维相关知识">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          创建、删除、管理用户
-创建用户
-
-创建test用户，并且指定Home目录
-123sudo useradd -d [userHomeDirc] -m -G root [name]#ex：sudo useradd -d /data/test -m -G root test
-
-删除用户
-
-1sudo us
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/21/2016-07-21-linuxoperationcommand/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1428,7 +1422,7 @@ Nodejs调用python
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1445,7 +1439,7 @@ Nodejs调用python
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
