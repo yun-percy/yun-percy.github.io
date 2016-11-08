@@ -1,5 +1,5 @@
 <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -89,7 +89,7 @@
     fancybox: {{ theme.fancybox }},
     motion: {{ theme.use_motion }},
     duoshuo: {
-      userId: {{ theme.duoshuo_info.user_id | default() }},
+      userId: '{{ theme.duoshuo_info.user_id | default() }}',
       author: '{{ theme.duoshuo_info.admin_nickname | default(__('author'))}}'
     },
     algolia: {
@@ -101,5 +101,10 @@
     }
   };
 </script>
+
+{# Canonical, good for google search engine (SEO) : https://support.google.com/webmasters/answer/139066 #}
+{% if theme.canonical %}
+  <link rel="canonical" href="{{ config.url }}/{{ page.canonical_path.replace('index.html', '') }}"/>
+{% endif %}
 
 {% include 'head/custom-head.swig' %}
