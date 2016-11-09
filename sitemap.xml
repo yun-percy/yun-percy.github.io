@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</loc>
+    <loc>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</loc>
     
     <lastmod>2016-09-26T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</loc>
+    <loc>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</loc>
     
     <lastmod>2016-09-26T05:14:00.000Z</lastmod>
     
@@ -471,7 +471,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2015/02/02/2015-02-02-import_system_app/</loc>
+    <loc>http://percychen.com/2015/02/02/2015-02-02-roundbitmap/</loc>
     
     <lastmod>2015-02-02T05:14:00.000Z</lastmod>
     
@@ -485,7 +485,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2015/02/02/2015-02-02-roundbitmap/</loc>
+    <loc>http://percychen.com/2015/02/02/2015-02-02-import_system_app/</loc>
     
     <lastmod>2015-02-02T05:14:00.000Z</lastmod>
     
@@ -639,13 +639,6 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</loc>
-    
-    <lastmod>2014-10-18T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://percychen.com/2014/10/18/2014-10-18-zipcommand/</loc>
     
     <lastmod>2014-10-18T05:14:00.000Z</lastmod>
@@ -654,6 +647,13 @@
   
   <url>
     <loc>http://percychen.com/2014/10/18/2014-10-18-codelayout/</loc>
+    
+    <lastmod>2014-10-18T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</loc>
     
     <lastmod>2014-10-18T05:14:00.000Z</lastmod>
     
@@ -688,13 +688,6 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/08/2014-10-08-echodemo/</loc>
-    
-    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/</loc>
     
     <lastmod>2014-10-08T05:14:00.000Z</lastmod>
@@ -702,14 +695,21 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</loc>
+    <loc>http://percychen.com/2014/10/08/2014-10-08-echodemo/</loc>
+    
+    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://percychen.com/2014/09/28/2014-09-28-fastblursmailcode/</loc>
     
     <lastmod>2014-09-28T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/28/2014-09-28-fastblursmailcode/</loc>
+    <loc>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</loc>
     
     <lastmod>2014-09-28T05:14:00.000Z</lastmod>
     
@@ -835,7 +835,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-color/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
     
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     
@@ -849,7 +849,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</loc>
+    
+    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-color/</loc>
     
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     
@@ -863,20 +870,6 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</loc>
-    
-    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</loc>
-    
-    <lastmod>2014-09-02T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</loc>
     
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
@@ -885,6 +878,13 @@
   
   <url>
     <loc>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</loc>
+    
+    <lastmod>2014-09-02T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</loc>
     
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
     
