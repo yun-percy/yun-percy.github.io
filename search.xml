@@ -52,39 +52,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
-      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
-</blockquote>
-<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
-<ol>
-<li>下载所需工具</li>
-<li>卸载老版本vim</li>
-<li>下载新版</li>
-<li>编译安装</li>
-<li>下载所需工具</li>
-</ol>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
-<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
-<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
-<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
-<p>解压至 ~/downloads/vim74/</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
-</blockquote>
-<p>其中参数说明如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[转:使用Python的Pexpect模块执行SSH登陆]]></title>
       <url>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</url>
       <content type="html"><![CDATA[<p><a href="http://guweigang.com/blog/2012/10/25/using-python-ssh-landing-module-performs-pexpect/" target="_blank" rel="external">原文地址</a></p>
@@ -186,6 +153,39 @@ def getwinsize():
 </code></pre>
 <p><a href="http://pexpect.sourceforge.net/pexpect.html" target="_blank" rel="external">参考链接</a></p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
     </entry>
     
     <entry>
@@ -5993,26 +5993,6 @@ do
     </entry>
     
     <entry>
-      <title><![CDATA[adb查看android系统相关命令]]></title>
-      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
-      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
-<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
-<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
-</code></pre><p>注：bs可以从分区信息中读取</p>
-<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
-adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
-cat /proc/dumchar_info
-</code></pre><p>其中的 android分区就是 system分区</p>
-<p>其中的 userdata分区就是data分区</p>
-<p>对于古老的机器可以尝试:</p>
-<pre><code>cat /proc/mtd
-</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
-</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
-</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[五种开源协议的比较]]></title>
       <url>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</url>
       <content type="html"><![CDATA[<p><strong>当我将开源当做一种习惯的时候，我突然意识到，使用一种开源协议是一件必不可少的事情了</strong></p>
@@ -6056,24 +6036,23 @@ cat /proc/dumchar_info
     </entry>
     
     <entry>
-      <title><![CDATA[git cola的下载和使用]]></title>
-      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
-      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
-<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
-<p>###关于git cola | ABOUT GIT COLA</p>
-<blockquote>
-<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
-</blockquote>
-<p>###安装 | HOW TO INSTALL</p>
-<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
-
-<p>###使用 | HOW TO USE</p>
-<blockquote>
-<p>git add –all (or  git add . )</p>
-<p>git cola (此步代替git commit)</p>
-<p>git push</p>
-</blockquote>
-]]></content>
+      <title><![CDATA[adb查看android系统相关命令]]></title>
+      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
+      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
+<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
+<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
+</code></pre><p>注：bs可以从分区信息中读取</p>
+<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
+adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
+cat /proc/dumchar_info
+</code></pre><p>其中的 android分区就是 system分区</p>
+<p>其中的 userdata分区就是data分区</p>
+<p>对于古老的机器可以尝试:</p>
+<pre><code>cat /proc/mtd
+</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
+</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
+</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
+</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -6098,6 +6077,27 @@ public static final String SONG_NAME = &quot;hehe&quot;;
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">1<br>2<br>3<br>4<br>5<br>6<br>7</pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">public class SongReceiver extends BroadcastReceiver{<br>public void onReceive(Context context, Intent intent) {<br>String msg=intent.getStringExtra(“name”);//接收信息<br>list_song_name=(TextView)findViewById(R.id.list_song_name);<br>list_song_name.setText(msg);<br>}<br>}</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
 
 
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git cola的下载和使用]]></title>
+      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
+      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
+<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
+<p>###关于git cola | ABOUT GIT COLA</p>
+<blockquote>
+<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
+</blockquote>
+<p>###安装 | HOW TO INSTALL</p>
+<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
+
+<p>###使用 | HOW TO USE</p>
+<blockquote>
+<p>git add –all (or  git add . )</p>
+<p>git cola (此步代替git commit)</p>
+<p>git push</p>
+</blockquote>
 ]]></content>
     </entry>
     
@@ -6998,6 +6998,12 @@ print total;
     </entry>
     
     <entry>
+      <title><![CDATA[黑蚂蚁——白连春]]></title>
+      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
+      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Linux中的15个‘echo’ 命令实例]]></title>
       <url>http://percychen.com/2014/10/08/2014-10-08-echodemo/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -7068,9 +7074,10 @@ print total;
     </entry>
     
     <entry>
-      <title><![CDATA[黑蚂蚁——白连春]]></title>
-      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
-      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
+      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
+      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
+      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
+]]></content>
     </entry>
     
     <entry>
@@ -7268,13 +7275,6 @@ return-void
 <li><p>com/android/systemui/recent/ 下存放 FastBlur.smail</p>
 </li>
 </ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
-      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
-      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
 ]]></content>
     </entry>
     
@@ -7649,6 +7649,13 @@ brunch find7 -j32或者 brunch find7
     </entry>
     
     <entry>
+      <title><![CDATA[sublime_text 常用快捷键]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</url>
+      <content type="html"><![CDATA[<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt"><br><tbody><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;background:white; mso-background-themecolor:background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+L</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;background:#F8eDeD;mso-background-themecolor: accent2;mso-background-themetint:25;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span style="font-family: 宋体;">选择整行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span></b><b><span style="font-family: 宋体;">按住</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span></b><b><span style="font-family: 宋体;">继续选择下行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></b></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KK</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行尾</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+K</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">删除整行</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">复制光标所在整行，插入在该行之前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+J</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">合并行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">已选择需要合并的多行时</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KU</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为大写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KL</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为小写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选词</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择下个相同的字符串</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标移动至括号内开始或结束的位置</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择括号内的内容</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择父括号</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释整行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">如已选择内容，同</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">“Ctrl+Shift+/”</span><span style="font-family: 宋体;">效果</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释已选择内容</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Space</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">自动完成</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(win</span><span style="font-family: 宋体;">与系统快捷键冲突，需修改</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Z</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Y</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">恢复撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+V</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">粘贴并自动缩进</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">其它兄弟写的，实测</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">win</span><span style="font-family: 宋体;">系统自动缩进无效</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标跳至对应的括号</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Alt+.</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">闭合当前标签</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+A</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择光标位置父标签对儿</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+[</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+]</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KT</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠属性</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K0</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开所有</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+U</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">软撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+T</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">词互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行后</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift<br>Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K<br>Backspace</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行首</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+UP</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与上行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+DOWN</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与下行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Shift+Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">去除缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">F9</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">行排序</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">a-z)</span></p><br></td><br></tr><br></tbody><br></table>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[vim常用快捷键]]></title>
       <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
       <content type="html"><![CDATA[<p>###一、移动光标</p>
@@ -7787,13 +7794,6 @@ h （隐藏的缓冲区）
 = （只读缓冲区）
 + （已经更改的缓冲区）
 </code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[sublime_text 常用快捷键]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</url>
-      <content type="html"><![CDATA[<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt"><br><tbody><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;background:white; mso-background-themecolor:background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+L</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;background:#F8eDeD;mso-background-themecolor: accent2;mso-background-themetint:25;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span style="font-family: 宋体;">选择整行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span></b><b><span style="font-family: 宋体;">按住</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span></b><b><span style="font-family: 宋体;">继续选择下行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></b></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KK</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行尾</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+K</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">删除整行</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">复制光标所在整行，插入在该行之前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+J</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">合并行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">已选择需要合并的多行时</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KU</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为大写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KL</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为小写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选词</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择下个相同的字符串</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标移动至括号内开始或结束的位置</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择括号内的内容</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择父括号</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释整行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">如已选择内容，同</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">“Ctrl+Shift+/”</span><span style="font-family: 宋体;">效果</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释已选择内容</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Space</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">自动完成</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(win</span><span style="font-family: 宋体;">与系统快捷键冲突，需修改</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Z</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Y</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">恢复撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+V</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">粘贴并自动缩进</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">其它兄弟写的，实测</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">win</span><span style="font-family: 宋体;">系统自动缩进无效</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标跳至对应的括号</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Alt+.</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">闭合当前标签</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+A</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择光标位置父标签对儿</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+[</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+]</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KT</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠属性</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K0</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开所有</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+U</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">软撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+T</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">词互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行后</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift<br>Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K<br>Backspace</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行首</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+UP</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与上行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+DOWN</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与下行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Shift+Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">去除缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">F9</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">行排序</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">a-z)</span></p><br></td><br></tr><br></tbody><br></table>
-]]></content>
     </entry>
     
     <entry>
@@ -8032,20 +8032,6 @@ dir/file2.cpp
     </entry>
     
     <entry>
-      <title><![CDATA[便签的发布！]]></title>
-      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
-      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
-<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
-<p>更新说明</p>
-<blockquote>
-<p>2014年9月10日增加长微博功能</p>
-</blockquote>
-<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
-<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[专业设计师最常用的中文字体]]></title>
       <url>http://percychen.com/2014/09/10/2014-09-10-somefonts/</url>
       <content type="html"><![CDATA[<p>原文地址：<a href="http://www.80ue.com/chinese-fonts-for-designer/" target="_blank" rel="external">http://www.80ue.com/chinese-fonts-for-designer/</a></p>
@@ -8064,6 +8050,20 @@ dir/file2.cpp
 
 &lt;/div&gt;
 </code></pre></div>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[便签的发布！]]></title>
+      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
+      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
+<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
+<p>更新说明</p>
+<blockquote>
+<p>2014年9月10日增加长微博功能</p>
+</blockquote>
+<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
+<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
+]]></content>
     </entry>
     
     <entry>
@@ -9195,6 +9195,15 @@ frameworks/base/libs/camera        -----&gt;libcamera_client.so  相机本地框
     </entry>
     
     <entry>
+      <title><![CDATA[CPU性能天梯图（2014年7月）]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</url>
+      <content type="html"><![CDATA[<h2 id="点击图片查看高清无码大图"><a href="#点击图片查看高清无码大图" class="headerlink" title="点击图片查看高清无码大图"></a><strong>点击图片查看高清无码大图</strong></h2><div class="tile" data-scale="2.4" data-image="/img/20140903cpu.jpg"></div>
+
+<p><br><a href="/img/20140903cpu.jpg"><img src="https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/img/20140903cpu.jpg" alt="CPU"></a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android 系统初始值修改(源码)]]></title>
       <url>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</url>
       <content type="html"><![CDATA[<h2 id="1-在4-1上修改默认字体大小："><a href="#1-在4-1上修改默认字体大小：" class="headerlink" title="1.在4.1上修改默认字体大小："></a>1.在4.1上修改默认字体大小：</h2><blockquote>
@@ -9337,15 +9346,6 @@ http://www.bbc.co.uk/
     </entry>
     
     <entry>
-      <title><![CDATA[CPU性能天梯图（2014年7月）]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</url>
-      <content type="html"><![CDATA[<h2 id="点击图片查看高清无码大图"><a href="#点击图片查看高清无码大图" class="headerlink" title="点击图片查看高清无码大图"></a><strong>点击图片查看高清无码大图</strong></h2><div class="tile" data-scale="2.4" data-image="/img/20140903cpu.jpg"></div>
-
-<p><br><a href="/img/20140903cpu.jpg"><img src="https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/img/20140903cpu.jpg" alt="CPU"></a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[一些linux下的零碎语法和命令]]></title>
       <url>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</url>
       <content type="html"><![CDATA[<h2 id="查看计算机状态"><a href="#查看计算机状态" class="headerlink" title="- 查看计算机状态"></a>- 查看计算机状态</h2><pre><code>who: 查看有谁在线
@@ -9421,175 +9421,6 @@ sudo apt-get install  nodejs
       <title><![CDATA[般若波罗蜜多心经]]></title>
       <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
       <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[省电模式部分代码]]></title>
-      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
-      <content type="html"><![CDATA[<p>####这是我写的一个电量管理的一些代码</p>
-<p>以下皆在android 4.3 平台上测试通过<br></p>
-<ol>
-<li><p>将 休眠时间调制 15秒：</p>
-<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
-</code></pre></li>
-<li><p>蓝牙：</p>
-<pre><code>关闭：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-打开：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-是否已经打开:
-if(!bluetoothadapter.isEnabled()){}
-权限:
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
-</code></pre></li>
-</ol>
-<ol>
-<li><p>wifi</p>
-<pre><code>关闭：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(false);
-
-打开：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(true);
-
-判断是否打开：
-public String checkWifi(Activity activitiy,String string) {
-WifiManager mWifiManager = (WifiManager) activitiy
-        .getSystemService(Context.WIFI_SERVICE);
-WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
-int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
-if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
-else {return string;}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>数据流量：</p>
-<pre><code>打开：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-        Class ownerClass = connectivityManager.getClass();
-        Class[] argsClass = new Class[1];
-        argsClass[0] = boolean.class;
-        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-        method.invoke(connectivityManager, false);
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-    }
-
-关闭：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-    Class ownerClass = connectivityManager.getClass();
-    Class[] argsClass = new Class[1];
-    argsClass[0] = boolean.class;
-    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-    method.invoke(connectivityManager, true);
-
-} catch (Exception e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-}
-
-判断是否开启：
-public String checkdata(String string) {
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-if (false == networkInfo.isConnectedOrConnecting()) {
-    string=&quot;close&quot;;
-    return string;
-} else {
-    string=&quot;open&quot;;
-    return string;
-}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>屏幕旋转</p>
-<pre><code>如果开启就关闭，关闭就开启：
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
-Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
-
-检查是否开启：
-public String checkrotate(String string){
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
- if (0 == flag) {
-     string=&quot;close&quot;;
-        return string;
-}
- else {
-     string=&quot;open&quot;;
-        return string;
- }
-}
-</code></pre></li>
-<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
-<pre><code>try {
-screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
-Log.i(TAG, &quot;screenMode = &quot; + screenMode);
-
-// 获得当前屏幕亮度值 0--255
-screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
-
-// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
-if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-}
-
-// 设置屏幕亮度值为最大值0
-setScreenBrightness(0.0F);
-} catch (SettingNotFoundException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-然后添加两个执行函数
-
- private void setScreenMode(int value) {
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
- }
- private void setScreenBrightness(float value) {
- Window mWindow = getWindow();
- WindowManager.LayoutParams mParams = mWindow.getAttributes();
- float f = value / 255.0F;
- mParams.screenBrightness = f;
- mWindow.setAttributes(mParams);
-
- // 保存设置的屏幕亮度值
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
- }
-
-还有private 几个变量
-
-private int screenMode;
-private static final String TAG = &quot;ScreenLuminance&quot;;
-private int screenBrightness;
-
-亮度部分需要权限：
-
-&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
-</code></pre></li>
-</ol>
-<p>####最后更新时间：2014-09-24</p>
 ]]></content>
     </entry>
     
@@ -9969,6 +9800,175 @@ String EXTRA_AUTHORITIES
 String EXTRA_INPUT_METHOD_ID
 </code></pre></li>
 </ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[省电模式部分代码]]></title>
+      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
+      <content type="html"><![CDATA[<p>####这是我写的一个电量管理的一些代码</p>
+<p>以下皆在android 4.3 平台上测试通过<br></p>
+<ol>
+<li><p>将 休眠时间调制 15秒：</p>
+<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
+</code></pre></li>
+<li><p>蓝牙：</p>
+<pre><code>关闭：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+打开：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+是否已经打开:
+if(!bluetoothadapter.isEnabled()){}
+权限:
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>wifi</p>
+<pre><code>关闭：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(false);
+
+打开：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(true);
+
+判断是否打开：
+public String checkWifi(Activity activitiy,String string) {
+WifiManager mWifiManager = (WifiManager) activitiy
+        .getSystemService(Context.WIFI_SERVICE);
+WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
+if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
+else {return string;}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>数据流量：</p>
+<pre><code>打开：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+        Class ownerClass = connectivityManager.getClass();
+        Class[] argsClass = new Class[1];
+        argsClass[0] = boolean.class;
+        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+        method.invoke(connectivityManager, false);
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+    }
+
+关闭：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+    Class ownerClass = connectivityManager.getClass();
+    Class[] argsClass = new Class[1];
+    argsClass[0] = boolean.class;
+    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+    method.invoke(connectivityManager, true);
+
+} catch (Exception e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+}
+
+判断是否开启：
+public String checkdata(String string) {
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+if (false == networkInfo.isConnectedOrConnecting()) {
+    string=&quot;close&quot;;
+    return string;
+} else {
+    string=&quot;open&quot;;
+    return string;
+}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>屏幕旋转</p>
+<pre><code>如果开启就关闭，关闭就开启：
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
+
+检查是否开启：
+public String checkrotate(String string){
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+ if (0 == flag) {
+     string=&quot;close&quot;;
+        return string;
+}
+ else {
+     string=&quot;open&quot;;
+        return string;
+ }
+}
+</code></pre></li>
+<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
+<pre><code>try {
+screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
+Log.i(TAG, &quot;screenMode = &quot; + screenMode);
+
+// 获得当前屏幕亮度值 0--255
+screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
+
+// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
+if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+}
+
+// 设置屏幕亮度值为最大值0
+setScreenBrightness(0.0F);
+} catch (SettingNotFoundException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+然后添加两个执行函数
+
+ private void setScreenMode(int value) {
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
+ }
+ private void setScreenBrightness(float value) {
+ Window mWindow = getWindow();
+ WindowManager.LayoutParams mParams = mWindow.getAttributes();
+ float f = value / 255.0F;
+ mParams.screenBrightness = f;
+ mWindow.setAttributes(mParams);
+
+ // 保存设置的屏幕亮度值
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
+ }
+
+还有private 几个变量
+
+private int screenMode;
+private static final String TAG = &quot;ScreenLuminance&quot;;
+private int screenBrightness;
+
+亮度部分需要权限：
+
+&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
+</code></pre></li>
+</ol>
+<p>####最后更新时间：2014-09-24</p>
 ]]></content>
     </entry>
     
