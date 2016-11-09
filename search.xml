@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[Mac下安装Ant]]></title>
-      <url>http://percychen.com/2016/11/09/macinstallant/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：<a href="http://zh.wikipedia.org/wiki/Apache_Ant" target="_blank" rel="external">wikipedia-ant</a> 或者这里 <a href="http://baike.baidu.com/link?url=vhok9QFeg3nXU7Zk514dusV5C5IuuGWVornzYbOQS1Cc-r4BBctGm1osrXFlzZVQ#3" target="_blank" rel="external">baidu-ant</a></p>
-</blockquote>
-<p><a href="http://blog.csdn.net/crazybigfish/article/details/18215439" target="_blank" rel="external">原文地址</a> 在此基础上有删减和更新及改进</p>
-<p>最近整理了一下ant的下载和安装方法，步骤如下：</p>
-<h3 id="1-下载ant：官网下载"><a href="#1-下载ant：官网下载" class="headerlink" title="1. 下载ant：官网下载"></a>1. 下载ant：官网下载</h3><p>当前最新版是Apache Ant 1.9.7，可以下载那个zip包，如下图：</p>
-<p><img src="http://img.blog.csdn.net/20140113110440437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3JhenliaWdmaXNo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ant 下载"></p>
-<h3 id="2-将下载的zip包解压到一个目录下，如-usr-local"><a href="#2-将下载的zip包解压到一个目录下，如-usr-local" class="headerlink" title="2. 将下载的zip包解压到一个目录下，如/usr/local"></a>2. 将下载的zip包解压到一个目录下，如/usr/local</h3><p>这时候需要你提供修改权限，输入密码。</p>
-<h3 id="3-配置环境变量："><a href="#3-配置环境变量：" class="headerlink" title="3. 配置环境变量："></a>3. 配置环境变量：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
-<p>将下面两行加入到最后，保存就可以了</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ANT_HOME=/usr/<span class="built_in">local</span>/apache-ant-1.9.7 </div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;ANT_HOME&#125;</span>/bin</div></pre></td></tr></table></figure>
-<h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><p>重新打开终端并输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ant</span> -version  </div><div class="line"><span class="comment">#配置成功则显示如下：</span></div><div class="line">Apache Ant(TM) version 1.9.3 compiled on December 23 2013</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Ant笔记]]></title>
       <url>http://percychen.com/2016/11/09/antnote/</url>
       <content type="html"><![CDATA[<h2 id="condition"><a href="#condition" class="headerlink" title="condition"></a>condition</h2><h3 id="1-istrue-isfalse-断言-真-假"><a href="#1-istrue-isfalse-断言-真-假" class="headerlink" title="1. istrue isfalse:断言 真 假"></a>1. istrue isfalse:断言 真 假</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -40,48 +21,22 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Cmake的安装]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</url>
-      <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+      <title><![CDATA[Mac下安装Ant]]></title>
+      <url>http://percychen.com/2016/11/09/macinstallant/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：<a href="http://zh.wikipedia.org/wiki/Apache_Ant" target="_blank" rel="external">wikipedia-ant</a> 或者这里 <a href="http://baike.baidu.com/link?url=vhok9QFeg3nXU7Zk514dusV5C5IuuGWVornzYbOQS1Cc-r4BBctGm1osrXFlzZVQ#3" target="_blank" rel="external">baidu-ant</a></p>
+</blockquote>
+<p><a href="http://blog.csdn.net/crazybigfish/article/details/18215439" target="_blank" rel="external">原文地址</a> 在此基础上有删减和更新及改进</p>
+<p>最近整理了一下ant的下载和安装方法，步骤如下：</p>
+<h3 id="1-下载ant：官网下载"><a href="#1-下载ant：官网下载" class="headerlink" title="1. 下载ant：官网下载"></a>1. 下载ant：官网下载</h3><p>当前最新版是Apache Ant 1.9.7，可以下载那个zip包，如下图：</p>
+<p><img src="http://img.blog.csdn.net/20140113110440437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3JhenliaWdmaXNo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ant 下载"></p>
+<h3 id="2-将下载的zip包解压到一个目录下，如-usr-local"><a href="#2-将下载的zip包解压到一个目录下，如-usr-local" class="headerlink" title="2. 将下载的zip包解压到一个目录下，如/usr/local"></a>2. 将下载的zip包解压到一个目录下，如/usr/local</h3><p>这时候需要你提供修改权限，输入密码。</p>
+<h3 id="3-配置环境变量："><a href="#3-配置环境变量：" class="headerlink" title="3. 配置环境变量："></a>3. 配置环境变量：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>将下面两行加入到最后，保存就可以了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ANT_HOME=/usr/<span class="built_in">local</span>/apache-ant-1.9.7 </div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;ANT_HOME&#125;</span>/bin</div></pre></td></tr></table></figure>
+<h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><p>重新打开终端并输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ant</span> -version  </div><div class="line"><span class="comment">#配置成功则显示如下：</span></div><div class="line">Apache Ant(TM) version 1.9.3 compiled on December 23 2013</div></pre></td></tr></table></figure>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
-      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
-</blockquote>
-<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
-<ol>
-<li>下载所需工具</li>
-<li>卸载老版本vim</li>
-<li>下载新版</li>
-<li>编译安装</li>
-<li>下载所需工具</li>
-</ol>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
-<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
-<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
-<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
-<p>解压至 ~/downloads/vim74/</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
-</blockquote>
-<p>其中参数说明如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
     </entry>
     
     <entry>
@@ -186,6 +141,51 @@ def getwinsize():
 </code></pre>
 <p><a href="http://pexpect.sourceforge.net/pexpect.html" target="_blank" rel="external">参考链接</a></p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Cmake的安装]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</url>
+      <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
     </entry>
     
     <entry>
@@ -4230,6 +4230,13 @@ B: ABS=6618000 0
     </entry>
     
     <entry>
+      <title><![CDATA[转： sort的7个应用实例]]></title>
+      <url>http://percychen.com/2015/05/05/2015-05-05-sort/</url>
+      <content type="html"><![CDATA[<td id="article_content"><p>在<a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">上一篇文章</a>里，我们已经探讨了关于sort命令的多个例子，如果你错过了这篇文章，可以点击下面的链接进行阅读。今天的这篇文章作为上一篇文章的继续，将讨论关于sort命令的剩余用法，与上一篇一起作为Linux ‘sort’命令的完整指南。</p><br><ul><br><li><a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">Linux 的 ‘sort’命令的14个有用的范例（一）</a></li><br></ul><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png" alt="" width="256" height="256"></p><br><p>在我们继续深入之前，先创建一个文本文档‘month.txt’，并且将上一次给出的数据填进去。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“mar\ndec\noct\nsep\nfeb\naug”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> month</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105700klkfmvv0flbsskf6.gif" alt="Populate Content"></p><br><p>15、 通过使用’M‘选项，对’month.txt‘文件按照月份顺序进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">M month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><strong>注意</strong>:‘sort’命令需要至少3个字符来确认月份名称。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701p2wxy026s0z023to.gif" alt="Sort File Content by Month in Linux"></p><br><p>16、 把数据整理成方便人们阅读的形式，比如1K、2M、3G、2T，这里面的K、G、M、T代表千、兆、吉、梯。 （LCTT 译注：此处命令有误，ls 命令应该增加 -h 参数，径改之）</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">lh </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">$USER </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">h </span><span class="pun">-</span><span class="pln">k5</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701wxxuatq5zu9qtzmk.gif" alt="Sort Content Human Readable Format"></p><br><p>17、 在上一篇文章中，我们在例子4中创建了一个名为‘sorted.txt’的文件，在例子6中创建了一个‘lsl.txt’。‘sorted.txt’已经排好序了而’lsl.txt‘还没有。让我们使用sort命令来检查两个文件是否已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c sorted</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702lsqqcyrsncwcffqj.gif" alt="Check File is Sorted"></p><br><p>如果它返回0，则表示文件已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c lsl</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702gyahwzs46p5s21a2.gif" alt="Check File Sorted Status"></p><br><p>报告无序。存在矛盾……</p><br><p>18、 如果文字之间的分隔符是空格，sort命令自动地将空格后的东西当做一个新文字单元，如果分隔符不是空格呢？</p><br><p>考虑这样一个文本文件，里面的内容可以由除了空格之外的任何符号分隔，比如‘|’，‘\’，‘+’，‘.’等……</p><br><p>创建一个分隔符为+的文本文件。使用‘cat‘命令查看文件内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“21+linux+server+production\n11+debian+RedHat+CentOS\n131+Apache+Mysql+PHP\n7+Shell Scripting+python+perl\n111+postfix+exim+sendmail”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><hr><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ cat delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702uxrgssqxvglzlstn.gif" alt="Check File Content by Delimiter"></p><br><p>现在基于由数字组成的第一个域来进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">t </span><span class="str">‘+’</span><span class="pln"> </span><span class="pun">-</span><span class="pln">nk1 delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703mnrarjnx7nddwnb0.gif" alt="Sort File By Fields"></p><br><p>然后再基于非数字的第四个域排序。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703nxjyhizvvx8j5nxk.gif" alt="Sort Content By Non Numeric"></p><br><p>如果分隔符是制表符，你需要在’+‘的位置上用$’\t’代替，如上例所示。</p><br><p>19、 对主用户目录下使用‘ls -l’命令得到的结果基于第五列（‘文件大小’）进行一个乱序排列。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">l </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">avi</span><span class="pun">/</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">k5 </span><span class="pun">-</span><span class="pln">R </span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105704pw69nw6hwhcwavww.gif" alt="Sort Content by Column in Random Order"></p><br><p>每一次你运行上面的脚本，你得到结果可能都不一样，因为结果是随机生成的。</p><br><p>正如我在上一篇文章中提到的规则2所说——sort命令会将以小写字母开始的行排在大写字母开始的行前面。看一下上一篇文章的例3，字符串‘laptop’在‘LAPTOP’前出现。</p><br><p>20、 如何覆盖默认的排序优先权？在这之前我们需要先将环境变量LC_ALL的值设置为C。在命令行提示栏中运行下面的代码。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ </span><span class="kwd">export</span><span class="pln"> LC_ALL</span><span class="pun">=</span><span class="pln">C</span></code></li></ol></pre><br><p>然后以非默认优先权的方式对‘tecmint.txt’文件重新排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706occ4t7a7h4m999m9.gif" alt="Override Sorting Preferences"></p><br><p><em>覆盖排序优先权</em></p><br><p>不要忘记与example 3中得到的输出结果做比较，并且你可以使用‘-f’，又叫‘-ignore-case’（忽略大小写）的选项来获取更有序的输出。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">f tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706sn54r2dspz2nbr2v.gif" alt="Compare Sorting Preferences"></p><br><p>21、 给两个输入文件进行‘sort‘，然后把它们连接成一行！</p><br><p>我们创建两个文本文档’file1.txt‘以及’file2.txt‘，并用数据填充，如下所示，并用’cat‘命令查看文件的内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Reliable</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Fast</span><span class="pln">\n</span><span class="lit">3</span><span class="pln"> </span><span class="typ">Secure</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> open</span><span class="pun">-</span><span class="pln">source\n</span><span class="lit">4</span><span class="pln"> customizable</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file1</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file1</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707j38vk01w78yt0g00.gif" alt="Populate Content with Numbers"></p><br><p>用如下数据填充’file2.txt‘。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">3</span><span class="pln"> </span><span class="typ">RedHat</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Debian</span><span class="pln">\n</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Ubuntu</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Kali</span><span class="pln">\n</span><span class="lit">4</span><span class="pln"> </span><span class="typ">Fedora</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file2</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file2</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707drz8fbflwl50enze.gif" alt="Populate File with Data"></p><br><p>现在我们对两个文件进行排序并连接。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ join </span><span class="pun">&lt;(</span><span class="pln">sort </span><span class="pun">-</span><span class="pln">n file1</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;(</span><span class="pln">sort file2</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105708uumm00x22i5z2k07.gif" alt="Sort Join Two Files"></p><br><p>我所要讲的全部内容就在这里了，希望与各位保持联系，也希望各位经常来逛逛。有反馈就在下面评论吧。</p><br><hr><br><p>via: <a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank" rel="external">http://www.tecmint.com/linux-sort-command-examples/</a></p><br><p>作者：<a href="http://www.tecmint.com/author/avishek/" target="_blank" rel="external">Avishek Kumar</a> 译者：<a href="https://github.com/DongShuaike" target="_blank" rel="external">DongShuaike</a> 校对：<a href="https://github.com/wxy" target="_blank" rel="external">wxy</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><p class="copyright"><br><br>                                            <span class="z">原文：<a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank">http://www.tecmint.com/linux-sort-command-examples/</a></span><br>                        <span class="y">作者： Avishek Kumar</span>            <br class="clear"><br>                <span class="z">译文：<a href="http://lctt.github.io/" target="_blank">LCTT</a>&nbsp;&nbsp;<a href="http://linux.cn/article-5373-1.html" target="_blank">http://linux.cn/article-5373-1.html</a></span><br>                        <span class="y">译者： DongShuaike</span>            <br class="clear"><br>                <br class="clear"><br>                    <span>本文由 LCTT 原创翻译，<a href="http://linux.cn/article-5373-1.html" target="_blank" rel="external">Linux中国首发</a>。也想加入译者行列，为开源做一些自己的贡献么？欢迎加入 <a href="http://lctt.github.io/" target="_blank">LCTT</a>！<br>翻译工作和译文发表仅用于学习和交流目的，翻译工作遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>，如果我们的工作有侵犯到您的权益，请及时联系我们。</span><br>                        <br class="clear"><br>            <span style="color:red;">欢迎遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息。</span><br>                        <br class="clear"><br>                <span>文章仅代表作者的知识和看法，如有不同观点，请楼下排队<a href="javascript:void(0);" onclick="$('message').focus();" target="_blank" rel="external">吐槽</a> :D</span><br>        <br class="clear"><br>    </p><br><div class="hm"><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-5373-shareweibo.html','article_title','article_content','https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br><a title="收藏" href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=5373&amp;handlekey=favoritearticlehk_5373" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="fav_large"></a><br></div><br></td>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android获取分区信息]]></title>
       <url>http://percychen.com/2015/05/05/2015-05-05-GetBlockInfomation/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -4247,13 +4254,6 @@ cat /cache/recovery/last_log
 df -h
 cat /proc/mounts
 </code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[转： sort的7个应用实例]]></title>
-      <url>http://percychen.com/2015/05/05/2015-05-05-sort/</url>
-      <content type="html"><![CDATA[<td id="article_content"><p>在<a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">上一篇文章</a>里，我们已经探讨了关于sort命令的多个例子，如果你错过了这篇文章，可以点击下面的链接进行阅读。今天的这篇文章作为上一篇文章的继续，将讨论关于sort命令的剩余用法，与上一篇一起作为Linux ‘sort’命令的完整指南。</p><br><ul><br><li><a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">Linux 的 ‘sort’命令的14个有用的范例（一）</a></li><br></ul><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png" alt="" width="256" height="256"></p><br><p>在我们继续深入之前，先创建一个文本文档‘month.txt’，并且将上一次给出的数据填进去。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“mar\ndec\noct\nsep\nfeb\naug”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> month</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105700klkfmvv0flbsskf6.gif" alt="Populate Content"></p><br><p>15、 通过使用’M‘选项，对’month.txt‘文件按照月份顺序进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">M month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><strong>注意</strong>:‘sort’命令需要至少3个字符来确认月份名称。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701p2wxy026s0z023to.gif" alt="Sort File Content by Month in Linux"></p><br><p>16、 把数据整理成方便人们阅读的形式，比如1K、2M、3G、2T，这里面的K、G、M、T代表千、兆、吉、梯。 （LCTT 译注：此处命令有误，ls 命令应该增加 -h 参数，径改之）</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">lh </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">$USER </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">h </span><span class="pun">-</span><span class="pln">k5</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701wxxuatq5zu9qtzmk.gif" alt="Sort Content Human Readable Format"></p><br><p>17、 在上一篇文章中，我们在例子4中创建了一个名为‘sorted.txt’的文件，在例子6中创建了一个‘lsl.txt’。‘sorted.txt’已经排好序了而’lsl.txt‘还没有。让我们使用sort命令来检查两个文件是否已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c sorted</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702lsqqcyrsncwcffqj.gif" alt="Check File is Sorted"></p><br><p>如果它返回0，则表示文件已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c lsl</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702gyahwzs46p5s21a2.gif" alt="Check File Sorted Status"></p><br><p>报告无序。存在矛盾……</p><br><p>18、 如果文字之间的分隔符是空格，sort命令自动地将空格后的东西当做一个新文字单元，如果分隔符不是空格呢？</p><br><p>考虑这样一个文本文件，里面的内容可以由除了空格之外的任何符号分隔，比如‘|’，‘\’，‘+’，‘.’等……</p><br><p>创建一个分隔符为+的文本文件。使用‘cat‘命令查看文件内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“21+linux+server+production\n11+debian+RedHat+CentOS\n131+Apache+Mysql+PHP\n7+Shell Scripting+python+perl\n111+postfix+exim+sendmail”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><hr><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ cat delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702uxrgssqxvglzlstn.gif" alt="Check File Content by Delimiter"></p><br><p>现在基于由数字组成的第一个域来进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">t </span><span class="str">‘+’</span><span class="pln"> </span><span class="pun">-</span><span class="pln">nk1 delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703mnrarjnx7nddwnb0.gif" alt="Sort File By Fields"></p><br><p>然后再基于非数字的第四个域排序。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703nxjyhizvvx8j5nxk.gif" alt="Sort Content By Non Numeric"></p><br><p>如果分隔符是制表符，你需要在’+‘的位置上用$’\t’代替，如上例所示。</p><br><p>19、 对主用户目录下使用‘ls -l’命令得到的结果基于第五列（‘文件大小’）进行一个乱序排列。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">l </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">avi</span><span class="pun">/</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">k5 </span><span class="pun">-</span><span class="pln">R </span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105704pw69nw6hwhcwavww.gif" alt="Sort Content by Column in Random Order"></p><br><p>每一次你运行上面的脚本，你得到结果可能都不一样，因为结果是随机生成的。</p><br><p>正如我在上一篇文章中提到的规则2所说——sort命令会将以小写字母开始的行排在大写字母开始的行前面。看一下上一篇文章的例3，字符串‘laptop’在‘LAPTOP’前出现。</p><br><p>20、 如何覆盖默认的排序优先权？在这之前我们需要先将环境变量LC_ALL的值设置为C。在命令行提示栏中运行下面的代码。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ </span><span class="kwd">export</span><span class="pln"> LC_ALL</span><span class="pun">=</span><span class="pln">C</span></code></li></ol></pre><br><p>然后以非默认优先权的方式对‘tecmint.txt’文件重新排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706occ4t7a7h4m999m9.gif" alt="Override Sorting Preferences"></p><br><p><em>覆盖排序优先权</em></p><br><p>不要忘记与example 3中得到的输出结果做比较，并且你可以使用‘-f’，又叫‘-ignore-case’（忽略大小写）的选项来获取更有序的输出。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">f tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706sn54r2dspz2nbr2v.gif" alt="Compare Sorting Preferences"></p><br><p>21、 给两个输入文件进行‘sort‘，然后把它们连接成一行！</p><br><p>我们创建两个文本文档’file1.txt‘以及’file2.txt‘，并用数据填充，如下所示，并用’cat‘命令查看文件的内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Reliable</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Fast</span><span class="pln">\n</span><span class="lit">3</span><span class="pln"> </span><span class="typ">Secure</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> open</span><span class="pun">-</span><span class="pln">source\n</span><span class="lit">4</span><span class="pln"> customizable</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file1</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file1</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707j38vk01w78yt0g00.gif" alt="Populate Content with Numbers"></p><br><p>用如下数据填充’file2.txt‘。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">3</span><span class="pln"> </span><span class="typ">RedHat</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Debian</span><span class="pln">\n</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Ubuntu</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Kali</span><span class="pln">\n</span><span class="lit">4</span><span class="pln"> </span><span class="typ">Fedora</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file2</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file2</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707drz8fbflwl50enze.gif" alt="Populate File with Data"></p><br><p>现在我们对两个文件进行排序并连接。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ join </span><span class="pun">&lt;(</span><span class="pln">sort </span><span class="pun">-</span><span class="pln">n file1</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;(</span><span class="pln">sort file2</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105708uumm00x22i5z2k07.gif" alt="Sort Join Two Files"></p><br><p>我所要讲的全部内容就在这里了，希望与各位保持联系，也希望各位经常来逛逛。有反馈就在下面评论吧。</p><br><hr><br><p>via: <a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank" rel="external">http://www.tecmint.com/linux-sort-command-examples/</a></p><br><p>作者：<a href="http://www.tecmint.com/author/avishek/" target="_blank" rel="external">Avishek Kumar</a> 译者：<a href="https://github.com/DongShuaike" target="_blank" rel="external">DongShuaike</a> 校对：<a href="https://github.com/wxy" target="_blank" rel="external">wxy</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><p class="copyright"><br><br>                                            <span class="z">原文：<a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank">http://www.tecmint.com/linux-sort-command-examples/</a></span><br>                        <span class="y">作者： Avishek Kumar</span>            <br class="clear"><br>                <span class="z">译文：<a href="http://lctt.github.io/" target="_blank">LCTT</a>&nbsp;&nbsp;<a href="http://linux.cn/article-5373-1.html" target="_blank">http://linux.cn/article-5373-1.html</a></span><br>                        <span class="y">译者： DongShuaike</span>            <br class="clear"><br>                <br class="clear"><br>                    <span>本文由 LCTT 原创翻译，<a href="http://linux.cn/article-5373-1.html" target="_blank" rel="external">Linux中国首发</a>。也想加入译者行列，为开源做一些自己的贡献么？欢迎加入 <a href="http://lctt.github.io/" target="_blank">LCTT</a>！<br>翻译工作和译文发表仅用于学习和交流目的，翻译工作遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>，如果我们的工作有侵犯到您的权益，请及时联系我们。</span><br>                        <br class="clear"><br>            <span style="color:red;">欢迎遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息。</span><br>                        <br class="clear"><br>                <span>文章仅代表作者的知识和看法，如有不同观点，请楼下排队<a href="javascript:void(0);" onclick="$('message').focus();" target="_blank" rel="external">吐槽</a> :D</span><br>        <br class="clear"><br>    </p><br><div class="hm"><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-5373-shareweibo.html','article_title','article_content','https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br><a title="收藏" href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=5373&amp;handlekey=favoritearticlehk_5373" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="fav_large"></a><br></div><br></td>
-]]></content>
     </entry>
     
     <entry>
@@ -4951,39 +4951,6 @@ vam install youcompleteme
     </entry>
     
     <entry>
-      <title><![CDATA[关于Dialog的学习]]></title>
-      <url>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</url>
-      <content type="html"><![CDATA[<p>这里的Dialog是用的AlertDialog.build实现的，而且，支持多种方式自定义<br>不多说，直接上代码：</p>
-<pre><code>private void chosePercentAutoOpen() {
-AlertDialog.Builder builder=new Builder(PowerSaveModeActivity.this,R.style.YunDialogTheme);
-builder.setTitle(getResources().getString(R.string.auto_open_super_mode));
-builder.setSingleChoiceItems(new String[]{
-        getResources().getString(R.string.power_90),
-        getResources().getString(R.string.power_80),
-        getResources().getString(R.string.power_70),
-        getResources().getString(R.string.power_60),
-        getResources().getString(R.string.power_50),
-        getResources().getString(R.string.power_40)}
-, 5, new DialogInterface.OnClickListener(){
-    @Override
-    public void onClick(DialogInterface arg0, int position) {
-        System.out.println(&quot;你选择了第&quot;+position+&quot;项&quot;);
-
-    }
-}).setNegativeButton(getResources().getString(R.string.cancle),null).show();
-}
-</code></pre><blockquote>
-<p>如果弹出的弹出框是双层的，可以在那个主题下定义一个：</p>
-</blockquote>
-<pre><code>&lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/transparent&lt;/item&gt;
-</code></pre><blockquote>
-<p>这样就将后面的弹出框给隐藏了</p>
-</blockquote>
-<p>本次文章实现的是单选框。<a href="http://www.oschina.net/question/54100_32486" target="_blank" rel="external">更多详情可以点击这里进行学习</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android 中 字符替代的用法]]></title>
       <url>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</url>
       <content type="html"><![CDATA[<h2 id="一-使用xliff的用法："><a href="#一-使用xliff的用法：" class="headerlink" title="一. 使用xliff的用法："></a>一. 使用xliff的用法：</h2><p>####<xliff:g>标签介绍：</xliff:g></p>
@@ -5041,6 +5008,39 @@ builder.setSingleChoiceItems(new String[]{
 <pre><code>String sAgeFormatString sAgeFormat1= getResources().getString(R.string.alert);
 String sFinal1 = String.format(sAgeFormat1, &quot;李四&quot;,&quot;首都北京&quot;);
 </code></pre><p>这里两个string需要替换的，按照上面程序的顺序依次对应。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于Dialog的学习]]></title>
+      <url>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</url>
+      <content type="html"><![CDATA[<p>这里的Dialog是用的AlertDialog.build实现的，而且，支持多种方式自定义<br>不多说，直接上代码：</p>
+<pre><code>private void chosePercentAutoOpen() {
+AlertDialog.Builder builder=new Builder(PowerSaveModeActivity.this,R.style.YunDialogTheme);
+builder.setTitle(getResources().getString(R.string.auto_open_super_mode));
+builder.setSingleChoiceItems(new String[]{
+        getResources().getString(R.string.power_90),
+        getResources().getString(R.string.power_80),
+        getResources().getString(R.string.power_70),
+        getResources().getString(R.string.power_60),
+        getResources().getString(R.string.power_50),
+        getResources().getString(R.string.power_40)}
+, 5, new DialogInterface.OnClickListener(){
+    @Override
+    public void onClick(DialogInterface arg0, int position) {
+        System.out.println(&quot;你选择了第&quot;+position+&quot;项&quot;);
+
+    }
+}).setNegativeButton(getResources().getString(R.string.cancle),null).show();
+}
+</code></pre><blockquote>
+<p>如果弹出的弹出框是双层的，可以在那个主题下定义一个：</p>
+</blockquote>
+<pre><code>&lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/transparent&lt;/item&gt;
+</code></pre><blockquote>
+<p>这样就将后面的弹出框给隐藏了</p>
+</blockquote>
+<p>本次文章实现的是单选框。<a href="http://www.oschina.net/question/54100_32486" target="_blank" rel="external">更多详情可以点击这里进行学习</a></p>
 ]]></content>
     </entry>
     
@@ -5157,60 +5157,6 @@ lrwxrwxrwx 1 root root 6 Jul 18 22:31 bashrc_slink -&gt; bashrc
     </entry>
     
     <entry>
-      <title><![CDATA[Android 阻尼回弹 ListView控件]]></title>
-      <url>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</url>
-      <content type="html"><![CDATA[<p><a href="http://my.oschina.net/helu/blog/145502" target="_blank" rel="external">原帖地址</a></p>
-<p>今天又在IOS上看到列表的”阻尼”效果，就是列表拉到表头或者表尾时，还可以继续往上或往下拉，松开手后，整个列表会弹回去</p>
-<pre>
-public class BaseListView extends ListView
-{
-    private static final int MAX_Y_OVERSCROLL_DISTANCE = 200;
-
-    private Context mContext;
-    private int mMaxYOverscrollDistance;
-
-    public BaseListView(Context context)
-    {
-        super(context);
-        mContext = context;
-        initBounceListView();
-    }
-
-    public BaseListView(Context context, AttributeSet attrs)
-    {
-        super(context, attrs);
-        mContext = context;
-        initBounceListView();
-    }
-
-    public BaseListView(Context context, AttributeSet attrs, int defStyle)
-    {
-        super(context, attrs, defStyle);
-        mContext = context;
-        initBounceListView();
-    }
-
-    private void initBounceListView()
-    {
-
-        final DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
-        final float density = metrics.density;
-
-        mMaxYOverscrollDistance = (int) (density * MAX_Y_OVERSCROLL_DISTANCE);
-    }
-
-    @Override
-    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent)
-    {
-        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxYOverscrollDistance, isTouchEvent);
-    }
-
-}
-</pre>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android 变色封装类]]></title>
       <url>http://percychen.com/2015/02/06/2015-02-06-changecolotutil/</url>
       <content type="html"><![CDATA[<p>工具类的作用，将传人的bitmap转为黑色后输出bitmap，将传入TextView变色后输出</p>
@@ -5281,6 +5227,60 @@ public class ChangeColorUtil {
         tv.setTextColor(0xffffffff);
         return tv;
 
+    }
+
+}
+</pre>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android 阻尼回弹 ListView控件]]></title>
+      <url>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</url>
+      <content type="html"><![CDATA[<p><a href="http://my.oschina.net/helu/blog/145502" target="_blank" rel="external">原帖地址</a></p>
+<p>今天又在IOS上看到列表的”阻尼”效果，就是列表拉到表头或者表尾时，还可以继续往上或往下拉，松开手后，整个列表会弹回去</p>
+<pre>
+public class BaseListView extends ListView
+{
+    private static final int MAX_Y_OVERSCROLL_DISTANCE = 200;
+
+    private Context mContext;
+    private int mMaxYOverscrollDistance;
+
+    public BaseListView(Context context)
+    {
+        super(context);
+        mContext = context;
+        initBounceListView();
+    }
+
+    public BaseListView(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+        mContext = context;
+        initBounceListView();
+    }
+
+    public BaseListView(Context context, AttributeSet attrs, int defStyle)
+    {
+        super(context, attrs, defStyle);
+        mContext = context;
+        initBounceListView();
+    }
+
+    private void initBounceListView()
+    {
+
+        final DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
+        final float density = metrics.density;
+
+        mMaxYOverscrollDistance = (int) (density * MAX_Y_OVERSCROLL_DISTANCE);
+    }
+
+    @Override
+    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent)
+    {
+        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxYOverscrollDistance, isTouchEvent);
     }
 
 }
@@ -5993,26 +5993,6 @@ do
     </entry>
     
     <entry>
-      <title><![CDATA[adb查看android系统相关命令]]></title>
-      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
-      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
-<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
-<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
-</code></pre><p>注：bs可以从分区信息中读取</p>
-<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
-adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
-cat /proc/dumchar_info
-</code></pre><p>其中的 android分区就是 system分区</p>
-<p>其中的 userdata分区就是data分区</p>
-<p>对于古老的机器可以尝试:</p>
-<pre><code>cat /proc/mtd
-</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
-</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
-</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[五种开源协议的比较]]></title>
       <url>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</url>
       <content type="html"><![CDATA[<p><strong>当我将开源当做一种习惯的时候，我突然意识到，使用一种开源协议是一件必不可少的事情了</strong></p>
@@ -6056,24 +6036,23 @@ cat /proc/dumchar_info
     </entry>
     
     <entry>
-      <title><![CDATA[git cola的下载和使用]]></title>
-      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
-      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
-<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
-<p>###关于git cola | ABOUT GIT COLA</p>
-<blockquote>
-<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
-</blockquote>
-<p>###安装 | HOW TO INSTALL</p>
-<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
-
-<p>###使用 | HOW TO USE</p>
-<blockquote>
-<p>git add –all (or  git add . )</p>
-<p>git cola (此步代替git commit)</p>
-<p>git push</p>
-</blockquote>
-]]></content>
+      <title><![CDATA[adb查看android系统相关命令]]></title>
+      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
+      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
+<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
+<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
+</code></pre><p>注：bs可以从分区信息中读取</p>
+<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
+adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
+cat /proc/dumchar_info
+</code></pre><p>其中的 android分区就是 system分区</p>
+<p>其中的 userdata分区就是data分区</p>
+<p>对于古老的机器可以尝试:</p>
+<pre><code>cat /proc/mtd
+</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
+</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
+</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
+</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -6102,54 +6081,23 @@ public static final String SONG_NAME = &quot;hehe&quot;;
     </entry>
     
     <entry>
-      <title><![CDATA[shell读取文件每一行的方式]]></title>
-      <url>http://percychen.com/2014/10/21/2014-10-21-shellreadline/</url>
-      <content type="html"><![CDATA[<ul>
-<li><p>使用read命令读取一行数据</p>
-<pre><code>while read myline
-do
-echo &quot;LINE:&quot;$myline
-done &lt; datafile.txt
-</code></pre></li>
-</ul>
-<h4 id="解决read在这个语法中失效的问题："><a href="#解决read在这个语法中失效的问题：" class="headerlink" title="解决read在这个语法中失效的问题："></a>解决read在这个语法中失效的问题：</h4><pre><code>read &lt;/dev/tty   #再给它重定向一次就可以了
-</code></pre><ul>
-<li><p>使用read命令读取一行数据</p>
-<pre><code>cat datafile.txt | while read myline
-do
-echo &quot;LINE:&quot;$myline
-done
-</code></pre></li>
-<li><p>读取一行数据</p>
-<pre><code>cat datafile.txt | while myline=$(line)
-do
-echo &quot;LINE:&quot;$myline
-done
-</code></pre></li>
-<li><p>读取一行数据</p>
-<pre><code>while myline=$(line)
-do
-echo &quot;LINE:&quot;$myline
-done &lt; datafile.txt
-</code></pre></li>
-<li><p>使用read命令读取变量数据</p>
-<pre><code>cat datafile.txt | while read paraa parab parac
-do
-echo &quot;PARAA:&quot;$paraa
-echo &quot;PARAB:&quot;$parab
-echo &quot;PARAC:&quot;$parac
-</code></pre><p>done</p>
-</li>
-<li><p>使用read命令读取变量数据</p>
-<pre><code>while read paraa parab parac
-do
-echo &quot;PARAA:&quot;$paraa
-echo &quot;PARAB:&quot;$parab
-echo &quot;PARAC:&quot;$parac
-done &lt; datafile.txt
-</code></pre></li>
-</ul>
-<p>原文地址：<a href="http://blog.163.com/clevertanglei900@126/blog/static/1113522592011625112619590/" target="_blank" rel="external">http://blog.163.com/clevertanglei900@126/blog/static/1113522592011625112619590/</a></p>
+      <title><![CDATA[git cola的下载和使用]]></title>
+      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
+      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
+<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
+<p>###关于git cola | ABOUT GIT COLA</p>
+<blockquote>
+<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
+</blockquote>
+<p>###安装 | HOW TO INSTALL</p>
+<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
+
+<p>###使用 | HOW TO USE</p>
+<blockquote>
+<p>git add –all (or  git add . )</p>
+<p>git cola (此步代替git commit)</p>
+<p>git push</p>
+</blockquote>
 ]]></content>
     </entry>
     
@@ -6298,6 +6246,58 @@ pear:90:2.3
 <p>-b会忽略每一行前面的所有空白部分，从第一个可见字符开始比较。</p>
 </blockquote>
 <p>文章转自：<a href="http://www.cnblogs.com/dong008259/archive/2011/12/08/2281214.html" target="_blank" rel="external">http://www.cnblogs.com/dong008259/archive/2011/12/08/2281214.html</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[shell读取文件每一行的方式]]></title>
+      <url>http://percychen.com/2014/10/21/2014-10-21-shellreadline/</url>
+      <content type="html"><![CDATA[<ul>
+<li><p>使用read命令读取一行数据</p>
+<pre><code>while read myline
+do
+echo &quot;LINE:&quot;$myline
+done &lt; datafile.txt
+</code></pre></li>
+</ul>
+<h4 id="解决read在这个语法中失效的问题："><a href="#解决read在这个语法中失效的问题：" class="headerlink" title="解决read在这个语法中失效的问题："></a>解决read在这个语法中失效的问题：</h4><pre><code>read &lt;/dev/tty   #再给它重定向一次就可以了
+</code></pre><ul>
+<li><p>使用read命令读取一行数据</p>
+<pre><code>cat datafile.txt | while read myline
+do
+echo &quot;LINE:&quot;$myline
+done
+</code></pre></li>
+<li><p>读取一行数据</p>
+<pre><code>cat datafile.txt | while myline=$(line)
+do
+echo &quot;LINE:&quot;$myline
+done
+</code></pre></li>
+<li><p>读取一行数据</p>
+<pre><code>while myline=$(line)
+do
+echo &quot;LINE:&quot;$myline
+done &lt; datafile.txt
+</code></pre></li>
+<li><p>使用read命令读取变量数据</p>
+<pre><code>cat datafile.txt | while read paraa parab parac
+do
+echo &quot;PARAA:&quot;$paraa
+echo &quot;PARAB:&quot;$parab
+echo &quot;PARAC:&quot;$parac
+</code></pre><p>done</p>
+</li>
+<li><p>使用read命令读取变量数据</p>
+<pre><code>while read paraa parab parac
+do
+echo &quot;PARAA:&quot;$paraa
+echo &quot;PARAB:&quot;$parab
+echo &quot;PARAC:&quot;$parac
+done &lt; datafile.txt
+</code></pre></li>
+</ul>
+<p>原文地址：<a href="http://blog.163.com/clevertanglei900@126/blog/static/1113522592011625112619590/" target="_blank" rel="external">http://blog.163.com/clevertanglei900@126/blog/static/1113522592011625112619590/</a></p>
 ]]></content>
     </entry>
     
@@ -6998,12 +6998,6 @@ print total;
     </entry>
     
     <entry>
-      <title><![CDATA[黑蚂蚁——白连春]]></title>
-      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
-      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Linux中的15个‘echo’ 命令实例]]></title>
       <url>http://percychen.com/2014/10/08/2014-10-08-echodemo/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -7071,6 +7065,12 @@ print total;
 </tbody>
 </table>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[黑蚂蚁——白连春]]></title>
+      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
+      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
     </entry>
     
     <entry>
@@ -7656,6 +7656,147 @@ brunch find7 -j32或者 brunch find7
     </entry>
     
     <entry>
+      <title><![CDATA[vim常用快捷键]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
+      <content type="html"><![CDATA[<p>###一、移动光标</p>
+<pre><code>h,j,k,l           上，下，左，右
+ctrl-e              移动页面
+ctrl-f                 上翻一页
+ctrl-b                 下翻一页
+ctrl-u                 上翻半页
+ctrl-d                 下翻半页
+w                     跳到下一个字首，按标点或单词分割
+W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
+e                     跳到下一个字尾
+E                     跳到下一个字尾，长跳
+b                     跳到上一个字
+B                     跳到上一个字，长跳
+0                     跳至行首，不管有无缩进，就是跳到第0个字符
+^                     跳至行首的第一个字符
+$                    跳至行尾
+gg                     跳至文首
+G                   调至文尾
+5gg/5G              调至第5行
+gd                     跳至当前光标所在的变量的声明处
+fx                     在当前行中找x字符，找到了就跳转至
+;                     重复上一个f命令，而不用重复的输入fx
+*                    查找光标所在处的单词，向下查找
+\#                     查找光标所在处的单词，向上查找
+</code></pre><p>###二、删除复制</p>
+<pre><code>dd                     删除光标所在行
+dw                  删除一个字(word)
+d$/D                删除到行末
+x                   删除当前字符
+X                     删除前一个字符
+yy                     复制一行
+yw                     复制一个字
+y$/Y                 复制到行末
+p                     粘贴粘贴板的内容到当前行的下面
+P                     粘贴粘贴板的内容到当前行的上面
+</code></pre><p>###三、插入模式</p>
+<pre><code>i                     从当前光标处进入插入模式
+I                     进入插入模式，并置光标于行首
+a                     追加模式，置光标于当前光标之后
+A                     追加模式，置光标于行末
+o                     在当前行之下新加一行，并进入插入模式
+O                     在当前行之上新加一行，并进入插入模式
+Esc                 退出插入模式
+</code></pre><p>###四、编辑</p>
+<pre><code>J                     将下一行和当前行连接为一行
+cc                    删除当前行并进入编辑模式
+cw                     删除当前字，并进入编辑模式
+c$                     擦除从当前位置至行末的内容，并进入编辑模式
+s                     删除当前字符并进入编辑模式
+S                     删除光标所在行并进入编辑模式
+xp                     交换当前字符和下一个字符
+u                     撤销
+ctrl+r                 重做
+~                     切换大小写，当前字符
+\&gt;&gt;                 将当前行右移一个单位
+\&lt;&lt;                  将当前行左移一个单位(一个tab符)
+\==                    自动缩进当前行
+</code></pre><p>###五、查找替换</p>
+<pre><code>/pattern             向后搜索字符串pattern
+?pattern             向前搜索字符串pattern
+&quot;\c&quot;                 忽略大小写
+&quot;\C&quot;                 大小写敏感
+n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
+N                     上一个匹配(同上)
+:%s/old/new/g          搜索整个文件，将所有的old替换为new
+:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
+</code></pre><p>###六、退出编辑器</p>
+<pre><code>:w                    将缓冲区写入文件，即保存修改
+:wq                 保存修改并退出
+:x                     保存修改并退出
+:q                     退出，如果对缓冲区进行过修改，则会提示
+:q!                 强制退出，放弃修改
+</code></pre><p>###七、多文件编辑</p>
+<pre><code>vim file1..         同时打开多个文件
+:args                   显示当前编辑文件
+:next                   切换到下个文件
+:prev                   切换到前个文件
+:next！             不保存当前编辑文件并切换到下个文件
+:prev！             不保存当前编辑文件并切换到上个文件
+:wnext              保存当前编辑文件并切换到下个文件
+:wprev              保存当前编辑文件并切换到上个文件
+:first                  定位首文件
+:last                   定位尾文件
+ctrl+^                  快速在最近打开的两个文件间切换
+:split[sp]          把当前文件水平分割
+:split file             把当前窗口水平分割, file
+:vsplit[vsp] file     当前窗口垂直分割, file
+:new file            同split file
+:close               关闭当前窗口
+:only                只显示当前窗口, 关闭所有其他的窗口
+:all                     打开所有的窗口
+:vertical all        打开所有的窗口, 垂直打开
+:qall                 对所有窗口执行：q操作
+：qall!                对所有窗口执行：q!操作
+:wall                 对所有窗口执行：w操作
+:wqall                 对所有窗口执行：wq操作
+ctrl-w h             跳转到左边的窗口
+ctrl-w j             跳转到下面的窗口
+ctrl-w k             跳转到上面的窗口
+ctrl-w l             跳转到右边的窗口
+ctrl-w t             跳转到最顶上的窗口
+ctrl-w b             跳转到最底下的窗口
+</code></pre><p>###八、多标签编辑</p>
+<pre><code>:tabedit file         在新标签中打开文件file
+:tab split file         在新标签中打开文件file
+:tabp                 切换到前一个标签
+:tabn                 切换到后一个标签
+:tabc                  关闭当前标签
+:tabo                  关闭其他标签
+gt                        到下一个tab
+gT                        到上一个tab
+0gt                   跳到第一个tab
+5gt                   跳到第五个tab
+</code></pre><p>###九、执行shell命令</p>
+<pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
+2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
+3、用“Ctrl+Z“回到shell，用fg返回编辑
+4、:!make -&gt; 直接在当前目录下运行make指令
+</code></pre><p>###十、VIM启动项</p>
+<pre><code>-o[n] 以水平分屏的方式打开多个文件
+-O[n] 以垂直分屏的方式打开多个文件
+</code></pre><p>###十一、自动排版</p>
+<pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
+</code></pre><p>###十二、如何在vim中编译程序</p>
+<pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
+编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
+</code></pre><p>###十三、buffer操作</p>
+<pre><code>1、buffer状态
+- （非活动的缓冲区）
+a （当前被激活缓冲区）
+h （隐藏的缓冲区）
+% （当前的缓冲区）
+# （交换缓冲区）
+= （只读缓冲区）
++ （已经更改的缓冲区）
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[一些常用的shell 语句片段]]></title>
       <url>http://percychen.com/2014/09/11/2014-09-11-shellcode/</url>
       <content type="html"><![CDATA[<h2 id="失败重复执行"><a href="#失败重复执行" class="headerlink" title="失败重复执行"></a>失败重复执行</h2><p>####语法</p>
@@ -7891,144 +8032,17 @@ dir/file2.cpp
     </entry>
     
     <entry>
-      <title><![CDATA[vim常用快捷键]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
-      <content type="html"><![CDATA[<p>###一、移动光标</p>
-<pre><code>h,j,k,l           上，下，左，右
-ctrl-e              移动页面
-ctrl-f                 上翻一页
-ctrl-b                 下翻一页
-ctrl-u                 上翻半页
-ctrl-d                 下翻半页
-w                     跳到下一个字首，按标点或单词分割
-W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
-e                     跳到下一个字尾
-E                     跳到下一个字尾，长跳
-b                     跳到上一个字
-B                     跳到上一个字，长跳
-0                     跳至行首，不管有无缩进，就是跳到第0个字符
-^                     跳至行首的第一个字符
-$                    跳至行尾
-gg                     跳至文首
-G                   调至文尾
-5gg/5G              调至第5行
-gd                     跳至当前光标所在的变量的声明处
-fx                     在当前行中找x字符，找到了就跳转至
-;                     重复上一个f命令，而不用重复的输入fx
-*                    查找光标所在处的单词，向下查找
-\#                     查找光标所在处的单词，向上查找
-</code></pre><p>###二、删除复制</p>
-<pre><code>dd                     删除光标所在行
-dw                  删除一个字(word)
-d$/D                删除到行末
-x                   删除当前字符
-X                     删除前一个字符
-yy                     复制一行
-yw                     复制一个字
-y$/Y                 复制到行末
-p                     粘贴粘贴板的内容到当前行的下面
-P                     粘贴粘贴板的内容到当前行的上面
-</code></pre><p>###三、插入模式</p>
-<pre><code>i                     从当前光标处进入插入模式
-I                     进入插入模式，并置光标于行首
-a                     追加模式，置光标于当前光标之后
-A                     追加模式，置光标于行末
-o                     在当前行之下新加一行，并进入插入模式
-O                     在当前行之上新加一行，并进入插入模式
-Esc                 退出插入模式
-</code></pre><p>###四、编辑</p>
-<pre><code>J                     将下一行和当前行连接为一行
-cc                    删除当前行并进入编辑模式
-cw                     删除当前字，并进入编辑模式
-c$                     擦除从当前位置至行末的内容，并进入编辑模式
-s                     删除当前字符并进入编辑模式
-S                     删除光标所在行并进入编辑模式
-xp                     交换当前字符和下一个字符
-u                     撤销
-ctrl+r                 重做
-~                     切换大小写，当前字符
-\&gt;&gt;                 将当前行右移一个单位
-\&lt;&lt;                  将当前行左移一个单位(一个tab符)
-\==                    自动缩进当前行
-</code></pre><p>###五、查找替换</p>
-<pre><code>/pattern             向后搜索字符串pattern
-?pattern             向前搜索字符串pattern
-&quot;\c&quot;                 忽略大小写
-&quot;\C&quot;                 大小写敏感
-n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
-N                     上一个匹配(同上)
-:%s/old/new/g          搜索整个文件，将所有的old替换为new
-:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
-</code></pre><p>###六、退出编辑器</p>
-<pre><code>:w                    将缓冲区写入文件，即保存修改
-:wq                 保存修改并退出
-:x                     保存修改并退出
-:q                     退出，如果对缓冲区进行过修改，则会提示
-:q!                 强制退出，放弃修改
-</code></pre><p>###七、多文件编辑</p>
-<pre><code>vim file1..         同时打开多个文件
-:args                   显示当前编辑文件
-:next                   切换到下个文件
-:prev                   切换到前个文件
-:next！             不保存当前编辑文件并切换到下个文件
-:prev！             不保存当前编辑文件并切换到上个文件
-:wnext              保存当前编辑文件并切换到下个文件
-:wprev              保存当前编辑文件并切换到上个文件
-:first                  定位首文件
-:last                   定位尾文件
-ctrl+^                  快速在最近打开的两个文件间切换
-:split[sp]          把当前文件水平分割
-:split file             把当前窗口水平分割, file
-:vsplit[vsp] file     当前窗口垂直分割, file
-:new file            同split file
-:close               关闭当前窗口
-:only                只显示当前窗口, 关闭所有其他的窗口
-:all                     打开所有的窗口
-:vertical all        打开所有的窗口, 垂直打开
-:qall                 对所有窗口执行：q操作
-：qall!                对所有窗口执行：q!操作
-:wall                 对所有窗口执行：w操作
-:wqall                 对所有窗口执行：wq操作
-ctrl-w h             跳转到左边的窗口
-ctrl-w j             跳转到下面的窗口
-ctrl-w k             跳转到上面的窗口
-ctrl-w l             跳转到右边的窗口
-ctrl-w t             跳转到最顶上的窗口
-ctrl-w b             跳转到最底下的窗口
-</code></pre><p>###八、多标签编辑</p>
-<pre><code>:tabedit file         在新标签中打开文件file
-:tab split file         在新标签中打开文件file
-:tabp                 切换到前一个标签
-:tabn                 切换到后一个标签
-:tabc                  关闭当前标签
-:tabo                  关闭其他标签
-gt                        到下一个tab
-gT                        到上一个tab
-0gt                   跳到第一个tab
-5gt                   跳到第五个tab
-</code></pre><p>###九、执行shell命令</p>
-<pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
-2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
-3、用“Ctrl+Z“回到shell，用fg返回编辑
-4、:!make -&gt; 直接在当前目录下运行make指令
-</code></pre><p>###十、VIM启动项</p>
-<pre><code>-o[n] 以水平分屏的方式打开多个文件
--O[n] 以垂直分屏的方式打开多个文件
-</code></pre><p>###十一、自动排版</p>
-<pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
-</code></pre><p>###十二、如何在vim中编译程序</p>
-<pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
-编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
-</code></pre><p>###十三、buffer操作</p>
-<pre><code>1、buffer状态
-- （非活动的缓冲区）
-a （当前被激活缓冲区）
-h （隐藏的缓冲区）
-% （当前的缓冲区）
-# （交换缓冲区）
-= （只读缓冲区）
-+ （已经更改的缓冲区）
-</code></pre>]]></content>
+      <title><![CDATA[便签的发布！]]></title>
+      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
+      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
+<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
+<p>更新说明</p>
+<blockquote>
+<p>2014年9月10日增加长微博功能</p>
+</blockquote>
+<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
+<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
+]]></content>
     </entry>
     
     <entry>
@@ -8050,20 +8064,6 @@ h （隐藏的缓冲区）
 
 &lt;/div&gt;
 </code></pre></div>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[便签的发布！]]></title>
-      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
-      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
-<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
-<p>更新说明</p>
-<blockquote>
-<p>2014年9月10日增加长微博功能</p>
-</blockquote>
-<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
-<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
-]]></content>
     </entry>
     
     <entry>
@@ -8115,6 +8115,221 @@ boot&lt;/p&gt;
       <url>http://percychen.com/2014/09/04/2014-09-04-markdownedit/</url>
       <content type="html"><![CDATA[<td id="article_content"><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212700fiihhhy877i7ny1h.png" alt=""></p><br><p><a href="http://remarkableapp.net/" target="_blank" rel="external">Remarkable</a>是一个全新，免费，功能齐全的Linux发行版Markdown编辑器。它拥有许多特性，比如：在线预览，这让你的Markdown编辑变得更加容易。它是一个轻量级的编辑器，而且它还有一个简洁的用户界面(UI)。</p><br><p>下面是Remarkable的主要特性：</p><br><ul><br><li>实时预览</li><br><li>支持Github Markdown 语法</li><br><li>支持导出为PDF和HTML</li><br><li>自定义CSS</li><br><li>语法高亮</li><br><td id="article_content"><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212700fiihhhy877i7ny1h.png" alt=""></p><br><p><a href="http://remarkableapp.net/" target="_blank" rel="external">Remarkable</a>是一个全新，免费，功能齐全的Linux发行版Markdown编辑器。它拥有许多特性，比如：在线预览，这让你的Markdown编辑变得更加容易。它是一个轻量级的编辑器，而且它还有一个简洁的用户界面(UI)。</p><br><p>下面是Remarkable的主要特性：</p><br><ul><br><li>实时预览</li><br><li>支持Github Markdown 语法</li><br><li>支持导出为PDF和HTML</li><br><li>自定义CSS</li><br><li>语法高亮</li><br><li>高度可定制</li><br><li><br><p class="p1">字数实时计数</p><br></li><br><li>键盘快捷键</li><br></ul><br><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212702wus2fwm77y6uuu97.png" alt="" width="700"></p><br><p>你可以观看<a href="https://www.youtube.com/watch?v=UpjAIcXti9s" target="_blank" rel="external">这部YouTube视频</a>（请自备梯子:-]）了解Linux下的Remakable。</p><br><h3 id="toc_1">安装</h3><br><p>根据不同的Linux发行版本，Remarkable拥有许多可供使用的安装源，下面是不同Linux发行版以及它们对应的安装文件</p><br><h4 id="toc_2">Ubuntu / Linux Mint:</h4><br><ul><br><li><a href="http://remarkableapp.net/files/remarkable_0.965_all.deb" target="_blank" rel="external">Dowbnload .DEB</a></li><br></ul><br><h4 id="toc_3">Fedora:</h4><br><ul><br><li><a href="http://remarkableapp.net/files/remarkable-0.965.rpm" target="_blank" rel="external">Download .RPM</a></li><br></ul><br><h4 id="toc_4">Arch Linux (AUR):</h4><br><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">sudo yaourt </span><span class="pun">-</span><span class="pln">S remarkable</span></li></ol></pre><br><p>喜欢吗？</p><br><hr><br><p>via: <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/" target="_blank" rel="external">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a></p><br><p>作者：<a href="http://www.unixmen.com/author/seth/" target="_blank" rel="external">Enock Seth Nyamador</a> 译者：<a href="https://github.com/su-kaiyao" target="_blank" rel="external">su-kaiyao</a> 校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： unixmen</div>    <div><br>        原文： <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/" target="_blank">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Enock Seth Nyamador    </div><br><br>    <div><br>                译者： su-kaiyao    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3741-1.html" target="_blank" rel="external">http://linux.cn/article-3741-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br></td>
 </ul></td>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[双击退出程序-java代码]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</url>
+      <content type="html"><![CDATA[<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p>###直接在函数最后一个括号“}”之前黏贴一下代码即可</p>
+<pre><code>@Override
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+    // TODO Auto-generated method stub
+    if(keyCode == KeyEvent.KEYCODE_BACK)
+       {  
+           exitBy2Click();      //调用双击退出函数
+       }
+    return false;
+}
+private static Boolean isExit = false;
+
+private void exitBy2Click() {
+    Timer tExit = null;
+    if (isExit == false) {
+        isExit = true; // 准备退出
+        Toast.makeText(this, &quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
+        tExit = new Timer();
+        tExit.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                isExit = false; // 取消退出
+            }
+        }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+    } else {
+        finish();
+        System.exit(0);
+    }
+}
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[（未完成）Android系统拼包移植各个系统驱动对应的so文件]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-androidplantso/</url>
+      <content type="html"><![CDATA[<h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>前段时间跟几个做移植的romer聊天，<br>发现他们所有的经验都是靠一个个对比得到的，<br>对于很多so文件的功能由于看不到C文件，所以不知道它的功能，<br>所以今天花点时间写一下各个java和C最后编译生成的so，可能对romer没什么用，<br>但多少能帮到点。</p>
+<h2 id="硬件模块"><a href="#硬件模块" class="headerlink" title="硬件模块"></a>硬件模块</h2><ul>
+<li><p>/system/lib/hw 下</p>
+<pre><code>gralloc.default.so 表示默认的Gralloc 模块
+sensors.goldffish.so 表示默认的传感模块
+</code></pre></li>
+<li><p>音频驱动</p>
+<pre><code>framework/base/libs/audioflinger ----&gt; libaudioflinger.so  Audio系统本地服务
+framework/base/media/libmedia      ----&gt; libmedia.so 提供Audio部分接口，media库中audio的一部分
+framework/base/core/jni             ----&gt; libandroid_runtime.so 音频的jni接口封在这里面
+AudioHardwareInterface AudioStreamOut AudioStreamIn 这三个类编译生成 libaudio.so 是音频的硬件抽象层
+</code></pre></li>
+<li><p>相机驱动</p>
+<pre><code>framworks/base/libs/ui            -----&gt;libui.so     相机本地框架代码(如果有)
+frameworks/base/libs/camera        -----&gt;libcamera_client.so  相机本地框架
+</code></pre></li>
+</ul>
+<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><ul>
+<li><p>hw_get_module 函数报错</p>
+<pre><code>这个函数执行的是一个动态查找的过程，当没有动态库的时候就会打开默认的库文件 （*.default.so).
+</code></pre></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android 系统初始值修改(源码)]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</url>
+      <content type="html"><![CDATA[<h2 id="1-在4-1上修改默认字体大小："><a href="#1-在4-1上修改默认字体大小：" class="headerlink" title="1.在4.1上修改默认字体大小："></a>1.在4.1上修改默认字体大小：</h2><blockquote>
+<p>比如改成大：</p>
+</blockquote>
+<pre><code>def_font_scale&quot;&gt;115%
+</code></pre><h2 id="2-修改浏览器的默认标签"><a href="#2-修改浏览器的默认标签" class="headerlink" title="2.修改浏览器的默认标签"></a>2.修改浏览器的默认标签</h2><p>###分别在以下资源文件中添加自定义的标签</p>
+<blockquote>
+<p>编辑packages\apps\Browser\res\values\strings.xml</p>
+</blockquote>
+<pre><code>Google
+http://www.google.com/
+
+Picasa
+http://picasaweb.google.com/
+
+Yahoo!
+http://www.yahoo.com/
+
+MSN
+http://www.msn.com/
+
+Twitter
+http://twitter.com/
+
+Facebook
+http://www.facebook.com/
+
+Wikipedia
+http://www.wikipedia.org/
+
+eBay
+http://www.ebay.com/
+
+CNN
+http://www.cnn.com/
+
+NY Times
+http://www.nytimes.com/
+
+ESPN
+http://espn.com/
+
+Amazon
+http://www.amazon.com/
+
+Weather Channel
+http://www.weather.com/
+
+BBC
+http://www.bbc.co.uk/
+</code></pre><p>###编辑 packages\apps\Browser\res\values\bookmarks_icons.xml ，</p>
+<blockquote>
+<p>注意：这里每个网站对应一个缩略图和一个favicon</p>
+</blockquote>
+<pre><code>@raw/favicon_google
+@raw/thumb_google
+@raw/favicon_picasa
+@raw/thumb_picasa
+@raw/favicon_yahoo
+@raw/thumb_yahoo
+@raw/favicon_msn
+@raw/thumb_msn
+@raw/favicon_twitter
+@raw/thumb_twitter
+@raw/favicon_facebook
+@raw/thumb_facebook
+@raw/favicon_wikipedia
+@raw/thumb_wikipedia
+@raw/favicon_ebay
+@raw/thumb_ebay
+@raw/favicon_cnn
+@raw/thumb_cnn
+@raw/favicon_nytimes
+@raw/thumb_nytimes
+@raw/favicon_espn
+@raw/thumb_espn
+@raw/favicon_amazon
+@raw/thumb_amazon
+@raw/favicon_weatherchannel
+@raw/thumb_weatherchannel
+@raw/favicon_bbc
+@raw/thumb_bbc
+</code></pre><blockquote>
+<p>对应的图片在 packages\apps\Browser\res\raw</p>
+</blockquote>
+<h2 id="3-LockScreen-解锁界面四个方向添加一个setting入口"><a href="#3-LockScreen-解锁界面四个方向添加一个setting入口" class="headerlink" title="3.LockScreen 解锁界面四个方向添加一个setting入口"></a>3.LockScreen 解锁界面四个方向添加一个setting入口</h2><p>###frameworks\base\core\res\res\values/arrays.xml</p>
+<pre><code>@drawable/ic_lockscreen_unlock
+@drawable/ic_action_assist_generic
+@drawable/ic_lockscreen_camera
+@drawable/ic_lockscreen_settings
+</code></pre><p>###在 frameworks\base\core\res\res\drawable 增加 ic_lockscreen_settings.xml 文件 并添加 ic_lockscreen_settings_normal.phg ic_lockscreen_settings_activated.png 资源文件</p>
+<pre><code>http://schemas.android.com/apk/res/android&quot;&gt;
+    android:state_active=&quot;false&quot;
+    android:state_focused=&quot;false&quot;
+    android:drawable=&quot;@drawable/ic_lockscreen_settings_normal&quot; /&gt;
+    android:state_enabled=&quot;true&quot;
+    android:state_active=&quot;true&quot;
+    android:state_focused=&quot;false&quot;
+    android:drawable=&quot;@drawable/ic_lockscreen_settings_activated&quot; /&gt;
+    android:state_enabled=&quot;true&quot;
+    android:state_active=&quot;false&quot;
+    android:state_focused=&quot;true&quot;
+    android:drawable=&quot;@drawable/ic_lockscreen_settings_activated&quot; /&gt;
+</code></pre><p>###打开 frameworks\base\policy\src\com\android\internal\policy\impl\LockScreen.java</p>
+<pre><code>public void onTrigger(View v, int target) {
+       final int resId = mGlowPadView.getResourceIdForTarget(target);
+       switch (resId) {
+            case com.android.internal.R.drawable.ic_lockscreen_settings: //启动setting 应用
+               launchActivity(new Intent().setComponent(new ComponentName(&quot;com.android.settings&quot;,&quot;com.android.settings.Settings&quot;)));
+               mCallback.pokeWakelock();
+               break;
+</code></pre><p>###进入frameworks/base/media/java/android/media/AudioService.java</p>
+<pre><code>private final int[] MAX_STREAM_VOLUME = new int[] {
+        5,  // STREAM_VOICE_CALL
+        7,  // STREAM_SYSTEM
+        7,  // STREAM_RING
+        15, // STREAM_MUSIC
+        7,  // STREAM_ALARM
+        7,  // STREAM_NOTIFICATION
+        15, // STREAM_BLUETOOTH_SCO
+        7,  // STREAM_SYSTEM_ENFORCED
+        15, // STREAM_DTMF
+        15  // STREAM_TTS
+    };
+</code></pre><p>###进入frameworks/base/media/java/android/media/AudioManager.java</p>
+<pre><code>public static final int[] DEFAULT_STREAM_VOLUME = new int[] {
+        4,  // STREAM_VOICE_CALL
+        7,  // STREAM_SYSTEM
+        5,  // STREAM_RING
+        11, // STREAM_MUSIC
+        6,  // STREAM_ALARM
+        5,  // STREAM_NOTIFICATION
+        7,  // STREAM_BLUETOOTH_SCO
+        7,  // STREAM_SYSTEM_ENFORCED
+        11, // STREAM_DTMF
+        11  // STREAM_TTS
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CPU性能天梯图（2014年7月）]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</url>
+      <content type="html"><![CDATA[<h2 id="点击图片查看高清无码大图"><a href="#点击图片查看高清无码大图" class="headerlink" title="点击图片查看高清无码大图"></a><strong>点击图片查看高清无码大图</strong></h2><div class="tile" data-scale="2.4" data-image="/img/20140903cpu.jpg"></div>
+
+<p><br><a href="/img/20140903cpu.jpg"><img src="https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/img/20140903cpu.jpg" alt="CPU"></a></p>
+]]></content>
     </entry>
     
     <entry>
@@ -9131,221 +9346,6 @@ boot&lt;/p&gt;
     </entry>
     
     <entry>
-      <title><![CDATA[双击退出程序-java代码]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</url>
-      <content type="html"><![CDATA[<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p>###直接在函数最后一个括号“}”之前黏贴一下代码即可</p>
-<pre><code>@Override
-public boolean onKeyDown(int keyCode, KeyEvent event) {
-    // TODO Auto-generated method stub
-    if(keyCode == KeyEvent.KEYCODE_BACK)
-       {  
-           exitBy2Click();      //调用双击退出函数
-       }
-    return false;
-}
-private static Boolean isExit = false;
-
-private void exitBy2Click() {
-    Timer tExit = null;
-    if (isExit == false) {
-        isExit = true; // 准备退出
-        Toast.makeText(this, &quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
-        tExit = new Timer();
-        tExit.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                isExit = false; // 取消退出
-            }
-        }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
-
-    } else {
-        finish();
-        System.exit(0);
-    }
-}
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[（未完成）Android系统拼包移植各个系统驱动对应的so文件]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-androidplantso/</url>
-      <content type="html"><![CDATA[<h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>前段时间跟几个做移植的romer聊天，<br>发现他们所有的经验都是靠一个个对比得到的，<br>对于很多so文件的功能由于看不到C文件，所以不知道它的功能，<br>所以今天花点时间写一下各个java和C最后编译生成的so，可能对romer没什么用，<br>但多少能帮到点。</p>
-<h2 id="硬件模块"><a href="#硬件模块" class="headerlink" title="硬件模块"></a>硬件模块</h2><ul>
-<li><p>/system/lib/hw 下</p>
-<pre><code>gralloc.default.so 表示默认的Gralloc 模块
-sensors.goldffish.so 表示默认的传感模块
-</code></pre></li>
-<li><p>音频驱动</p>
-<pre><code>framework/base/libs/audioflinger ----&gt; libaudioflinger.so  Audio系统本地服务
-framework/base/media/libmedia      ----&gt; libmedia.so 提供Audio部分接口，media库中audio的一部分
-framework/base/core/jni             ----&gt; libandroid_runtime.so 音频的jni接口封在这里面
-AudioHardwareInterface AudioStreamOut AudioStreamIn 这三个类编译生成 libaudio.so 是音频的硬件抽象层
-</code></pre></li>
-<li><p>相机驱动</p>
-<pre><code>framworks/base/libs/ui            -----&gt;libui.so     相机本地框架代码(如果有)
-frameworks/base/libs/camera        -----&gt;libcamera_client.so  相机本地框架
-</code></pre></li>
-</ul>
-<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><ul>
-<li><p>hw_get_module 函数报错</p>
-<pre><code>这个函数执行的是一个动态查找的过程，当没有动态库的时候就会打开默认的库文件 （*.default.so).
-</code></pre></li>
-</ul>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android 系统初始值修改(源码)]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</url>
-      <content type="html"><![CDATA[<h2 id="1-在4-1上修改默认字体大小："><a href="#1-在4-1上修改默认字体大小：" class="headerlink" title="1.在4.1上修改默认字体大小："></a>1.在4.1上修改默认字体大小：</h2><blockquote>
-<p>比如改成大：</p>
-</blockquote>
-<pre><code>def_font_scale&quot;&gt;115%
-</code></pre><h2 id="2-修改浏览器的默认标签"><a href="#2-修改浏览器的默认标签" class="headerlink" title="2.修改浏览器的默认标签"></a>2.修改浏览器的默认标签</h2><p>###分别在以下资源文件中添加自定义的标签</p>
-<blockquote>
-<p>编辑packages\apps\Browser\res\values\strings.xml</p>
-</blockquote>
-<pre><code>Google
-http://www.google.com/
-
-Picasa
-http://picasaweb.google.com/
-
-Yahoo!
-http://www.yahoo.com/
-
-MSN
-http://www.msn.com/
-
-Twitter
-http://twitter.com/
-
-Facebook
-http://www.facebook.com/
-
-Wikipedia
-http://www.wikipedia.org/
-
-eBay
-http://www.ebay.com/
-
-CNN
-http://www.cnn.com/
-
-NY Times
-http://www.nytimes.com/
-
-ESPN
-http://espn.com/
-
-Amazon
-http://www.amazon.com/
-
-Weather Channel
-http://www.weather.com/
-
-BBC
-http://www.bbc.co.uk/
-</code></pre><p>###编辑 packages\apps\Browser\res\values\bookmarks_icons.xml ，</p>
-<blockquote>
-<p>注意：这里每个网站对应一个缩略图和一个favicon</p>
-</blockquote>
-<pre><code>@raw/favicon_google
-@raw/thumb_google
-@raw/favicon_picasa
-@raw/thumb_picasa
-@raw/favicon_yahoo
-@raw/thumb_yahoo
-@raw/favicon_msn
-@raw/thumb_msn
-@raw/favicon_twitter
-@raw/thumb_twitter
-@raw/favicon_facebook
-@raw/thumb_facebook
-@raw/favicon_wikipedia
-@raw/thumb_wikipedia
-@raw/favicon_ebay
-@raw/thumb_ebay
-@raw/favicon_cnn
-@raw/thumb_cnn
-@raw/favicon_nytimes
-@raw/thumb_nytimes
-@raw/favicon_espn
-@raw/thumb_espn
-@raw/favicon_amazon
-@raw/thumb_amazon
-@raw/favicon_weatherchannel
-@raw/thumb_weatherchannel
-@raw/favicon_bbc
-@raw/thumb_bbc
-</code></pre><blockquote>
-<p>对应的图片在 packages\apps\Browser\res\raw</p>
-</blockquote>
-<h2 id="3-LockScreen-解锁界面四个方向添加一个setting入口"><a href="#3-LockScreen-解锁界面四个方向添加一个setting入口" class="headerlink" title="3.LockScreen 解锁界面四个方向添加一个setting入口"></a>3.LockScreen 解锁界面四个方向添加一个setting入口</h2><p>###frameworks\base\core\res\res\values/arrays.xml</p>
-<pre><code>@drawable/ic_lockscreen_unlock
-@drawable/ic_action_assist_generic
-@drawable/ic_lockscreen_camera
-@drawable/ic_lockscreen_settings
-</code></pre><p>###在 frameworks\base\core\res\res\drawable 增加 ic_lockscreen_settings.xml 文件 并添加 ic_lockscreen_settings_normal.phg ic_lockscreen_settings_activated.png 资源文件</p>
-<pre><code>http://schemas.android.com/apk/res/android&quot;&gt;
-    android:state_active=&quot;false&quot;
-    android:state_focused=&quot;false&quot;
-    android:drawable=&quot;@drawable/ic_lockscreen_settings_normal&quot; /&gt;
-    android:state_enabled=&quot;true&quot;
-    android:state_active=&quot;true&quot;
-    android:state_focused=&quot;false&quot;
-    android:drawable=&quot;@drawable/ic_lockscreen_settings_activated&quot; /&gt;
-    android:state_enabled=&quot;true&quot;
-    android:state_active=&quot;false&quot;
-    android:state_focused=&quot;true&quot;
-    android:drawable=&quot;@drawable/ic_lockscreen_settings_activated&quot; /&gt;
-</code></pre><p>###打开 frameworks\base\policy\src\com\android\internal\policy\impl\LockScreen.java</p>
-<pre><code>public void onTrigger(View v, int target) {
-       final int resId = mGlowPadView.getResourceIdForTarget(target);
-       switch (resId) {
-            case com.android.internal.R.drawable.ic_lockscreen_settings: //启动setting 应用
-               launchActivity(new Intent().setComponent(new ComponentName(&quot;com.android.settings&quot;,&quot;com.android.settings.Settings&quot;)));
-               mCallback.pokeWakelock();
-               break;
-</code></pre><p>###进入frameworks/base/media/java/android/media/AudioService.java</p>
-<pre><code>private final int[] MAX_STREAM_VOLUME = new int[] {
-        5,  // STREAM_VOICE_CALL
-        7,  // STREAM_SYSTEM
-        7,  // STREAM_RING
-        15, // STREAM_MUSIC
-        7,  // STREAM_ALARM
-        7,  // STREAM_NOTIFICATION
-        15, // STREAM_BLUETOOTH_SCO
-        7,  // STREAM_SYSTEM_ENFORCED
-        15, // STREAM_DTMF
-        15  // STREAM_TTS
-    };
-</code></pre><p>###进入frameworks/base/media/java/android/media/AudioManager.java</p>
-<pre><code>public static final int[] DEFAULT_STREAM_VOLUME = new int[] {
-        4,  // STREAM_VOICE_CALL
-        7,  // STREAM_SYSTEM
-        5,  // STREAM_RING
-        11, // STREAM_MUSIC
-        6,  // STREAM_ALARM
-        5,  // STREAM_NOTIFICATION
-        7,  // STREAM_BLUETOOTH_SCO
-        7,  // STREAM_SYSTEM_ENFORCED
-        11, // STREAM_DTMF
-        11  // STREAM_TTS
-    };
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CPU性能天梯图（2014年7月）]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</url>
-      <content type="html"><![CDATA[<h2 id="点击图片查看高清无码大图"><a href="#点击图片查看高清无码大图" class="headerlink" title="点击图片查看高清无码大图"></a><strong>点击图片查看高清无码大图</strong></h2><div class="tile" data-scale="2.4" data-image="/img/20140903cpu.jpg"></div>
-
-<p><br><a href="/img/20140903cpu.jpg"><img src="https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/img/20140903cpu.jpg" alt="CPU"></a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[一些linux下的零碎语法和命令]]></title>
       <url>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</url>
       <content type="html"><![CDATA[<h2 id="查看计算机状态"><a href="#查看计算机状态" class="headerlink" title="- 查看计算机状态"></a>- 查看计算机状态</h2><pre><code>who: 查看有谁在线
@@ -9387,6 +9387,13 @@ poweroff
     </entry>
     
     <entry>
+      <title><![CDATA[般若波罗蜜多心经]]></title>
+      <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
+      <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[jekyll搭建过程中的错误解决办法]]></title>
       <url>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</url>
       <content type="html"><![CDATA[<h2 id="错误1"><a href="#错误1" class="headerlink" title="错误1"></a>错误1</h2><pre><code>终端安装：yunsun@chenyun:~$ gem install --verbose rdiscount
@@ -9415,13 +9422,6 @@ sudo gem install --verbose therubyracer
 sudo apt-get install  nodejs
 再次执行，搞定
 </code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[般若波罗蜜多心经]]></title>
-      <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
-      <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
-]]></content>
     </entry>
     
     <entry>
