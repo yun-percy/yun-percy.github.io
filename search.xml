@@ -189,6 +189,18 @@ def getwinsize():
     </entry>
     
     <entry>
+      <title><![CDATA[python mysql查询笔迹]]></title>
+      <url>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</url>
+      <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
+<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<p>更新数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[mysql重置密码]]></title>
       <url>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</url>
       <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/abbuggy/article/details/8245464" target="_blank" rel="external">原文地址</a></p>
@@ -213,18 +225,6 @@ def getwinsize():
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure>
 <p>使用新的密码登陆，修改成功。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~$ mysql -uroot -pnew_pass</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[python mysql查询笔迹]]></title>
-      <url>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</url>
-      <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
-<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<p>更新数据</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -6311,31 +6311,6 @@ pear:90:2.3
     </entry>
     
     <entry>
-      <title><![CDATA[代码布局的一些零碎语法]]></title>
-      <url>http://percychen.com/2014/10/18/2014-10-18-codelayout/</url>
-      <content type="html"><![CDATA[<p>###前言</p>
-<p>越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。</p>
-<p>虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？</p>
-<p>以下是日常研发中的一些笔记</p>
-<h3 id="FrameLayout下动态设置按钮居中"><a href="#FrameLayout下动态设置按钮居中" class="headerlink" title="FrameLayout下动态设置按钮居中"></a>FrameLayout下动态设置按钮居中</h3><pre><code>FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);
-lytp .gravity = Gravity.CENTER;
-btn.setLayoutParams(lytp);
-</code></pre><p>###RelativeLayout下动态设置子控件居中：</p>
-<pre><code>RelativeLayout.LayoutParams lp=new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-btn1.setLayoutParams(lp);
-</code></pre><p>###添加一个控件（以TextView为例）：</p>
-<pre><code>TextView mlocation=new TextView(context);
-String mlocation1=GetLocationByNumber.getCallerInfo(phonenumber,context);
-mlocation.setText(mlocation1);
-        this.addView(mlocation);
-</code></pre><p>###给文字设置阴影值：</p>
-<pre><code>mlocation.setShadowLayer(10, 1, 1, 0xff000000);//（模糊度（半径），阴影x方向位移，阴影y方向位移，阴影颜色）
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[linux下 解压zip,tar等压缩文件详解]]></title>
       <url>http://percychen.com/2014/10/18/2014-10-18-zipcommand/</url>
       <content type="html"><![CDATA[<p>###zip命令</p>
@@ -6461,6 +6436,31 @@ mlocation.setText(mlocation1);
 </table>
 <p>```</p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[代码布局的一些零碎语法]]></title>
+      <url>http://percychen.com/2014/10/18/2014-10-18-codelayout/</url>
+      <content type="html"><![CDATA[<p>###前言</p>
+<p>越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。</p>
+<p>虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？</p>
+<p>以下是日常研发中的一些笔记</p>
+<h3 id="FrameLayout下动态设置按钮居中"><a href="#FrameLayout下动态设置按钮居中" class="headerlink" title="FrameLayout下动态设置按钮居中"></a>FrameLayout下动态设置按钮居中</h3><pre><code>FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);
+lytp .gravity = Gravity.CENTER;
+btn.setLayoutParams(lytp);
+</code></pre><p>###RelativeLayout下动态设置子控件居中：</p>
+<pre><code>RelativeLayout.LayoutParams lp=new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+btn1.setLayoutParams(lp);
+</code></pre><p>###添加一个控件（以TextView为例）：</p>
+<pre><code>TextView mlocation=new TextView(context);
+String mlocation1=GetLocationByNumber.getCallerInfo(phonenumber,context);
+mlocation.setText(mlocation1);
+        this.addView(mlocation);
+</code></pre><p>###给文字设置阴影值：</p>
+<pre><code>mlocation.setShadowLayer(10, 1, 1, 0xff000000);//（模糊度（半径），阴影x方向位移，阴影y方向位移，阴影颜色）
+</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -6998,12 +6998,6 @@ print total;
     </entry>
     
     <entry>
-      <title><![CDATA[黑蚂蚁——白连春]]></title>
-      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
-      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Linux中的15个‘echo’ 命令实例]]></title>
       <url>http://percychen.com/2014/10/08/2014-10-08-echodemo/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -7074,10 +7068,9 @@ print total;
     </entry>
     
     <entry>
-      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
-      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
-      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
-]]></content>
+      <title><![CDATA[黑蚂蚁——白连春]]></title>
+      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
+      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
     </entry>
     
     <entry>
@@ -7275,6 +7268,13 @@ return-void
 <li><p>com/android/systemui/recent/ 下存放 FastBlur.smail</p>
 </li>
 </ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
+      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
+      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
 ]]></content>
     </entry>
     
@@ -7656,200 +7656,6 @@ brunch find7 -j32或者 brunch find7
     </entry>
     
     <entry>
-      <title><![CDATA[vim常用快捷键]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
-      <content type="html"><![CDATA[<p>###一、移动光标</p>
-<pre><code>h,j,k,l           上，下，左，右
-ctrl-e              移动页面
-ctrl-f                 上翻一页
-ctrl-b                 下翻一页
-ctrl-u                 上翻半页
-ctrl-d                 下翻半页
-w                     跳到下一个字首，按标点或单词分割
-W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
-e                     跳到下一个字尾
-E                     跳到下一个字尾，长跳
-b                     跳到上一个字
-B                     跳到上一个字，长跳
-0                     跳至行首，不管有无缩进，就是跳到第0个字符
-^                     跳至行首的第一个字符
-$                    跳至行尾
-gg                     跳至文首
-G                   调至文尾
-5gg/5G              调至第5行
-gd                     跳至当前光标所在的变量的声明处
-fx                     在当前行中找x字符，找到了就跳转至
-;                     重复上一个f命令，而不用重复的输入fx
-*                    查找光标所在处的单词，向下查找
-\#                     查找光标所在处的单词，向上查找
-</code></pre><p>###二、删除复制</p>
-<pre><code>dd                     删除光标所在行
-dw                  删除一个字(word)
-d$/D                删除到行末
-x                   删除当前字符
-X                     删除前一个字符
-yy                     复制一行
-yw                     复制一个字
-y$/Y                 复制到行末
-p                     粘贴粘贴板的内容到当前行的下面
-P                     粘贴粘贴板的内容到当前行的上面
-</code></pre><p>###三、插入模式</p>
-<pre><code>i                     从当前光标处进入插入模式
-I                     进入插入模式，并置光标于行首
-a                     追加模式，置光标于当前光标之后
-A                     追加模式，置光标于行末
-o                     在当前行之下新加一行，并进入插入模式
-O                     在当前行之上新加一行，并进入插入模式
-Esc                 退出插入模式
-</code></pre><p>###四、编辑</p>
-<pre><code>J                     将下一行和当前行连接为一行
-cc                    删除当前行并进入编辑模式
-cw                     删除当前字，并进入编辑模式
-c$                     擦除从当前位置至行末的内容，并进入编辑模式
-s                     删除当前字符并进入编辑模式
-S                     删除光标所在行并进入编辑模式
-xp                     交换当前字符和下一个字符
-u                     撤销
-ctrl+r                 重做
-~                     切换大小写，当前字符
-\&gt;&gt;                 将当前行右移一个单位
-\&lt;&lt;                  将当前行左移一个单位(一个tab符)
-\==                    自动缩进当前行
-</code></pre><p>###五、查找替换</p>
-<pre><code>/pattern             向后搜索字符串pattern
-?pattern             向前搜索字符串pattern
-&quot;\c&quot;                 忽略大小写
-&quot;\C&quot;                 大小写敏感
-n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
-N                     上一个匹配(同上)
-:%s/old/new/g          搜索整个文件，将所有的old替换为new
-:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
-</code></pre><p>###六、退出编辑器</p>
-<pre><code>:w                    将缓冲区写入文件，即保存修改
-:wq                 保存修改并退出
-:x                     保存修改并退出
-:q                     退出，如果对缓冲区进行过修改，则会提示
-:q!                 强制退出，放弃修改
-</code></pre><p>###七、多文件编辑</p>
-<pre><code>vim file1..         同时打开多个文件
-:args                   显示当前编辑文件
-:next                   切换到下个文件
-:prev                   切换到前个文件
-:next！             不保存当前编辑文件并切换到下个文件
-:prev！             不保存当前编辑文件并切换到上个文件
-:wnext              保存当前编辑文件并切换到下个文件
-:wprev              保存当前编辑文件并切换到上个文件
-:first                  定位首文件
-:last                   定位尾文件
-ctrl+^                  快速在最近打开的两个文件间切换
-:split[sp]          把当前文件水平分割
-:split file             把当前窗口水平分割, file
-:vsplit[vsp] file     当前窗口垂直分割, file
-:new file            同split file
-:close               关闭当前窗口
-:only                只显示当前窗口, 关闭所有其他的窗口
-:all                     打开所有的窗口
-:vertical all        打开所有的窗口, 垂直打开
-:qall                 对所有窗口执行：q操作
-：qall!                对所有窗口执行：q!操作
-:wall                 对所有窗口执行：w操作
-:wqall                 对所有窗口执行：wq操作
-ctrl-w h             跳转到左边的窗口
-ctrl-w j             跳转到下面的窗口
-ctrl-w k             跳转到上面的窗口
-ctrl-w l             跳转到右边的窗口
-ctrl-w t             跳转到最顶上的窗口
-ctrl-w b             跳转到最底下的窗口
-</code></pre><p>###八、多标签编辑</p>
-<pre><code>:tabedit file         在新标签中打开文件file
-:tab split file         在新标签中打开文件file
-:tabp                 切换到前一个标签
-:tabn                 切换到后一个标签
-:tabc                  关闭当前标签
-:tabo                  关闭其他标签
-gt                        到下一个tab
-gT                        到上一个tab
-0gt                   跳到第一个tab
-5gt                   跳到第五个tab
-</code></pre><p>###九、执行shell命令</p>
-<pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
-2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
-3、用“Ctrl+Z“回到shell，用fg返回编辑
-4、:!make -&gt; 直接在当前目录下运行make指令
-</code></pre><p>###十、VIM启动项</p>
-<pre><code>-o[n] 以水平分屏的方式打开多个文件
--O[n] 以垂直分屏的方式打开多个文件
-</code></pre><p>###十一、自动排版</p>
-<pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
-</code></pre><p>###十二、如何在vim中编译程序</p>
-<pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
-编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
-</code></pre><p>###十三、buffer操作</p>
-<pre><code>1、buffer状态
-- （非活动的缓冲区）
-a （当前被激活缓冲区）
-h （隐藏的缓冲区）
-% （当前的缓冲区）
-# （交换缓冲区）
-= （只读缓冲区）
-+ （已经更改的缓冲区）
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[一些常用的shell 语句片段]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-shellcode/</url>
-      <content type="html"><![CDATA[<h2 id="失败重复执行"><a href="#失败重复执行" class="headerlink" title="失败重复执行"></a>失败重复执行</h2><p>####语法</p>
-<pre><code>while [ $? = 1 ]; do
-#失败的命令
-done
-</code></pre><p>例子： 自动同步脚本</p>
-<pre><code>repo sync
-while [ $? = 1 ]; do
-    repo sync
-done
-</code></pre><h2 id="shell传值问题"><a href="#shell传值问题" class="headerlink" title="shell传值问题"></a>shell传值问题</h2><blockquote>
-<p>$1 ~ $9表示依次传进去的9个值，如果传了10个以上的值，在引用的时候请务必加上{}号。例如${10}<br>$0 表示程序名 ，为了不读出路径可以加上 basename的命令例如：</p>
-</blockquote>
-<pre><code>filename=`basename $0`
-</code></pre><blockquote>
-<p>传入参数计数，使用$#来统计传入多少参数，例如，传入2个参数使用加法，三个参数使用乘法，其他报错</p>
-</blockquote>
-<pre><code>if [  $# -eq 2 ]
-then
-    answer=$[ $1+$2 ]
-    echo $answer
-elif [[ $# -eq 3 ]]; then
-    answer=$[ $1*$2*$3 ]
-    echo $answer
-else echo please input 2 or 3 para
-fi
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android ROM大神的友情链接]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-romerlinks/</url>
-      <content type="html"><![CDATA[<p>###Ruling 爆乳</p>
-<p><a href="http://www.1024team.com" target="_blank" rel="external">网址：http://www.1024team.com/</a><br><a href="http://weibo.com/rulingghost" target="_blank" rel="external">微博：http://weibo.com/rulingghost</a></p>
-<p>###apktools 晴天</p>
-<p><a href="http://www.apktools.com/" target="_blank" rel="external">网址：http://www.apktools.com/</a><br><a href="http://weibo.com/timesunday" target="_blank" rel="external">微博：http://weibo.com/timesunday</a></p>
-<p>###Cofface</p>
-<p><a href="http://www.cofface.com/" target="_blank" rel="external">网址：http://www.cofface.com/</a><br><a href="http://weibo.com/cofface" target="_blank" rel="external">微博：http://weibo.com/cofface</a></p>
-<p>###大侠阿木</p>
-<p><a href="http://www.daxiaamu.com" target="_blank" rel="external">网址：http://www.daxiaamu.com</a></p>
-<p>###明月浩空</p>
-<p><a href="http://limh.me" target="_blank" rel="external">网址：http://limh.me</a><br><a href="http://weibo.com/u/3496187780" target="_blank" rel="external">微博：http://weibo.com/u/3496187780</a></p>
-<p>###杨万荣</p>
-<p><a href="http://sndnvaps.github.io" target="_blank" rel="external">网址：http://sndnvaps.github.io</a><br><a href="http://weibo.com/210124187" target="_blank" rel="external">微博：http://weibo.com/210124187</a></p>
-<p>###格诺</p>
-<p><a href="http://iamgeno.com/" target="_blank" rel="external">网址：http://iamgeno.com/</a><br><a href="http://weibo.com/geno" target="_blank" rel="external">微博：http://weibo.com/geno</a></p>
-<p>###秋叶随风</p>
-<p><a href="http://www.3rdos.com" target="_blank" rel="external">网址：http://www.3rdos.com</a><br><a href="http://weibo.com/hqiwu" target="_blank" rel="external">微博：http://weibo.com/hqiwu</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android.mk 变量讲解]]></title>
       <url>http://percychen.com/2014/09/11/2014-09-11-makefilecode/</url>
       <content type="html"><![CDATA[<p>####今天逛 @杨万荣 网站看到的。访问太慢，就直接clone文章，重新用markdown排了版。<br><a href="http://sndnvaps.github.io/" target="_blank" rel="external">原文地址:http://sndnvaps.github.io/</a></p>
@@ -8028,6 +7834,200 @@ dir/file2.cpp
 </ul>
 <p>用于把编译指令传递给yacc模块。例子:</p>
 <pre><code>LOCAL_YACCFLAGS := -p kjsyy
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[一些常用的shell 语句片段]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-shellcode/</url>
+      <content type="html"><![CDATA[<h2 id="失败重复执行"><a href="#失败重复执行" class="headerlink" title="失败重复执行"></a>失败重复执行</h2><p>####语法</p>
+<pre><code>while [ $? = 1 ]; do
+#失败的命令
+done
+</code></pre><p>例子： 自动同步脚本</p>
+<pre><code>repo sync
+while [ $? = 1 ]; do
+    repo sync
+done
+</code></pre><h2 id="shell传值问题"><a href="#shell传值问题" class="headerlink" title="shell传值问题"></a>shell传值问题</h2><blockquote>
+<p>$1 ~ $9表示依次传进去的9个值，如果传了10个以上的值，在引用的时候请务必加上{}号。例如${10}<br>$0 表示程序名 ，为了不读出路径可以加上 basename的命令例如：</p>
+</blockquote>
+<pre><code>filename=`basename $0`
+</code></pre><blockquote>
+<p>传入参数计数，使用$#来统计传入多少参数，例如，传入2个参数使用加法，三个参数使用乘法，其他报错</p>
+</blockquote>
+<pre><code>if [  $# -eq 2 ]
+then
+    answer=$[ $1+$2 ]
+    echo $answer
+elif [[ $# -eq 3 ]]; then
+    answer=$[ $1*$2*$3 ]
+    echo $answer
+else echo please input 2 or 3 para
+fi
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android ROM大神的友情链接]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-romerlinks/</url>
+      <content type="html"><![CDATA[<p>###Ruling 爆乳</p>
+<p><a href="http://www.1024team.com" target="_blank" rel="external">网址：http://www.1024team.com/</a><br><a href="http://weibo.com/rulingghost" target="_blank" rel="external">微博：http://weibo.com/rulingghost</a></p>
+<p>###apktools 晴天</p>
+<p><a href="http://www.apktools.com/" target="_blank" rel="external">网址：http://www.apktools.com/</a><br><a href="http://weibo.com/timesunday" target="_blank" rel="external">微博：http://weibo.com/timesunday</a></p>
+<p>###Cofface</p>
+<p><a href="http://www.cofface.com/" target="_blank" rel="external">网址：http://www.cofface.com/</a><br><a href="http://weibo.com/cofface" target="_blank" rel="external">微博：http://weibo.com/cofface</a></p>
+<p>###大侠阿木</p>
+<p><a href="http://www.daxiaamu.com" target="_blank" rel="external">网址：http://www.daxiaamu.com</a></p>
+<p>###明月浩空</p>
+<p><a href="http://limh.me" target="_blank" rel="external">网址：http://limh.me</a><br><a href="http://weibo.com/u/3496187780" target="_blank" rel="external">微博：http://weibo.com/u/3496187780</a></p>
+<p>###杨万荣</p>
+<p><a href="http://sndnvaps.github.io" target="_blank" rel="external">网址：http://sndnvaps.github.io</a><br><a href="http://weibo.com/210124187" target="_blank" rel="external">微博：http://weibo.com/210124187</a></p>
+<p>###格诺</p>
+<p><a href="http://iamgeno.com/" target="_blank" rel="external">网址：http://iamgeno.com/</a><br><a href="http://weibo.com/geno" target="_blank" rel="external">微博：http://weibo.com/geno</a></p>
+<p>###秋叶随风</p>
+<p><a href="http://www.3rdos.com" target="_blank" rel="external">网址：http://www.3rdos.com</a><br><a href="http://weibo.com/hqiwu" target="_blank" rel="external">微博：http://weibo.com/hqiwu</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[vim常用快捷键]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
+      <content type="html"><![CDATA[<p>###一、移动光标</p>
+<pre><code>h,j,k,l           上，下，左，右
+ctrl-e              移动页面
+ctrl-f                 上翻一页
+ctrl-b                 下翻一页
+ctrl-u                 上翻半页
+ctrl-d                 下翻半页
+w                     跳到下一个字首，按标点或单词分割
+W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
+e                     跳到下一个字尾
+E                     跳到下一个字尾，长跳
+b                     跳到上一个字
+B                     跳到上一个字，长跳
+0                     跳至行首，不管有无缩进，就是跳到第0个字符
+^                     跳至行首的第一个字符
+$                    跳至行尾
+gg                     跳至文首
+G                   调至文尾
+5gg/5G              调至第5行
+gd                     跳至当前光标所在的变量的声明处
+fx                     在当前行中找x字符，找到了就跳转至
+;                     重复上一个f命令，而不用重复的输入fx
+*                    查找光标所在处的单词，向下查找
+\#                     查找光标所在处的单词，向上查找
+</code></pre><p>###二、删除复制</p>
+<pre><code>dd                     删除光标所在行
+dw                  删除一个字(word)
+d$/D                删除到行末
+x                   删除当前字符
+X                     删除前一个字符
+yy                     复制一行
+yw                     复制一个字
+y$/Y                 复制到行末
+p                     粘贴粘贴板的内容到当前行的下面
+P                     粘贴粘贴板的内容到当前行的上面
+</code></pre><p>###三、插入模式</p>
+<pre><code>i                     从当前光标处进入插入模式
+I                     进入插入模式，并置光标于行首
+a                     追加模式，置光标于当前光标之后
+A                     追加模式，置光标于行末
+o                     在当前行之下新加一行，并进入插入模式
+O                     在当前行之上新加一行，并进入插入模式
+Esc                 退出插入模式
+</code></pre><p>###四、编辑</p>
+<pre><code>J                     将下一行和当前行连接为一行
+cc                    删除当前行并进入编辑模式
+cw                     删除当前字，并进入编辑模式
+c$                     擦除从当前位置至行末的内容，并进入编辑模式
+s                     删除当前字符并进入编辑模式
+S                     删除光标所在行并进入编辑模式
+xp                     交换当前字符和下一个字符
+u                     撤销
+ctrl+r                 重做
+~                     切换大小写，当前字符
+\&gt;&gt;                 将当前行右移一个单位
+\&lt;&lt;                  将当前行左移一个单位(一个tab符)
+\==                    自动缩进当前行
+</code></pre><p>###五、查找替换</p>
+<pre><code>/pattern             向后搜索字符串pattern
+?pattern             向前搜索字符串pattern
+&quot;\c&quot;                 忽略大小写
+&quot;\C&quot;                 大小写敏感
+n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
+N                     上一个匹配(同上)
+:%s/old/new/g          搜索整个文件，将所有的old替换为new
+:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
+</code></pre><p>###六、退出编辑器</p>
+<pre><code>:w                    将缓冲区写入文件，即保存修改
+:wq                 保存修改并退出
+:x                     保存修改并退出
+:q                     退出，如果对缓冲区进行过修改，则会提示
+:q!                 强制退出，放弃修改
+</code></pre><p>###七、多文件编辑</p>
+<pre><code>vim file1..         同时打开多个文件
+:args                   显示当前编辑文件
+:next                   切换到下个文件
+:prev                   切换到前个文件
+:next！             不保存当前编辑文件并切换到下个文件
+:prev！             不保存当前编辑文件并切换到上个文件
+:wnext              保存当前编辑文件并切换到下个文件
+:wprev              保存当前编辑文件并切换到上个文件
+:first                  定位首文件
+:last                   定位尾文件
+ctrl+^                  快速在最近打开的两个文件间切换
+:split[sp]          把当前文件水平分割
+:split file             把当前窗口水平分割, file
+:vsplit[vsp] file     当前窗口垂直分割, file
+:new file            同split file
+:close               关闭当前窗口
+:only                只显示当前窗口, 关闭所有其他的窗口
+:all                     打开所有的窗口
+:vertical all        打开所有的窗口, 垂直打开
+:qall                 对所有窗口执行：q操作
+：qall!                对所有窗口执行：q!操作
+:wall                 对所有窗口执行：w操作
+:wqall                 对所有窗口执行：wq操作
+ctrl-w h             跳转到左边的窗口
+ctrl-w j             跳转到下面的窗口
+ctrl-w k             跳转到上面的窗口
+ctrl-w l             跳转到右边的窗口
+ctrl-w t             跳转到最顶上的窗口
+ctrl-w b             跳转到最底下的窗口
+</code></pre><p>###八、多标签编辑</p>
+<pre><code>:tabedit file         在新标签中打开文件file
+:tab split file         在新标签中打开文件file
+:tabp                 切换到前一个标签
+:tabn                 切换到后一个标签
+:tabc                  关闭当前标签
+:tabo                  关闭其他标签
+gt                        到下一个tab
+gT                        到上一个tab
+0gt                   跳到第一个tab
+5gt                   跳到第五个tab
+</code></pre><p>###九、执行shell命令</p>
+<pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
+2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
+3、用“Ctrl+Z“回到shell，用fg返回编辑
+4、:!make -&gt; 直接在当前目录下运行make指令
+</code></pre><p>###十、VIM启动项</p>
+<pre><code>-o[n] 以水平分屏的方式打开多个文件
+-O[n] 以垂直分屏的方式打开多个文件
+</code></pre><p>###十一、自动排版</p>
+<pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
+</code></pre><p>###十二、如何在vim中编译程序</p>
+<pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
+编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
+</code></pre><p>###十三、buffer操作</p>
+<pre><code>1、buffer状态
+- （非活动的缓冲区）
+a （当前被激活缓冲区）
+h （隐藏的缓冲区）
+% （当前的缓冲区）
+# （交换缓冲区）
+= （只读缓冲区）
++ （已经更改的缓冲区）
 </code></pre>]]></content>
     </entry>
     
@@ -9195,15 +9195,6 @@ frameworks/base/libs/camera        -----&gt;libcamera_client.so  相机本地框
     </entry>
     
     <entry>
-      <title><![CDATA[CPU性能天梯图（2014年7月）]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</url>
-      <content type="html"><![CDATA[<h2 id="点击图片查看高清无码大图"><a href="#点击图片查看高清无码大图" class="headerlink" title="点击图片查看高清无码大图"></a><strong>点击图片查看高清无码大图</strong></h2><div class="tile" data-scale="2.4" data-image="/img/20140903cpu.jpg"></div>
-
-<p><br><a href="/img/20140903cpu.jpg"><img src="https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/img/20140903cpu.jpg" alt="CPU"></a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android 系统初始值修改(源码)]]></title>
       <url>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</url>
       <content type="html"><![CDATA[<h2 id="1-在4-1上修改默认字体大小："><a href="#1-在4-1上修改默认字体大小：" class="headerlink" title="1.在4.1上修改默认字体大小："></a>1.在4.1上修改默认字体大小：</h2><blockquote>
@@ -9346,6 +9337,15 @@ http://www.bbc.co.uk/
     </entry>
     
     <entry>
+      <title><![CDATA[CPU性能天梯图（2014年7月）]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</url>
+      <content type="html"><![CDATA[<h2 id="点击图片查看高清无码大图"><a href="#点击图片查看高清无码大图" class="headerlink" title="点击图片查看高清无码大图"></a><strong>点击图片查看高清无码大图</strong></h2><div class="tile" data-scale="2.4" data-image="/img/20140903cpu.jpg"></div>
+
+<p><br><a href="/img/20140903cpu.jpg"><img src="https://raw.githubusercontent.com/yun-percy/yun-percy.github.io/master/img/20140903cpu.jpg" alt="CPU"></a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[一些linux下的零碎语法和命令]]></title>
       <url>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</url>
       <content type="html"><![CDATA[<h2 id="查看计算机状态"><a href="#查看计算机状态" class="headerlink" title="- 查看计算机状态"></a>- 查看计算机状态</h2><pre><code>who: 查看有谁在线
@@ -9387,6 +9387,13 @@ poweroff
     </entry>
     
     <entry>
+      <title><![CDATA[般若波罗蜜多心经]]></title>
+      <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
+      <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[jekyll搭建过程中的错误解决办法]]></title>
       <url>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</url>
       <content type="html"><![CDATA[<h2 id="错误1"><a href="#错误1" class="headerlink" title="错误1"></a>错误1</h2><pre><code>终端安装：yunsun@chenyun:~$ gem install --verbose rdiscount
@@ -9418,9 +9425,171 @@ sudo apt-get install  nodejs
     </entry>
     
     <entry>
-      <title><![CDATA[般若波罗蜜多心经]]></title>
-      <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
-      <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
+      <title><![CDATA[省电模式部分代码]]></title>
+      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
+      <content type="html"><![CDATA[<p>####这是我写的一个电量管理的一些代码</p>
+<p>以下皆在android 4.3 平台上测试通过<br></p>
+<ol>
+<li><p>将 休眠时间调制 15秒：</p>
+<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
+</code></pre></li>
+<li><p>蓝牙：</p>
+<pre><code>关闭：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+打开：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+是否已经打开:
+if(!bluetoothadapter.isEnabled()){}
+权限:
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>wifi</p>
+<pre><code>关闭：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(false);
+
+打开：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(true);
+
+判断是否打开：
+public String checkWifi(Activity activitiy,String string) {
+WifiManager mWifiManager = (WifiManager) activitiy
+        .getSystemService(Context.WIFI_SERVICE);
+WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
+if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
+else {return string;}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>数据流量：</p>
+<pre><code>打开：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+        Class ownerClass = connectivityManager.getClass();
+        Class[] argsClass = new Class[1];
+        argsClass[0] = boolean.class;
+        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+        method.invoke(connectivityManager, false);
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+    }
+
+关闭：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+    Class ownerClass = connectivityManager.getClass();
+    Class[] argsClass = new Class[1];
+    argsClass[0] = boolean.class;
+    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+    method.invoke(connectivityManager, true);
+
+} catch (Exception e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+}
+
+判断是否开启：
+public String checkdata(String string) {
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+if (false == networkInfo.isConnectedOrConnecting()) {
+    string=&quot;close&quot;;
+    return string;
+} else {
+    string=&quot;open&quot;;
+    return string;
+}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>屏幕旋转</p>
+<pre><code>如果开启就关闭，关闭就开启：
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
+
+检查是否开启：
+public String checkrotate(String string){
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+ if (0 == flag) {
+     string=&quot;close&quot;;
+        return string;
+}
+ else {
+     string=&quot;open&quot;;
+        return string;
+ }
+}
+</code></pre></li>
+<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
+<pre><code>try {
+screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
+Log.i(TAG, &quot;screenMode = &quot; + screenMode);
+
+// 获得当前屏幕亮度值 0--255
+screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
+
+// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
+if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+}
+
+// 设置屏幕亮度值为最大值0
+setScreenBrightness(0.0F);
+} catch (SettingNotFoundException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+然后添加两个执行函数
+
+ private void setScreenMode(int value) {
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
+ }
+ private void setScreenBrightness(float value) {
+ Window mWindow = getWindow();
+ WindowManager.LayoutParams mParams = mWindow.getAttributes();
+ float f = value / 255.0F;
+ mParams.screenBrightness = f;
+ mWindow.setAttributes(mParams);
+
+ // 保存设置的屏幕亮度值
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
+ }
+
+还有private 几个变量
+
+private int screenMode;
+private static final String TAG = &quot;ScreenLuminance&quot;;
+private int screenBrightness;
+
+亮度部分需要权限：
+
+&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
+</code></pre></li>
+</ol>
+<p>####最后更新时间：2014-09-24</p>
 ]]></content>
     </entry>
     
@@ -9800,175 +9969,6 @@ String EXTRA_AUTHORITIES
 String EXTRA_INPUT_METHOD_ID
 </code></pre></li>
 </ul>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[省电模式部分代码]]></title>
-      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
-      <content type="html"><![CDATA[<p>####这是我写的一个电量管理的一些代码</p>
-<p>以下皆在android 4.3 平台上测试通过<br></p>
-<ol>
-<li><p>将 休眠时间调制 15秒：</p>
-<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
-</code></pre></li>
-<li><p>蓝牙：</p>
-<pre><code>关闭：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-打开：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-是否已经打开:
-if(!bluetoothadapter.isEnabled()){}
-权限:
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
-</code></pre></li>
-</ol>
-<ol>
-<li><p>wifi</p>
-<pre><code>关闭：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(false);
-
-打开：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(true);
-
-判断是否打开：
-public String checkWifi(Activity activitiy,String string) {
-WifiManager mWifiManager = (WifiManager) activitiy
-        .getSystemService(Context.WIFI_SERVICE);
-WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
-int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
-if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
-else {return string;}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>数据流量：</p>
-<pre><code>打开：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-        Class ownerClass = connectivityManager.getClass();
-        Class[] argsClass = new Class[1];
-        argsClass[0] = boolean.class;
-        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-        method.invoke(connectivityManager, false);
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-    }
-
-关闭：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-    Class ownerClass = connectivityManager.getClass();
-    Class[] argsClass = new Class[1];
-    argsClass[0] = boolean.class;
-    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-    method.invoke(connectivityManager, true);
-
-} catch (Exception e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-}
-
-判断是否开启：
-public String checkdata(String string) {
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-if (false == networkInfo.isConnectedOrConnecting()) {
-    string=&quot;close&quot;;
-    return string;
-} else {
-    string=&quot;open&quot;;
-    return string;
-}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>屏幕旋转</p>
-<pre><code>如果开启就关闭，关闭就开启：
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
-Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
-
-检查是否开启：
-public String checkrotate(String string){
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
- if (0 == flag) {
-     string=&quot;close&quot;;
-        return string;
-}
- else {
-     string=&quot;open&quot;;
-        return string;
- }
-}
-</code></pre></li>
-<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
-<pre><code>try {
-screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
-Log.i(TAG, &quot;screenMode = &quot; + screenMode);
-
-// 获得当前屏幕亮度值 0--255
-screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
-
-// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
-if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-}
-
-// 设置屏幕亮度值为最大值0
-setScreenBrightness(0.0F);
-} catch (SettingNotFoundException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-然后添加两个执行函数
-
- private void setScreenMode(int value) {
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
- }
- private void setScreenBrightness(float value) {
- Window mWindow = getWindow();
- WindowManager.LayoutParams mParams = mWindow.getAttributes();
- float f = value / 255.0F;
- mParams.screenBrightness = f;
- mWindow.setAttributes(mParams);
-
- // 保存设置的屏幕亮度值
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
- }
-
-还有private 几个变量
-
-private int screenMode;
-private static final String TAG = &quot;ScreenLuminance&quot;;
-private int screenBrightness;
-
-亮度部分需要权限：
-
-&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
-</code></pre></li>
-</ol>
-<p>####最后更新时间：2014-09-24</p>
 ]]></content>
     </entry>
     
