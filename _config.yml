@@ -77,3 +77,6 @@ search:
   field: post
   labels:
     input_placeholder: Search for Posts
+baidusitemap:
+    path: baidusitemap.xml
+

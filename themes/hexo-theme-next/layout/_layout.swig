@@ -7,6 +7,11 @@
 
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
+    <meta name="google-site-verification" content="SiLo1Ls2eD6kYCAXC6oL8UkPQyLK8DDi8__7s5cwM5E" />
+    <meta name="google-site-verification" content="SwHhCod35NS9WsOn__NrOBkyiReSqd6zrop63nGfC4Q" />
+    <meta name="baidu-site-verification" content="exj9fuGP3J" />
+    <meta name="baidu-site-verification" content="KKwKp3rnOw" />
+    <meta name="baidu-site-verification" content="MEbfiyjHYX" />
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
 </head>
