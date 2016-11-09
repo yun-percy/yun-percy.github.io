@@ -305,38 +305,6 @@ def getwinsize():
   </entry>
   
   <entry>
-    <title>python mysql查询笔迹</title>
-    <link href="http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/"/>
-    <id>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</id>
-    <published>2016-09-26T05:14:00.000Z</published>
-    <updated>2016-09-26T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
-<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<p>更新数据</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;连接数据库&quot;&gt;&lt;a href=&quot;#连接数据库&quot; class=&quot;headerlink&quot; title=&quot;连接数据库&quot;&gt;&lt;/a&gt;连接数据库&lt;/h2&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="note" scheme="http://percychen.com/tags/note/"/>
-    
-      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
     <title>mysql重置密码</title>
     <link href="http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/"/>
     <id>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</id>
@@ -383,6 +351,38 @@ def getwinsize():
       <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
     
       <category term="reset" scheme="http://percychen.com/tags/reset/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python mysql查询笔迹</title>
+    <link href="http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/"/>
+    <id>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</id>
+    <published>2016-09-26T05:14:00.000Z</published>
+    <updated>2016-09-26T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
+<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<p>更新数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;连接数据库&quot;&gt;&lt;a href=&quot;#连接数据库&quot; class=&quot;headerlink&quot; title=&quot;连接数据库&quot;&gt;&lt;/a&gt;连接数据库&lt;/h2&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="note" scheme="http://percychen.com/tags/note/"/>
+    
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
     
   </entry>
   
