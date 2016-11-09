@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
@@ -105,7 +105,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 8780122,
+      userId: '8780122',
       author: '振云'
     },
     algolia: {
@@ -117,6 +117,11 @@
     }
   };
 </script>
+
+
+
+  <link rel="canonical" href="http://percychen.com/page/8/"/>
+
 
 
 
@@ -234,11 +239,21 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="popup-trigger">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -265,6 +280,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -284,6 +301,357 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/03/14/2015-03-14-AndroidStringwildcard/" itemprop="url">
+                  Android 中 字符替代的用法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-14T13:14:00+08:00">
+              2015-03-14
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-03-14T13:14:00+08:00">
+              2015-03-14
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/14/2015-03-14-AndroidStringwildcard/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/14/2015-03-14-AndroidStringwildcard/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/03/14/2015-03-14-AndroidStringwildcard/" class="leancloud_visitors" data-flag-title="Android 中 字符替代的用法">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          一. 使用xliff的用法：####标签介绍：
+
+属性id可以随便命名属性值举例说明
+
+%n$ms：代表输出的是字符串，n代表是第几个参数，设置m的值可以在输出之前放置空格
+%n$md：代表输出的是整数，n代表是第几个参数，设置m的值可以在输出之前放置空格，也可以设为0m,在输出之前放置m个0
+%n
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/14/2015-03-14-AndroidStringwildcard/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/03/10/2015-03-10-forCommand/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/03/10/2015-03-10-forCommand/" itemprop="url">
+                  for循环的应用（shell）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-10T13:14:00+08:00">
+              2015-03-10
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-03-10T13:14:00+08:00">
+              2015-03-10
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/10/2015-03-10-forCommand/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/10/2015-03-10-forCommand/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/03/10/2015-03-10-forCommand/" class="leancloud_visitors" data-flag-title="for循环的应用（shell）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          for循环遍历语句####语法
+for i in * ; do
+#处理你找出来的文件
+done
+例子： 签名所有apk文件
+for i in *.apk ; do
+echo 正在签名 $i
+java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/10/2015-03-10-forCommand/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/03/09/2015-03-09-cpCommand/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -309,9 +677,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-09T13:14:00+08:00" content="2015-03-09">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-09T13:14:00+08:00">
               2015-03-09
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-03-09T13:14:00+08:00">
+              2015-03-09
+            </time>
+            
           </span>
 
           
@@ -322,7 +700,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Shell/" itemprop="url" rel="index">
                     <span itemprop="name">Shell</span>
                   </a>
@@ -340,7 +718,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/03/09/2015-03-09-cpCommand/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/09/2015-03-09-cpCommand/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/09/2015-03-09-cpCommand/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,6 +739,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -381,12 +762,13 @@
 -f ：为强制 (force) 的意思，若有重复或其它疑问时，不会询问使用者，而强制复制；
 -i ：若目的檔(destination)已经存在时，在
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/03/09/2015-03-09-cpCommand/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -423,145 +805,20 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/02/06/2015-02-06-changecolotutil/">
 
-    
-      <header class="post-header">
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/02/06/2015-02-06-Listviewzuni/" itemprop="url">
-                  Android 阻尼回弹 ListView控件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-06T13:14:00+08:00" content="2015-02-06">
-              2015-02-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/02/06/2015-02-06-Listviewzuni/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/06/2015-02-06-Listviewzuni/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/02/06/2015-02-06-Listviewzuni/" class="leancloud_visitors" data-flag-title="Android 阻尼回弹 ListView控件">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          原帖地址
-今天又在IOS上看到列表的”阻尼”效果，就是列表拉到表头或者表尾时，还可以继续往上或往下拉，松开手后，整个列表会弹回去
-
-public class BaseListView extends ListView
-{
-    private static final int MAX_Y_OVER
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/06/2015-02-06-Listviewzuni/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -587,9 +844,19 @@ public class BaseListView extends ListView
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-06T13:14:00+08:00" content="2015-02-06">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-06T13:14:00+08:00">
               2015-02-06
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-02-06T13:14:00+08:00">
+              2015-02-06
+            </time>
+            
           </span>
 
           
@@ -600,7 +867,7 @@ public class BaseListView extends ListView
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -618,7 +885,7 @@ public class BaseListView extends ListView
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/02/06/2015-02-06-changecolotutil/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/06/2015-02-06-changecolotutil/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/06/2015-02-06-changecolotutil/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -639,6 +906,9 @@ public class BaseListView extends ListView
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -659,12 +929,13 @@ package com.android.systemui.statusbar.phone;
 import android.graphics.Bitmap;
 import android.
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/02/06/2015-02-06-changecolotutil/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -701,6 +972,20 @@ import android.
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -712,8 +997,8 @@ import android.
             
               
                 
-                <a class="post-title-link" href="/2015/02/02/2015-02-02-roundbitmap/" itemprop="url">
-                  Android 圆角Bitmap代码
+                <a class="post-title-link" href="/2015/02/06/2015-02-06-Listviewzuni/" itemprop="url">
+                  Android 阻尼回弹 ListView控件
                 </a>
               
             
@@ -726,9 +1011,19 @@ import android.
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-02T13:14:00+08:00" content="2015-02-02">
-              2015-02-02
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-06T13:14:00+08:00">
+              2015-02-06
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-02-06T13:14:00+08:00">
+              2015-02-06
+            </time>
+            
           </span>
 
           
@@ -739,7 +1034,7 @@ import android.
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -756,8 +1051,8 @@ import android.
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/02/02/2015-02-02-roundbitmap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/2015-02-02-roundbitmap/" itemprop="commentsCount"></span>
+                <a href="/2015/02/06/2015-02-06-Listviewzuni/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/06/2015-02-06-Listviewzuni/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -767,7 +1062,7 @@ import android.
 
           
           
-             <span id="/2015/02/02/2015-02-02-roundbitmap/" class="leancloud_visitors" data-flag-title="Android 圆角Bitmap代码">
+             <span id="/2015/02/06/2015-02-06-Listviewzuni/" class="leancloud_visitors" data-flag-title="Android 阻尼回弹 ListView控件">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -778,6 +1073,9 @@ import android.
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -791,18 +1089,20 @@ import android.
       
         
           
-          //生成圆角图片
-public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
-    try {
-        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
-       
-          ...
+          原帖地址
+今天又在IOS上看到列表的”阻尼”效果，就是列表拉到表头或者表尾时，还可以继续往上或往下拉，松开手后，整个列表会弹回去
 
+public class BaseListView extends ListView
+{
+    private static final int MAX_Y_OVER
+          ...
+          <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/02/2015-02-02-roundbitmap/#more" rel="contents">
+            <a class="btn" href="/2015/02/06/2015-02-06-Listviewzuni/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -839,6 +1139,20 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/02/02/2015-02-02-import_system_app/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -864,9 +1178,19 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-02T13:14:00+08:00" content="2015-02-02">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-02T13:14:00+08:00">
               2015-02-02
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-02-02T13:14:00+08:00">
+              2015-02-02
+            </time>
+            
           </span>
 
           
@@ -877,7 +1201,7 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -895,7 +1219,7 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/02/02/2015-02-02-import_system_app/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/2015-02-02-import_system_app/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/2015-02-02-import_system_app/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -916,6 +1240,9 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -934,12 +1261,13 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
 
 将Settings整个文件夹拷贝一
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/02/02/2015-02-02-import_system_app/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -976,6 +1304,186 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/02/02/2015-02-02-roundbitmap/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/02/02/2015-02-02-roundbitmap/" itemprop="url">
+                  Android 圆角Bitmap代码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-02T13:14:00+08:00">
+              2015-02-02
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-02-02T13:14:00+08:00">
+              2015-02-02
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/02/02/2015-02-02-roundbitmap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/2015-02-02-roundbitmap/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/02/02/2015-02-02-roundbitmap/" class="leancloud_visitors" data-flag-title="Android 圆角Bitmap代码">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          //生成圆角图片
+public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
+    try {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+       
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/02/02/2015-02-02-roundbitmap/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/02/02/2015-02-02-blurwallpaper/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -1001,9 +1509,19 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-02T13:14:00+08:00" content="2015-02-02">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-02T13:14:00+08:00">
               2015-02-02
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-02-02T13:14:00+08:00">
+              2015-02-02
+            </time>
+            
           </span>
 
           
@@ -1014,7 +1532,7 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -1032,7 +1550,7 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/02/02/2015-02-02-blurwallpaper/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/2015-02-02-blurwallpaper/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/2015-02-02-blurwallpaper/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1053,6 +1571,9 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1069,289 +1590,13 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
           首先当然是功能函数代码啦：
 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/02/02/2015-02-02-blurwallpaper/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/30/2015-01-30-makefilecode/" itemprop="url">
-                  MakeFile零碎语法札记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-01-30T13:14:00+08:00" content="2015-01-30">
-              2015-01-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/语法/" itemprop="url" rel="index">
-                    <span itemprop="name">语法</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/01/30/2015-01-30-makefilecode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/30/2015-01-30-makefilecode/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/01/30/2015-01-30-makefilecode/" class="leancloud_visitors" data-flag-title="MakeFile零碎语法札记">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          这几天改编译构架，遇到很多不合理的地方，决定花点时间把makefile编译脚本重写下。上次看makefile语法还是去年，时间间隔有点久，所以决定写一些小blog记录一些知识点
-
-变量赋值，个人擅长shell脚本，所以很多命令都是shll写的。所以会经常引用shell命令
-  MAKETIME :=
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/30/2015-01-30-makefilecode/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/07/2015-01-07-adb_1.0.31/" itemprop="url">
-                  adb 指令翻译
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-01-07T13:14:00+08:00" content="2015-01-07">
-              2015-01-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/01/07/2015-01-07-adb_1.0.31/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/07/2015-01-07-adb_1.0.31/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/01/07/2015-01-07-adb_1.0.31/" class="leancloud_visitors" data-flag-title="adb 指令翻译">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          -d - 指示命令唯一连接的USB设备
-返回一个错误，如果存在多个USB设备。
--e - 指示命令的唯一运行中的模拟器。
-返回一个错误，如果超过一个模拟器运行。
--s &lt;特定的设备 - 与给定的指示命令到设备或模拟器
-序列号或限定。覆盖ANDROID_SERIAL的环境变量。
--p  - 简单
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/07/2015-01-07-adb_1.0.31/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1413,7 +1658,7 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/yunicon.png"
@@ -1424,7 +1669,7 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1441,7 +1686,7 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1504,6 +1749,9 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
           </div>
         
 
+        
+
+
       </section>
 
       
@@ -1528,16 +1776,18 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
   <span class="author" itemprop="copyrightHolder">percy|振云</span>
 </div>
 
+
 <div class="powered-by">
   由 percy 先生维护制作
 </div>
 
 <div class="theme-info">
   关于 -
-  <a class="theme-link" href="http://percychen.com">
+  <a class="theme-link" href="http://percychen.com/about/">
     percy先生
   </a>
 </div>
+
 
         
 
@@ -1571,22 +1821,22 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1639,9 +1889,12 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
   
     
       
-      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
       <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
     
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1649,144 +1902,135 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
 
 
 
-  
+
+
   
   
   <script type="text/javascript">
-    $(document).ready(function () {
-      if ( $('#local-search-input').size() === 0) {
-        return;
-      }
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
 
-      // Popup Window;
-      var isfetched = false;
-      // Search DB path;
-      var search_path = "search.xml";
-      if (search_path.length == 0) {
-        search_path = "search.xml";
-      }
-      var path = "/" + search_path;
-      // monitor main search box;
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
 
-      function proceedsearch() {
-        $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-        $('.popup').toggle();
-
-      }
-      // search function;
-      var searchFunc = function(path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-          url: path,
-          dataType: "xml",
-          async: true,
-          success: function( xmlResponse ) {
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
             // get the contents from search data
             isfetched = true;
             $('.popup').detach().appendTo('.header-inner');
             var datas = $( "entry", xmlResponse ).map(function() {
-              return {
-                title: $( "title", this ).text(),
-                content: $("content",this).text(),
-                url: $( "url" , this).text()
-              };
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
             }).get();
             var $input = document.getElementById(search_id);
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
-              var matchcounts = 0;
-              var str='<ul class=\"search-result-list\">';
-              var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-              $resultContent.innerHTML = "";
-              if (this.value.trim().length > 1) {
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                  var isMatch = true;
-                  var content_index = [];
-                  var data_title = data.title.trim().toLowerCase();
-                  var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                  var data_url = data.url;
-                  var index_title = -1;
-                  var index_content = -1;
-                  var first_occur = -1;
-                  // only match artiles with not empty titles and contents
-                  if(data_title != '' && data_content != '') {
-                    keywords.forEach(function(keyword, i) {
-                      index_title = data_title.indexOf(keyword);
-                      index_content = data_content.indexOf(keyword);
-                      if( index_title < 0 && index_content < 0 ){
-                        isMatch = false;
-                      } else {
-                        if (index_content < 0) {
-                          index_content = 0;
-                        }
-                        if (i == 0) {
-                          first_occur = index_content;
-                        }
-                      }
-                    });
-                  }
-                  // show search results
-                  if (isMatch) {
-                    matchcounts += 1;
-                    str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                    var content = data.content.trim().replace(/<[^>]+>/g,"");
-                    if (first_occur >= 0) {
-                      // cut out 100 characters
-                      var start = first_occur - 20;
-                      var end = first_occur + 80;
-                      if(start < 0){
-                        start = 0;
-                      }
-                      if(start == 0){
-                        end = 50;
-                      }
-                      if(end > content.length){
-                        end = content.length;
-                      }
-                      var match_content = content.substring(start, end);
-                      // highlight all keywords
-                      keywords.forEach(function(keyword){
-                        var regS = new RegExp(keyword, "gi");
-                        match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                      });
-
-                      str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+              
+                        });
                     }
-                    str += "</li>";
-                  }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
                 })};
-              str += "</ul>";
-              if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-              if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-              $resultContent.innerHTML = str;
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
             });
             proceedsearch();
-          }
-        });}
+        }
+    });}
 
-      // handle and trigger popup window;
-      $('.popup-trigger').mousedown(function(e) {
-        e.stopPropagation();
-        if (isfetched == false) {
-          searchFunc(path, 'local-search-input', 'local-search-result');
-        } else {
-          proceedsearch();
-        };
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
 
-      });
+    });
 
-      $('.popup-btn-close').click(function(e){
-        $('.popup').hide();
-        $(".popoverlay").remove();
-        $('body').css('overflow', '');
-      });
-      $('.popup').click(function(e){
-        e.stopPropagation();
-      });
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
     });
   </script>
-
 
   
 
@@ -1822,6 +2066,14 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
             var element = document.getElementById(url);
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
           }
         })
         .fail(function (object, error) {

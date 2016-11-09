@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
@@ -105,7 +105,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 8780122,
+      userId: '8780122',
       author: '振云'
     },
     algolia: {
@@ -117,6 +117,11 @@
     }
   };
 </script>
+
+
+
+  <link rel="canonical" href="http://percychen.com/page/10/"/>
+
 
 
 
@@ -234,11 +239,21 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="popup-trigger">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -265,6 +280,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -284,6 +301,353 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/11/18/2014-11-18-linuxdesktopinstall/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/11/18/2014-11-18-linuxdesktopinstall/" itemprop="url">
+                  linux桌面环境的安装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-18T13:14:00+08:00">
+              2014-11-18
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-11-18T13:14:00+08:00">
+              2014-11-18
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/11/18/2014-11-18-linuxdesktopinstall/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/18/2014-11-18-linuxdesktopinstall/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2014/11/18/2014-11-18-linuxdesktopinstall/" class="leancloud_visitors" data-flag-title="linux桌面环境的安装">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ###elementary OS 桌面环境的安装：
+
+每日更新版本安装PPA（适用于ubuntu 11.04/11.10/12.04/12.10）:
+
+sudo add-apt-repository ppa:elementary-os/daily
+sudo apt-get update
+sudo a
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/18/2014-11-18-linuxdesktopinstall/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/11/17/2014-11-17-smailidautocarp/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/11/17/2014-11-17-smailidautocarp/" itemprop="url">
+                  关于源码到smail id值的自动获取
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-17T13:14:00+08:00">
+              2014-11-17
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-11-17T13:14:00+08:00">
+              2014-11-17
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/11/17/2014-11-17-smailidautocarp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/17/2014-11-17-smailidautocarp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2014/11/17/2014-11-17-smailidautocarp/" class="leancloud_visitors" data-flag-title="关于源码到smail id值的自动获取">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ###麻烦
+在没有源代码的情况下，我们为了实现某些功能，就需要自己写demo然后反编译smail插进去。这个过程本身不复杂，麻烦的是id值的获取。id是编译时随机分配的，而smail又是通过id值来查找资源。如果你有很多控件的话基本就是一场灾难。
+###解决办法
+为什么我们不让系统自己去查找id呢？
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/17/2014-11-17-smailidautocarp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/11/13/2014-11-13-xargscommand/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -309,9 +673,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-11-13T13:14:00+08:00" content="2014-11-13">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-13T13:14:00+08:00">
               2014-11-13
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-11-13T13:14:00+08:00">
+              2014-11-13
+            </time>
+            
           </span>
 
           
@@ -322,7 +696,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -340,7 +714,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2014/11/13/2014-11-13-xargscommand/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/13/2014-11-13-xargscommand/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/13/2014-11-13-xargscommand/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,6 +735,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -376,12 +753,13 @@
           
           你是否遇到过这样的情况，需要一遍又一遍地对多个文件执行同样的操作？如果有过，那你肯定会深有感触这是多么的无聊和效率低下。还好有种简单的方式，可以在基于Unix的操作系统中使用xargs命令解决这个烦恼。通过这个命令你可以有效地处理多个文件，节省你的时间和精力。在这篇教程中，你可以学到如何一次性对多个
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/11/13/2014-11-13-xargscommand/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -418,6 +796,20 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/11/11/2014-11-11-java_shell_rename/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -443,9 +835,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-11-11T13:14:00+08:00" content="2014-11-11">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-11T13:14:00+08:00">
               2014-11-11
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-11-11T13:14:00+08:00">
+              2014-11-11
+            </time>
+            
           </span>
 
           
@@ -456,7 +858,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/综合/" itemprop="url" rel="index">
                     <span itemprop="name">综合</span>
                   </a>
@@ -474,7 +876,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2014/11/11/2014-11-11-java_shell_rename/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/11/2014-11-11-java_shell_rename/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/11/2014-11-11-java_shell_rename/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -495,6 +897,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -512,12 +917,13 @@
 拜托一个大神给我写一个calender的数据库，大神捣鼓几个月后发给我，结果因为他们公司防火墙的缘故，发来的 java后缀，xml后缀的文件全部被加密，所以他就想到了txt文档没加密，于是将所以的文件名全部加了一个txt的后缀，然后打包发我。
 收到后我没什么时间看，就先搁置一边，过了一天
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/11/11/2014-11-11-java_shell_rename/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -554,6 +960,20 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/11/05/2014-11-05-android_handler/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -579,9 +999,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-11-05T13:14:00+08:00" content="2014-11-05">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-05T13:14:00+08:00">
               2014-11-05
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-11-05T13:14:00+08:00">
+              2014-11-05
+            </time>
+            
           </span>
 
           
@@ -592,7 +1022,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -610,7 +1040,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2014/11/05/2014-11-05-android_handler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/05/2014-11-05-android_handler/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/05/2014-11-05-android_handler/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -631,6 +1061,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -649,12 +1082,13 @@ service里面更新UI还是用Handler好一点，之前一直用broadcast，发�
 
 service1234Message msg = new Message(
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/11/05/2014-11-05-android_handler/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -691,6 +1125,20 @@ service1234Message msg = new Message(
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/11/03/2014-11-03-inotify_diff/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -716,9 +1164,19 @@ service1234Message msg = new Message(
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-11-03T13:14:00+08:00" content="2014-11-03">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-03T13:14:00+08:00">
               2014-11-03
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-11-03T13:14:00+08:00">
+              2014-11-03
+            </time>
+            
           </span>
 
           
@@ -729,7 +1187,7 @@ service1234Message msg = new Message(
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -747,7 +1205,7 @@ service1234Message msg = new Message(
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2014/11/03/2014-11-03-inotify_diff/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/03/2014-11-03-inotify_diff/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/03/2014-11-03-inotify_diff/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -768,6 +1226,9 @@ service1234Message msg = new Message(
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -788,12 +1249,13 @@ inotify百度百科的解释是：
 
 Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写入和创
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/11/03/2014-11-03-inotify_diff/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -830,6 +1292,20 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/11/01/2014-11-01-interestinglimuxcommand/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -855,9 +1331,19 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-11-01T13:14:00+08:00" content="2014-11-01">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-01T13:14:00+08:00">
               2014-11-01
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-11-01T13:14:00+08:00">
+              2014-11-01
+            </time>
+            
           </span>
 
           
@@ -868,7 +1354,7 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -886,7 +1372,7 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2014/11/01/2014-11-01-interestinglimuxcommand/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/01/2014-11-01-interestinglimuxcommand/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/01/2014-11-01-interestinglimuxcommand/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -907,6 +1393,9 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -922,12 +1411,13 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
           
           之前, 我们展示了一些有关有趣的 Linux 命令行命令的文章, 这些文章告诉我们, Linux 并不像看起来那样复杂, 如果我们知道如何使用的话, 反而会非常有趣. Linux 命令行可以简洁而完美地执行一些复杂的任务, 并且十分有趣.Linux命令及Linux终端的20个趣事Linux终端的乐趣
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/11/01/2014-11-01-interestinglimuxcommand/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -964,6 +1454,20 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -989,9 +1493,19 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-10-31T13:14:00+08:00" content="2014-10-31">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-31T13:14:00+08:00">
               2014-10-31
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2014-10-31T13:14:00+08:00">
+              2014-10-31
+            </time>
+            
           </span>
 
           
@@ -1002,7 +1516,7 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/综合/" itemprop="url" rel="index">
                     <span itemprop="name">综合</span>
                   </a>
@@ -1020,7 +1534,7 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2014/10/31/2014-10-31-OpenSourcePritocol/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/31/2014-10-31-OpenSourcePritocol/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/31/2014-10-31-OpenSourcePritocol/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1041,6 +1555,9 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1058,288 +1575,13 @@ Inotify 是一个 Linux特性，它监控文件系统操作，比如读取、写
 今天于是花时间脑补了一下开源协议。记录下来，下次补脑的时候用：
 现今经过Open Source Initiative组织通过批准的开源协议目前有58种。我们在常见的开源协议如BSD, GPL, LGPL,MIT等都是
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/10/31/2014-10-31-OpenSourcePritocol/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/10/31/2014-10-31-androidadb/" itemprop="url">
-                  adb查看android系统相关命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-10-31T13:14:00+08:00" content="2014-10-31">
-              2014-10-31
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/10/31/2014-10-31-androidadb/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/31/2014-10-31-androidadb/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/10/31/2014-10-31-androidadb/" class="leancloud_visitors" data-flag-title="adb查看android系统相关命令">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ####其实很多命令我在其它文章中都介绍过了，今天整合一下
-备份boot.img 今天刚从独行无疆那里学的
-dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
-注：bs可以从分区信息中读取
-查看分区表（三种方法）cat /pr
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/10/31/2014-10-31-androidadb/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/10/29/2014-10-29-gitcola/" itemprop="url">
-                  git cola的下载和使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-10-29T13:14:00+08:00" content="2014-10-29">
-              2014-10-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/综合/" itemprop="url" rel="index">
-                    <span itemprop="name">综合</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/10/29/2014-10-29-gitcola/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/29/2014-10-29-gitcola/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/10/29/2014-10-29-gitcola/" class="leancloud_visitors" data-flag-title="git cola的下载和使用">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ###为什么使用它 | WHY USE IT
-原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。
-###关于git cola | ABOUT GIT COLA
-
-Python 编写，集成常用的pull，push，commit功能，可用来对
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/10/29/2014-10-29-gitcola/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1401,7 +1643,7 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/yunicon.png"
@@ -1412,7 +1654,7 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1429,7 +1671,7 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1492,6 +1734,9 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
           </div>
         
 
+        
+
+
       </section>
 
       
@@ -1516,16 +1761,18 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
   <span class="author" itemprop="copyrightHolder">percy|振云</span>
 </div>
 
+
 <div class="powered-by">
   由 percy 先生维护制作
 </div>
 
 <div class="theme-info">
   关于 -
-  <a class="theme-link" href="http://percychen.com">
+  <a class="theme-link" href="http://percychen.com/about/">
     percy先生
   </a>
 </div>
+
 
         
 
@@ -1559,22 +1806,22 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1627,9 +1874,12 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
   
     
       
-      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
       <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
     
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1637,144 +1887,135 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
 
 
 
-  
+
+
   
   
   <script type="text/javascript">
-    $(document).ready(function () {
-      if ( $('#local-search-input').size() === 0) {
-        return;
-      }
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
 
-      // Popup Window;
-      var isfetched = false;
-      // Search DB path;
-      var search_path = "search.xml";
-      if (search_path.length == 0) {
-        search_path = "search.xml";
-      }
-      var path = "/" + search_path;
-      // monitor main search box;
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
 
-      function proceedsearch() {
-        $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-        $('.popup').toggle();
-
-      }
-      // search function;
-      var searchFunc = function(path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-          url: path,
-          dataType: "xml",
-          async: true,
-          success: function( xmlResponse ) {
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
             // get the contents from search data
             isfetched = true;
             $('.popup').detach().appendTo('.header-inner');
             var datas = $( "entry", xmlResponse ).map(function() {
-              return {
-                title: $( "title", this ).text(),
-                content: $("content",this).text(),
-                url: $( "url" , this).text()
-              };
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
             }).get();
             var $input = document.getElementById(search_id);
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
-              var matchcounts = 0;
-              var str='<ul class=\"search-result-list\">';
-              var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-              $resultContent.innerHTML = "";
-              if (this.value.trim().length > 1) {
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                  var isMatch = true;
-                  var content_index = [];
-                  var data_title = data.title.trim().toLowerCase();
-                  var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                  var data_url = data.url;
-                  var index_title = -1;
-                  var index_content = -1;
-                  var first_occur = -1;
-                  // only match artiles with not empty titles and contents
-                  if(data_title != '' && data_content != '') {
-                    keywords.forEach(function(keyword, i) {
-                      index_title = data_title.indexOf(keyword);
-                      index_content = data_content.indexOf(keyword);
-                      if( index_title < 0 && index_content < 0 ){
-                        isMatch = false;
-                      } else {
-                        if (index_content < 0) {
-                          index_content = 0;
-                        }
-                        if (i == 0) {
-                          first_occur = index_content;
-                        }
-                      }
-                    });
-                  }
-                  // show search results
-                  if (isMatch) {
-                    matchcounts += 1;
-                    str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                    var content = data.content.trim().replace(/<[^>]+>/g,"");
-                    if (first_occur >= 0) {
-                      // cut out 100 characters
-                      var start = first_occur - 20;
-                      var end = first_occur + 80;
-                      if(start < 0){
-                        start = 0;
-                      }
-                      if(start == 0){
-                        end = 50;
-                      }
-                      if(end > content.length){
-                        end = content.length;
-                      }
-                      var match_content = content.substring(start, end);
-                      // highlight all keywords
-                      keywords.forEach(function(keyword){
-                        var regS = new RegExp(keyword, "gi");
-                        match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                      });
-
-                      str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+              
+                        });
                     }
-                    str += "</li>";
-                  }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
                 })};
-              str += "</ul>";
-              if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-              if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-              $resultContent.innerHTML = str;
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
             });
             proceedsearch();
-          }
-        });}
+        }
+    });}
 
-      // handle and trigger popup window;
-      $('.popup-trigger').mousedown(function(e) {
-        e.stopPropagation();
-        if (isfetched == false) {
-          searchFunc(path, 'local-search-input', 'local-search-result');
-        } else {
-          proceedsearch();
-        };
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
 
-      });
+    });
 
-      $('.popup-btn-close').click(function(e){
-        $('.popup').hide();
-        $(".popoverlay").remove();
-        $('body').css('overflow', '');
-      });
-      $('.popup').click(function(e){
-        e.stopPropagation();
-      });
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
     });
   </script>
-
 
   
 
@@ -1810,6 +2051,14 @@ Python 编写，集成常用的pull，push，commit功能，可用来对
             var element = document.getElementById(url);
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
           }
         })
         .fail(function (object, error) {

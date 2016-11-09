@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
@@ -105,7 +105,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 8780122,
+      userId: '8780122',
       author: '振云'
     },
     algolia: {
@@ -117,6 +117,11 @@
     }
   };
 </script>
+
+
+
+  <link rel="canonical" href="http://percychen.com/page/7/"/>
+
 
 
 
@@ -234,11 +239,21 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="popup-trigger">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -265,6 +280,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -284,6 +301,346 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/05/04/2015-05-04-ChangeDefaultBash/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/04/2015-05-04-ChangeDefaultBash/" itemprop="url">
+                  设置默认的shell
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-04T13:14:00+08:00">
+              2015-05-04
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-05-04T13:14:00+08:00">
+              2015-05-04
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/04/2015-05-04-ChangeDefaultBash/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/04/2015-05-04-ChangeDefaultBash/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/05/04/2015-05-04-ChangeDefaultBash/" class="leancloud_visitors" data-flag-title="设置默认的shell">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+通常情况下，默认的shell为 bash，比如 ubuntu或者 mint，但是有些system会采用一些更加高级的shell，比如deepin采用的是自己修改过的zsh，但是对于我这种常年在bash下工作，而且配置了一大堆bash变量的人来说就有些不习惯，下面教你如何将shell改为你顺手的sh
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/04/2015-05-04-ChangeDefaultBash/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/04/29/2015-04-29-sparse_systemimage/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/29/2015-04-29-sparse_systemimage/" itemprop="url">
+                  system.img的分解与合并
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-29T13:14:00+08:00">
+              2015-04-29
+            </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-04-29T13:14:00+08:00">
+              2015-04-29
+            </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/29/2015-04-29-sparse_systemimage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/29/2015-04-29-sparse_systemimage/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/04/29/2015-04-29-sparse_systemimage/" class="leancloud_visitors" data-flag-title="system.img的分解与合并">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在做编译适配的过程中，我们经常会接触到system.img的解包和打包工作，比如我们的Qrom就需要用到一个system.img来初始化，并得到一个zip包和一些配置文件．一般来说，我们常用的得到system.img的方法是dd的方法导出来，但是dd需要root权限，如果是一个新项目，通常获取ro
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/29/2015-04-29-sparse_systemimage/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/04/27/2015-04-27-sed/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -309,9 +666,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-27T13:14:00+08:00" content="2015-04-27">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-27T13:14:00+08:00">
               2015-04-27
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-04-27T13:14:00+08:00">
+              2015-04-27
+            </time>
+            
           </span>
 
           
@@ -322,7 +689,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Shell/" itemprop="url" rel="index">
                     <span itemprop="name">Shell</span>
                   </a>
@@ -340,7 +707,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/04/27/2015-04-27-sed/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/27/2015-04-27-sed/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/27/2015-04-27-sed/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,6 +728,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -379,12 +749,13 @@ sed -e &apos;s/.$//&apos; windows.txt &gt; unix.xml
 ####删除yun.xml中包含uses的行：        sed -i ‘/uses/d’ yun.xml
 ####去掉” ‘ “  
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/27/2015-04-27-sed/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -421,6 +792,20 @@ sed -e &apos;s/.$//&apos; windows.txt &gt; unix.xml
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/04/15/2015-04-15-ShellExpandNote/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -446,9 +831,19 @@ sed -e &apos;s/.$//&apos; windows.txt &gt; unix.xml
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-15T13:14:00+08:00" content="2015-04-15">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-15T13:14:00+08:00">
               2015-04-15
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-04-15T13:14:00+08:00">
+              2015-04-15
+            </time>
+            
           </span>
 
           
@@ -459,7 +854,7 @@ sed -e &apos;s/.$//&apos; windows.txt &gt; unix.xml
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Shell/" itemprop="url" rel="index">
                     <span itemprop="name">Shell</span>
                   </a>
@@ -477,7 +872,7 @@ sed -e &apos;s/.$//&apos; windows.txt &gt; unix.xml
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/04/15/2015-04-15-ShellExpandNote/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/15/2015-04-15-ShellExpandNote/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/15/2015-04-15-ShellExpandNote/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -498,6 +893,9 @@ sed -e &apos;s/.$//&apos; windows.txt &gt; unix.xml
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -518,12 +916,13 @@ read -n 1 option
 read -t 5 -p &quot;请输入选项，５秒后默认放弃&quot;　options
 History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的文件
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/15/2015-04-15-ShellExpandNote/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -560,6 +959,20 @@ History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/04/13/2015-04-13-AutoOpenNumberLock/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -585,9 +998,19 @@ History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-13T13:14:00+08:00" content="2015-04-13">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-13T13:14:00+08:00">
               2015-04-13
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-04-13T13:14:00+08:00">
+              2015-04-13
+            </time>
+            
           </span>
 
           
@@ -598,7 +1021,7 @@ History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的�
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
                     <span itemprop="name">Linux</span>
                   </a>
@@ -616,7 +1039,7 @@ History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的�
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/04/13/2015-04-13-AutoOpenNumberLock/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/13/2015-04-13-AutoOpenNumberLock/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/13/2015-04-13-AutoOpenNumberLock/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -637,6 +1060,9 @@ History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的�
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -661,12 +1087,13 @@ sudo gedit /etc/lightdm/lightdm.conf
 最后一行加入：
 greeter-setup-script=/usr/bin/numlockx on
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/13/2015-04-13-AutoOpenNumberLock/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -703,6 +1130,20 @@ greeter-setup-script=/usr/bin/numlockx on
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/04/08/2015-04-08-studyvim/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -728,9 +1169,19 @@ greeter-setup-script=/usr/bin/numlockx on
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-08T13:14:00+08:00" content="2015-04-08">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-08T13:14:00+08:00">
               2015-04-08
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-04-08T13:14:00+08:00">
+              2015-04-08
+            </time>
+            
           </span>
 
           
@@ -741,7 +1192,7 @@ greeter-setup-script=/usr/bin/numlockx on
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/tools/" itemprop="url" rel="index">
                     <span itemprop="name">tools</span>
                   </a>
@@ -759,7 +1210,7 @@ greeter-setup-script=/usr/bin/numlockx on
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/04/08/2015-04-08-studyvim/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/2015-04-08-studyvim/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/08/2015-04-08-studyvim/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -780,6 +1231,9 @@ greeter-setup-script=/usr/bin/numlockx on
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -833,12 +1287,13 @@ n/N
 :wall
 保存
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/08/2015-04-08-studyvim/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -875,6 +1330,20 @@ n/N
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/03/17/2015-03-17-2015GPUarrange/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -900,9 +1369,19 @@ n/N
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-17T13:14:00+08:00" content="2015-03-17">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-17T13:14:00+08:00">
               2015-03-17
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-03-17T13:14:00+08:00">
+              2015-03-17
+            </time>
+            
           </span>
 
           
@@ -913,7 +1392,7 @@ n/N
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/综合/" itemprop="url" rel="index">
                     <span itemprop="name">综合</span>
                   </a>
@@ -931,7 +1410,7 @@ n/N
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/03/17/2015-03-17-2015GPUarrange/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/17/2015-03-17-2015GPUarrange/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/17/2015-03-17-2015GPUarrange/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -952,6 +1431,9 @@ n/N
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -968,12 +1450,13 @@ n/N
           点击图片查看高清无码大图
 
           
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/03/17/2015-03-17-2015GPUarrange/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1010,146 +1493,20 @@ n/N
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/">
 
-    
-      <header class="post-header">
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/14/2015-03-14-AndroidStringwildcard/" itemprop="url">
-                  Android 中 字符替代的用法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-14T13:14:00+08:00" content="2015-03-14">
-              2015-03-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/14/2015-03-14-AndroidStringwildcard/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/14/2015-03-14-AndroidStringwildcard/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/03/14/2015-03-14-AndroidStringwildcard/" class="leancloud_visitors" data-flag-title="Android 中 字符替代的用法">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一. 使用xliff的用法：####标签介绍：
-
-属性id可以随便命名属性值举例说明
-
-%n$ms：代表输出的是字符串，n代表是第几个参数，设置m的值可以在输出之前放置空格
-%n$md：代表输出的是整数，n代表是第几个参数，设置m的值可以在输出之前放置空格，也可以设为0m,在输出之前放置m个0
-%n
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/14/2015-03-14-AndroidStringwildcard/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -1175,9 +1532,19 @@ n/N
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-14T13:14:00+08:00" content="2015-03-14">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-14T13:14:00+08:00">
               2015-03-14
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2015-03-14T13:14:00+08:00">
+              2015-03-14
+            </time>
+            
           </span>
 
           
@@ -1188,7 +1555,7 @@ n/N
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
                   </a>
@@ -1206,7 +1573,7 @@ n/N
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2015/03/14/2015-03-14-AndroidDialog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/14/2015-03-14-AndroidDialog/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/14/2015-03-14-AndroidDialog/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1227,6 +1594,9 @@ n/N
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1244,153 +1614,13 @@ n/N
 private void chosePercentAutoOpen() {
 AlertDialog.Builder builder=new Builder(PowerSaveModeAct
           ...
-
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/03/14/2015-03-14-AndroidDialog/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/10/2015-03-10-forCommand/" itemprop="url">
-                  for循环的应用（shell）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-10T13:14:00+08:00" content="2015-03-10">
-              2015-03-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Shell/" itemprop="url" rel="index">
-                    <span itemprop="name">Shell</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/10/2015-03-10-forCommand/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/10/2015-03-10-forCommand/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/03/10/2015-03-10-forCommand/" class="leancloud_visitors" data-flag-title="for循环的应用（shell）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          for循环遍历语句####语法
-for i in * ; do
-#处理你找出来的文件
-done
-例子： 签名所有apk文件
-for i in *.apk ; do
-echo 正在签名 $i
-java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/10/2015-03-10-forCommand/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1452,7 +1682,7 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/yunicon.png"
@@ -1463,7 +1693,7 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">131</span>
+              <span class="site-state-item-count">133</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1480,7 +1710,7 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1543,6 +1773,9 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
           </div>
         
 
+        
+
+
       </section>
 
       
@@ -1567,16 +1800,18 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
   <span class="author" itemprop="copyrightHolder">percy|振云</span>
 </div>
 
+
 <div class="powered-by">
   由 percy 先生维护制作
 </div>
 
 <div class="theme-info">
   关于 -
-  <a class="theme-link" href="http://percychen.com">
+  <a class="theme-link" href="http://percychen.com/about/">
     percy先生
   </a>
 </div>
+
 
         
 
@@ -1610,22 +1845,22 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
@@ -1678,9 +1913,12 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
   
     
       
-      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
       <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
     
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1688,144 +1926,135 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
 
 
 
-  
+
+
   
   
   <script type="text/javascript">
-    $(document).ready(function () {
-      if ( $('#local-search-input').size() === 0) {
-        return;
-      }
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
 
-      // Popup Window;
-      var isfetched = false;
-      // Search DB path;
-      var search_path = "search.xml";
-      if (search_path.length == 0) {
-        search_path = "search.xml";
-      }
-      var path = "/" + search_path;
-      // monitor main search box;
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
 
-      function proceedsearch() {
-        $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-        $('.popup').toggle();
-
-      }
-      // search function;
-      var searchFunc = function(path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-          url: path,
-          dataType: "xml",
-          async: true,
-          success: function( xmlResponse ) {
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
             // get the contents from search data
             isfetched = true;
             $('.popup').detach().appendTo('.header-inner');
             var datas = $( "entry", xmlResponse ).map(function() {
-              return {
-                title: $( "title", this ).text(),
-                content: $("content",this).text(),
-                url: $( "url" , this).text()
-              };
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
             }).get();
             var $input = document.getElementById(search_id);
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
-              var matchcounts = 0;
-              var str='<ul class=\"search-result-list\">';
-              var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-              $resultContent.innerHTML = "";
-              if (this.value.trim().length > 1) {
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                  var isMatch = true;
-                  var content_index = [];
-                  var data_title = data.title.trim().toLowerCase();
-                  var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                  var data_url = data.url;
-                  var index_title = -1;
-                  var index_content = -1;
-                  var first_occur = -1;
-                  // only match artiles with not empty titles and contents
-                  if(data_title != '' && data_content != '') {
-                    keywords.forEach(function(keyword, i) {
-                      index_title = data_title.indexOf(keyword);
-                      index_content = data_content.indexOf(keyword);
-                      if( index_title < 0 && index_content < 0 ){
-                        isMatch = false;
-                      } else {
-                        if (index_content < 0) {
-                          index_content = 0;
-                        }
-                        if (i == 0) {
-                          first_occur = index_content;
-                        }
-                      }
-                    });
-                  }
-                  // show search results
-                  if (isMatch) {
-                    matchcounts += 1;
-                    str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                    var content = data.content.trim().replace(/<[^>]+>/g,"");
-                    if (first_occur >= 0) {
-                      // cut out 100 characters
-                      var start = first_occur - 20;
-                      var end = first_occur + 80;
-                      if(start < 0){
-                        start = 0;
-                      }
-                      if(start == 0){
-                        end = 50;
-                      }
-                      if(end > content.length){
-                        end = content.length;
-                      }
-                      var match_content = content.substring(start, end);
-                      // highlight all keywords
-                      keywords.forEach(function(keyword){
-                        var regS = new RegExp(keyword, "gi");
-                        match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                      });
-
-                      str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+              
+                        });
                     }
-                    str += "</li>";
-                  }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
                 })};
-              str += "</ul>";
-              if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-              if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-              $resultContent.innerHTML = str;
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
             });
             proceedsearch();
-          }
-        });}
+        }
+    });}
 
-      // handle and trigger popup window;
-      $('.popup-trigger').mousedown(function(e) {
-        e.stopPropagation();
-        if (isfetched == false) {
-          searchFunc(path, 'local-search-input', 'local-search-result');
-        } else {
-          proceedsearch();
-        };
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
 
-      });
+    });
 
-      $('.popup-btn-close').click(function(e){
-        $('.popup').hide();
-        $(".popoverlay").remove();
-        $('body').css('overflow', '');
-      });
-      $('.popup').click(function(e){
-        e.stopPropagation();
-      });
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
     });
   </script>
-
 
   
 
@@ -1861,6 +2090,14 @@ java -jar signapk.jar testkey.x509.pem testkey.pk8 $i y
             var element = document.getElementById(url);
 
             $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
           }
         })
         .fail(function (object, error) {

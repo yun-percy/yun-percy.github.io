@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://percychen.com/"/>
-  <updated>2016-10-13T05:14:00.000Z</updated>
+  <updated>2016-11-09T03:03:43.000Z</updated>
   <id>http://percychen.com/</id>
   
   <author>
@@ -16,57 +16,112 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>转:Linux中源码安装编译Vim</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-viminstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-viminstall/</id>
-    <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2016-10-13T05:14:00.000Z</updated>
+    <title>Mac下安装Ant</title>
+    <link href="http://percychen.com/2016/11/09/macinstallant/"/>
+    <id>http://percychen.com/2016/11/09/macinstallant/</id>
+    <published>2016-11-09T03:03:43.000Z</published>
+    <updated>2016-11-09T03:03:43.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：<a href="http://zh.wikipedia.org/wiki/Apache_Ant" target="_blank" rel="external">wikipedia-ant</a> 或者这里 <a href="http://baike.baidu.com/link?url=vhok9QFeg3nXU7Zk514dusV5C5IuuGWVornzYbOQS1Cc-r4BBctGm1osrXFlzZVQ#3" target="_blank" rel="external">baidu-ant</a></p>
 </blockquote>
-<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
-<ol>
-<li>下载所需工具</li>
-<li>卸载老版本vim</li>
-<li>下载新版</li>
-<li>编译安装</li>
-<li>下载所需工具</li>
-</ol>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
-<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
-<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
-<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
-<p>解压至 ~/downloads/vim74/</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
-</blockquote>
-<p>其中参数说明如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
+<p><a href="http://blog.csdn.net/crazybigfish/article/details/18215439" target="_blank" rel="external">原文地址</a> 在此基础上有删减和更新及改进</p>
+<p>最近整理了一下ant的下载和安装方法，步骤如下：</p>
+<h3 id="1-下载ant：官网下载"><a href="#1-下载ant：官网下载" class="headerlink" title="1. 下载ant：官网下载"></a>1. 下载ant：官网下载</h3><p>当前最新版是Apache Ant 1.9.7，可以下载那个zip包，如下图：</p>
+<p><img src="http://img.blog.csdn.net/20140113110440437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3JhenliaWdmaXNo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ant 下载"></p>
+<h3 id="2-将下载的zip包解压到一个目录下，如-usr-local"><a href="#2-将下载的zip包解压到一个目录下，如-usr-local" class="headerlink" title="2. 将下载的zip包解压到一个目录下，如/usr/local"></a>2. 将下载的zip包解压到一个目录下，如/usr/local</h3><p>这时候需要你提供修改权限，输入密码。</p>
+<h3 id="3-配置环境变量："><a href="#3-配置环境变量：" class="headerlink" title="3. 配置环境变量："></a>3. 配置环境变量：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>将下面两行加入到最后，保存就可以了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ANT_HOME=/usr/<span class="built_in">local</span>/apache-ant-1.9.7 </div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;ANT_HOME&#125;</span>/bin</div></pre></td></tr></table></figure>
+<h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><p>重新打开终端并输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ant</span> -version  </div><div class="line"><span class="comment">#配置成功则显示如下：</span></div><div class="line">Apache Ant(TM) version 1.9.3 compiled on December 23 2013</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/zhongcq/p/3615980.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Linux下学习工作少不了编辑器，Vim能
+      &lt;blockquote&gt;
+&lt;p&gt;如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：&lt;a href=&quot;http://zh.wikipedia.org/wiki/Apache_Ant&quot; target=&quot;_blank&quot; rel=&quot;exte
     
     </summary>
     
       <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
     
     
+      <category term="ant" scheme="http://percychen.com/tags/ant/"/>
+    
+      <category term="编译" scheme="http://percychen.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="mac" scheme="http://percychen.com/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ant笔记</title>
+    <link href="http://percychen.com/2016/11/09/antnote/"/>
+    <id>http://percychen.com/2016/11/09/antnote/</id>
+    <published>2016-11-09T03:03:43.000Z</published>
+    <updated>2016-11-09T03:03:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="condition"><a href="#condition" class="headerlink" title="condition"></a>condition</h2><h3 id="1-istrue-isfalse-断言-真-假"><a href="#1-istrue-isfalse-断言-真-假" class="headerlink" title="1. istrue isfalse:断言 真 假"></a>1. istrue isfalse:断言 真 假</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><h4 id="2-1、not-逻辑非"><a href="#2-1、not-逻辑非" class="headerlink" title="2.1、not 逻辑非"></a>2.1、not 逻辑非</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜not&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">not</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="2-2、and-逻辑与"><a href="#2-2、and-逻辑与" class="headerlink" title="2.2、and 逻辑与"></a>2.2、and 逻辑与</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜and&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">and</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>2.3、or 逻辑或 xor异或 (语法上与and类似)</p>
+</blockquote>
+<h3 id="3、available-是否可用"><a href="#3、available-是否可用" class="headerlink" title="3、available 是否可用"></a>3、available 是否可用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"all.test.classes"</span>&gt;</span>         </div><div class="line">         <span class="tag">&lt;<span class="name">pathelement</span> <span class="attr">location</span>=<span class="string">"bin"</span>/&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--在指定的classpath路径下是否存在资源 TestTest.class--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">available</span> <span class="attr">resource</span>=<span class="string">"TestTest.class"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">classpath</span> <span class="attr">refid</span>=<span class="string">"all.test.classes"</span> /&gt;</span>        </div><div class="line">            <span class="tag">&lt;/<span class="name">available</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="4、isset-指定属性是否存在"><a href="#4、isset-指定属性是否存在" class="headerlink" title="4、isset 指定属性是否存在"></a>4、isset 指定属性是否存在</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果属性name不存在则返回false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">isset</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="5、equals-是否相等"><a href="#5、equals-是否相等" class="headerlink" title="5、equals 是否相等"></a>5、equals 是否相等</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果arg1的值与arg2的值相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">equals</span> <span class="attr">arg1</span>=<span class="string">"$&#123;name&#125;"</span> <span class="attr">arg2</span>=<span class="string">"this is name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="6、filesmatch-比较文件"><a href="#6、filesmatch-比较文件" class="headerlink" title="6、filesmatch 比较文件"></a>6、filesmatch 比较文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果file1所代表的文件与file2所代表的文件相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filesmatch</span> <span class="attr">file1</span>=<span class="string">"testfile1.txt"</span> <span class="attr">file2</span>=<span class="string">"testfile2.txt"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><h3 id="系统自带时间"><a href="#系统自带时间" class="headerlink" title="系统自带时间"></a>系统自带时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!--以下的几个属性是系统自带的,初始了tstamp之后,它们就有值了--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"System:"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"DSTAMP = $&#123;DSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TSTAMP = $&#123;TSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TODAY = $&#123;TODAY&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="自定义时间"><a href="#自定义时间" class="headerlink" title="自定义时间"></a>自定义时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span> <span class="attr">prefix</span>=<span class="string">"my"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"day"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"time"</span> <span class="attr">pattern</span>=<span class="string">"HH:mm:ss"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"dt"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd HH:mm:ss.SSS"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">tstamp</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"show"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"default"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"-------------------------------------"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"Mine:"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.time = $&#123;my.time&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.day = $&#123;my.day&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.dt = $&#123;my.dt&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;condition&quot;&gt;&lt;a href=&quot;#condition&quot; class=&quot;headerlink&quot; title=&quot;condition&quot;&gt;&lt;/a&gt;condition&lt;/h2&gt;&lt;h3 id=&quot;1-istrue-isfalse-断言-真-假&quot;&gt;&lt;a href=&quot;#1-
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="android" scheme="http://percychen.com/tags/android/"/>
+    
       <category term="linux" scheme="http://percychen.com/tags/linux/"/>
     
-      <category term="source" scheme="http://percychen.com/tags/source/"/>
+      <category term="ant" scheme="http://percychen.com/tags/ant/"/>
     
-      <category term="vim" scheme="http://percychen.com/tags/vim/"/>
+      <category term="编译" scheme="http://percychen.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cmake的安装</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-16T06:17:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
+&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -195,33 +250,57 @@ def getwinsize():
   </entry>
   
   <entry>
-    <title>Cmake的安装</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <title>转:Linux中源码安装编译Vim</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-viminstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-viminstall/</id>
     <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2016-10-16T06:17:23.000Z</updated>
+    <updated>2016-10-13T05:14:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
-]]></content>
+    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
-&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+      &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/zhongcq/p/3615980.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux下学习工作少不了编辑器，Vim能
     
     </summary>
     
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+      <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
     
     
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
     
-      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="source" scheme="http://percychen.com/tags/source/"/>
+    
+      <category term="vim" scheme="http://percychen.com/tags/vim/"/>
     
   </entry>
   
@@ -267,9 +346,9 @@ def getwinsize():
       <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
     
     
-      <category term="password" scheme="http://percychen.com/tags/password/"/>
-    
       <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
+      <category term="password" scheme="http://percychen.com/tags/password/"/>
     
       <category term="reset" scheme="http://percychen.com/tags/reset/"/>
     
@@ -2444,139 +2523,6 @@ def getwinsize():
       <category term="argparse" scheme="http://percychen.com/tags/argparse/"/>
     
       <category term="选项" scheme="http://percychen.com/tags/%E9%80%89%E9%A1%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux,wc命令详解</title>
-    <link href="http://percychen.com/2016/05/10/2016-05-10-shellwccommand/"/>
-    <id>http://percychen.com/2016/05/10/2016-05-10-shellwccommand/</id>
-    <published>2016-05-10T05:14:00.000Z</published>
-    <updated>2016-05-10T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>Linux系统中的wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。</p>
-</blockquote>
-<ul>
-<li>命令功能：</li>
-</ul>
-<p>统计指定文件中的字节数、字数、行数，并将统计结果显示输出。该命令统计指定文件中的字节数、字数、行数。如果没有给出文件名，则从标准输入读取。wc同时也给出所指定文件的总统计数。</p>
-<ul>
-<li>命令参数：</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c</td>
-<td>统计字节数。</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>统计行数。</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>统计字符数。这个标志不能与 -c 标志一起使用。</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>统计字数。一个字被定义为由空白、跳格或换行字符分隔的字符串。</td>
-</tr>
-<tr>
-<td>-L</td>
-<td>打印最长行的长度。</td>
-</tr>
-<tr>
-<td>-help</td>
-<td>显示帮助信息</td>
-</tr>
-<tr>
-<td>–version</td>
-<td>显示版本信息</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>使用实例：</li>
-</ul>
-<p>实例1：查看文件的字节数、字数、行数</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc test.txt</span></div><div class="line"> 7  8 70 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -l test.txt</span></div><div class="line">7 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -c test.txt</span></div><div class="line">70 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -w test.txt</span></div><div class="line">8 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -m test.txt</span></div><div class="line">70 test.txt</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># wc -L test.txt</span></div><div class="line">17 test.txt</div><div class="line">```sh</div><div class="line"></div><div class="line">说明：</div><div class="line"></div><div class="line">7     8     70     test.txt</div><div class="line"></div><div class="line">行数 单词数 字节数 文件名</div><div class="line"></div><div class="line"></div><div class="line">实例2：用wc命令怎么做到只打印统计数字不打印文件名</div><div class="line"></div><div class="line">```sh</div><div class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># cat test.txt |wc -l</span></div><div class="line">7</div></pre></td></tr></table></figure>
-<p>实例3：用来统计当前目录下的文件数</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost <span class="built_in">test</span>6]<span class="comment"># ls -l | wc -l</span></div><div class="line">8</div></pre></td></tr></table></figure>
-<p>说明：<br>数量中包含当前目录</p>
-<h2 id="计算字符串长度"><a href="#计算字符串长度" class="headerlink" title="计算字符串长度"></a>计算字符串长度</h2><ol>
-<li>字节长度</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">expr length <span class="string">"统计"</span></div></pre></td></tr></table></figure>
-<ol>
-<li>字符数</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"统计"</span> | wc -m</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Linux系统中的wc(Word Count)命令的功能为统计指定文件中的字节数、字数、行数，并将统计结果显示输出。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;命令功能：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;统计指定文件中的字节数、字数、行数，
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://percychen.com/categories/Shell/"/>
-    
-    
-      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
-    
-      <category term="shell" scheme="http://percychen.com/tags/shell/"/>
-    
-      <category term="wc" scheme="http://percychen.com/tags/wc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>keytool生成密钥/keytool查看密钥</title>
-    <link href="http://percychen.com/2016/04/07/2016-04-07-keytoolcommand/"/>
-    <id>http://percychen.com/2016/04/07/2016-04-07-keytoolcommand/</id>
-    <published>2016-04-07T05:14:00.000Z</published>
-    <updated>2016-04-07T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><p>`keytool -genkey -alias 密匙别名 -keyalg 密匙类型 -validity 有效时间 -keystore  储存密匙路径/密匙名</p>
-<p>然后按照提示输入密码/国家，组织etc.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -genkey -alias percychen -keyalg RSA -validity 20000 -keystore  ./percychenReleaseKey.keystore</div></pre></td></tr></table></figure>
-<h2 id="查看密匙"><a href="#查看密匙" class="headerlink" title="查看密匙"></a>查看密匙</h2><p><code>keytool -list -v -keystore 储存密匙路径/密匙名 -storepass 储存密匙密码</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -list -v -keystore percychenReleaseKey.keystore -storepass xxxxxxxx</div></pre></td></tr></table></figure>
-<p>对于RSA和pem格式的密钥信息使用下面方式查看</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">keytool -printcert -file pem/rsa文件信息</div></pre></td></tr></table></figure>
-<h1 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">KEYSTORE_PATH=签名文件路径</div><div class="line">STOREPASS=密钥密码</div><div class="line">keypass=签名密码(在生成密钥文件时最后输入的那个密码，默认与STOREPASS一样)</div><div class="line">../out_<span class="variable">$&#123;TARGET_APP_DEBUG&#125;</span>=需要签名的文件</div><div class="line">Alias=别名</div><div class="line">jarsigner -keystore <span class="variable">$KEYSTORE_PATH</span> -storepass <span class="variable">$STOREPASS</span> -keypass <span class="variable">$KEYPASS</span> ../out_<span class="variable">$&#123;TARGET_APP_DEBUG&#125;</span> <span class="variable">$ALIAS</span></div></pre></td></tr></table></figure>
-<p>就可以生辰签名的apk文件</p>
-<h1 id="附上keytool参数以及jarsigner参数"><a href="#附上keytool参数以及jarsigner参数" class="headerlink" title="附上keytool参数以及jarsigner参数:"></a>附上keytool参数以及jarsigner参数:</h1><p>keytool用法：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line">-certreq     [-v] [-protected]</div><div class="line">             [-alias &lt;别名&gt;] [-sigalg &lt;sigalg&gt;]</div><div class="line">             [-file &lt;csr_file&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-changealias [-v] [-protected] -alias &lt;别名&gt; -destalias &lt;目标别名&gt;</div><div class="line">             [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-delete      [-v] [-protected] -alias &lt;别名&gt;</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-exportcert  [-v] [-rfc] [-protected]</div><div class="line">             [-alias &lt;别名&gt;] [-file &lt;认证文件&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-genkeypair  [-v] [-protected]</div><div class="line">             [-alias &lt;别名&gt;]</div><div class="line">             [-keyalg &lt;keyalg&gt;] [-keysize &lt;密钥大小&gt;]</div><div class="line">             [-sigalg &lt;sigalg&gt;] [-dname &lt;dname&gt;]</div><div class="line">             [-validity &lt;valDays&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-genseckey   [-v] [-protected]</div><div class="line">             [-alias &lt;别名&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keyalg &lt;keyalg&gt;] [-keysize &lt;密钥大小&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-help</div><div class="line">-importcert  [-v] [-noprompt] [-trustcacerts] [-protected]</div><div class="line">             [-alias &lt;别名&gt;]</div><div class="line">             [-file &lt;认证文件&gt;] [-keypass &lt;密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-importkeystore [-v]</div><div class="line">             [-srckeystore &lt;源密钥库&gt;] [-destkeystore &lt;目标密钥库&gt;]</div><div class="line">             [-srcstoretype &lt;源存储类型&gt;] [-deststoretype &lt;目标存储类型&gt;]</div><div class="line">             [-srcstorepass &lt;源存储库口令&gt;] [-deststorepass &lt;目标存储库口令&gt;]</div><div class="line">             [-srcprotected] [-destprotected]</div><div class="line">             [-srcprovidername &lt;源提供方名称&gt;]</div><div class="line">             [-destprovidername &lt;目标提供方名称&gt;]</div><div class="line">             [-srcalias &lt;源别名&gt; [-destalias &lt;目标别名&gt;]</div><div class="line">               [-srckeypass &lt;源密钥库口令&gt;] [-destkeypass &lt;目标密钥库口令&gt;]]</div><div class="line">             [-noprompt]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-keypasswd   [-v] [-alias &lt;别名&gt;]</div><div class="line">             [-keypass &lt;旧密钥库口令&gt;] [-new &lt;新密钥库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-list        [-v | -rfc] [-protected]</div><div class="line">             [-alias &lt;别名&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">-printcert   [-v] [-file &lt;认证文件&gt;]</div><div class="line">-storepasswd [-v] [-new &lt;新存储库口令&gt;]</div><div class="line">             [-keystore &lt;密钥库&gt;] [-storepass &lt;存储库口令&gt;]</div><div class="line">             [-storetype &lt;存储类型&gt;] [-providername &lt;名称&gt;]</div><div class="line">             [-providerclass &lt;提供方类名称&gt; [-providerarg &lt;参数&gt;]] ...</div><div class="line">             [-providerpath &lt;路径列表&gt;]</div><div class="line">jarsigner用法： [选项] jar 文件别名</div><div class="line">----</div><div class="line">       jarsigner -verify [选项] jar 文件</div><div class="line">            [-keystore &lt;url&gt;]           密钥库位置</div><div class="line">            [-storepass &lt;口令&gt;]         用于密钥库完整性的口令</div><div class="line">            [-storetype &lt;类型&gt;]         密钥库类型</div><div class="line">            [-keypass &lt;口令&gt;]           专用密钥的口令（如果不同）</div><div class="line">            [-sigfile &lt;文件&gt;]           .SF/.DSA 文件的名称</div><div class="line">            [-signedjar &lt;文件&gt;]         已签名的 JAR 文件的名称</div><div class="line">            [-digestalg &lt;算法&gt;]    摘要算法的名称</div><div class="line">            [-sigalg &lt;算法&gt;]       签名算法的名称</div><div class="line">            [-verify]                   验证已签名的 JAR 文件</div><div class="line">            [-verbose]                  签名/验证时输出详细信息</div><div class="line">            [-certs]                    输出详细信息和验证时显示证书</div><div class="line">            [-tsa &lt;url&gt;]                时间戳机构的位置</div><div class="line">            [-tsacert &lt;别名&gt;]           时间戳机构的公共密钥证书</div><div class="line">            [-altsigner &lt;类&gt;]           替代的签名机制的类名</div><div class="line">            [-altsignerpath &lt;路径列表&gt;] 替代的签名机制的位置</div><div class="line">            [-internalsf]               在签名块内包含 .SF 文件</div><div class="line">            [-sectionsonly]             不计算整个清单的散列</div><div class="line">            [-protected]                密钥库已保护验证路径</div><div class="line">            [-providerName &lt;名称&gt;]      提供者名称</div><div class="line">            [-providerClass &lt;类&gt;        加密服务提供者的名称</div><div class="line">            [-providerArg &lt;参数&gt;]] ... 主类文件和构造函数参数</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;生成密钥&quot;&gt;&lt;a href=&quot;#生成密钥&quot; class=&quot;headerlink&quot; title=&quot;生成密钥&quot;&gt;&lt;/a&gt;生成密钥&lt;/h2&gt;&lt;p&gt;`keytool -genkey -alias 密匙别名 -keyalg 密匙类型 -validity 有效时间 -keys
-    
-    </summary>
-    
-      <category term="linux" scheme="http://percychen.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
-    
-      <category term="keytool" scheme="http://percychen.com/tags/keytool/"/>
-    
-      <category term="密钥" scheme="http://percychen.com/tags/%E5%AF%86%E9%92%A5/"/>
     
   </entry>
   
