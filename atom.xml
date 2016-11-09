@@ -95,37 +95,6 @@
   </entry>
   
   <entry>
-    <title>Cmake的安装</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
-    <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2016-10-16T06:17:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
-&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>转:使用Python的Pexpect模块执行SSH登陆</title>
     <link href="http://percychen.com/2016/10/13/2016-10-13-pythonexpect/"/>
     <id>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</id>
@@ -246,6 +215,37 @@ def getwinsize():
       <category term="note" scheme="http://percychen.com/tags/note/"/>
     
       <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cmake的安装</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-16T06:17:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
+&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
