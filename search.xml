@@ -52,39 +52,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
-      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
-</blockquote>
-<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
-<ol>
-<li>下载所需工具</li>
-<li>卸载老版本vim</li>
-<li>下载新版</li>
-<li>编译安装</li>
-<li>下载所需工具</li>
-</ol>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
-<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
-<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
-<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
-<p>解压至 ~/downloads/vim74/</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
-</blockquote>
-<p>其中参数说明如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[转:使用Python的Pexpect模块执行SSH登陆]]></title>
       <url>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</url>
       <content type="html"><![CDATA[<p><a href="http://guweigang.com/blog/2012/10/25/using-python-ssh-landing-module-performs-pexpect/" target="_blank" rel="external">原文地址</a></p>
@@ -189,15 +156,36 @@ def getwinsize():
     </entry>
     
     <entry>
-      <title><![CDATA[python mysql查询笔迹]]></title>
-      <url>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</url>
-      <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
-<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<p>更新数据</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-]]></content>
+      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
     </entry>
     
     <entry>
@@ -225,6 +213,18 @@ def getwinsize():
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure>
 <p>使用新的密码登陆，修改成功。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~$ mysql -uroot -pnew_pass</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[python mysql查询笔迹]]></title>
+      <url>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</url>
+      <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
+<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<p>更新数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -2631,6 +2631,19 @@ def getwinsize():
     </entry>
     
     <entry>
+      <title><![CDATA[shell 数组操作]]></title>
+      <url>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</url>
+      <content type="html"><![CDATA[<p>将一个字符串赋值给数组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">str1=<span class="string">'test1 test2 test3 test4'</span></div><div class="line">array=(<span class="variable">$str1</span>)    <span class="comment">#数组赋值</span></div><div class="line">length=<span class="variable">$&#123;#array[@]&#125;</span>  <span class="comment">#数组长度</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]&#125;</span> <span class="comment">#输出数组全部元素</span></div><div class="line">array[1]=5      <span class="comment">#向数组的某个元素赋值和标c的语法一样</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:1:2&#125;</span>        <span class="comment">#输出的是array[0]和array[1]的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:2&#125;</span>      <span class="comment">#输出数组第三个元素以后的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]::2&#125;</span>     <span class="comment">#输出数组下标小于2的值</span></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$&#123;#array[3]&#125;</span>     <span class="comment">#取得元素3的长度</span></div><div class="line"><span class="built_in">unset</span> array     <span class="comment">#清除array</span></div><div class="line">array=      <span class="comment">#清空array，赋给array空值</span></div></pre></td></tr></table></figure>
+<p>###遍历数组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<p>###利用数组切割字符串</p>
+<p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">"abd#ddd#ff"</span></div><div class="line">str2=($(<span class="built_in">echo</span> <span class="variable">$str</span>|tr <span class="string">'#'</span> <span class="string">' '</span>))</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[python的文件操作]]></title>
       <url>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</url>
       <content type="html"><![CDATA[<p>Python提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用file对象做大部分的文件操作。</p>
@@ -2805,19 +2818,6 @@ def getwinsize():
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">"foo.txt"</span>)</div><div class="line">line = f.readline()</div><div class="line"><span class="keyword">while</span> line:</div><div class="line">    <span class="keyword">print</span> line</div><div class="line">    line = f.readline()</div><div class="line">f.close()</div></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"foo.txt"</span>):</div><div class="line">    <span class="keyword">print</span> line</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[shell 数组操作]]></title>
-      <url>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</url>
-      <content type="html"><![CDATA[<p>将一个字符串赋值给数组</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">str1=<span class="string">'test1 test2 test3 test4'</span></div><div class="line">array=(<span class="variable">$str1</span>)    <span class="comment">#数组赋值</span></div><div class="line">length=<span class="variable">$&#123;#array[@]&#125;</span>  <span class="comment">#数组长度</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]&#125;</span> <span class="comment">#输出数组全部元素</span></div><div class="line">array[1]=5      <span class="comment">#向数组的某个元素赋值和标c的语法一样</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:1:2&#125;</span>        <span class="comment">#输出的是array[0]和array[1]的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:2&#125;</span>      <span class="comment">#输出数组第三个元素以后的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]::2&#125;</span>     <span class="comment">#输出数组下标小于2的值</span></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$&#123;#array[3]&#125;</span>     <span class="comment">#取得元素3的长度</span></div><div class="line"><span class="built_in">unset</span> array     <span class="comment">#清除array</span></div><div class="line">array=      <span class="comment">#清空array，赋给array空值</span></div></pre></td></tr></table></figure>
-<p>###遍历数组</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<p>###利用数组切割字符串</p>
-<p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">"abd#ddd#ff"</span></div><div class="line">str2=($(<span class="built_in">echo</span> <span class="variable">$str</span>|tr <span class="string">'#'</span> <span class="string">' '</span>))</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -4230,6 +4230,13 @@ B: ABS=6618000 0
     </entry>
     
     <entry>
+      <title><![CDATA[转： sort的7个应用实例]]></title>
+      <url>http://percychen.com/2015/05/05/2015-05-05-sort/</url>
+      <content type="html"><![CDATA[<td id="article_content"><p>在<a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">上一篇文章</a>里，我们已经探讨了关于sort命令的多个例子，如果你错过了这篇文章，可以点击下面的链接进行阅读。今天的这篇文章作为上一篇文章的继续，将讨论关于sort命令的剩余用法，与上一篇一起作为Linux ‘sort’命令的完整指南。</p><br><ul><br><li><a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">Linux 的 ‘sort’命令的14个有用的范例（一）</a></li><br></ul><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png" alt="" width="256" height="256"></p><br><p>在我们继续深入之前，先创建一个文本文档‘month.txt’，并且将上一次给出的数据填进去。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“mar\ndec\noct\nsep\nfeb\naug”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> month</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105700klkfmvv0flbsskf6.gif" alt="Populate Content"></p><br><p>15、 通过使用’M‘选项，对’month.txt‘文件按照月份顺序进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">M month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><strong>注意</strong>:‘sort’命令需要至少3个字符来确认月份名称。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701p2wxy026s0z023to.gif" alt="Sort File Content by Month in Linux"></p><br><p>16、 把数据整理成方便人们阅读的形式，比如1K、2M、3G、2T，这里面的K、G、M、T代表千、兆、吉、梯。 （LCTT 译注：此处命令有误，ls 命令应该增加 -h 参数，径改之）</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">lh </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">$USER </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">h </span><span class="pun">-</span><span class="pln">k5</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701wxxuatq5zu9qtzmk.gif" alt="Sort Content Human Readable Format"></p><br><p>17、 在上一篇文章中，我们在例子4中创建了一个名为‘sorted.txt’的文件，在例子6中创建了一个‘lsl.txt’。‘sorted.txt’已经排好序了而’lsl.txt‘还没有。让我们使用sort命令来检查两个文件是否已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c sorted</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702lsqqcyrsncwcffqj.gif" alt="Check File is Sorted"></p><br><p>如果它返回0，则表示文件已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c lsl</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702gyahwzs46p5s21a2.gif" alt="Check File Sorted Status"></p><br><p>报告无序。存在矛盾……</p><br><p>18、 如果文字之间的分隔符是空格，sort命令自动地将空格后的东西当做一个新文字单元，如果分隔符不是空格呢？</p><br><p>考虑这样一个文本文件，里面的内容可以由除了空格之外的任何符号分隔，比如‘|’，‘\’，‘+’，‘.’等……</p><br><p>创建一个分隔符为+的文本文件。使用‘cat‘命令查看文件内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“21+linux+server+production\n11+debian+RedHat+CentOS\n131+Apache+Mysql+PHP\n7+Shell Scripting+python+perl\n111+postfix+exim+sendmail”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><hr><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ cat delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702uxrgssqxvglzlstn.gif" alt="Check File Content by Delimiter"></p><br><p>现在基于由数字组成的第一个域来进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">t </span><span class="str">‘+’</span><span class="pln"> </span><span class="pun">-</span><span class="pln">nk1 delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703mnrarjnx7nddwnb0.gif" alt="Sort File By Fields"></p><br><p>然后再基于非数字的第四个域排序。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703nxjyhizvvx8j5nxk.gif" alt="Sort Content By Non Numeric"></p><br><p>如果分隔符是制表符，你需要在’+‘的位置上用$’\t’代替，如上例所示。</p><br><p>19、 对主用户目录下使用‘ls -l’命令得到的结果基于第五列（‘文件大小’）进行一个乱序排列。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">l </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">avi</span><span class="pun">/</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">k5 </span><span class="pun">-</span><span class="pln">R </span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105704pw69nw6hwhcwavww.gif" alt="Sort Content by Column in Random Order"></p><br><p>每一次你运行上面的脚本，你得到结果可能都不一样，因为结果是随机生成的。</p><br><p>正如我在上一篇文章中提到的规则2所说——sort命令会将以小写字母开始的行排在大写字母开始的行前面。看一下上一篇文章的例3，字符串‘laptop’在‘LAPTOP’前出现。</p><br><p>20、 如何覆盖默认的排序优先权？在这之前我们需要先将环境变量LC_ALL的值设置为C。在命令行提示栏中运行下面的代码。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ </span><span class="kwd">export</span><span class="pln"> LC_ALL</span><span class="pun">=</span><span class="pln">C</span></code></li></ol></pre><br><p>然后以非默认优先权的方式对‘tecmint.txt’文件重新排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706occ4t7a7h4m999m9.gif" alt="Override Sorting Preferences"></p><br><p><em>覆盖排序优先权</em></p><br><p>不要忘记与example 3中得到的输出结果做比较，并且你可以使用‘-f’，又叫‘-ignore-case’（忽略大小写）的选项来获取更有序的输出。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">f tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706sn54r2dspz2nbr2v.gif" alt="Compare Sorting Preferences"></p><br><p>21、 给两个输入文件进行‘sort‘，然后把它们连接成一行！</p><br><p>我们创建两个文本文档’file1.txt‘以及’file2.txt‘，并用数据填充，如下所示，并用’cat‘命令查看文件的内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Reliable</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Fast</span><span class="pln">\n</span><span class="lit">3</span><span class="pln"> </span><span class="typ">Secure</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> open</span><span class="pun">-</span><span class="pln">source\n</span><span class="lit">4</span><span class="pln"> customizable</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file1</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file1</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707j38vk01w78yt0g00.gif" alt="Populate Content with Numbers"></p><br><p>用如下数据填充’file2.txt‘。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">3</span><span class="pln"> </span><span class="typ">RedHat</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Debian</span><span class="pln">\n</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Ubuntu</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Kali</span><span class="pln">\n</span><span class="lit">4</span><span class="pln"> </span><span class="typ">Fedora</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file2</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file2</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707drz8fbflwl50enze.gif" alt="Populate File with Data"></p><br><p>现在我们对两个文件进行排序并连接。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ join </span><span class="pun">&lt;(</span><span class="pln">sort </span><span class="pun">-</span><span class="pln">n file1</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;(</span><span class="pln">sort file2</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105708uumm00x22i5z2k07.gif" alt="Sort Join Two Files"></p><br><p>我所要讲的全部内容就在这里了，希望与各位保持联系，也希望各位经常来逛逛。有反馈就在下面评论吧。</p><br><hr><br><p>via: <a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank" rel="external">http://www.tecmint.com/linux-sort-command-examples/</a></p><br><p>作者：<a href="http://www.tecmint.com/author/avishek/" target="_blank" rel="external">Avishek Kumar</a> 译者：<a href="https://github.com/DongShuaike" target="_blank" rel="external">DongShuaike</a> 校对：<a href="https://github.com/wxy" target="_blank" rel="external">wxy</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><p class="copyright"><br><br>                                            <span class="z">原文：<a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank">http://www.tecmint.com/linux-sort-command-examples/</a></span><br>                        <span class="y">作者： Avishek Kumar</span>            <br class="clear"><br>                <span class="z">译文：<a href="http://lctt.github.io/" target="_blank">LCTT</a>&nbsp;&nbsp;<a href="http://linux.cn/article-5373-1.html" target="_blank">http://linux.cn/article-5373-1.html</a></span><br>                        <span class="y">译者： DongShuaike</span>            <br class="clear"><br>                <br class="clear"><br>                    <span>本文由 LCTT 原创翻译，<a href="http://linux.cn/article-5373-1.html" target="_blank" rel="external">Linux中国首发</a>。也想加入译者行列，为开源做一些自己的贡献么？欢迎加入 <a href="http://lctt.github.io/" target="_blank">LCTT</a>！<br>翻译工作和译文发表仅用于学习和交流目的，翻译工作遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>，如果我们的工作有侵犯到您的权益，请及时联系我们。</span><br>                        <br class="clear"><br>            <span style="color:red;">欢迎遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息。</span><br>                        <br class="clear"><br>                <span>文章仅代表作者的知识和看法，如有不同观点，请楼下排队<a href="javascript:void(0);" onclick="$('message').focus();" target="_blank" rel="external">吐槽</a> :D</span><br>        <br class="clear"><br>    </p><br><div class="hm"><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-5373-shareweibo.html','article_title','article_content','https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br><a title="收藏" href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=5373&amp;handlekey=favoritearticlehk_5373" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="fav_large"></a><br></div><br></td>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android获取分区信息]]></title>
       <url>http://percychen.com/2015/05/05/2015-05-05-GetBlockInfomation/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -4247,13 +4254,6 @@ cat /cache/recovery/last_log
 df -h
 cat /proc/mounts
 </code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[转： sort的7个应用实例]]></title>
-      <url>http://percychen.com/2015/05/05/2015-05-05-sort/</url>
-      <content type="html"><![CDATA[<td id="article_content"><p>在<a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">上一篇文章</a>里，我们已经探讨了关于sort命令的多个例子，如果你错过了这篇文章，可以点击下面的链接进行阅读。今天的这篇文章作为上一篇文章的继续，将讨论关于sort命令的剩余用法，与上一篇一起作为Linux ‘sort’命令的完整指南。</p><br><ul><br><li><a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">Linux 的 ‘sort’命令的14个有用的范例（一）</a></li><br></ul><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png" alt="" width="256" height="256"></p><br><p>在我们继续深入之前，先创建一个文本文档‘month.txt’，并且将上一次给出的数据填进去。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“mar\ndec\noct\nsep\nfeb\naug”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> month</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105700klkfmvv0flbsskf6.gif" alt="Populate Content"></p><br><p>15、 通过使用’M‘选项，对’month.txt‘文件按照月份顺序进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">M month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><strong>注意</strong>:‘sort’命令需要至少3个字符来确认月份名称。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701p2wxy026s0z023to.gif" alt="Sort File Content by Month in Linux"></p><br><p>16、 把数据整理成方便人们阅读的形式，比如1K、2M、3G、2T，这里面的K、G、M、T代表千、兆、吉、梯。 （LCTT 译注：此处命令有误，ls 命令应该增加 -h 参数，径改之）</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">lh </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">$USER </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">h </span><span class="pun">-</span><span class="pln">k5</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701wxxuatq5zu9qtzmk.gif" alt="Sort Content Human Readable Format"></p><br><p>17、 在上一篇文章中，我们在例子4中创建了一个名为‘sorted.txt’的文件，在例子6中创建了一个‘lsl.txt’。‘sorted.txt’已经排好序了而’lsl.txt‘还没有。让我们使用sort命令来检查两个文件是否已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c sorted</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702lsqqcyrsncwcffqj.gif" alt="Check File is Sorted"></p><br><p>如果它返回0，则表示文件已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c lsl</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702gyahwzs46p5s21a2.gif" alt="Check File Sorted Status"></p><br><p>报告无序。存在矛盾……</p><br><p>18、 如果文字之间的分隔符是空格，sort命令自动地将空格后的东西当做一个新文字单元，如果分隔符不是空格呢？</p><br><p>考虑这样一个文本文件，里面的内容可以由除了空格之外的任何符号分隔，比如‘|’，‘\’，‘+’，‘.’等……</p><br><p>创建一个分隔符为+的文本文件。使用‘cat‘命令查看文件内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“21+linux+server+production\n11+debian+RedHat+CentOS\n131+Apache+Mysql+PHP\n7+Shell Scripting+python+perl\n111+postfix+exim+sendmail”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><hr><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ cat delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702uxrgssqxvglzlstn.gif" alt="Check File Content by Delimiter"></p><br><p>现在基于由数字组成的第一个域来进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">t </span><span class="str">‘+’</span><span class="pln"> </span><span class="pun">-</span><span class="pln">nk1 delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703mnrarjnx7nddwnb0.gif" alt="Sort File By Fields"></p><br><p>然后再基于非数字的第四个域排序。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703nxjyhizvvx8j5nxk.gif" alt="Sort Content By Non Numeric"></p><br><p>如果分隔符是制表符，你需要在’+‘的位置上用$’\t’代替，如上例所示。</p><br><p>19、 对主用户目录下使用‘ls -l’命令得到的结果基于第五列（‘文件大小’）进行一个乱序排列。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">l </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">avi</span><span class="pun">/</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">k5 </span><span class="pun">-</span><span class="pln">R </span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105704pw69nw6hwhcwavww.gif" alt="Sort Content by Column in Random Order"></p><br><p>每一次你运行上面的脚本，你得到结果可能都不一样，因为结果是随机生成的。</p><br><p>正如我在上一篇文章中提到的规则2所说——sort命令会将以小写字母开始的行排在大写字母开始的行前面。看一下上一篇文章的例3，字符串‘laptop’在‘LAPTOP’前出现。</p><br><p>20、 如何覆盖默认的排序优先权？在这之前我们需要先将环境变量LC_ALL的值设置为C。在命令行提示栏中运行下面的代码。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ </span><span class="kwd">export</span><span class="pln"> LC_ALL</span><span class="pun">=</span><span class="pln">C</span></code></li></ol></pre><br><p>然后以非默认优先权的方式对‘tecmint.txt’文件重新排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706occ4t7a7h4m999m9.gif" alt="Override Sorting Preferences"></p><br><p><em>覆盖排序优先权</em></p><br><p>不要忘记与example 3中得到的输出结果做比较，并且你可以使用‘-f’，又叫‘-ignore-case’（忽略大小写）的选项来获取更有序的输出。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">f tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706sn54r2dspz2nbr2v.gif" alt="Compare Sorting Preferences"></p><br><p>21、 给两个输入文件进行‘sort‘，然后把它们连接成一行！</p><br><p>我们创建两个文本文档’file1.txt‘以及’file2.txt‘，并用数据填充，如下所示，并用’cat‘命令查看文件的内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Reliable</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Fast</span><span class="pln">\n</span><span class="lit">3</span><span class="pln"> </span><span class="typ">Secure</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> open</span><span class="pun">-</span><span class="pln">source\n</span><span class="lit">4</span><span class="pln"> customizable</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file1</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file1</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707j38vk01w78yt0g00.gif" alt="Populate Content with Numbers"></p><br><p>用如下数据填充’file2.txt‘。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">3</span><span class="pln"> </span><span class="typ">RedHat</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Debian</span><span class="pln">\n</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Ubuntu</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Kali</span><span class="pln">\n</span><span class="lit">4</span><span class="pln"> </span><span class="typ">Fedora</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file2</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file2</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707drz8fbflwl50enze.gif" alt="Populate File with Data"></p><br><p>现在我们对两个文件进行排序并连接。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ join </span><span class="pun">&lt;(</span><span class="pln">sort </span><span class="pun">-</span><span class="pln">n file1</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;(</span><span class="pln">sort file2</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105708uumm00x22i5z2k07.gif" alt="Sort Join Two Files"></p><br><p>我所要讲的全部内容就在这里了，希望与各位保持联系，也希望各位经常来逛逛。有反馈就在下面评论吧。</p><br><hr><br><p>via: <a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank" rel="external">http://www.tecmint.com/linux-sort-command-examples/</a></p><br><p>作者：<a href="http://www.tecmint.com/author/avishek/" target="_blank" rel="external">Avishek Kumar</a> 译者：<a href="https://github.com/DongShuaike" target="_blank" rel="external">DongShuaike</a> 校对：<a href="https://github.com/wxy" target="_blank" rel="external">wxy</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><p class="copyright"><br><br>                                            <span class="z">原文：<a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank">http://www.tecmint.com/linux-sort-command-examples/</a></span><br>                        <span class="y">作者： Avishek Kumar</span>            <br class="clear"><br>                <span class="z">译文：<a href="http://lctt.github.io/" target="_blank">LCTT</a>&nbsp;&nbsp;<a href="http://linux.cn/article-5373-1.html" target="_blank">http://linux.cn/article-5373-1.html</a></span><br>                        <span class="y">译者： DongShuaike</span>            <br class="clear"><br>                <br class="clear"><br>                    <span>本文由 LCTT 原创翻译，<a href="http://linux.cn/article-5373-1.html" target="_blank" rel="external">Linux中国首发</a>。也想加入译者行列，为开源做一些自己的贡献么？欢迎加入 <a href="http://lctt.github.io/" target="_blank">LCTT</a>！<br>翻译工作和译文发表仅用于学习和交流目的，翻译工作遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>，如果我们的工作有侵犯到您的权益，请及时联系我们。</span><br>                        <br class="clear"><br>            <span style="color:red;">欢迎遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息。</span><br>                        <br class="clear"><br>                <span>文章仅代表作者的知识和看法，如有不同观点，请楼下排队<a href="javascript:void(0);" onclick="$('message').focus();" target="_blank" rel="external">吐槽</a> :D</span><br>        <br class="clear"><br>    </p><br><div class="hm"><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-5373-shareweibo.html','article_title','article_content','https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br><a title="收藏" href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=5373&amp;handlekey=favoritearticlehk_5373" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="fav_large"></a><br></div><br></td>
-]]></content>
     </entry>
     
     <entry>
@@ -4951,39 +4951,6 @@ vam install youcompleteme
     </entry>
     
     <entry>
-      <title><![CDATA[关于Dialog的学习]]></title>
-      <url>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</url>
-      <content type="html"><![CDATA[<p>这里的Dialog是用的AlertDialog.build实现的，而且，支持多种方式自定义<br>不多说，直接上代码：</p>
-<pre><code>private void chosePercentAutoOpen() {
-AlertDialog.Builder builder=new Builder(PowerSaveModeActivity.this,R.style.YunDialogTheme);
-builder.setTitle(getResources().getString(R.string.auto_open_super_mode));
-builder.setSingleChoiceItems(new String[]{
-        getResources().getString(R.string.power_90),
-        getResources().getString(R.string.power_80),
-        getResources().getString(R.string.power_70),
-        getResources().getString(R.string.power_60),
-        getResources().getString(R.string.power_50),
-        getResources().getString(R.string.power_40)}
-, 5, new DialogInterface.OnClickListener(){
-    @Override
-    public void onClick(DialogInterface arg0, int position) {
-        System.out.println(&quot;你选择了第&quot;+position+&quot;项&quot;);
-
-    }
-}).setNegativeButton(getResources().getString(R.string.cancle),null).show();
-}
-</code></pre><blockquote>
-<p>如果弹出的弹出框是双层的，可以在那个主题下定义一个：</p>
-</blockquote>
-<pre><code>&lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/transparent&lt;/item&gt;
-</code></pre><blockquote>
-<p>这样就将后面的弹出框给隐藏了</p>
-</blockquote>
-<p>本次文章实现的是单选框。<a href="http://www.oschina.net/question/54100_32486" target="_blank" rel="external">更多详情可以点击这里进行学习</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android 中 字符替代的用法]]></title>
       <url>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</url>
       <content type="html"><![CDATA[<h2 id="一-使用xliff的用法："><a href="#一-使用xliff的用法：" class="headerlink" title="一. 使用xliff的用法："></a>一. 使用xliff的用法：</h2><p>####<xliff:g>标签介绍：</xliff:g></p>
@@ -5041,6 +5008,39 @@ builder.setSingleChoiceItems(new String[]{
 <pre><code>String sAgeFormatString sAgeFormat1= getResources().getString(R.string.alert);
 String sFinal1 = String.format(sAgeFormat1, &quot;李四&quot;,&quot;首都北京&quot;);
 </code></pre><p>这里两个string需要替换的，按照上面程序的顺序依次对应。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[关于Dialog的学习]]></title>
+      <url>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</url>
+      <content type="html"><![CDATA[<p>这里的Dialog是用的AlertDialog.build实现的，而且，支持多种方式自定义<br>不多说，直接上代码：</p>
+<pre><code>private void chosePercentAutoOpen() {
+AlertDialog.Builder builder=new Builder(PowerSaveModeActivity.this,R.style.YunDialogTheme);
+builder.setTitle(getResources().getString(R.string.auto_open_super_mode));
+builder.setSingleChoiceItems(new String[]{
+        getResources().getString(R.string.power_90),
+        getResources().getString(R.string.power_80),
+        getResources().getString(R.string.power_70),
+        getResources().getString(R.string.power_60),
+        getResources().getString(R.string.power_50),
+        getResources().getString(R.string.power_40)}
+, 5, new DialogInterface.OnClickListener(){
+    @Override
+    public void onClick(DialogInterface arg0, int position) {
+        System.out.println(&quot;你选择了第&quot;+position+&quot;项&quot;);
+
+    }
+}).setNegativeButton(getResources().getString(R.string.cancle),null).show();
+}
+</code></pre><blockquote>
+<p>如果弹出的弹出框是双层的，可以在那个主题下定义一个：</p>
+</blockquote>
+<pre><code>&lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/transparent&lt;/item&gt;
+</code></pre><blockquote>
+<p>这样就将后面的弹出框给隐藏了</p>
+</blockquote>
+<p>本次文章实现的是单选框。<a href="http://www.oschina.net/question/54100_32486" target="_blank" rel="external">更多详情可以点击这里进行学习</a></p>
 ]]></content>
     </entry>
     
@@ -5993,6 +5993,26 @@ do
     </entry>
     
     <entry>
+      <title><![CDATA[adb查看android系统相关命令]]></title>
+      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
+      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
+<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
+<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
+</code></pre><p>注：bs可以从分区信息中读取</p>
+<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
+adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
+cat /proc/dumchar_info
+</code></pre><p>其中的 android分区就是 system分区</p>
+<p>其中的 userdata分区就是data分区</p>
+<p>对于古老的机器可以尝试:</p>
+<pre><code>cat /proc/mtd
+</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
+</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
+</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[五种开源协议的比较]]></title>
       <url>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</url>
       <content type="html"><![CDATA[<p><strong>当我将开源当做一种习惯的时候，我突然意识到，使用一种开源协议是一件必不可少的事情了</strong></p>
@@ -6036,47 +6056,6 @@ do
     </entry>
     
     <entry>
-      <title><![CDATA[adb查看android系统相关命令]]></title>
-      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
-      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
-<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
-<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
-</code></pre><p>注：bs可以从分区信息中读取</p>
-<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
-adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
-cat /proc/dumchar_info
-</code></pre><p>其中的 android分区就是 system分区</p>
-<p>其中的 userdata分区就是data分区</p>
-<p>对于古老的机器可以尝试:</p>
-<pre><code>cat /proc/mtd
-</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
-</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
-</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git cola的下载和使用]]></title>
-      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
-      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
-<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
-<p>###关于git cola | ABOUT GIT COLA</p>
-<blockquote>
-<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
-</blockquote>
-<p>###安装 | HOW TO INSTALL</p>
-<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
-
-<p>###使用 | HOW TO USE</p>
-<blockquote>
-<p>git add –all (or  git add . )</p>
-<p>git cola (此步代替git commit)</p>
-<p>git push</p>
-</blockquote>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[广播的注册发送和接受]]></title>
       <url>http://percychen.com/2014/10/29/2014-10-29-boardcast/</url>
       <content type="html"><![CDATA[<p>###发送</p>
@@ -6098,6 +6077,27 @@ public static final String SONG_NAME = &quot;hehe&quot;;
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">1<br>2<br>3<br>4<br>5<br>6<br>7</pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">public class SongReceiver extends BroadcastReceiver{<br>public void onReceive(Context context, Intent intent) {<br>String msg=intent.getStringExtra(“name”);//接收信息<br>list_song_name=(TextView)findViewById(R.id.list_song_name);<br>list_song_name.setText(msg);<br>}<br>}</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
 
 
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[git cola的下载和使用]]></title>
+      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
+      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
+<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
+<p>###关于git cola | ABOUT GIT COLA</p>
+<blockquote>
+<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
+</blockquote>
+<p>###安装 | HOW TO INSTALL</p>
+<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
+
+<p>###使用 | HOW TO USE</p>
+<blockquote>
+<p>git add –all (or  git add . )</p>
+<p>git cola (此步代替git commit)</p>
+<p>git push</p>
+</blockquote>
 ]]></content>
     </entry>
     
@@ -6302,6 +6302,40 @@ pear:90:2.3
     </entry>
     
     <entry>
+      <title><![CDATA[命令行浏览器 curl 命令详解]]></title>
+      <url>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</url>
+      <content type="html"><![CDATA[<div id="content" class="content mod-cs-content text-content clearfix"> <p>CURL&nbsp;—&nbsp;命令行浏览器<br><br>这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑<br><br>1)<br>二话不说，先从这里开始吧！<br><br>curl&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>回车之后，www.yahoo.com&nbsp;的html就稀里哗啦地显示在屏幕上了<del>~</del><br><br>2)<br>嗯，要想把读过来页面存下来，是不是要这样呢？<br>curl&nbsp;<a href="http://www.yahoo.com&nbsp;&gt;&nbsp;page.html" target="_blank" rel="external">http://www.yahoo.com&nbsp;&gt;&nbsp;page.html</a><br><br>当然可以，但不用这么麻烦的！<br>用curl的内置option就好，存下http的结果，用这个option:&nbsp;-o<br>curl&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，你就可以看到屏幕上出现一个下载页面进度指示。等进展到100%，自然就OK咯<br><br>3)<br>什么什么？！访问不到？肯定是你的proxy没有设定了。<br>使用curl的时候，用这个option可以指定http访问所使用的proxy服务器及其端口：&nbsp;-x<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br><br>4)<br>访问有些网站的时候比较讨厌，他使用cookie来记录session信息。<br>像IE/NN这样的浏览器，当然可以轻易处理cookie信息，但我们的curl呢？…..<br>我们来学习这个option:&nbsp;-D&nbsp;&lt;–&nbsp;这个是把http的response里面的cookie信息存到一个特别的文件中去<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，当页面被存到page.html的同时，cookie信息也被存到了cookie0001.txt里面了<br><br><br>5）<br>那么，下一次访问的时候，如何继续使用上次留下的cookie信息呢？要知道，很多网站都是靠监视你的cookie信息，<br>来判断你是不是不按规矩访问他们的网站的。<br>这次我们使用这个option来把上次的cookie信息追加到http&nbsp;request里面去：&nbsp;-b<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page1.html&nbsp;-D&nbsp;cookie0002.txt&nbsp;-b&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，我们就可以几乎模拟所有的IE操作，去访问网页了！<br><br><br>6）<br>稍微等等<del>~</del>我好像忘记什么了<del>~</del><br>对了！是浏览器信息<del>~~<br><br>有些讨厌的网站总要我们使用某些特定的浏览器去访问他们，有时候更过分的是，还要使用某些特定的版本</del><del><br>NND，哪里有时间为了它去找这些怪异的浏览器呢！？<br><br>好在curl给我们提供了一个有用的option，可以让我们随意指定自己这次访问所宣称的自己的浏览器信息：&nbsp;-A<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，服务器端接到访问的要求，会认为你是一个运行在Windows&nbsp;2000上的IE6.0，嘿嘿嘿，其实也许你用的是苹果机呢！<br><br>而”Mozilla/4.73&nbsp;[en]&nbsp;(X11;&nbsp;U;&nbsp;Linux&nbsp;2.2;&nbsp;15&nbsp;i686”则可以告诉对方你是一台PC上跑着的Linux，用的是Netscape&nbsp;4.73，呵呵呵<br><br><br>7）<br>另外一个服务器端常用的限制方法，就是检查http访问的referer。比如你先访问首页，再访问里面所指定的下载页，这第二次访问的referer地址就是第一次访问成功后的页面地址。这样，服务器端只要发现对下载页面某次访问的referer地址不&nbsp;是首页的地址，就可以断定那是个盗连了</del><del>~<br><br>讨厌讨厌</del>~我就是要盗连<del>~</del>！！<br>幸好curl给我们提供了设定referer的option：&nbsp;-e<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-e&nbsp;”mail.yahoo.com”&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，就可以骗对方的服务器，你是从mail.yahoo.com点击某个链接过来的了，呵呵呵<br><br><br>8）<br>写着写着发现漏掉什么重要的东西了！—–&nbsp;利用curl&nbsp;下载文件<br><br>刚才讲过了，下载页面到一个文件里，可以使用&nbsp;-o&nbsp;，下载文件也是一样。<br>比如，&nbsp;curl&nbsp;-o&nbsp;1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这里教大家一个新的option：&nbsp;-O<br>大写的O，这么用：&nbsp;curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这样，就可以按照服务器上的文件名，自动存在本地了！<br><br>再来一个更好用的。<br>如果screen1.JPG以外还有screen2.JPG、screen3.JPG、….、screen10.JPG需要下载，难不成还要让我们写一个script来完成这些操作？<br>不干！<br>在curl里面，这么写就可以了：<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG</a><br><br>呵呵呵，厉害吧？！<del>~<br><br>9）<br>再来，我们继续讲解下载！<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>这样产生的下载，就是<br>~zzh/001.JPG<br>~zzh/002.JPG<br>…<br>~zzh/201.JPG<br>~nick/001.JPG<br>~nick/002.JPG<br>…<br>~nick/201.JPG<br><br>够方便的了吧？哈哈哈<br><br>咦？高兴得太早了。<br>由于zzh/nick下的文件名都是001，002…，201，下载下来的文件重名，后面的把前面的文件都给覆盖掉了</del>~<br><br>没关系，我们还有更狠的！<br>curl&nbsp;-o&nbsp;#2_#1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>–这是…..自定义文件名的下载？<br>–对头，呵呵！<br><br>#1是变量，指的是{zzh,nick}这部分，第一次取值zzh，第二次取值nick<br>#2代表的变量，则是第二段可变部分—[001-201]，取值从001逐一加到201<br>这样，自定义出来下载下来的文件名，就变成了这样：<br>原来：&nbsp;~zzh/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-zzh.JPG<br>原来：&nbsp;~nick/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-nick.JPG<br><br>这样一来，就不怕文件重名啦，呵呵<br><br><br>9）<br>继续讲下载<br>我们平时在windows平台上，flashget这样的工具可以帮我们分块并行下载，还可以断线续传。<br>curl在这些方面也不输给谁，嘿嘿<br><br>比如我们下载screen1.JPG中，突然掉线了，我们就可以这样开始续传<br>curl&nbsp;-c&nbsp;-O&nbsp;<a href="http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG</a><br><br>当然，你不要拿个flashget下载了一半的文件来糊弄我<del>~~别的下载软件的半截文件可不一定能用哦</del>~<br><br>分块下载，我们使用这个option就可以了：&nbsp;-r<br>举例说明<br>比如我们有一个<a href="http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）</a><br>我们就可以用这样的命令：<br>curl&nbsp;-r&nbsp;0-10240&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;10241-20480&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;20481-40960&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;40961-&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3<br><br>这样就可以分块下载啦。<br>不过你需要自己把这些破碎的文件合并起来<br>如果你用UNIX或苹果，用&nbsp;cat&nbsp;zhao.part*&nbsp;&gt;&nbsp;zhao.mp3就可以<br>如果用的是Windows，用copy&nbsp;/b&nbsp;来解决吧，呵呵<br><br>上面讲的都是http协议的下载，其实ftp也一样可以用。<br>用法嘛，<br>curl&nbsp;-u&nbsp;name:passwd&nbsp;ftp://ip:port/path/file<br>或者大家熟悉的<br>curl&nbsp;ftp://name:passwd@ip:port/path/file<br><br><br><br>10)<br>说完了下载，接下来自然该讲上传咯<br>上传的option是&nbsp;-T<br><br>比如我们向ftp传一个文件：&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;-u&nbsp;name:passwd&nbsp;ftp://upload_site:port/path/<br><br>当然，向http服务器上传文件也可以<br>比如&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi</a><br>注意，这时候，使用的协议是HTTP的PUT&nbsp;method<br><br>刚才说到PUT，嘿嘿，自然让老服想起来了其他几种methos还没讲呢！<br>GET和POST都不能忘哦。<br><br>http提交一个表单，比较常用的是POST模式和GET模式<br><br>GET模式什么option都不用，只需要把变量写在url里面就可以了<br>比如：<br>curl&nbsp;<a href="http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345" target="_blank" rel="external">http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345</a><br><br>而POST模式的option则是&nbsp;-d<br><br>比如，curl&nbsp;-d&nbsp;”user=nickwolfe&amp;password=12345”&nbsp;<a href="http://www.yahoo.com/login.cgi" target="_blank" rel="external">http://www.yahoo.com/login.cgi</a><br>就相当于向这个站点发出一次登陆申请<del>~</del><br><br>到底该用GET模式还是POST模式，要看对面服务器的程序设定。<br><br>一点需要注意的是，POST模式下的文件上的文件上传，比如<br>&lt;form&nbsp;method=”POST”&nbsp;enctype=”multipar/form-data”&nbsp;action=”<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt</a>;<br>&lt;input&nbsp;type=file&nbsp;name=upload&gt;<br>&lt;input&nbsp;type=submit&nbsp;name=nick&nbsp;value=”go”&gt;<br>&lt;/form&gt;<br>这样一个HTTP表单，我们要用curl进行模拟，就该是这样的语法：<br>curl&nbsp;-F&nbsp;upload=@localfile&nbsp;-F&nbsp;nick=go&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi</a><br><br>罗罗嗦嗦讲了这么多，其实curl还有很多很多技巧和用法<br>比如&nbsp;https的时候使用本地证书，就可以这样<br>curl&nbsp;-E&nbsp;localcert.pem&nbsp;<a href="https://remote_server" target="_blank" rel="external">https://remote_server</a><br><br>再比如，你还可以用curl通过dict协议去查字典<del>~</del><br>curl&nbsp;dict://dict.org/d:computer <br></p> </div>
+
+<p>文章转自：<a href="http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff" target="_blank" rel="external">http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[代码布局的一些零碎语法]]></title>
+      <url>http://percychen.com/2014/10/18/2014-10-18-codelayout/</url>
+      <content type="html"><![CDATA[<p>###前言</p>
+<p>越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。</p>
+<p>虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？</p>
+<p>以下是日常研发中的一些笔记</p>
+<h3 id="FrameLayout下动态设置按钮居中"><a href="#FrameLayout下动态设置按钮居中" class="headerlink" title="FrameLayout下动态设置按钮居中"></a>FrameLayout下动态设置按钮居中</h3><pre><code>FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);
+lytp .gravity = Gravity.CENTER;
+btn.setLayoutParams(lytp);
+</code></pre><p>###RelativeLayout下动态设置子控件居中：</p>
+<pre><code>RelativeLayout.LayoutParams lp=new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+btn1.setLayoutParams(lp);
+</code></pre><p>###添加一个控件（以TextView为例）：</p>
+<pre><code>TextView mlocation=new TextView(context);
+String mlocation1=GetLocationByNumber.getCallerInfo(phonenumber,context);
+mlocation.setText(mlocation1);
+        this.addView(mlocation);
+</code></pre><p>###给文字设置阴影值：</p>
+<pre><code>mlocation.setShadowLayer(10, 1, 1, 0xff000000);//（模糊度（半径），阴影x方向位移，阴影y方向位移，阴影颜色）
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[linux下 解压zip,tar等压缩文件详解]]></title>
       <url>http://percychen.com/2014/10/18/2014-10-18-zipcommand/</url>
       <content type="html"><![CDATA[<p>###zip命令</p>
@@ -6426,40 +6460,6 @@ pear:90:2.3
 </tbody>
 </table>
 <p>```</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[代码布局的一些零碎语法]]></title>
-      <url>http://percychen.com/2014/10/18/2014-10-18-codelayout/</url>
-      <content type="html"><![CDATA[<p>###前言</p>
-<p>越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。</p>
-<p>虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？</p>
-<p>以下是日常研发中的一些笔记</p>
-<h3 id="FrameLayout下动态设置按钮居中"><a href="#FrameLayout下动态设置按钮居中" class="headerlink" title="FrameLayout下动态设置按钮居中"></a>FrameLayout下动态设置按钮居中</h3><pre><code>FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);
-lytp .gravity = Gravity.CENTER;
-btn.setLayoutParams(lytp);
-</code></pre><p>###RelativeLayout下动态设置子控件居中：</p>
-<pre><code>RelativeLayout.LayoutParams lp=new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-btn1.setLayoutParams(lp);
-</code></pre><p>###添加一个控件（以TextView为例）：</p>
-<pre><code>TextView mlocation=new TextView(context);
-String mlocation1=GetLocationByNumber.getCallerInfo(phonenumber,context);
-mlocation.setText(mlocation1);
-        this.addView(mlocation);
-</code></pre><p>###给文字设置阴影值：</p>
-<pre><code>mlocation.setShadowLayer(10, 1, 1, 0xff000000);//（模糊度（半径），阴影x方向位移，阴影y方向位移，阴影颜色）
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[命令行浏览器 curl 命令详解]]></title>
-      <url>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</url>
-      <content type="html"><![CDATA[<div id="content" class="content mod-cs-content text-content clearfix"> <p>CURL&nbsp;—&nbsp;命令行浏览器<br><br>这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑<br><br>1)<br>二话不说，先从这里开始吧！<br><br>curl&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>回车之后，www.yahoo.com&nbsp;的html就稀里哗啦地显示在屏幕上了<del>~</del><br><br>2)<br>嗯，要想把读过来页面存下来，是不是要这样呢？<br>curl&nbsp;<a href="http://www.yahoo.com&nbsp;&gt;&nbsp;page.html" target="_blank" rel="external">http://www.yahoo.com&nbsp;&gt;&nbsp;page.html</a><br><br>当然可以，但不用这么麻烦的！<br>用curl的内置option就好，存下http的结果，用这个option:&nbsp;-o<br>curl&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，你就可以看到屏幕上出现一个下载页面进度指示。等进展到100%，自然就OK咯<br><br>3)<br>什么什么？！访问不到？肯定是你的proxy没有设定了。<br>使用curl的时候，用这个option可以指定http访问所使用的proxy服务器及其端口：&nbsp;-x<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br><br>4)<br>访问有些网站的时候比较讨厌，他使用cookie来记录session信息。<br>像IE/NN这样的浏览器，当然可以轻易处理cookie信息，但我们的curl呢？…..<br>我们来学习这个option:&nbsp;-D&nbsp;&lt;–&nbsp;这个是把http的response里面的cookie信息存到一个特别的文件中去<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，当页面被存到page.html的同时，cookie信息也被存到了cookie0001.txt里面了<br><br><br>5）<br>那么，下一次访问的时候，如何继续使用上次留下的cookie信息呢？要知道，很多网站都是靠监视你的cookie信息，<br>来判断你是不是不按规矩访问他们的网站的。<br>这次我们使用这个option来把上次的cookie信息追加到http&nbsp;request里面去：&nbsp;-b<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page1.html&nbsp;-D&nbsp;cookie0002.txt&nbsp;-b&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，我们就可以几乎模拟所有的IE操作，去访问网页了！<br><br><br>6）<br>稍微等等<del>~</del>我好像忘记什么了<del>~</del><br>对了！是浏览器信息<del>~~<br><br>有些讨厌的网站总要我们使用某些特定的浏览器去访问他们，有时候更过分的是，还要使用某些特定的版本</del><del><br>NND，哪里有时间为了它去找这些怪异的浏览器呢！？<br><br>好在curl给我们提供了一个有用的option，可以让我们随意指定自己这次访问所宣称的自己的浏览器信息：&nbsp;-A<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，服务器端接到访问的要求，会认为你是一个运行在Windows&nbsp;2000上的IE6.0，嘿嘿嘿，其实也许你用的是苹果机呢！<br><br>而”Mozilla/4.73&nbsp;[en]&nbsp;(X11;&nbsp;U;&nbsp;Linux&nbsp;2.2;&nbsp;15&nbsp;i686”则可以告诉对方你是一台PC上跑着的Linux，用的是Netscape&nbsp;4.73，呵呵呵<br><br><br>7）<br>另外一个服务器端常用的限制方法，就是检查http访问的referer。比如你先访问首页，再访问里面所指定的下载页，这第二次访问的referer地址就是第一次访问成功后的页面地址。这样，服务器端只要发现对下载页面某次访问的referer地址不&nbsp;是首页的地址，就可以断定那是个盗连了</del><del>~<br><br>讨厌讨厌</del>~我就是要盗连<del>~</del>！！<br>幸好curl给我们提供了设定referer的option：&nbsp;-e<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-e&nbsp;”mail.yahoo.com”&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，就可以骗对方的服务器，你是从mail.yahoo.com点击某个链接过来的了，呵呵呵<br><br><br>8）<br>写着写着发现漏掉什么重要的东西了！—–&nbsp;利用curl&nbsp;下载文件<br><br>刚才讲过了，下载页面到一个文件里，可以使用&nbsp;-o&nbsp;，下载文件也是一样。<br>比如，&nbsp;curl&nbsp;-o&nbsp;1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这里教大家一个新的option：&nbsp;-O<br>大写的O，这么用：&nbsp;curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这样，就可以按照服务器上的文件名，自动存在本地了！<br><br>再来一个更好用的。<br>如果screen1.JPG以外还有screen2.JPG、screen3.JPG、….、screen10.JPG需要下载，难不成还要让我们写一个script来完成这些操作？<br>不干！<br>在curl里面，这么写就可以了：<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG</a><br><br>呵呵呵，厉害吧？！<del>~<br><br>9）<br>再来，我们继续讲解下载！<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>这样产生的下载，就是<br>~zzh/001.JPG<br>~zzh/002.JPG<br>…<br>~zzh/201.JPG<br>~nick/001.JPG<br>~nick/002.JPG<br>…<br>~nick/201.JPG<br><br>够方便的了吧？哈哈哈<br><br>咦？高兴得太早了。<br>由于zzh/nick下的文件名都是001，002…，201，下载下来的文件重名，后面的把前面的文件都给覆盖掉了</del>~<br><br>没关系，我们还有更狠的！<br>curl&nbsp;-o&nbsp;#2_#1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>–这是…..自定义文件名的下载？<br>–对头，呵呵！<br><br>#1是变量，指的是{zzh,nick}这部分，第一次取值zzh，第二次取值nick<br>#2代表的变量，则是第二段可变部分—[001-201]，取值从001逐一加到201<br>这样，自定义出来下载下来的文件名，就变成了这样：<br>原来：&nbsp;~zzh/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-zzh.JPG<br>原来：&nbsp;~nick/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-nick.JPG<br><br>这样一来，就不怕文件重名啦，呵呵<br><br><br>9）<br>继续讲下载<br>我们平时在windows平台上，flashget这样的工具可以帮我们分块并行下载，还可以断线续传。<br>curl在这些方面也不输给谁，嘿嘿<br><br>比如我们下载screen1.JPG中，突然掉线了，我们就可以这样开始续传<br>curl&nbsp;-c&nbsp;-O&nbsp;<a href="http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG</a><br><br>当然，你不要拿个flashget下载了一半的文件来糊弄我<del>~~别的下载软件的半截文件可不一定能用哦</del>~<br><br>分块下载，我们使用这个option就可以了：&nbsp;-r<br>举例说明<br>比如我们有一个<a href="http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）</a><br>我们就可以用这样的命令：<br>curl&nbsp;-r&nbsp;0-10240&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;10241-20480&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;20481-40960&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;40961-&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3<br><br>这样就可以分块下载啦。<br>不过你需要自己把这些破碎的文件合并起来<br>如果你用UNIX或苹果，用&nbsp;cat&nbsp;zhao.part*&nbsp;&gt;&nbsp;zhao.mp3就可以<br>如果用的是Windows，用copy&nbsp;/b&nbsp;来解决吧，呵呵<br><br>上面讲的都是http协议的下载，其实ftp也一样可以用。<br>用法嘛，<br>curl&nbsp;-u&nbsp;name:passwd&nbsp;ftp://ip:port/path/file<br>或者大家熟悉的<br>curl&nbsp;ftp://name:passwd@ip:port/path/file<br><br><br><br>10)<br>说完了下载，接下来自然该讲上传咯<br>上传的option是&nbsp;-T<br><br>比如我们向ftp传一个文件：&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;-u&nbsp;name:passwd&nbsp;ftp://upload_site:port/path/<br><br>当然，向http服务器上传文件也可以<br>比如&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi</a><br>注意，这时候，使用的协议是HTTP的PUT&nbsp;method<br><br>刚才说到PUT，嘿嘿，自然让老服想起来了其他几种methos还没讲呢！<br>GET和POST都不能忘哦。<br><br>http提交一个表单，比较常用的是POST模式和GET模式<br><br>GET模式什么option都不用，只需要把变量写在url里面就可以了<br>比如：<br>curl&nbsp;<a href="http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345" target="_blank" rel="external">http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345</a><br><br>而POST模式的option则是&nbsp;-d<br><br>比如，curl&nbsp;-d&nbsp;”user=nickwolfe&amp;password=12345”&nbsp;<a href="http://www.yahoo.com/login.cgi" target="_blank" rel="external">http://www.yahoo.com/login.cgi</a><br>就相当于向这个站点发出一次登陆申请<del>~</del><br><br>到底该用GET模式还是POST模式，要看对面服务器的程序设定。<br><br>一点需要注意的是，POST模式下的文件上的文件上传，比如<br>&lt;form&nbsp;method=”POST”&nbsp;enctype=”multipar/form-data”&nbsp;action=”<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt</a>;<br>&lt;input&nbsp;type=file&nbsp;name=upload&gt;<br>&lt;input&nbsp;type=submit&nbsp;name=nick&nbsp;value=”go”&gt;<br>&lt;/form&gt;<br>这样一个HTTP表单，我们要用curl进行模拟，就该是这样的语法：<br>curl&nbsp;-F&nbsp;upload=@localfile&nbsp;-F&nbsp;nick=go&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi</a><br><br>罗罗嗦嗦讲了这么多，其实curl还有很多很多技巧和用法<br>比如&nbsp;https的时候使用本地证书，就可以这样<br>curl&nbsp;-E&nbsp;localcert.pem&nbsp;<a href="https://remote_server" target="_blank" rel="external">https://remote_server</a><br><br>再比如，你还可以用curl通过dict协议去查字典<del>~</del><br>curl&nbsp;dict://dict.org/d:computer <br></p> </div>
-
-<p>文章转自：<a href="http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff" target="_blank" rel="external">http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff</a></p>
 ]]></content>
     </entry>
     
@@ -6998,12 +6998,6 @@ print total;
     </entry>
     
     <entry>
-      <title><![CDATA[黑蚂蚁——白连春]]></title>
-      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
-      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Linux中的15个‘echo’ 命令实例]]></title>
       <url>http://percychen.com/2014/10/08/2014-10-08-echodemo/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -7071,6 +7065,12 @@ print total;
 </tbody>
 </table>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[黑蚂蚁——白连春]]></title>
+      <url>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</url>
+      <content type="html"><![CDATA[<center><br><div class="bct fc05 fc11 nbw-blog ztag"><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">你不嫌我的心</p><br><p style="TEXT-INDENT: 2em">是黑的</p><br><p style="TEXT-INDENT: 2em">我就有一个爱你的</p><br><p style="TEXT-INDENT: 2em">理由</p><br><p style="TEXT-INDENT: 2em">像花朵举起春天</p><br><p style="TEXT-INDENT: 2em">像死亡举起生命</p><br><p style="TEXT-INDENT: 2em">给你我的一切</p><br><p style="TEXT-INDENT: 2em">虽然我知道我不能</p><br><p style="TEXT-INDENT: 2em">成为你的爱人</p><br><p style="TEXT-INDENT: 2em">但是我有一颗</p><br><p style="TEXT-INDENT: 2em">黑暗的心</p><br><p style="TEXT-INDENT: 2em">你要我牺牲什么</p><br><p style="TEXT-INDENT: 2em">怎么牺牲</p><br><p style="TEXT-INDENT: 2em">我都愿意</p><br><p style="TEXT-INDENT: 2em">我有使不完的力</p><br><p style="TEXT-INDENT: 2em">而且独自流浪</p><br><p style="TEXT-INDENT: 2em">重要的是</p><br><p style="TEXT-INDENT: 2em">经历了一万个不爱</p><br><p style="TEXT-INDENT: 2em">我学会了一个爱</p><br><p style="TEXT-INDENT: 2em">我就这样爱着</p><br><p style="TEXT-INDENT: 2em">穿梭在大地</p><br><p style="TEXT-INDENT: 2em">只要时间够用</p><br><p style="TEXT-INDENT: 2em">我就能抓住泥土里的</p><br><p style="TEXT-INDENT: 2em">草根</p><br><p style="TEXT-INDENT: 2em">把我</p><br><p style="TEXT-INDENT: 2em">向你举起</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">&nbsp;</p><br><p style="TEXT-INDENT: 2em">在和笋子一起吃饭的时候，突然想起了这首白连春的诗，多年前我能清楚的背下来，一遍又一遍的反复念着，走在冬天的操场上，有时候下着雨，有时候下着雪。真奇怪，那个时候，我感觉自己很接近神呢。</p><br></div></center>]]></content>
     </entry>
     
     <entry>
@@ -7649,10 +7649,144 @@ brunch find7 -j32或者 brunch find7
     </entry>
     
     <entry>
-      <title><![CDATA[sublime_text 常用快捷键]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</url>
-      <content type="html"><![CDATA[<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt"><br><tbody><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;background:white; mso-background-themecolor:background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+L</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;background:#F8eDeD;mso-background-themecolor: accent2;mso-background-themetint:25;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span style="font-family: 宋体;">选择整行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span></b><b><span style="font-family: 宋体;">按住</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span></b><b><span style="font-family: 宋体;">继续选择下行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></b></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KK</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行尾</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+K</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">删除整行</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">复制光标所在整行，插入在该行之前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+J</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">合并行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">已选择需要合并的多行时</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KU</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为大写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KL</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为小写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选词</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择下个相同的字符串</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标移动至括号内开始或结束的位置</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择括号内的内容</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择父括号</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释整行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">如已选择内容，同</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">“Ctrl+Shift+/”</span><span style="font-family: 宋体;">效果</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释已选择内容</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Space</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">自动完成</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(win</span><span style="font-family: 宋体;">与系统快捷键冲突，需修改</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Z</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Y</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">恢复撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+V</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">粘贴并自动缩进</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">其它兄弟写的，实测</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">win</span><span style="font-family: 宋体;">系统自动缩进无效</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标跳至对应的括号</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Alt+.</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">闭合当前标签</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+A</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择光标位置父标签对儿</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+[</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+]</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KT</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠属性</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K0</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开所有</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+U</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">软撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+T</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">词互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行后</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift<br>Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K<br>Backspace</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行首</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+UP</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与上行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+DOWN</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与下行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Shift+Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">去除缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">F9</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">行排序</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">a-z)</span></p><br></td><br></tr><br></tbody><br></table>
-]]></content>
+      <title><![CDATA[vim常用快捷键]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
+      <content type="html"><![CDATA[<p>###一、移动光标</p>
+<pre><code>h,j,k,l           上，下，左，右
+ctrl-e              移动页面
+ctrl-f                 上翻一页
+ctrl-b                 下翻一页
+ctrl-u                 上翻半页
+ctrl-d                 下翻半页
+w                     跳到下一个字首，按标点或单词分割
+W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
+e                     跳到下一个字尾
+E                     跳到下一个字尾，长跳
+b                     跳到上一个字
+B                     跳到上一个字，长跳
+0                     跳至行首，不管有无缩进，就是跳到第0个字符
+^                     跳至行首的第一个字符
+$                    跳至行尾
+gg                     跳至文首
+G                   调至文尾
+5gg/5G              调至第5行
+gd                     跳至当前光标所在的变量的声明处
+fx                     在当前行中找x字符，找到了就跳转至
+;                     重复上一个f命令，而不用重复的输入fx
+*                    查找光标所在处的单词，向下查找
+\#                     查找光标所在处的单词，向上查找
+</code></pre><p>###二、删除复制</p>
+<pre><code>dd                     删除光标所在行
+dw                  删除一个字(word)
+d$/D                删除到行末
+x                   删除当前字符
+X                     删除前一个字符
+yy                     复制一行
+yw                     复制一个字
+y$/Y                 复制到行末
+p                     粘贴粘贴板的内容到当前行的下面
+P                     粘贴粘贴板的内容到当前行的上面
+</code></pre><p>###三、插入模式</p>
+<pre><code>i                     从当前光标处进入插入模式
+I                     进入插入模式，并置光标于行首
+a                     追加模式，置光标于当前光标之后
+A                     追加模式，置光标于行末
+o                     在当前行之下新加一行，并进入插入模式
+O                     在当前行之上新加一行，并进入插入模式
+Esc                 退出插入模式
+</code></pre><p>###四、编辑</p>
+<pre><code>J                     将下一行和当前行连接为一行
+cc                    删除当前行并进入编辑模式
+cw                     删除当前字，并进入编辑模式
+c$                     擦除从当前位置至行末的内容，并进入编辑模式
+s                     删除当前字符并进入编辑模式
+S                     删除光标所在行并进入编辑模式
+xp                     交换当前字符和下一个字符
+u                     撤销
+ctrl+r                 重做
+~                     切换大小写，当前字符
+\&gt;&gt;                 将当前行右移一个单位
+\&lt;&lt;                  将当前行左移一个单位(一个tab符)
+\==                    自动缩进当前行
+</code></pre><p>###五、查找替换</p>
+<pre><code>/pattern             向后搜索字符串pattern
+?pattern             向前搜索字符串pattern
+&quot;\c&quot;                 忽略大小写
+&quot;\C&quot;                 大小写敏感
+n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
+N                     上一个匹配(同上)
+:%s/old/new/g          搜索整个文件，将所有的old替换为new
+:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
+</code></pre><p>###六、退出编辑器</p>
+<pre><code>:w                    将缓冲区写入文件，即保存修改
+:wq                 保存修改并退出
+:x                     保存修改并退出
+:q                     退出，如果对缓冲区进行过修改，则会提示
+:q!                 强制退出，放弃修改
+</code></pre><p>###七、多文件编辑</p>
+<pre><code>vim file1..         同时打开多个文件
+:args                   显示当前编辑文件
+:next                   切换到下个文件
+:prev                   切换到前个文件
+:next！             不保存当前编辑文件并切换到下个文件
+:prev！             不保存当前编辑文件并切换到上个文件
+:wnext              保存当前编辑文件并切换到下个文件
+:wprev              保存当前编辑文件并切换到上个文件
+:first                  定位首文件
+:last                   定位尾文件
+ctrl+^                  快速在最近打开的两个文件间切换
+:split[sp]          把当前文件水平分割
+:split file             把当前窗口水平分割, file
+:vsplit[vsp] file     当前窗口垂直分割, file
+:new file            同split file
+:close               关闭当前窗口
+:only                只显示当前窗口, 关闭所有其他的窗口
+:all                     打开所有的窗口
+:vertical all        打开所有的窗口, 垂直打开
+:qall                 对所有窗口执行：q操作
+：qall!                对所有窗口执行：q!操作
+:wall                 对所有窗口执行：w操作
+:wqall                 对所有窗口执行：wq操作
+ctrl-w h             跳转到左边的窗口
+ctrl-w j             跳转到下面的窗口
+ctrl-w k             跳转到上面的窗口
+ctrl-w l             跳转到右边的窗口
+ctrl-w t             跳转到最顶上的窗口
+ctrl-w b             跳转到最底下的窗口
+</code></pre><p>###八、多标签编辑</p>
+<pre><code>:tabedit file         在新标签中打开文件file
+:tab split file         在新标签中打开文件file
+:tabp                 切换到前一个标签
+:tabn                 切换到后一个标签
+:tabc                  关闭当前标签
+:tabo                  关闭其他标签
+gt                        到下一个tab
+gT                        到上一个tab
+0gt                   跳到第一个tab
+5gt                   跳到第五个tab
+</code></pre><p>###九、执行shell命令</p>
+<pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
+2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
+3、用“Ctrl+Z“回到shell，用fg返回编辑
+4、:!make -&gt; 直接在当前目录下运行make指令
+</code></pre><p>###十、VIM启动项</p>
+<pre><code>-o[n] 以水平分屏的方式打开多个文件
+-O[n] 以垂直分屏的方式打开多个文件
+</code></pre><p>###十一、自动排版</p>
+<pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
+</code></pre><p>###十二、如何在vim中编译程序</p>
+<pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
+编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
+</code></pre><p>###十三、buffer操作</p>
+<pre><code>1、buffer状态
+- （非活动的缓冲区）
+a （当前被激活缓冲区）
+h （隐藏的缓冲区）
+% （当前的缓冲区）
+# （交换缓冲区）
+= （只读缓冲区）
++ （已经更改的缓冲区）
+</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -7891,144 +8025,10 @@ dir/file2.cpp
     </entry>
     
     <entry>
-      <title><![CDATA[vim常用快捷键]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
-      <content type="html"><![CDATA[<p>###一、移动光标</p>
-<pre><code>h,j,k,l           上，下，左，右
-ctrl-e              移动页面
-ctrl-f                 上翻一页
-ctrl-b                 下翻一页
-ctrl-u                 上翻半页
-ctrl-d                 下翻半页
-w                     跳到下一个字首，按标点或单词分割
-W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
-e                     跳到下一个字尾
-E                     跳到下一个字尾，长跳
-b                     跳到上一个字
-B                     跳到上一个字，长跳
-0                     跳至行首，不管有无缩进，就是跳到第0个字符
-^                     跳至行首的第一个字符
-$                    跳至行尾
-gg                     跳至文首
-G                   调至文尾
-5gg/5G              调至第5行
-gd                     跳至当前光标所在的变量的声明处
-fx                     在当前行中找x字符，找到了就跳转至
-;                     重复上一个f命令，而不用重复的输入fx
-*                    查找光标所在处的单词，向下查找
-\#                     查找光标所在处的单词，向上查找
-</code></pre><p>###二、删除复制</p>
-<pre><code>dd                     删除光标所在行
-dw                  删除一个字(word)
-d$/D                删除到行末
-x                   删除当前字符
-X                     删除前一个字符
-yy                     复制一行
-yw                     复制一个字
-y$/Y                 复制到行末
-p                     粘贴粘贴板的内容到当前行的下面
-P                     粘贴粘贴板的内容到当前行的上面
-</code></pre><p>###三、插入模式</p>
-<pre><code>i                     从当前光标处进入插入模式
-I                     进入插入模式，并置光标于行首
-a                     追加模式，置光标于当前光标之后
-A                     追加模式，置光标于行末
-o                     在当前行之下新加一行，并进入插入模式
-O                     在当前行之上新加一行，并进入插入模式
-Esc                 退出插入模式
-</code></pre><p>###四、编辑</p>
-<pre><code>J                     将下一行和当前行连接为一行
-cc                    删除当前行并进入编辑模式
-cw                     删除当前字，并进入编辑模式
-c$                     擦除从当前位置至行末的内容，并进入编辑模式
-s                     删除当前字符并进入编辑模式
-S                     删除光标所在行并进入编辑模式
-xp                     交换当前字符和下一个字符
-u                     撤销
-ctrl+r                 重做
-~                     切换大小写，当前字符
-\&gt;&gt;                 将当前行右移一个单位
-\&lt;&lt;                  将当前行左移一个单位(一个tab符)
-\==                    自动缩进当前行
-</code></pre><p>###五、查找替换</p>
-<pre><code>/pattern             向后搜索字符串pattern
-?pattern             向前搜索字符串pattern
-&quot;\c&quot;                 忽略大小写
-&quot;\C&quot;                 大小写敏感
-n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
-N                     上一个匹配(同上)
-:%s/old/new/g          搜索整个文件，将所有的old替换为new
-:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
-</code></pre><p>###六、退出编辑器</p>
-<pre><code>:w                    将缓冲区写入文件，即保存修改
-:wq                 保存修改并退出
-:x                     保存修改并退出
-:q                     退出，如果对缓冲区进行过修改，则会提示
-:q!                 强制退出，放弃修改
-</code></pre><p>###七、多文件编辑</p>
-<pre><code>vim file1..         同时打开多个文件
-:args                   显示当前编辑文件
-:next                   切换到下个文件
-:prev                   切换到前个文件
-:next！             不保存当前编辑文件并切换到下个文件
-:prev！             不保存当前编辑文件并切换到上个文件
-:wnext              保存当前编辑文件并切换到下个文件
-:wprev              保存当前编辑文件并切换到上个文件
-:first                  定位首文件
-:last                   定位尾文件
-ctrl+^                  快速在最近打开的两个文件间切换
-:split[sp]          把当前文件水平分割
-:split file             把当前窗口水平分割, file
-:vsplit[vsp] file     当前窗口垂直分割, file
-:new file            同split file
-:close               关闭当前窗口
-:only                只显示当前窗口, 关闭所有其他的窗口
-:all                     打开所有的窗口
-:vertical all        打开所有的窗口, 垂直打开
-:qall                 对所有窗口执行：q操作
-：qall!                对所有窗口执行：q!操作
-:wall                 对所有窗口执行：w操作
-:wqall                 对所有窗口执行：wq操作
-ctrl-w h             跳转到左边的窗口
-ctrl-w j             跳转到下面的窗口
-ctrl-w k             跳转到上面的窗口
-ctrl-w l             跳转到右边的窗口
-ctrl-w t             跳转到最顶上的窗口
-ctrl-w b             跳转到最底下的窗口
-</code></pre><p>###八、多标签编辑</p>
-<pre><code>:tabedit file         在新标签中打开文件file
-:tab split file         在新标签中打开文件file
-:tabp                 切换到前一个标签
-:tabn                 切换到后一个标签
-:tabc                  关闭当前标签
-:tabo                  关闭其他标签
-gt                        到下一个tab
-gT                        到上一个tab
-0gt                   跳到第一个tab
-5gt                   跳到第五个tab
-</code></pre><p>###九、执行shell命令</p>
-<pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
-2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
-3、用“Ctrl+Z“回到shell，用fg返回编辑
-4、:!make -&gt; 直接在当前目录下运行make指令
-</code></pre><p>###十、VIM启动项</p>
-<pre><code>-o[n] 以水平分屏的方式打开多个文件
--O[n] 以垂直分屏的方式打开多个文件
-</code></pre><p>###十一、自动排版</p>
-<pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
-</code></pre><p>###十二、如何在vim中编译程序</p>
-<pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
-编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
-</code></pre><p>###十三、buffer操作</p>
-<pre><code>1、buffer状态
-- （非活动的缓冲区）
-a （当前被激活缓冲区）
-h （隐藏的缓冲区）
-% （当前的缓冲区）
-# （交换缓冲区）
-= （只读缓冲区）
-+ （已经更改的缓冲区）
-</code></pre>]]></content>
+      <title><![CDATA[sublime_text 常用快捷键]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</url>
+      <content type="html"><![CDATA[<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt"><br><tbody><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;background:white; mso-background-themecolor:background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+L</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;background:#F8eDeD;mso-background-themecolor: accent2;mso-background-themetint:25;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span style="font-family: 宋体;">选择整行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span></b><b><span style="font-family: 宋体;">按住</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span></b><b><span style="font-family: 宋体;">继续选择下行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></b></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KK</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行尾</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+K</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">删除整行</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">复制光标所在整行，插入在该行之前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+J</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">合并行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">已选择需要合并的多行时</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KU</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为大写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KL</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为小写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选词</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择下个相同的字符串</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标移动至括号内开始或结束的位置</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择括号内的内容</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择父括号</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释整行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">如已选择内容，同</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">“Ctrl+Shift+/”</span><span style="font-family: 宋体;">效果</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释已选择内容</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Space</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">自动完成</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(win</span><span style="font-family: 宋体;">与系统快捷键冲突，需修改</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Z</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Y</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">恢复撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+V</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">粘贴并自动缩进</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">其它兄弟写的，实测</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">win</span><span style="font-family: 宋体;">系统自动缩进无效</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标跳至对应的括号</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Alt+.</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">闭合当前标签</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+A</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择光标位置父标签对儿</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+[</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+]</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KT</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠属性</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K0</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开所有</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+U</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">软撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+T</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">词互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行后</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift<br>Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K<br>Backspace</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行首</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+UP</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与上行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+DOWN</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与下行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Shift+Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">去除缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">F9</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">行排序</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">a-z)</span></p><br></td><br></tr><br></tbody><br></table>
+]]></content>
     </entry>
     
     <entry>
@@ -8115,42 +8115,6 @@ boot&lt;/p&gt;
       <url>http://percychen.com/2014/09/04/2014-09-04-markdownedit/</url>
       <content type="html"><![CDATA[<td id="article_content"><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212700fiihhhy877i7ny1h.png" alt=""></p><br><p><a href="http://remarkableapp.net/" target="_blank" rel="external">Remarkable</a>是一个全新，免费，功能齐全的Linux发行版Markdown编辑器。它拥有许多特性，比如：在线预览，这让你的Markdown编辑变得更加容易。它是一个轻量级的编辑器，而且它还有一个简洁的用户界面(UI)。</p><br><p>下面是Remarkable的主要特性：</p><br><ul><br><li>实时预览</li><br><li>支持Github Markdown 语法</li><br><li>支持导出为PDF和HTML</li><br><li>自定义CSS</li><br><li>语法高亮</li><br><td id="article_content"><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212700fiihhhy877i7ny1h.png" alt=""></p><br><p><a href="http://remarkableapp.net/" target="_blank" rel="external">Remarkable</a>是一个全新，免费，功能齐全的Linux发行版Markdown编辑器。它拥有许多特性，比如：在线预览，这让你的Markdown编辑变得更加容易。它是一个轻量级的编辑器，而且它还有一个简洁的用户界面(UI)。</p><br><p>下面是Remarkable的主要特性：</p><br><ul><br><li>实时预览</li><br><li>支持Github Markdown 语法</li><br><li>支持导出为PDF和HTML</li><br><li>自定义CSS</li><br><li>语法高亮</li><br><li>高度可定制</li><br><li><br><p class="p1">字数实时计数</p><br></li><br><li>键盘快捷键</li><br></ul><br><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212702wus2fwm77y6uuu97.png" alt="" width="700"></p><br><p>你可以观看<a href="https://www.youtube.com/watch?v=UpjAIcXti9s" target="_blank" rel="external">这部YouTube视频</a>（请自备梯子:-]）了解Linux下的Remakable。</p><br><h3 id="toc_1">安装</h3><br><p>根据不同的Linux发行版本，Remarkable拥有许多可供使用的安装源，下面是不同Linux发行版以及它们对应的安装文件</p><br><h4 id="toc_2">Ubuntu / Linux Mint:</h4><br><ul><br><li><a href="http://remarkableapp.net/files/remarkable_0.965_all.deb" target="_blank" rel="external">Dowbnload .DEB</a></li><br></ul><br><h4 id="toc_3">Fedora:</h4><br><ul><br><li><a href="http://remarkableapp.net/files/remarkable-0.965.rpm" target="_blank" rel="external">Download .RPM</a></li><br></ul><br><h4 id="toc_4">Arch Linux (AUR):</h4><br><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">sudo yaourt </span><span class="pun">-</span><span class="pln">S remarkable</span></li></ol></pre><br><p>喜欢吗？</p><br><hr><br><p>via: <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/" target="_blank" rel="external">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a></p><br><p>作者：<a href="http://www.unixmen.com/author/seth/" target="_blank" rel="external">Enock Seth Nyamador</a> 译者：<a href="https://github.com/su-kaiyao" target="_blank" rel="external">su-kaiyao</a> 校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： unixmen</div>    <div><br>        原文： <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/" target="_blank">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Enock Seth Nyamador    </div><br><br>    <div><br>                译者： su-kaiyao    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3741-1.html" target="_blank" rel="external">http://linux.cn/article-3741-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br></td>
 </ul></td>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[双击退出程序-java代码]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</url>
-      <content type="html"><![CDATA[<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p>###直接在函数最后一个括号“}”之前黏贴一下代码即可</p>
-<pre><code>@Override
-public boolean onKeyDown(int keyCode, KeyEvent event) {
-    // TODO Auto-generated method stub
-    if(keyCode == KeyEvent.KEYCODE_BACK)
-       {  
-           exitBy2Click();      //调用双击退出函数
-       }
-    return false;
-}
-private static Boolean isExit = false;
-
-private void exitBy2Click() {
-    Timer tExit = null;
-    if (isExit == false) {
-        isExit = true; // 准备退出
-        Toast.makeText(this, &quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
-        tExit = new Timer();
-        tExit.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                isExit = false; // 取消退出
-            }
-        }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
-
-    } else {
-        finish();
-        System.exit(0);
-    }
-}
-</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -9192,6 +9156,42 @@ frameworks/base/libs/camera        -----&gt;libcamera_client.so  相机本地框
 </code></pre></li>
 </ul>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[双击退出程序-java代码]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</url>
+      <content type="html"><![CDATA[<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p>###直接在函数最后一个括号“}”之前黏贴一下代码即可</p>
+<pre><code>@Override
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+    // TODO Auto-generated method stub
+    if(keyCode == KeyEvent.KEYCODE_BACK)
+       {  
+           exitBy2Click();      //调用双击退出函数
+       }
+    return false;
+}
+private static Boolean isExit = false;
+
+private void exitBy2Click() {
+    Timer tExit = null;
+    if (isExit == false) {
+        isExit = true; // 准备退出
+        Toast.makeText(this, &quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
+        tExit = new Timer();
+        tExit.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                isExit = false; // 取消退出
+            }
+        }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+    } else {
+        finish();
+        System.exit(0);
+    }
+}
+</code></pre>]]></content>
     </entry>
     
     <entry>
