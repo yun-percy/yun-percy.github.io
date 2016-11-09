@@ -52,6 +52,39 @@
     </entry>
     
     <entry>
+      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[转:使用Python的Pexpect模块执行SSH登陆]]></title>
       <url>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</url>
       <content type="html"><![CDATA[<p><a href="http://guweigang.com/blog/2012/10/25/using-python-ssh-landing-module-performs-pexpect/" target="_blank" rel="external">原文地址</a></p>
@@ -156,36 +189,15 @@ def getwinsize():
     </entry>
     
     <entry>
-      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
-      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
-</blockquote>
-<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
-<ol>
-<li>下载所需工具</li>
-<li>卸载老版本vim</li>
-<li>下载新版</li>
-<li>编译安装</li>
-<li>下载所需工具</li>
-</ol>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
-<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
-<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
-<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
-<p>解压至 ~/downloads/vim74/</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
-</blockquote>
-<p>其中参数说明如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
+      <title><![CDATA[python mysql查询笔迹]]></title>
+      <url>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</url>
+      <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
+<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<p>更新数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+]]></content>
     </entry>
     
     <entry>
@@ -213,18 +225,6 @@ def getwinsize():
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service mysql restart</div></pre></td></tr></table></figure>
 <p>使用新的密码登陆，修改成功。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~$ mysql -uroot -pnew_pass</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[python mysql查询笔迹]]></title>
-      <url>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</url>
-      <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
-<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<p>更新数据</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -2631,19 +2631,6 @@ def getwinsize():
     </entry>
     
     <entry>
-      <title><![CDATA[shell 数组操作]]></title>
-      <url>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</url>
-      <content type="html"><![CDATA[<p>将一个字符串赋值给数组</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">str1=<span class="string">'test1 test2 test3 test4'</span></div><div class="line">array=(<span class="variable">$str1</span>)    <span class="comment">#数组赋值</span></div><div class="line">length=<span class="variable">$&#123;#array[@]&#125;</span>  <span class="comment">#数组长度</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]&#125;</span> <span class="comment">#输出数组全部元素</span></div><div class="line">array[1]=5      <span class="comment">#向数组的某个元素赋值和标c的语法一样</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:1:2&#125;</span>        <span class="comment">#输出的是array[0]和array[1]的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:2&#125;</span>      <span class="comment">#输出数组第三个元素以后的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]::2&#125;</span>     <span class="comment">#输出数组下标小于2的值</span></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$&#123;#array[3]&#125;</span>     <span class="comment">#取得元素3的长度</span></div><div class="line"><span class="built_in">unset</span> array     <span class="comment">#清除array</span></div><div class="line">array=      <span class="comment">#清空array，赋给array空值</span></div></pre></td></tr></table></figure>
-<p>###遍历数组</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<p>###利用数组切割字符串</p>
-<p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">"abd#ddd#ff"</span></div><div class="line">str2=($(<span class="built_in">echo</span> <span class="variable">$str</span>|tr <span class="string">'#'</span> <span class="string">' '</span>))</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[python的文件操作]]></title>
       <url>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</url>
       <content type="html"><![CDATA[<p>Python提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用file对象做大部分的文件操作。</p>
@@ -2818,6 +2805,19 @@ def getwinsize():
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">"foo.txt"</span>)</div><div class="line">line = f.readline()</div><div class="line"><span class="keyword">while</span> line:</div><div class="line">    <span class="keyword">print</span> line</div><div class="line">    line = f.readline()</div><div class="line">f.close()</div></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"foo.txt"</span>):</div><div class="line">    <span class="keyword">print</span> line</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[shell 数组操作]]></title>
+      <url>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</url>
+      <content type="html"><![CDATA[<p>将一个字符串赋值给数组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">str1=<span class="string">'test1 test2 test3 test4'</span></div><div class="line">array=(<span class="variable">$str1</span>)    <span class="comment">#数组赋值</span></div><div class="line">length=<span class="variable">$&#123;#array[@]&#125;</span>  <span class="comment">#数组长度</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]&#125;</span> <span class="comment">#输出数组全部元素</span></div><div class="line">array[1]=5      <span class="comment">#向数组的某个元素赋值和标c的语法一样</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:1:2&#125;</span>        <span class="comment">#输出的是array[0]和array[1]的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:2&#125;</span>      <span class="comment">#输出数组第三个元素以后的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]::2&#125;</span>     <span class="comment">#输出数组下标小于2的值</span></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$&#123;#array[3]&#125;</span>     <span class="comment">#取得元素3的长度</span></div><div class="line"><span class="built_in">unset</span> array     <span class="comment">#清除array</span></div><div class="line">array=      <span class="comment">#清空array，赋给array空值</span></div></pre></td></tr></table></figure>
+<p>###遍历数组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<p>###利用数组切割字符串</p>
+<p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">"abd#ddd#ff"</span></div><div class="line">str2=($(<span class="built_in">echo</span> <span class="variable">$str</span>|tr <span class="string">'#'</span> <span class="string">' '</span>))</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -4923,6 +4923,8 @@ IFS=$&apos;\n;:&quot;&apos;     表示分隔符为换行符，分号，冒号，
 </tr>
 </tbody>
 </table>
+<h2 id="以普通用户启动的Vim如何保存需要root权限的文件"><a href="#以普通用户启动的Vim如何保存需要root权限的文件" class="headerlink" title="以普通用户启动的Vim如何保存需要root权限的文件"></a>以普通用户启动的Vim如何保存需要root权限的文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:w !sudo tee %</div></pre></td></tr></table></figure>
+<p>输入密码即可</p>
 <h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="cscope-使用"><a href="#cscope-使用" class="headerlink" title="cscope 使用"></a>cscope 使用</h2><p>查找调用 某函数的地方（example： ui_succeed）:</p>
 <pre><code>:cs find c ui_succeed
 </code></pre><p>通常情况下，会列出第一个找到的匹配项，如果有很多个那就悲剧了，不过这个时候，你可以在控制台输入</p>
@@ -5155,6 +5157,60 @@ lrwxrwxrwx 1 root root 6 Jul 18 22:31 bashrc_slink -&gt; bashrc
     </entry>
     
     <entry>
+      <title><![CDATA[Android 阻尼回弹 ListView控件]]></title>
+      <url>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</url>
+      <content type="html"><![CDATA[<p><a href="http://my.oschina.net/helu/blog/145502" target="_blank" rel="external">原帖地址</a></p>
+<p>今天又在IOS上看到列表的”阻尼”效果，就是列表拉到表头或者表尾时，还可以继续往上或往下拉，松开手后，整个列表会弹回去</p>
+<pre>
+public class BaseListView extends ListView
+{
+    private static final int MAX_Y_OVERSCROLL_DISTANCE = 200;
+
+    private Context mContext;
+    private int mMaxYOverscrollDistance;
+
+    public BaseListView(Context context)
+    {
+        super(context);
+        mContext = context;
+        initBounceListView();
+    }
+
+    public BaseListView(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+        mContext = context;
+        initBounceListView();
+    }
+
+    public BaseListView(Context context, AttributeSet attrs, int defStyle)
+    {
+        super(context, attrs, defStyle);
+        mContext = context;
+        initBounceListView();
+    }
+
+    private void initBounceListView()
+    {
+
+        final DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
+        final float density = metrics.density;
+
+        mMaxYOverscrollDistance = (int) (density * MAX_Y_OVERSCROLL_DISTANCE);
+    }
+
+    @Override
+    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent)
+    {
+        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxYOverscrollDistance, isTouchEvent);
+    }
+
+}
+</pre>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android 变色封装类]]></title>
       <url>http://percychen.com/2015/02/06/2015-02-06-changecolotutil/</url>
       <content type="html"><![CDATA[<p>工具类的作用，将传人的bitmap转为黑色后输出bitmap，将传入TextView变色后输出</p>
@@ -5225,60 +5281,6 @@ public class ChangeColorUtil {
         tv.setTextColor(0xffffffff);
         return tv;
 
-    }
-
-}
-</pre>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android 阻尼回弹 ListView控件]]></title>
-      <url>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</url>
-      <content type="html"><![CDATA[<p><a href="http://my.oschina.net/helu/blog/145502" target="_blank" rel="external">原帖地址</a></p>
-<p>今天又在IOS上看到列表的”阻尼”效果，就是列表拉到表头或者表尾时，还可以继续往上或往下拉，松开手后，整个列表会弹回去</p>
-<pre>
-public class BaseListView extends ListView
-{
-    private static final int MAX_Y_OVERSCROLL_DISTANCE = 200;
-
-    private Context mContext;
-    private int mMaxYOverscrollDistance;
-
-    public BaseListView(Context context)
-    {
-        super(context);
-        mContext = context;
-        initBounceListView();
-    }
-
-    public BaseListView(Context context, AttributeSet attrs)
-    {
-        super(context, attrs);
-        mContext = context;
-        initBounceListView();
-    }
-
-    public BaseListView(Context context, AttributeSet attrs, int defStyle)
-    {
-        super(context, attrs, defStyle);
-        mContext = context;
-        initBounceListView();
-    }
-
-    private void initBounceListView()
-    {
-
-        final DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
-        final float density = metrics.density;
-
-        mMaxYOverscrollDistance = (int) (density * MAX_Y_OVERSCROLL_DISTANCE);
-    }
-
-    @Override
-    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent)
-    {
-        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxYOverscrollDistance, isTouchEvent);
     }
 
 }
@@ -6054,6 +6056,27 @@ cat /proc/dumchar_info
     </entry>
     
     <entry>
+      <title><![CDATA[git cola的下载和使用]]></title>
+      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
+      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
+<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
+<p>###关于git cola | ABOUT GIT COLA</p>
+<blockquote>
+<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
+</blockquote>
+<p>###安装 | HOW TO INSTALL</p>
+<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
+
+<p>###使用 | HOW TO USE</p>
+<blockquote>
+<p>git add –all (or  git add . )</p>
+<p>git cola (此步代替git commit)</p>
+<p>git push</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[广播的注册发送和接受]]></title>
       <url>http://percychen.com/2014/10/29/2014-10-29-boardcast/</url>
       <content type="html"><![CDATA[<p>###发送</p>
@@ -6075,27 +6098,6 @@ public static final String SONG_NAME = &quot;hehe&quot;;
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">1<br>2<br>3<br>4<br>5<br>6<br>7</pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">public class SongReceiver extends BroadcastReceiver{<br>public void onReceive(Context context, Intent intent) {<br>String msg=intent.getStringExtra(“name”);//接收信息<br>list_song_name=(TextView)findViewById(R.id.list_song_name);<br>list_song_name.setText(msg);<br>}<br>}</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
 
 
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git cola的下载和使用]]></title>
-      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
-      <content type="html"><![CDATA[<p>###为什么使用它 | WHY USE IT</p>
-<p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
-<p>###关于git cola | ABOUT GIT COLA</p>
-<blockquote>
-<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
-</blockquote>
-<p>###安装 | HOW TO INSTALL</p>
-<table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
-
-<p>###使用 | HOW TO USE</p>
-<blockquote>
-<p>git add –all (or  git add . )</p>
-<p>git cola (此步代替git commit)</p>
-<p>git push</p>
-</blockquote>
 ]]></content>
     </entry>
     
@@ -6428,15 +6430,6 @@ pear:90:2.3
     </entry>
     
     <entry>
-      <title><![CDATA[命令行浏览器 curl 命令详解]]></title>
-      <url>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</url>
-      <content type="html"><![CDATA[<div id="content" class="content mod-cs-content text-content clearfix"> <p>CURL&nbsp;—&nbsp;命令行浏览器<br><br>这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑<br><br>1)<br>二话不说，先从这里开始吧！<br><br>curl&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>回车之后，www.yahoo.com&nbsp;的html就稀里哗啦地显示在屏幕上了<del>~</del><br><br>2)<br>嗯，要想把读过来页面存下来，是不是要这样呢？<br>curl&nbsp;<a href="http://www.yahoo.com&nbsp;&gt;&nbsp;page.html" target="_blank" rel="external">http://www.yahoo.com&nbsp;&gt;&nbsp;page.html</a><br><br>当然可以，但不用这么麻烦的！<br>用curl的内置option就好，存下http的结果，用这个option:&nbsp;-o<br>curl&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，你就可以看到屏幕上出现一个下载页面进度指示。等进展到100%，自然就OK咯<br><br>3)<br>什么什么？！访问不到？肯定是你的proxy没有设定了。<br>使用curl的时候，用这个option可以指定http访问所使用的proxy服务器及其端口：&nbsp;-x<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br><br>4)<br>访问有些网站的时候比较讨厌，他使用cookie来记录session信息。<br>像IE/NN这样的浏览器，当然可以轻易处理cookie信息，但我们的curl呢？…..<br>我们来学习这个option:&nbsp;-D&nbsp;&lt;–&nbsp;这个是把http的response里面的cookie信息存到一个特别的文件中去<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，当页面被存到page.html的同时，cookie信息也被存到了cookie0001.txt里面了<br><br><br>5）<br>那么，下一次访问的时候，如何继续使用上次留下的cookie信息呢？要知道，很多网站都是靠监视你的cookie信息，<br>来判断你是不是不按规矩访问他们的网站的。<br>这次我们使用这个option来把上次的cookie信息追加到http&nbsp;request里面去：&nbsp;-b<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page1.html&nbsp;-D&nbsp;cookie0002.txt&nbsp;-b&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，我们就可以几乎模拟所有的IE操作，去访问网页了！<br><br><br>6）<br>稍微等等<del>~</del>我好像忘记什么了<del>~</del><br>对了！是浏览器信息<del>~~<br><br>有些讨厌的网站总要我们使用某些特定的浏览器去访问他们，有时候更过分的是，还要使用某些特定的版本</del><del><br>NND，哪里有时间为了它去找这些怪异的浏览器呢！？<br><br>好在curl给我们提供了一个有用的option，可以让我们随意指定自己这次访问所宣称的自己的浏览器信息：&nbsp;-A<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，服务器端接到访问的要求，会认为你是一个运行在Windows&nbsp;2000上的IE6.0，嘿嘿嘿，其实也许你用的是苹果机呢！<br><br>而”Mozilla/4.73&nbsp;[en]&nbsp;(X11;&nbsp;U;&nbsp;Linux&nbsp;2.2;&nbsp;15&nbsp;i686”则可以告诉对方你是一台PC上跑着的Linux，用的是Netscape&nbsp;4.73，呵呵呵<br><br><br>7）<br>另外一个服务器端常用的限制方法，就是检查http访问的referer。比如你先访问首页，再访问里面所指定的下载页，这第二次访问的referer地址就是第一次访问成功后的页面地址。这样，服务器端只要发现对下载页面某次访问的referer地址不&nbsp;是首页的地址，就可以断定那是个盗连了</del><del>~<br><br>讨厌讨厌</del>~我就是要盗连<del>~</del>！！<br>幸好curl给我们提供了设定referer的option：&nbsp;-e<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-e&nbsp;”mail.yahoo.com”&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，就可以骗对方的服务器，你是从mail.yahoo.com点击某个链接过来的了，呵呵呵<br><br><br>8）<br>写着写着发现漏掉什么重要的东西了！—–&nbsp;利用curl&nbsp;下载文件<br><br>刚才讲过了，下载页面到一个文件里，可以使用&nbsp;-o&nbsp;，下载文件也是一样。<br>比如，&nbsp;curl&nbsp;-o&nbsp;1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这里教大家一个新的option：&nbsp;-O<br>大写的O，这么用：&nbsp;curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这样，就可以按照服务器上的文件名，自动存在本地了！<br><br>再来一个更好用的。<br>如果screen1.JPG以外还有screen2.JPG、screen3.JPG、….、screen10.JPG需要下载，难不成还要让我们写一个script来完成这些操作？<br>不干！<br>在curl里面，这么写就可以了：<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG</a><br><br>呵呵呵，厉害吧？！<del>~<br><br>9）<br>再来，我们继续讲解下载！<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>这样产生的下载，就是<br>~zzh/001.JPG<br>~zzh/002.JPG<br>…<br>~zzh/201.JPG<br>~nick/001.JPG<br>~nick/002.JPG<br>…<br>~nick/201.JPG<br><br>够方便的了吧？哈哈哈<br><br>咦？高兴得太早了。<br>由于zzh/nick下的文件名都是001，002…，201，下载下来的文件重名，后面的把前面的文件都给覆盖掉了</del>~<br><br>没关系，我们还有更狠的！<br>curl&nbsp;-o&nbsp;#2_#1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>–这是…..自定义文件名的下载？<br>–对头，呵呵！<br><br>#1是变量，指的是{zzh,nick}这部分，第一次取值zzh，第二次取值nick<br>#2代表的变量，则是第二段可变部分—[001-201]，取值从001逐一加到201<br>这样，自定义出来下载下来的文件名，就变成了这样：<br>原来：&nbsp;~zzh/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-zzh.JPG<br>原来：&nbsp;~nick/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-nick.JPG<br><br>这样一来，就不怕文件重名啦，呵呵<br><br><br>9）<br>继续讲下载<br>我们平时在windows平台上，flashget这样的工具可以帮我们分块并行下载，还可以断线续传。<br>curl在这些方面也不输给谁，嘿嘿<br><br>比如我们下载screen1.JPG中，突然掉线了，我们就可以这样开始续传<br>curl&nbsp;-c&nbsp;-O&nbsp;<a href="http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG</a><br><br>当然，你不要拿个flashget下载了一半的文件来糊弄我<del>~~别的下载软件的半截文件可不一定能用哦</del>~<br><br>分块下载，我们使用这个option就可以了：&nbsp;-r<br>举例说明<br>比如我们有一个<a href="http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）</a><br>我们就可以用这样的命令：<br>curl&nbsp;-r&nbsp;0-10240&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;10241-20480&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;20481-40960&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;40961-&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3<br><br>这样就可以分块下载啦。<br>不过你需要自己把这些破碎的文件合并起来<br>如果你用UNIX或苹果，用&nbsp;cat&nbsp;zhao.part*&nbsp;&gt;&nbsp;zhao.mp3就可以<br>如果用的是Windows，用copy&nbsp;/b&nbsp;来解决吧，呵呵<br><br>上面讲的都是http协议的下载，其实ftp也一样可以用。<br>用法嘛，<br>curl&nbsp;-u&nbsp;name:passwd&nbsp;ftp://ip:port/path/file<br>或者大家熟悉的<br>curl&nbsp;ftp://name:passwd@ip:port/path/file<br><br><br><br>10)<br>说完了下载，接下来自然该讲上传咯<br>上传的option是&nbsp;-T<br><br>比如我们向ftp传一个文件：&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;-u&nbsp;name:passwd&nbsp;ftp://upload_site:port/path/<br><br>当然，向http服务器上传文件也可以<br>比如&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi</a><br>注意，这时候，使用的协议是HTTP的PUT&nbsp;method<br><br>刚才说到PUT，嘿嘿，自然让老服想起来了其他几种methos还没讲呢！<br>GET和POST都不能忘哦。<br><br>http提交一个表单，比较常用的是POST模式和GET模式<br><br>GET模式什么option都不用，只需要把变量写在url里面就可以了<br>比如：<br>curl&nbsp;<a href="http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345" target="_blank" rel="external">http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345</a><br><br>而POST模式的option则是&nbsp;-d<br><br>比如，curl&nbsp;-d&nbsp;”user=nickwolfe&amp;password=12345”&nbsp;<a href="http://www.yahoo.com/login.cgi" target="_blank" rel="external">http://www.yahoo.com/login.cgi</a><br>就相当于向这个站点发出一次登陆申请<del>~</del><br><br>到底该用GET模式还是POST模式，要看对面服务器的程序设定。<br><br>一点需要注意的是，POST模式下的文件上的文件上传，比如<br>&lt;form&nbsp;method=”POST”&nbsp;enctype=”multipar/form-data”&nbsp;action=”<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt</a>;<br>&lt;input&nbsp;type=file&nbsp;name=upload&gt;<br>&lt;input&nbsp;type=submit&nbsp;name=nick&nbsp;value=”go”&gt;<br>&lt;/form&gt;<br>这样一个HTTP表单，我们要用curl进行模拟，就该是这样的语法：<br>curl&nbsp;-F&nbsp;upload=@localfile&nbsp;-F&nbsp;nick=go&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi</a><br><br>罗罗嗦嗦讲了这么多，其实curl还有很多很多技巧和用法<br>比如&nbsp;https的时候使用本地证书，就可以这样<br>curl&nbsp;-E&nbsp;localcert.pem&nbsp;<a href="https://remote_server" target="_blank" rel="external">https://remote_server</a><br><br>再比如，你还可以用curl通过dict协议去查字典<del>~</del><br>curl&nbsp;dict://dict.org/d:computer <br></p> </div>
-
-<p>文章转自：<a href="http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff" target="_blank" rel="external">http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[代码布局的一些零碎语法]]></title>
       <url>http://percychen.com/2014/10/18/2014-10-18-codelayout/</url>
       <content type="html"><![CDATA[<p>###前言</p>
@@ -6459,6 +6452,15 @@ mlocation.setText(mlocation1);
 </code></pre><p>###给文字设置阴影值：</p>
 <pre><code>mlocation.setShadowLayer(10, 1, 1, 0xff000000);//（模糊度（半径），阴影x方向位移，阴影y方向位移，阴影颜色）
 </code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[命令行浏览器 curl 命令详解]]></title>
+      <url>http://percychen.com/2014/10/18/2014-10-18-curlcommand/</url>
+      <content type="html"><![CDATA[<div id="content" class="content mod-cs-content text-content clearfix"> <p>CURL&nbsp;—&nbsp;命令行浏览器<br><br>这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑<br><br>1)<br>二话不说，先从这里开始吧！<br><br>curl&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>回车之后，www.yahoo.com&nbsp;的html就稀里哗啦地显示在屏幕上了<del>~</del><br><br>2)<br>嗯，要想把读过来页面存下来，是不是要这样呢？<br>curl&nbsp;<a href="http://www.yahoo.com&nbsp;&gt;&nbsp;page.html" target="_blank" rel="external">http://www.yahoo.com&nbsp;&gt;&nbsp;page.html</a><br><br>当然可以，但不用这么麻烦的！<br>用curl的内置option就好，存下http的结果，用这个option:&nbsp;-o<br>curl&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，你就可以看到屏幕上出现一个下载页面进度指示。等进展到100%，自然就OK咯<br><br>3)<br>什么什么？！访问不到？肯定是你的proxy没有设定了。<br>使用curl的时候，用这个option可以指定http访问所使用的proxy服务器及其端口：&nbsp;-x<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br><br>4)<br>访问有些网站的时候比较讨厌，他使用cookie来记录session信息。<br>像IE/NN这样的浏览器，当然可以轻易处理cookie信息，但我们的curl呢？…..<br>我们来学习这个option:&nbsp;-D&nbsp;&lt;–&nbsp;这个是把http的response里面的cookie信息存到一个特别的文件中去<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，当页面被存到page.html的同时，cookie信息也被存到了cookie0001.txt里面了<br><br><br>5）<br>那么，下一次访问的时候，如何继续使用上次留下的cookie信息呢？要知道，很多网站都是靠监视你的cookie信息，<br>来判断你是不是不按规矩访问他们的网站的。<br>这次我们使用这个option来把上次的cookie信息追加到http&nbsp;request里面去：&nbsp;-b<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page1.html&nbsp;-D&nbsp;cookie0002.txt&nbsp;-b&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，我们就可以几乎模拟所有的IE操作，去访问网页了！<br><br><br>6）<br>稍微等等<del>~</del>我好像忘记什么了<del>~</del><br>对了！是浏览器信息<del>~~<br><br>有些讨厌的网站总要我们使用某些特定的浏览器去访问他们，有时候更过分的是，还要使用某些特定的版本</del><del><br>NND，哪里有时间为了它去找这些怪异的浏览器呢！？<br><br>好在curl给我们提供了一个有用的option，可以让我们随意指定自己这次访问所宣称的自己的浏览器信息：&nbsp;-A<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，服务器端接到访问的要求，会认为你是一个运行在Windows&nbsp;2000上的IE6.0，嘿嘿嘿，其实也许你用的是苹果机呢！<br><br>而”Mozilla/4.73&nbsp;[en]&nbsp;(X11;&nbsp;U;&nbsp;Linux&nbsp;2.2;&nbsp;15&nbsp;i686”则可以告诉对方你是一台PC上跑着的Linux，用的是Netscape&nbsp;4.73，呵呵呵<br><br><br>7）<br>另外一个服务器端常用的限制方法，就是检查http访问的referer。比如你先访问首页，再访问里面所指定的下载页，这第二次访问的referer地址就是第一次访问成功后的页面地址。这样，服务器端只要发现对下载页面某次访问的referer地址不&nbsp;是首页的地址，就可以断定那是个盗连了</del><del>~<br><br>讨厌讨厌</del>~我就是要盗连<del>~</del>！！<br>幸好curl给我们提供了设定referer的option：&nbsp;-e<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-e&nbsp;”mail.yahoo.com”&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，就可以骗对方的服务器，你是从mail.yahoo.com点击某个链接过来的了，呵呵呵<br><br><br>8）<br>写着写着发现漏掉什么重要的东西了！—–&nbsp;利用curl&nbsp;下载文件<br><br>刚才讲过了，下载页面到一个文件里，可以使用&nbsp;-o&nbsp;，下载文件也是一样。<br>比如，&nbsp;curl&nbsp;-o&nbsp;1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这里教大家一个新的option：&nbsp;-O<br>大写的O，这么用：&nbsp;curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这样，就可以按照服务器上的文件名，自动存在本地了！<br><br>再来一个更好用的。<br>如果screen1.JPG以外还有screen2.JPG、screen3.JPG、….、screen10.JPG需要下载，难不成还要让我们写一个script来完成这些操作？<br>不干！<br>在curl里面，这么写就可以了：<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG</a><br><br>呵呵呵，厉害吧？！<del>~<br><br>9）<br>再来，我们继续讲解下载！<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>这样产生的下载，就是<br>~zzh/001.JPG<br>~zzh/002.JPG<br>…<br>~zzh/201.JPG<br>~nick/001.JPG<br>~nick/002.JPG<br>…<br>~nick/201.JPG<br><br>够方便的了吧？哈哈哈<br><br>咦？高兴得太早了。<br>由于zzh/nick下的文件名都是001，002…，201，下载下来的文件重名，后面的把前面的文件都给覆盖掉了</del>~<br><br>没关系，我们还有更狠的！<br>curl&nbsp;-o&nbsp;#2_#1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>–这是…..自定义文件名的下载？<br>–对头，呵呵！<br><br>#1是变量，指的是{zzh,nick}这部分，第一次取值zzh，第二次取值nick<br>#2代表的变量，则是第二段可变部分—[001-201]，取值从001逐一加到201<br>这样，自定义出来下载下来的文件名，就变成了这样：<br>原来：&nbsp;~zzh/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-zzh.JPG<br>原来：&nbsp;~nick/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-nick.JPG<br><br>这样一来，就不怕文件重名啦，呵呵<br><br><br>9）<br>继续讲下载<br>我们平时在windows平台上，flashget这样的工具可以帮我们分块并行下载，还可以断线续传。<br>curl在这些方面也不输给谁，嘿嘿<br><br>比如我们下载screen1.JPG中，突然掉线了，我们就可以这样开始续传<br>curl&nbsp;-c&nbsp;-O&nbsp;<a href="http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG</a><br><br>当然，你不要拿个flashget下载了一半的文件来糊弄我<del>~~别的下载软件的半截文件可不一定能用哦</del>~<br><br>分块下载，我们使用这个option就可以了：&nbsp;-r<br>举例说明<br>比如我们有一个<a href="http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）</a><br>我们就可以用这样的命令：<br>curl&nbsp;-r&nbsp;0-10240&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;10241-20480&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;20481-40960&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;40961-&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3<br><br>这样就可以分块下载啦。<br>不过你需要自己把这些破碎的文件合并起来<br>如果你用UNIX或苹果，用&nbsp;cat&nbsp;zhao.part*&nbsp;&gt;&nbsp;zhao.mp3就可以<br>如果用的是Windows，用copy&nbsp;/b&nbsp;来解决吧，呵呵<br><br>上面讲的都是http协议的下载，其实ftp也一样可以用。<br>用法嘛，<br>curl&nbsp;-u&nbsp;name:passwd&nbsp;ftp://ip:port/path/file<br>或者大家熟悉的<br>curl&nbsp;ftp://name:passwd@ip:port/path/file<br><br><br><br>10)<br>说完了下载，接下来自然该讲上传咯<br>上传的option是&nbsp;-T<br><br>比如我们向ftp传一个文件：&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;-u&nbsp;name:passwd&nbsp;ftp://upload_site:port/path/<br><br>当然，向http服务器上传文件也可以<br>比如&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi</a><br>注意，这时候，使用的协议是HTTP的PUT&nbsp;method<br><br>刚才说到PUT，嘿嘿，自然让老服想起来了其他几种methos还没讲呢！<br>GET和POST都不能忘哦。<br><br>http提交一个表单，比较常用的是POST模式和GET模式<br><br>GET模式什么option都不用，只需要把变量写在url里面就可以了<br>比如：<br>curl&nbsp;<a href="http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345" target="_blank" rel="external">http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345</a><br><br>而POST模式的option则是&nbsp;-d<br><br>比如，curl&nbsp;-d&nbsp;”user=nickwolfe&amp;password=12345”&nbsp;<a href="http://www.yahoo.com/login.cgi" target="_blank" rel="external">http://www.yahoo.com/login.cgi</a><br>就相当于向这个站点发出一次登陆申请<del>~</del><br><br>到底该用GET模式还是POST模式，要看对面服务器的程序设定。<br><br>一点需要注意的是，POST模式下的文件上的文件上传，比如<br>&lt;form&nbsp;method=”POST”&nbsp;enctype=”multipar/form-data”&nbsp;action=”<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt</a>;<br>&lt;input&nbsp;type=file&nbsp;name=upload&gt;<br>&lt;input&nbsp;type=submit&nbsp;name=nick&nbsp;value=”go”&gt;<br>&lt;/form&gt;<br>这样一个HTTP表单，我们要用curl进行模拟，就该是这样的语法：<br>curl&nbsp;-F&nbsp;upload=@localfile&nbsp;-F&nbsp;nick=go&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi</a><br><br>罗罗嗦嗦讲了这么多，其实curl还有很多很多技巧和用法<br>比如&nbsp;https的时候使用本地证书，就可以这样<br>curl&nbsp;-E&nbsp;localcert.pem&nbsp;<a href="https://remote_server" target="_blank" rel="external">https://remote_server</a><br><br>再比如，你还可以用curl通过dict协议去查字典<del>~</del><br>curl&nbsp;dict://dict.org/d:computer <br></p> </div>
+
+<p>文章转自：<a href="http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff" target="_blank" rel="external">http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff</a></p>
+]]></content>
     </entry>
     
     <entry>
@@ -6634,76 +6636,6 @@ fi
    sleep 3
 done
 </code></pre><p>说明：　如果上一步执行出粗，那么休眠３秒</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Linux中的15个‘echo’ 命令实例]]></title>
-      <url>http://percychen.com/2014/10/08/2014-10-08-echodemo/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>echo是一种最常用的与广泛使用的内置于Linux的bash和C shell的命令，通常用在脚本语言和批处理文件中来在标准输出或者文件中显示一行文本或者字符串。</p>
-</blockquote>
-<p><img src="http://img.linux.net.cn/data/attachment/album/201410/03/210844zi1h0ni0ij10tkdi.gif" alt="imags"></p>
-<p>echo -e 处理特殊字符</p>
-<p>若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字输出：</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>注释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\a</td>
-<td>发出警告声；</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>删除前一个字符；</td>
-</tr>
-<tr>
-<td>\c</td>
-<td>最后不加上换行符号；</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>换行但光标仍旧停留在原来的位置；</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>换行且光标移至行首；</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>光标移至行首，但不换行；</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>插入tab；</td>
-</tr>
-<tr>
-<td>\v</td>
-<td>与\f相同；</td>
-</tr>
-<tr>
-<td>\\</td>
-<td>插入\字符；</td>
-</tr>
-<tr>
-<td>\nnn</td>
-<td>插入nnn（八进制）所代表的ASCII字符；</td>
-</tr>
-<tr>
-<td>-e</td>
-<td>选项，允许在脚本中添加 \t 和 \n 分隔符</td>
-</tr>
-<tr>
-<td>-en</td>
-<td>等待用户输入，光标一闪一闪</td>
-</tr>
-</tbody>
-</table>
 ]]></content>
     </entry>
     
@@ -7072,9 +7004,72 @@ print total;
     </entry>
     
     <entry>
-      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
-      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
-      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
+      <title><![CDATA[Linux中的15个‘echo’ 命令实例]]></title>
+      <url>http://percychen.com/2014/10/08/2014-10-08-echodemo/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>echo是一种最常用的与广泛使用的内置于Linux的bash和C shell的命令，通常用在脚本语言和批处理文件中来在标准输出或者文件中显示一行文本或者字符串。</p>
+</blockquote>
+<p><img src="http://img.linux.net.cn/data/attachment/album/201410/03/210844zi1h0ni0ij10tkdi.gif" alt="imags"></p>
+<p>echo -e 处理特殊字符</p>
+<p>若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字输出：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\a</td>
+<td>发出警告声；</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>删除前一个字符；</td>
+</tr>
+<tr>
+<td>\c</td>
+<td>最后不加上换行符号；</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换行但光标仍旧停留在原来的位置；</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行且光标移至行首；</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>光标移至行首，但不换行；</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>插入tab；</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>与\f相同；</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>插入\字符；</td>
+</tr>
+<tr>
+<td>\nnn</td>
+<td>插入nnn（八进制）所代表的ASCII字符；</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>选项，允许在脚本中添加 \t 和 \n 分隔符</td>
+</tr>
+<tr>
+<td>-en</td>
+<td>等待用户输入，光标一闪一闪</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     </entry>
     
@@ -7273,6 +7268,13 @@ return-void
 <li><p>com/android/systemui/recent/ 下存放 FastBlur.smail</p>
 </li>
 </ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
+      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
+      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
 ]]></content>
     </entry>
     
@@ -7654,28 +7656,6 @@ brunch find7 -j32或者 brunch find7
     </entry>
     
     <entry>
-      <title><![CDATA[Android ROM大神的友情链接]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-romerlinks/</url>
-      <content type="html"><![CDATA[<p>###Ruling 爆乳</p>
-<p><a href="http://www.1024team.com" target="_blank" rel="external">网址：http://www.1024team.com/</a><br><a href="http://weibo.com/rulingghost" target="_blank" rel="external">微博：http://weibo.com/rulingghost</a></p>
-<p>###apktools 晴天</p>
-<p><a href="http://www.apktools.com/" target="_blank" rel="external">网址：http://www.apktools.com/</a><br><a href="http://weibo.com/timesunday" target="_blank" rel="external">微博：http://weibo.com/timesunday</a></p>
-<p>###Cofface</p>
-<p><a href="http://www.cofface.com/" target="_blank" rel="external">网址：http://www.cofface.com/</a><br><a href="http://weibo.com/cofface" target="_blank" rel="external">微博：http://weibo.com/cofface</a></p>
-<p>###大侠阿木</p>
-<p><a href="http://www.daxiaamu.com" target="_blank" rel="external">网址：http://www.daxiaamu.com</a></p>
-<p>###明月浩空</p>
-<p><a href="http://limh.me" target="_blank" rel="external">网址：http://limh.me</a><br><a href="http://weibo.com/u/3496187780" target="_blank" rel="external">微博：http://weibo.com/u/3496187780</a></p>
-<p>###杨万荣</p>
-<p><a href="http://sndnvaps.github.io" target="_blank" rel="external">网址：http://sndnvaps.github.io</a><br><a href="http://weibo.com/210124187" target="_blank" rel="external">微博：http://weibo.com/210124187</a></p>
-<p>###格诺</p>
-<p><a href="http://iamgeno.com/" target="_blank" rel="external">网址：http://iamgeno.com/</a><br><a href="http://weibo.com/geno" target="_blank" rel="external">微博：http://weibo.com/geno</a></p>
-<p>###秋叶随风</p>
-<p><a href="http://www.3rdos.com" target="_blank" rel="external">网址：http://www.3rdos.com</a><br><a href="http://weibo.com/hqiwu" target="_blank" rel="external">微博：http://weibo.com/hqiwu</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[一些常用的shell 语句片段]]></title>
       <url>http://percychen.com/2014/09/11/2014-09-11-shellcode/</url>
       <content type="html"><![CDATA[<h2 id="失败重复执行"><a href="#失败重复执行" class="headerlink" title="失败重复执行"></a>失败重复执行</h2><p>####语法</p>
@@ -7704,6 +7684,28 @@ elif [[ $# -eq 3 ]]; then
 else echo please input 2 or 3 para
 fi
 </code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android ROM大神的友情链接]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-romerlinks/</url>
+      <content type="html"><![CDATA[<p>###Ruling 爆乳</p>
+<p><a href="http://www.1024team.com" target="_blank" rel="external">网址：http://www.1024team.com/</a><br><a href="http://weibo.com/rulingghost" target="_blank" rel="external">微博：http://weibo.com/rulingghost</a></p>
+<p>###apktools 晴天</p>
+<p><a href="http://www.apktools.com/" target="_blank" rel="external">网址：http://www.apktools.com/</a><br><a href="http://weibo.com/timesunday" target="_blank" rel="external">微博：http://weibo.com/timesunday</a></p>
+<p>###Cofface</p>
+<p><a href="http://www.cofface.com/" target="_blank" rel="external">网址：http://www.cofface.com/</a><br><a href="http://weibo.com/cofface" target="_blank" rel="external">微博：http://weibo.com/cofface</a></p>
+<p>###大侠阿木</p>
+<p><a href="http://www.daxiaamu.com" target="_blank" rel="external">网址：http://www.daxiaamu.com</a></p>
+<p>###明月浩空</p>
+<p><a href="http://limh.me" target="_blank" rel="external">网址：http://limh.me</a><br><a href="http://weibo.com/u/3496187780" target="_blank" rel="external">微博：http://weibo.com/u/3496187780</a></p>
+<p>###杨万荣</p>
+<p><a href="http://sndnvaps.github.io" target="_blank" rel="external">网址：http://sndnvaps.github.io</a><br><a href="http://weibo.com/210124187" target="_blank" rel="external">微博：http://weibo.com/210124187</a></p>
+<p>###格诺</p>
+<p><a href="http://iamgeno.com/" target="_blank" rel="external">网址：http://iamgeno.com/</a><br><a href="http://weibo.com/geno" target="_blank" rel="external">微博：http://weibo.com/geno</a></p>
+<p>###秋叶随风</p>
+<p><a href="http://www.3rdos.com" target="_blank" rel="external">网址：http://www.3rdos.com</a><br><a href="http://weibo.com/hqiwu" target="_blank" rel="external">微博：http://weibo.com/hqiwu</a></p>
+]]></content>
     </entry>
     
     <entry>
@@ -8030,20 +8032,6 @@ h （隐藏的缓冲区）
     </entry>
     
     <entry>
-      <title><![CDATA[便签的发布！]]></title>
-      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
-      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
-<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
-<p>更新说明</p>
-<blockquote>
-<p>2014年9月10日增加长微博功能</p>
-</blockquote>
-<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
-<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[专业设计师最常用的中文字体]]></title>
       <url>http://percychen.com/2014/09/10/2014-09-10-somefonts/</url>
       <content type="html"><![CDATA[<p>原文地址：<a href="http://www.80ue.com/chinese-fonts-for-designer/" target="_blank" rel="external">http://www.80ue.com/chinese-fonts-for-designer/</a></p>
@@ -8062,6 +8050,20 @@ h （隐藏的缓冲区）
 
 &lt;/div&gt;
 </code></pre></div>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[便签的发布！]]></title>
+      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
+      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
+<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
+<p>更新说明</p>
+<blockquote>
+<p>2014年9月10日增加长微博功能</p>
+</blockquote>
+<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
+<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
+]]></content>
     </entry>
     
     <entry>
