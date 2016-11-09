@@ -10,12 +10,12 @@
 
 {% if theme.copyright %}
 <div class="powered-by">
-  {{ __('footer.powered', '<a class="theme-link" href="https://percychen.com">percy</a>') }}
+  {{ __('footer.powered', '<a class="theme-link" href="http://percychen.com/about/">percy</a>') }}
 </div>
 
 <div class="theme-info">
   {{ __('footer.theme') }} -
-  <a class="theme-link" href="http://percychen.com">
+  <a class="theme-link" href="http://percychen.com/about/">
     percy先生
   </a>
 </div>
