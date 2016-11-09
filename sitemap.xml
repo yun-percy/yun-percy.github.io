@@ -212,14 +212,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</loc>
+    <loc>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</loc>
     
     <lastmod>2016-01-08T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</loc>
+    <loc>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</loc>
     
     <lastmod>2016-01-08T05:14:00.000Z</lastmod>
     
@@ -660,13 +660,6 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/</loc>
-    
-    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://percychen.com/2014/10/08/2014-10-08-echodemo/</loc>
     
     <lastmod>2014-10-08T05:14:00.000Z</lastmod>
@@ -675,6 +668,13 @@
   
   <url>
     <loc>http://percychen.com/2014/10/08/2014-10-08-blackantpoem/</loc>
+    
+    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/</loc>
     
     <lastmod>2014-10-08T05:14:00.000Z</lastmod>
     
@@ -751,6 +751,13 @@
   </url>
   
   <url>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
+    
+    <lastmod>2014-09-11T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://percychen.com/2014/09/11/2014-09-11-shellcode/</loc>
     
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
@@ -759,13 +766,6 @@
   
   <url>
     <loc>http://percychen.com/2014/09/11/2014-09-11-romerlinks/</loc>
-    
-    <lastmod>2014-09-11T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
     
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
     
@@ -821,7 +821,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-androidplantso/</loc>
     
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     
@@ -842,21 +842,21 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-androidplantso/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
     
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</loc>
+    <loc>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</loc>
     
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</loc>
+    <loc>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</loc>
     
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
     

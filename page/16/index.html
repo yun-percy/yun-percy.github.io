@@ -295,8 +295,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/08/07/2014-08-07-powersavecode/" itemprop="url">
-                  省电模式部分代码
+                <a class="post-title-link" href="/2014/08/07/2014-08-07-androidactivity/" itemprop="url">
+                  android 外部启动activity，自定义action，action常量大全
                 </a>
               
             
@@ -339,8 +339,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2014/08/07/2014-08-07-powersavecode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-powersavecode/" itemprop="commentsCount"></span>
+                <a href="/2014/08/07/2014-08-07-androidactivity/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-androidactivity/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,7 +350,7 @@
 
           
           
-             <span id="/2014/08/07/2014-08-07-powersavecode/" class="leancloud_visitors" data-flag-title="省电模式部分代码">
+             <span id="/2014/08/07/2014-08-07-androidactivity/" class="leancloud_visitors" data-flag-title="android 外部启动activity，自定义action，action常量大全">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -374,15 +374,16 @@
       
         
           
-          ####这是我写的一个电量管理的一些代码
-以下皆在android 4.3 平台上测试通过
+          转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/
+###从任意app，启动另外一个app的activity：
 
-将 休眠时间调制 15秒：
-Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TI
+第一种方式
+Intent i = new Intent();
+ ComponentName cn =
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/08/07/2014-08-07-powersavecode/#more" rel="contents">
+            <a class="btn" href="/2014/08/07/2014-08-07-androidactivity/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
