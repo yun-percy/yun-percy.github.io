@@ -4,20 +4,730 @@
   
     
     <entry>
-      <title><![CDATA[Ant笔记]]></title>
-      <url>http://percychen.com/2016/11/09/antnote/</url>
-      <content type="html"><![CDATA[<h2 id="condition"><a href="#condition" class="headerlink" title="condition"></a>condition</h2><h3 id="1-istrue-isfalse-断言-真-假"><a href="#1-istrue-isfalse-断言-真-假" class="headerlink" title="1. istrue isfalse:断言 真 假"></a>1. istrue isfalse:断言 真 假</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><h4 id="2-1、not-逻辑非"><a href="#2-1、not-逻辑非" class="headerlink" title="2.1、not 逻辑非"></a>2.1、not 逻辑非</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜not&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">not</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="2-2、and-逻辑与"><a href="#2-2、and-逻辑与" class="headerlink" title="2.2、and 逻辑与"></a>2.2、and 逻辑与</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜and&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">and</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>2.3、or 逻辑或 xor异或 (语法上与and类似)</p>
+      <title><![CDATA[金刚经]]></title>
+      <url>http://percychen.com/2016/11/10/jingangjing/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>金刚经 - 王菲<br>词：鸠摩罗什<br>曲：王菲<br>编曲：王菲</p>
 </blockquote>
-<h3 id="3、available-是否可用"><a href="#3、available-是否可用" class="headerlink" title="3、available 是否可用"></a>3、available 是否可用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"all.test.classes"</span>&gt;</span>         </div><div class="line">         <span class="tag">&lt;<span class="name">pathelement</span> <span class="attr">location</span>=<span class="string">"bin"</span>/&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--在指定的classpath路径下是否存在资源 TestTest.class--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">available</span> <span class="attr">resource</span>=<span class="string">"TestTest.class"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">classpath</span> <span class="attr">refid</span>=<span class="string">"all.test.classes"</span> /&gt;</span>        </div><div class="line">            <span class="tag">&lt;/<span class="name">available</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="4、isset-指定属性是否存在"><a href="#4、isset-指定属性是否存在" class="headerlink" title="4、isset 指定属性是否存在"></a>4、isset 指定属性是否存在</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果属性name不存在则返回false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">isset</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="5、equals-是否相等"><a href="#5、equals-是否相等" class="headerlink" title="5、equals 是否相等"></a>5、equals 是否相等</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果arg1的值与arg2的值相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">equals</span> <span class="attr">arg1</span>=<span class="string">"$&#123;name&#125;"</span> <span class="attr">arg2</span>=<span class="string">"this is name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="6、filesmatch-比较文件"><a href="#6、filesmatch-比较文件" class="headerlink" title="6、filesmatch 比较文件"></a>6、filesmatch 比较文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果file1所代表的文件与file2所代表的文件相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filesmatch</span> <span class="attr">file1</span>=<span class="string">"testfile1.txt"</span> <span class="attr">file2</span>=<span class="string">"testfile2.txt"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><h3 id="系统自带时间"><a href="#系统自带时间" class="headerlink" title="系统自带时间"></a>系统自带时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!--以下的几个属性是系统自带的,初始了tstamp之后,它们就有值了--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"System:"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"DSTAMP = $&#123;DSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TSTAMP = $&#123;TSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TODAY = $&#123;TODAY&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="自定义时间"><a href="#自定义时间" class="headerlink" title="自定义时间"></a>自定义时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span> <span class="attr">prefix</span>=<span class="string">"my"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"day"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"time"</span> <span class="attr">pattern</span>=<span class="string">"HH:mm:ss"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"dt"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd HH:mm:ss.SSS"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">tstamp</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"show"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"default"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"-------------------------------------"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"Mine:"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.time = $&#123;my.time&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.day = $&#123;my.day&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.dt = $&#123;my.dt&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+<p>南无本师释迦牟尼佛</p>
+<p>南无本师释迦牟尼佛</p>
+<p>南无本师释迦牟尼佛</p>
+<p>开经偈</p>
+<p>无上甚深微妙法</p>
+<p>百千万劫难遭遇</p>
+<p>我今见闻得受持</p>
+<p>愿解如来真实义</p>
+<p>金刚般若波罗蜜经</p>
+<p>姚秦三藏法师鸠摩罗什译</p>
+<p>法会因由分第一</p>
+<p>如是我闻</p>
+<p>一时佛在舍卫国</p>
+<p>其树给孤独园</p>
+<p>与大比丘众</p>
+<p>千二百五十人俱</p>
+<p>尔时世尊 食时</p>
+<p>著衣持钵</p>
+<p>入舍卫大城乞食</p>
+<p>于其城中 次第乞已</p>
+<p>还至本处</p>
+<p>饭食讫 收衣钵</p>
+<p>洗足已 敷座而坐</p>
+<p>善现启请分第二</p>
+<p>时长老须菩提<br>在大众中 即从座起</p>
+<p>偏袒右肩 右膝著地</p>
+<p>合掌恭敬 而白佛言</p>
+<p>希有世尊</p>
+<p>如来善护念诸菩萨</p>
+<p>善付嘱诸菩萨</p>
+<p>世尊<br>善男子 善女人</p>
+<p>发阿耨多罗三藐三菩提心</p>
+<p>应云何住</p>
+<p>云何降伏其心</p>
+<p>佛言 善哉善哉</p>
+<p>须菩提</p>
+<p>如汝所说</p>
+<p>如来善护念诸菩萨</p>
+<p>善付嘱诸菩萨</p>
+<p>汝今谛听 当为汝说</p>
+<p>善男子 善女人</p>
+<p>发阿耨多罗三藐三菩提心</p>
+<p>应如是住</p>
+<p>如是降伏其心</p>
+<p>唯然 世尊</p>
+<p>愿乐欲闻</p>
+<p>大乘正宗分第三</p>
+<p>佛告须菩提</p>
+<p>诸菩萨摩诃萨</p>
+<p>应如是降伏其心</p>
+<p>所有一切众生之类</p>
+<p>若卵生 若胎生</p>
+<p>若湿生 若化生</p>
+<p>若有色 若无色</p>
+<p>若有想 若无想</p>
+<p>若非有想 非无想</p>
+<p>我皆令入无余涅盘而灭度之</p>
+<p>如是灭度无量无数无边众生</p>
+<p>实无众生得灭度者</p>
+<p>何以故 须菩提</p>
+<p>若菩萨有我相 人相<br>众生相 寿者相</p>
+<p>即非菩萨</p>
+<p>妙行无住分第四</p>
+<p>复次 须菩提</p>
+<p>菩萨于法<br>应无所住 行于布施</p>
+<p>所谓不住色布施</p>
+<p>不住声香味触法布施</p>
+<p>须菩提</p>
+<p>菩萨应如是布施</p>
+<p>不住于相 何以故</p>
+<p>若菩萨不住相布施</p>
+<p>其福德不可思量</p>
+<p>须菩提 于意云何</p>
+<p>东方虚空 可思量不</p>
+<p>不也 世尊</p>
+<p>须菩提 南西北方<br>四维上下虚空<br>可思量不</p>
+<p>不也 世尊</p>
+<p>须菩提</p>
+<p>菩萨无住相布施</p>
+<p>福德亦复如是<br>不可思量</p>
+<p>须菩提</p>
+<p>菩萨但应如所教住</p>
+<p>如理实见分第五</p>
+<p>须菩提 于意云何</p>
+<p>可以身相见如来不</p>
+<p>不也 世尊<br>不可以身相得见如来</p>
+<p>何以故 如来所说身相</p>
+<p>即非身相</p>
+<p>佛告须菩提</p>
+<p>凡所有相 皆是虚妄</p>
+<p>若见诸相非相</p>
+<p>则见如来</p>
+<p>正信希有分第六</p>
+<p>须菩提白佛言</p>
+<p>世尊 颇有众生</p>
+<p>得闻如是言说章句</p>
+<p>生实信不</p>
+<p>佛告须菩提</p>
+<p>莫作是说</p>
+<p>如来灭后 后五百岁</p>
+<p>有持戒修福者</p>
+<p>于此章句 能生信心</p>
+<p>以此为实</p>
+<p>当知是人</p>
+<p>不于一佛二佛 三四五佛<br>而种善根</p>
+<p>已于无量千万佛所</p>
+<p>种诸善根</p>
+<p>闻是章句<br>乃至一念生净信者</p>
+<p>须菩提 如来悉知悉见</p>
+<p>是诸众生</p>
+<p>得如是无量福德</p>
+<p>何以故 是诸众生</p>
+<p>无复我相人相众生相寿者相</p>
+<p>无法相 亦无非法相</p>
+<p>何以故 是诸众生<br>若心取相</p>
+<p>即为著我人众生寿者</p>
+<p>若取法相<br>即著我人众生寿者</p>
+<p>何以故 若取非法相<br>即著我人众生寿者</p>
+<p>是故不应取法</p>
+<p>不应取非法 以是义故</p>
+<p>如来常说 汝等比丘</p>
+<p>知我说法 如筏喻者</p>
+<p>法尚应舍 何况非法</p>
+<p>无得无说分第七</p>
+<p>须菩提 于意云何</p>
+<p>如来得阿耨多罗三藐三菩提耶</p>
+<p>如来有所说法耶</p>
+<p>须菩提言</p>
+<p>如我解佛所说义</p>
+<p>无有定法<br>名阿耨多罗三藐三菩提</p>
+<p>亦无有定法 如来可说</p>
+<p>何以故 如来所说法<br>皆不可取 不可说</p>
+<p>非法非非法 所以者何</p>
+<p>一切贤圣 皆以无为法</p>
+<p>而有差别</p>
+<p>依法出生分第八</p>
+<p>须菩提 于意云何</p>
+<p>若人满三千大千世界七宝<br>以用布施</p>
+<p>是人所得福德<br>宁为多不</p>
+<p>须菩提言<br>甚多 世尊</p>
+<p>何以故</p>
+<p>是福德 即非福德性</p>
+<p>是故如来说福德多</p>
+<p>若复有人 于此经中受持<br>乃至四句偈等</p>
+<p>为他人说 其福胜彼</p>
+<p>何以故 须菩提</p>
+<p>一切诸佛<br>及诸佛阿耨多罗三藐三菩提法</p>
+<p>皆从此经出 须菩提</p>
+<p>所谓佛法者 即非佛法</p>
+<p>一相无相分第九</p>
+<p>须菩提 于意云何</p>
+<p>须陀洹 能作是念</p>
+<p>我得须陀洹果不</p>
+<p>须菩提言</p>
+<p>不也 世尊</p>
+<p>何以故</p>
+<p>须陀洹 名为入流</p>
+<p>而无所入</p>
+<p>不入色声香味触法</p>
+<p>是名须陀洹</p>
+<p>须菩提 于意云何</p>
+<p>斯陀含能作是念</p>
+<p>我得斯陀含果不</p>
+<p>须菩提言 不也 世尊</p>
+<p>何以故</p>
+<p>斯陀含 名一往来</p>
+<p>而实无往来</p>
+<p>是名斯陀含</p>
+<p>须菩提 于意云何</p>
+<p>阿那含能作是念</p>
+<p>我得阿那含果不</p>
+<p>须菩提言 不也 世尊</p>
+<p>何以故</p>
+<p>阿那含 名为不来</p>
+<p>而实无不来</p>
+<p>是故名阿那含</p>
+<p>须菩提 于意云何</p>
+<p>阿罗汉能作是念</p>
+<p>我得阿罗汉道不</p>
+<p>须菩提言 不也 世尊<br>何以故</p>
+<p>实无有法 名阿罗汉</p>
+<p>世尊<br>若阿罗汉作是念<br>我得阿罗汉道<br>即为著我人众生寿者</p>
+<p>世尊</p>
+<p>佛说我得无诤三昧</p>
+<p>人中最为第一<br>是第一离欲阿罗汉</p>
+<p>世尊 我不作是念<br>我是离欲阿罗汉</p>
+<p>世尊 我若作是念<br>我得阿罗汉道</p>
+<p>世尊 则不说须菩提<br>是乐阿兰那行者</p>
+<p>以须菩提实无所行</p>
+<p>而名须菩提<br>是乐阿兰那行</p>
+<p>庄严净土分第十</p>
+<p>佛告须菩提<br>于意云何</p>
+<p>如来昔在然灯佛所<br>于法有所得不</p>
+<p>不也 世尊</p>
+<p>如来在然灯佛所</p>
+<p>于法实无所得</p>
+<p>须菩提 于意云何</p>
+<p>菩萨庄严佛土不</p>
+<p>不也 世尊</p>
+<p>何以故 庄严佛土者</p>
+<p>即非庄严 是名庄严</p>
+<p>是故须菩提</p>
+<p>诸菩萨摩诃萨</p>
+<p>应如是生清净心</p>
+<p>不应住色生心</p>
+<p>不应住声香味触法生心</p>
+<p>应无所住 而生其心<br>须菩提 譬如有人<br>身如须弥山王</p>
+<p>于意云何</p>
+<p>是身为大不</p>
+<p>须菩提言 甚大 世尊</p>
+<p>何以故</p>
+<p>佛说非身 是名大身</p>
+<p>无为福胜分第十一</p>
+<p>须菩提</p>
+<p>如恒河中所有沙数</p>
+<p>如是沙等恒河<br>于意云何</p>
+<p>是诸恒河沙<br>宁为多不</p>
+<p>须菩提言 甚多 世尊</p>
+<p>但诸恒河尚多无数</p>
+<p>何况其沙</p>
+<p>须菩提</p>
+<p>我今实言告汝<br>若有善男子 善女人</p>
+<p>以七宝满尔所<br>恒河沙数三千大千世界</p>
+<p>以用布施 得福多不<br>须菩提言 甚多 世尊</p>
+<p>佛告须菩提</p>
+<p>若善男子 善女人<br>于此经中<br>乃至受持四句偈等</p>
+<p>为他人说</p>
+<p>而此福德 胜前福德</p>
+<p>尊重正教分第十二</p>
+<p>复次 须菩提</p>
+<p>随说是经<br>乃至四句偈等</p>
+<p>当知此处</p>
+<p>一切世间天人阿修罗</p>
+<p>皆应供养 如佛塔庙</p>
+<p>何况有人<br>尽能受持读诵</p>
+<p>须菩提 当知是人</p>
+<p>成就最上第一希有之法</p>
+<p>若是经典所在之处</p>
+<p>即为有佛</p>
+<p>若尊重弟子</p>
+<p>如法受持分第十三</p>
+<p>尔时须菩提白佛言</p>
+<p>世尊 当何名此经</p>
+<p>我等云何奉持</p>
+<p>佛告须菩提</p>
+<p>是经名为金刚般若波罗密</p>
+<p>以是名字 汝当奉持</p>
+<p>所以者何 须菩提</p>
+<p>佛说般若波罗密</p>
+<p>即非般波若波罗密<br>是名波若波罗密</p>
+<p>须菩提 于意云何</p>
+<p>如来有所说法不</p>
+<p>须菩提白佛言</p>
+<p>世尊 如来无所说</p>
+<p>须菩提 于意云何</p>
+<p>三千大千世界所有微尘</p>
+<p>是为多不</p>
+<p>须菩提言 甚多 世尊</p>
+<p>须菩提 诸微尘<br>如来说非微尘</p>
+<p>是名微尘</p>
+<p>如来说世界</p>
+<p>非世界 是名世界</p>
+<p>须菩提 于意云何</p>
+<p>可以三十二相见如来不</p>
+<p>不也 世尊</p>
+<p>不可以三十二相得见如来</p>
+<p>何以故</p>
+<p>如来说三十二相</p>
+<p>即是非相</p>
+<p>是名三十二相</p>
+<p>须菩提</p>
+<p>若有善男子 善女人</p>
+<p>以恒河沙等身命布施</p>
+<p>若复有人 于此经中</p>
+<p>乃至受持四句偈等</p>
+<p>为他人说 其福甚多</p>
+<p>离相寂灭分第十四</p>
+<p>尔时须菩提<br>闻说是经 深解义趣</p>
+<p>涕泪悲泣 而白佛言</p>
+<p>希有世尊</p>
+<p>佛说如是甚深经典</p>
+<p>我从昔来所得慧眼</p>
+<p>未曾得闻如是之经</p>
+<p>世尊 若复有人<br>得闻是经</p>
+<p>信心清净 即生实相</p>
+<p>当知是人<br>成就第一希有功德</p>
+<p>世尊<br>是实相者 即是非相</p>
+<p>是故如来说名实相</p>
+<p>世尊</p>
+<p>我今得闻如是经典<br>信解受持 不足为难</p>
+<p>若当来世 后五百岁</p>
+<p>其有众生<br>得闻是经 信解受持</p>
+<p>是人即为第一希有</p>
+<p>何以故</p>
+<p>此人无我相 无人相</p>
+<p>无众生相 无寿者相</p>
+<p>所以者何</p>
+<p>我相即是非相</p>
+<p>人相众生相寿者相<br>即是非相 何以故</p>
+<p>离一切诸相</p>
+<p>即名诸佛</p>
+<p>佛告须菩提</p>
+<p>如是如是</p>
+<p>若复有人 得闻是经</p>
+<p>不惊不怖不畏</p>
+<p>当知是人 甚为希有</p>
+<p>何以故 须菩提</p>
+<p>如来说第一波罗密</p>
+<p>即非第一波罗密</p>
+<p>是名第一波罗密</p>
+<p>须菩提 忍辱波罗密</p>
+<p>如来说非忍辱波罗密</p>
+<p>是名忍辱波罗密</p>
+<p>何以故 须菩提</p>
+<p>如我昔为歌利王割截身体</p>
+<p>我于尔时<br>无我相 无人相</p>
+<p>无众生相 无寿者相</p>
+<p>何以故</p>
+<p>我于往昔节节支解时</p>
+<p>若有我相人相众生相寿者相</p>
+<p>应生嗔恨</p>
+<p>须菩提</p>
+<p>又念过去于五百世<br>作忍辱仙人</p>
+<p>于尔所世</p>
+<p>无我相 无人相<br>无众生相 无寿者相</p>
+<p>是故须菩提</p>
+<p>菩萨应离一切相</p>
+<p>发阿耨多罗三藐三菩提心</p>
+<p>不应住色生心</p>
+<p>不应住声香味触法生心</p>
+<p>应生无所住心</p>
+<p>若心有住 即为非住</p>
+<p>是故佛说菩萨心<br>不应住色布施</p>
+<p>须菩提</p>
+<p>菩萨为利益一切众生故</p>
+<p>应如是布施</p>
+<p>如来说一切诸相<br>即是非相</p>
+<p>又说一切众生</p>
+<p>即非众生</p>
+<p>须菩提</p>
+<p>如来是真语者</p>
+<p>实语者 如语者</p>
+<p>不诳语者 不异语者</p>
+<p>须菩提</p>
+<p>如来所得法</p>
+<p>此法无实无虚</p>
+<p>须菩提 若菩萨心<br>住于法而行布施</p>
+<p>如人入暗 即无所见</p>
+<p>若菩萨心<br>不住法而行布施</p>
+<p>如人有目<br>日光明照 见种种色</p>
+<p>须菩提 当来之世<br>若有善男子 善女人<br>能于此经受持读诵</p>
+<p>即为如来<br>以佛智慧</p>
+<p>悉知是人 悉见是人<br>皆得成就无量无边功德</p>
+<p>持经功德分第十五</p>
+<p>须菩提</p>
+<p>若有善男子 善女人</p>
+<p>初日分</p>
+<p>以恒河沙等身布施</p>
+<p>中日分</p>
+<p>复以恒河沙等身布施</p>
+<p>后日分</p>
+<p>亦以恒河沙等身布施</p>
+<p>如是无量百千万亿劫<br>以身布施</p>
+<p>若复有人 闻此经典<br>信心不逆 其福胜彼</p>
+<p>何况书写受持读诵</p>
+<p>为人解说</p>
+<p>须菩提 以要言之</p>
+<p>是经有不可思议<br>不可称量 无边功德</p>
+<p>如来为发大乘者说</p>
+<p>为发最上乘者说</p>
+<p>若有人能受持读诵</p>
+<p>广为人说</p>
+<p>如来悉知是人<br>悉见是人</p>
+<p>皆得成就不可量</p>
+<p>不可称 无有边<br>不可思议功德</p>
+<p>如是人等</p>
+<p>即为荷担如来<br>阿耨多罗三藐三菩提</p>
+<p>何以故 须菩提</p>
+<p>若乐小法者</p>
+<p>著我见人见众生见寿者见</p>
+<p>即于此经不能听受读诵</p>
+<p>为人解说</p>
+<p>须菩提</p>
+<p>在在处处 若有此经<br>一切世间天人阿修罗</p>
+<p>所应供养</p>
+<p>当知此处 即为是塔</p>
+<p>皆应恭敬 作礼围绕</p>
+<p>以诸华香而散其处</p>
+<p>能净业障分第十六</p>
+<p>复次 须菩提</p>
+<p>若善男子 善女人</p>
+<p>受持读诵此经</p>
+<p>若为人轻贱</p>
+<p>是人先世罪业</p>
+<p>应堕恶道</p>
+<p>以今世人轻贱故</p>
+<p>先世罪业 即为消灭</p>
+<p>当得阿耨多罗三藐三菩提</p>
+<p>须菩提</p>
+<p>我念过去无量阿僧只劫<br>于然灯佛前</p>
+<p>得值八百四千万亿那由他诸佛</p>
+<p>悉皆供养承事</p>
+<p>无空过者</p>
+<p>若复有人 于后末世<br>能受持读诵此经</p>
+<p>所得功德</p>
+<p>于我所供养诸佛功德<br>百分不及一<br>千万亿分<br>乃至算数譬喻<br>所不能及</p>
+<p>须菩提</p>
+<p>若善男子 善女人<br>于后末世<br>有受持读诵此经</p>
+<p>所得功德</p>
+<p>我若具说者</p>
+<p>或有人闻<br>心即狂乱 狐疑不信</p>
+<p>须菩提</p>
+<p>当知是经义 不可思议</p>
+<p>果报亦不可思议</p>
+<p>究竟无我分第十七</p>
+<p>尔时须菩提白佛言</p>
+<p>世尊</p>
+<p>善男子 善女人</p>
+<p>发阿耨多罗三藐三菩提心</p>
+<p>云何应住</p>
+<p>云何降伏其心</p>
+<p>佛告须菩提</p>
+<p>善男子 善女人<br>发阿耨多罗三藐三菩提心者</p>
+<p>当生如是心</p>
+<p>我应灭度一切众生</p>
+<p>灭度一切众生已</p>
+<p>而无有一众生实灭度者</p>
+<p>何以故 须菩提</p>
+<p>若菩萨有我相人相众生相寿者相</p>
+<p>则非菩萨 所以者何<br>须菩提 实无有法<br>发阿耨多罗三藐三菩提心者</p>
+<p>须菩提 于意云何</p>
+<p>如来于然灯佛所<br>有法得阿耨多罗三藐三菩提不</p>
+<p>不也 世尊</p>
+<p>如我解佛所说义</p>
+<p>佛于然灯佛所<br>无有法得阿耨多罗三藐三菩提</p>
+<p>佛言 如是如是</p>
+<p>须菩提 实无有法<br>如来得阿耨多罗三藐三菩提</p>
+<p>须菩提 若有法</p>
+<p>如来得阿耨多罗三藐三菩提者</p>
+<p>然灯佛即不与我授记</p>
+<p>汝于来世 当得作佛</p>
+<p>号释迦牟尼</p>
+<p>以实无有法<br>得阿耨多罗三藐三菩提</p>
+<p>是故然灯佛<br>与我授记 作是言</p>
+<p>汝于来世 当得作佛</p>
+<p>号释迦牟尼 何以故</p>
+<p>如来者 即诸法如义</p>
+<p>若有人言<br>如来得阿耨多罗三藐三菩提</p>
+<p>须菩提 实无有法<br>佛得阿耨多罗三藐三菩提</p>
+<p>须菩提</p>
+<p>如来所得阿耨多罗三藐三菩提</p>
+<p>于是中无实无虚</p>
+<p>是故如来说一切法<br>皆是佛法</p>
+<p>须菩提</p>
+<p>所言一切法者</p>
+<p>即非一切法</p>
+<p>是故名一切法</p>
+<p>须菩提 譬如人身长大</p>
+<p>须菩提言 世尊</p>
+<p>如来说人身长大</p>
+<p>即为非大身 是名大身</p>
+<p>须菩提 菩萨亦如是</p>
+<p>若作是言<br>我当灭度无量众生<br>即不名菩萨</p>
+<p>何以故 须菩提</p>
+<p>实无有法 名为菩萨</p>
+<p>是故佛说一切法<br>无我无人无众生无寿者</p>
+<p>须菩提</p>
+<p>若菩萨作是言</p>
+<p>我当庄严佛土</p>
+<p>是不名菩萨 何以故</p>
+<p>如来说庄严佛土者<br>即非庄严 是名庄严</p>
+<p>须菩提</p>
+<p>若菩萨通达无我法者<br>如来说名真是菩萨</p>
+<p>一体同观分第十八</p>
+<p>须菩提 于意云何</p>
+<p>如来有肉眼不</p>
+<p>如是 世尊</p>
+<p>如来有肉眼</p>
+<p>须菩提 于意云何</p>
+<p>如来有天眼不</p>
+<p>如是 世尊</p>
+<p>如来有天眼</p>
+<p>须菩提 于意云何</p>
+<p>如来有慧眼不</p>
+<p>如是 世尊</p>
+<p>如来有慧眼</p>
+<p>须菩提 于意云何</p>
+<p>如来有法眼不</p>
+<p>如是 世尊<br>如来有法眼</p>
+<p>须菩提 于意云何</p>
+<p>如来有佛眼不</p>
+<p>如是 世尊</p>
+<p>如来有佛眼</p>
+<p>须菩提 于意云何</p>
+<p>如恒河中所有沙<br>佛说是沙不</p>
+<p>如是 世尊</p>
+<p>如来说是沙</p>
+<p>须菩提 于意云何</p>
+<p>如一恒河中所有沙</p>
+<p>有如是沙等恒河</p>
+<p>是诸恒河所有沙数佛世界</p>
+<p>如是宁为多不</p>
+<p>甚多 世尊</p>
+<p>佛告须菩提</p>
+<p>尔所国土中<br>所有众生 若干种心</p>
+<p>如来悉知 何以故</p>
+<p>如来说诸心<br>皆为非心 是名为心</p>
+<p>所以者何 须菩提</p>
+<p>过去心不可得<br>现在心不可得</p>
+<p>未来心不可得</p>
+<p>法界通化分第十九</p>
+<p>须菩提 于意云何</p>
+<p>若有人满三千大千世界七宝<br>以用布施</p>
+<p>是人以是因缘</p>
+<p>得福多不</p>
+<p>如是 世尊</p>
+<p>此人以是因缘</p>
+<p>得福甚多</p>
+<p>须菩提</p>
+<p>若福德有实</p>
+<p>如来不说得福德多<br>以福德无故</p>
+<p>如来说得福德多</p>
+<p>离色离相分第二十</p>
+<p>须菩提 于意云何</p>
+<p>佛可以具足色身见不</p>
+<p>不也 世尊</p>
+<p>如来不应以具足色身见</p>
+<p>何以故</p>
+<p>如来说具足色身</p>
+<p>即非具足色身</p>
+<p>是名具足色身</p>
+<p>须菩提 于意云何</p>
+<p>如来可以具足诸相见不</p>
+<p>不也 世尊</p>
+<p>如来不应以具足诸相见</p>
+<p>何以故</p>
+<p>如来说诸相具足<br>即非具足</p>
+<p>是名诸相具足</p>
+<p>非说所说分第二十一</p>
+<p>须菩提</p>
+<p>汝勿谓如来作是念</p>
+<p>我当有所说法</p>
+<p>莫作是念 何以故</p>
+<p>若人言如来有所说法</p>
+<p>即为谤佛</p>
+<p>不能解我所说故</p>
+<p>须菩提 说法者<br>无法可说 是名说法</p>
+<p>尔时慧命须菩提白佛言</p>
+<p>世尊</p>
+<p>颇有众生 于未来世<br>闻说是法 生信心不<br>佛言 须菩提</p>
+<p>彼非众生 非不众生</p>
+<p>何以故 须菩提</p>
+<p>众生众生者</p>
+<p>如来说非众生</p>
+<p>是名众生</p>
+<p>无法可得分第二十二</p>
+<p>须菩提白佛言</p>
+<p>世尊</p>
+<p>佛得阿耨多罗三藐三菩提</p>
+<p>为无所得耶</p>
+<p>佛言 如是如是</p>
+<p>须菩提</p>
+<p>我于阿耨多罗三藐三菩提</p>
+<p>乃至无有少法可得</p>
+<p>是名阿耨多罗三藐三菩提</p>
+<p>净心行善分第二十三</p>
+<p>复次 须菩提</p>
+<p>是法平等 无有高下</p>
+<p>是名阿耨多罗三藐三菩提</p>
+<p>以无我无人无众生无寿者<br>修一切善法</p>
+<p>即得阿耨多罗三藐三菩提</p>
+<p>须菩提</p>
+<p>所言善法者</p>
+<p>如来说即非善法</p>
+<p>是名善法</p>
+<p>福智无比分第二十四</p>
+<p>须菩提</p>
+<p>若三千大千世界中</p>
+<p>所有诸须弥山王</p>
+<p>如是等七宝聚</p>
+<p>有人持用布施</p>
+<p>若人以此般若波罗密经</p>
+<p>乃至四句偈等</p>
+<p>受持读诵 为他人说</p>
+<p>于前福德</p>
+<p>百分不及一</p>
+<p>百千万亿分<br>乃至算数譬喻<br>所不能及</p>
+<p>化无所化分第二十五</p>
+<p>须菩提 于意云何</p>
+<p>汝等勿谓如来作是念</p>
+<p>我当度众生</p>
+<p>须菩提 莫作是念</p>
+<p>何以故</p>
+<p>实无有众生如来度者</p>
+<p>若有众生如来度者</p>
+<p>如来即有我人众生寿者</p>
+<p>须菩提</p>
+<p>如来说有我者</p>
+<p>即非有我</p>
+<p>而凡夫之人 以为有我</p>
+<p>须菩提 凡夫者<br>如来说即非凡夫</p>
+<p>是名凡夫</p>
+<p>法身非相分第二十六</p>
+<p>须菩提 于意云何</p>
+<p>可以三十二相观如来不</p>
+<p>须菩提言 如是如是</p>
+<p>以三十二相观如来</p>
+<p>佛言 须菩提<br>若以三十二相观如来者</p>
+<p>转轮圣王 即是如来</p>
+<p>须菩提白佛言</p>
+<p>世尊<br>如我解佛所说义</p>
+<p>不应以三十二相观如来</p>
+<p>尔时世尊 而说偈言</p>
+<p>若以色见我 以音声求我</p>
+<p>是人行邪道 不能见如来</p>
+<p>无断无灭分第二十七</p>
+<p>须菩提</p>
+<p>汝若作是念</p>
+<p>如来不以具足相故</p>
+<p>得阿耨多罗三藐三菩提</p>
+<p>须菩提 莫作是念</p>
+<p>如来不以具足相故</p>
+<p>得阿耨多罗三藐三菩提</p>
+<p>须菩提 汝若作是念</p>
+<p>发阿耨多罗三藐三菩提心者</p>
+<p>说诸法断灭 莫作是念</p>
+<p>何以故</p>
+<p>发阿耨多罗三藐三菩提心者</p>
+<p>于法不说断灭相</p>
+<p>不受不贪分第二十八</p>
+<p>须菩提</p>
+<p>若菩萨以满恒河沙等世界七宝</p>
+<p>持用布施</p>
+<p>若复有人</p>
+<p>知一切法无我</p>
+<p>得成于忍</p>
+<p>此菩萨<br>胜前菩萨所得功德</p>
+<p>何以故 须菩提</p>
+<p>以诸菩萨不受福德故</p>
+<p>须菩提白佛言</p>
+<p>世尊</p>
+<p>云何菩萨不受福德</p>
+<p>须菩提</p>
+<p>菩萨所作福德</p>
+<p>不应贪著<br>是故说不受福德</p>
+<p>威仪寂静分第二十九</p>
+<p>须菩提</p>
+<p>若有人言</p>
+<p>如来若来若去<br>若坐若卧<br>是人不解我所说义</p>
+<p>何以故</p>
+<p>如来者 无所从来</p>
+<p>亦无所去 故名如来</p>
+<p>一合理相分第三十</p>
+<p>须菩提</p>
+<p>若善男子 善女人</p>
+<p>以三千大千世界<br>碎为微尘</p>
+<p>于意云何</p>
+<p>是微尘众 宁为多不</p>
+<p>须菩提言</p>
+<p>甚多 世尊</p>
+<p>何以故</p>
+<p>若是微尘众实有者</p>
+<p>佛即不说是微尘众</p>
+<p>所以者何</p>
+<p>佛说微尘众</p>
+<p>即非微尘众</p>
+<p>是名微尘众</p>
+<p>世尊</p>
+<p>如来所说三千大千世界</p>
+<p>即非世界<br>是名世界<br>何以故</p>
+<p>若世界实有者<br>即是一合相</p>
+<p>如来说一合相</p>
+<p>即非一合相</p>
+<p>是名一合相</p>
+<p>须菩提</p>
+<p>一合相者<br>即是不可说</p>
+<p>但凡夫之人<br>贪著其事</p>
+<p>知见不生分第三十一</p>
+<p>须菩提 若人言</p>
+<p>佛说我见人见众生见寿者见</p>
+<p>须菩提 于意云何</p>
+<p>是人解我所说义不</p>
+<p>不也 世尊</p>
+<p>是人不解如来所说义</p>
+<p>何以故</p>
+<p>世尊说我见人见众生见寿者见</p>
+<p>即非我见人见众生见寿者见</p>
+<p>是名我见人见众生见寿者见</p>
+<p>须菩提</p>
+<p>发阿耨多罗三藐三菩提心者</p>
+<p>于一切法</p>
+<p>应如是知 如是见</p>
+<p>如是信解 不生法相</p>
+<p>须菩提</p>
+<p>所言法相者 如来说<br>即非法相 是名法相</p>
+<p>应化非真分第三十二</p>
+<p>须菩提</p>
+<p>若有人以满无量阿僧只世界七宝</p>
+<p>持用布施</p>
+<p>若有善男子 善女人</p>
+<p>发菩提心者持于此经</p>
+<p>乃至四句偈等</p>
+<p>受持读诵 为人演说</p>
+<p>其福胜彼</p>
+<p>云何为人演说</p>
+<p>不取于相 如如不动</p>
+<p>何以故</p>
+<p>一切有为法</p>
+<p>如梦幻泡影</p>
+<p>如露亦如电</p>
+<p>应作如是观</p>
+<p>佛说是经已</p>
+<p>长老须菩提<br>及诸比丘 比丘尼</p>
+<p>优婆塞 优婆夷</p>
+<p>一切世间天人阿修罗</p>
+<p>闻佛所说</p>
+<p>皆大欢喜 信受奉行</p>
+<p>金刚般若波罗蜜经</p>
+]]></content>
     </entry>
     
     <entry>
@@ -37,6 +747,68 @@
 <h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><p>重新打开终端并输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ant</span> -version  </div><div class="line"><span class="comment">#配置成功则显示如下：</span></div><div class="line">Apache Ant(TM) version 1.9.3 compiled on December 23 2013</div></pre></td></tr></table></figure>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Ant笔记]]></title>
+      <url>http://percychen.com/2016/11/09/antnote/</url>
+      <content type="html"><![CDATA[<h2 id="condition"><a href="#condition" class="headerlink" title="condition"></a>condition</h2><h3 id="1-istrue-isfalse-断言-真-假"><a href="#1-istrue-isfalse-断言-真-假" class="headerlink" title="1. istrue isfalse:断言 真 假"></a>1. istrue isfalse:断言 真 假</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><h4 id="2-1、not-逻辑非"><a href="#2-1、not-逻辑非" class="headerlink" title="2.1、not 逻辑非"></a>2.1、not 逻辑非</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜not&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">not</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="2-2、and-逻辑与"><a href="#2-2、and-逻辑与" class="headerlink" title="2.2、and 逻辑与"></a>2.2、and 逻辑与</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜and&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">and</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>2.3、or 逻辑或 xor异或 (语法上与and类似)</p>
+</blockquote>
+<h3 id="3、available-是否可用"><a href="#3、available-是否可用" class="headerlink" title="3、available 是否可用"></a>3、available 是否可用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"all.test.classes"</span>&gt;</span>         </div><div class="line">         <span class="tag">&lt;<span class="name">pathelement</span> <span class="attr">location</span>=<span class="string">"bin"</span>/&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--在指定的classpath路径下是否存在资源 TestTest.class--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">available</span> <span class="attr">resource</span>=<span class="string">"TestTest.class"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">classpath</span> <span class="attr">refid</span>=<span class="string">"all.test.classes"</span> /&gt;</span>        </div><div class="line">            <span class="tag">&lt;/<span class="name">available</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="4、isset-指定属性是否存在"><a href="#4、isset-指定属性是否存在" class="headerlink" title="4、isset 指定属性是否存在"></a>4、isset 指定属性是否存在</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果属性name不存在则返回false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">isset</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="5、equals-是否相等"><a href="#5、equals-是否相等" class="headerlink" title="5、equals 是否相等"></a>5、equals 是否相等</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果arg1的值与arg2的值相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">equals</span> <span class="attr">arg1</span>=<span class="string">"$&#123;name&#125;"</span> <span class="attr">arg2</span>=<span class="string">"this is name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="6、filesmatch-比较文件"><a href="#6、filesmatch-比较文件" class="headerlink" title="6、filesmatch 比较文件"></a>6、filesmatch 比较文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果file1所代表的文件与file2所代表的文件相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filesmatch</span> <span class="attr">file1</span>=<span class="string">"testfile1.txt"</span> <span class="attr">file2</span>=<span class="string">"testfile2.txt"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><h3 id="系统自带时间"><a href="#系统自带时间" class="headerlink" title="系统自带时间"></a>系统自带时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!--以下的几个属性是系统自带的,初始了tstamp之后,它们就有值了--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"System:"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"DSTAMP = $&#123;DSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TSTAMP = $&#123;TSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TODAY = $&#123;TODAY&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="自定义时间"><a href="#自定义时间" class="headerlink" title="自定义时间"></a>自定义时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span> <span class="attr">prefix</span>=<span class="string">"my"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"day"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"time"</span> <span class="attr">pattern</span>=<span class="string">"HH:mm:ss"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"dt"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd HH:mm:ss.SSS"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">tstamp</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"show"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"default"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"-------------------------------------"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"Mine:"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.time = $&#123;my.time&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.day = $&#123;my.day&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.dt = $&#123;my.dt&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Cmake的安装]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</url>
+      <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
+      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
     </entry>
     
     <entry>
@@ -141,51 +913,6 @@ def getwinsize():
 </code></pre>
 <p><a href="http://pexpect.sourceforge.net/pexpect.html" target="_blank" rel="external">参考链接</a></p>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Cmake的安装]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</url>
-      <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[转:Linux中源码安装编译Vim]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-viminstall/</url>
-      <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
-</blockquote>
-<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
-<ol>
-<li>下载所需工具</li>
-<li>卸载老版本vim</li>
-<li>下载新版</li>
-<li>编译安装</li>
-<li>下载所需工具</li>
-</ol>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
-<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
-<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
-<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
-<p>解压至 ~/downloads/vim74/</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
-</blockquote>
-<p>其中参数说明如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
     </entry>
     
     <entry>
@@ -4230,13 +4957,6 @@ B: ABS=6618000 0
     </entry>
     
     <entry>
-      <title><![CDATA[转： sort的7个应用实例]]></title>
-      <url>http://percychen.com/2015/05/05/2015-05-05-sort/</url>
-      <content type="html"><![CDATA[<td id="article_content"><p>在<a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">上一篇文章</a>里，我们已经探讨了关于sort命令的多个例子，如果你错过了这篇文章，可以点击下面的链接进行阅读。今天的这篇文章作为上一篇文章的继续，将讨论关于sort命令的剩余用法，与上一篇一起作为Linux ‘sort’命令的完整指南。</p><br><ul><br><li><a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">Linux 的 ‘sort’命令的14个有用的范例（一）</a></li><br></ul><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png" alt="" width="256" height="256"></p><br><p>在我们继续深入之前，先创建一个文本文档‘month.txt’，并且将上一次给出的数据填进去。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“mar\ndec\noct\nsep\nfeb\naug”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> month</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105700klkfmvv0flbsskf6.gif" alt="Populate Content"></p><br><p>15、 通过使用’M‘选项，对’month.txt‘文件按照月份顺序进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">M month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><strong>注意</strong>:‘sort’命令需要至少3个字符来确认月份名称。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701p2wxy026s0z023to.gif" alt="Sort File Content by Month in Linux"></p><br><p>16、 把数据整理成方便人们阅读的形式，比如1K、2M、3G、2T，这里面的K、G、M、T代表千、兆、吉、梯。 （LCTT 译注：此处命令有误，ls 命令应该增加 -h 参数，径改之）</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">lh </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">$USER </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">h </span><span class="pun">-</span><span class="pln">k5</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701wxxuatq5zu9qtzmk.gif" alt="Sort Content Human Readable Format"></p><br><p>17、 在上一篇文章中，我们在例子4中创建了一个名为‘sorted.txt’的文件，在例子6中创建了一个‘lsl.txt’。‘sorted.txt’已经排好序了而’lsl.txt‘还没有。让我们使用sort命令来检查两个文件是否已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c sorted</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702lsqqcyrsncwcffqj.gif" alt="Check File is Sorted"></p><br><p>如果它返回0，则表示文件已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c lsl</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702gyahwzs46p5s21a2.gif" alt="Check File Sorted Status"></p><br><p>报告无序。存在矛盾……</p><br><p>18、 如果文字之间的分隔符是空格，sort命令自动地将空格后的东西当做一个新文字单元，如果分隔符不是空格呢？</p><br><p>考虑这样一个文本文件，里面的内容可以由除了空格之外的任何符号分隔，比如‘|’，‘\’，‘+’，‘.’等……</p><br><p>创建一个分隔符为+的文本文件。使用‘cat‘命令查看文件内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“21+linux+server+production\n11+debian+RedHat+CentOS\n131+Apache+Mysql+PHP\n7+Shell Scripting+python+perl\n111+postfix+exim+sendmail”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><hr><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ cat delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702uxrgssqxvglzlstn.gif" alt="Check File Content by Delimiter"></p><br><p>现在基于由数字组成的第一个域来进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">t </span><span class="str">‘+’</span><span class="pln"> </span><span class="pun">-</span><span class="pln">nk1 delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703mnrarjnx7nddwnb0.gif" alt="Sort File By Fields"></p><br><p>然后再基于非数字的第四个域排序。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703nxjyhizvvx8j5nxk.gif" alt="Sort Content By Non Numeric"></p><br><p>如果分隔符是制表符，你需要在’+‘的位置上用$’\t’代替，如上例所示。</p><br><p>19、 对主用户目录下使用‘ls -l’命令得到的结果基于第五列（‘文件大小’）进行一个乱序排列。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">l </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">avi</span><span class="pun">/</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">k5 </span><span class="pun">-</span><span class="pln">R </span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105704pw69nw6hwhcwavww.gif" alt="Sort Content by Column in Random Order"></p><br><p>每一次你运行上面的脚本，你得到结果可能都不一样，因为结果是随机生成的。</p><br><p>正如我在上一篇文章中提到的规则2所说——sort命令会将以小写字母开始的行排在大写字母开始的行前面。看一下上一篇文章的例3，字符串‘laptop’在‘LAPTOP’前出现。</p><br><p>20、 如何覆盖默认的排序优先权？在这之前我们需要先将环境变量LC_ALL的值设置为C。在命令行提示栏中运行下面的代码。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ </span><span class="kwd">export</span><span class="pln"> LC_ALL</span><span class="pun">=</span><span class="pln">C</span></code></li></ol></pre><br><p>然后以非默认优先权的方式对‘tecmint.txt’文件重新排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706occ4t7a7h4m999m9.gif" alt="Override Sorting Preferences"></p><br><p><em>覆盖排序优先权</em></p><br><p>不要忘记与example 3中得到的输出结果做比较，并且你可以使用‘-f’，又叫‘-ignore-case’（忽略大小写）的选项来获取更有序的输出。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">f tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706sn54r2dspz2nbr2v.gif" alt="Compare Sorting Preferences"></p><br><p>21、 给两个输入文件进行‘sort‘，然后把它们连接成一行！</p><br><p>我们创建两个文本文档’file1.txt‘以及’file2.txt‘，并用数据填充，如下所示，并用’cat‘命令查看文件的内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Reliable</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Fast</span><span class="pln">\n</span><span class="lit">3</span><span class="pln"> </span><span class="typ">Secure</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> open</span><span class="pun">-</span><span class="pln">source\n</span><span class="lit">4</span><span class="pln"> customizable</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file1</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file1</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707j38vk01w78yt0g00.gif" alt="Populate Content with Numbers"></p><br><p>用如下数据填充’file2.txt‘。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">3</span><span class="pln"> </span><span class="typ">RedHat</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Debian</span><span class="pln">\n</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Ubuntu</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Kali</span><span class="pln">\n</span><span class="lit">4</span><span class="pln"> </span><span class="typ">Fedora</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file2</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file2</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707drz8fbflwl50enze.gif" alt="Populate File with Data"></p><br><p>现在我们对两个文件进行排序并连接。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ join </span><span class="pun">&lt;(</span><span class="pln">sort </span><span class="pun">-</span><span class="pln">n file1</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;(</span><span class="pln">sort file2</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105708uumm00x22i5z2k07.gif" alt="Sort Join Two Files"></p><br><p>我所要讲的全部内容就在这里了，希望与各位保持联系，也希望各位经常来逛逛。有反馈就在下面评论吧。</p><br><hr><br><p>via: <a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank" rel="external">http://www.tecmint.com/linux-sort-command-examples/</a></p><br><p>作者：<a href="http://www.tecmint.com/author/avishek/" target="_blank" rel="external">Avishek Kumar</a> 译者：<a href="https://github.com/DongShuaike" target="_blank" rel="external">DongShuaike</a> 校对：<a href="https://github.com/wxy" target="_blank" rel="external">wxy</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><p class="copyright"><br><br>                                            <span class="z">原文：<a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank">http://www.tecmint.com/linux-sort-command-examples/</a></span><br>                        <span class="y">作者： Avishek Kumar</span>            <br class="clear"><br>                <span class="z">译文：<a href="http://lctt.github.io/" target="_blank">LCTT</a>&nbsp;&nbsp;<a href="http://linux.cn/article-5373-1.html" target="_blank">http://linux.cn/article-5373-1.html</a></span><br>                        <span class="y">译者： DongShuaike</span>            <br class="clear"><br>                <br class="clear"><br>                    <span>本文由 LCTT 原创翻译，<a href="http://linux.cn/article-5373-1.html" target="_blank" rel="external">Linux中国首发</a>。也想加入译者行列，为开源做一些自己的贡献么？欢迎加入 <a href="http://lctt.github.io/" target="_blank">LCTT</a>！<br>翻译工作和译文发表仅用于学习和交流目的，翻译工作遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>，如果我们的工作有侵犯到您的权益，请及时联系我们。</span><br>                        <br class="clear"><br>            <span style="color:red;">欢迎遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息。</span><br>                        <br class="clear"><br>                <span>文章仅代表作者的知识和看法，如有不同观点，请楼下排队<a href="javascript:void(0);" onclick="$('message').focus();" target="_blank" rel="external">吐槽</a> :D</span><br>        <br class="clear"><br>    </p><br><div class="hm"><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-5373-shareweibo.html','article_title','article_content','https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br><a title="收藏" href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=5373&amp;handlekey=favoritearticlehk_5373" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="fav_large"></a><br></div><br></td>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Android获取分区信息]]></title>
       <url>http://percychen.com/2015/05/05/2015-05-05-GetBlockInfomation/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -4254,6 +4974,13 @@ cat /cache/recovery/last_log
 df -h
 cat /proc/mounts
 </code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[转： sort的7个应用实例]]></title>
+      <url>http://percychen.com/2015/05/05/2015-05-05-sort/</url>
+      <content type="html"><![CDATA[<td id="article_content"><p>在<a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">上一篇文章</a>里，我们已经探讨了关于sort命令的多个例子，如果你错过了这篇文章，可以点击下面的链接进行阅读。今天的这篇文章作为上一篇文章的继续，将讨论关于sort命令的剩余用法，与上一篇一起作为Linux ‘sort’命令的完整指南。</p><br><ul><br><li><a href="http://www.tecmint.com/sort-command-linux/" target="_blank" rel="external">Linux 的 ‘sort’命令的14个有用的范例（一）</a></li><br></ul><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png" alt="" width="256" height="256"></p><br><p>在我们继续深入之前，先创建一个文本文档‘month.txt’，并且将上一次给出的数据填进去。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“mar\ndec\noct\nsep\nfeb\naug”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> month</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105700klkfmvv0flbsskf6.gif" alt="Populate Content"></p><br><p>15、 通过使用’M‘选项，对’month.txt‘文件按照月份顺序进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">M month</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><strong>注意</strong>:‘sort’命令需要至少3个字符来确认月份名称。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701p2wxy026s0z023to.gif" alt="Sort File Content by Month in Linux"></p><br><p>16、 把数据整理成方便人们阅读的形式，比如1K、2M、3G、2T，这里面的K、G、M、T代表千、兆、吉、梯。 （LCTT 译注：此处命令有误，ls 命令应该增加 -h 参数，径改之）</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">lh </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">$USER </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">h </span><span class="pun">-</span><span class="pln">k5</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105701wxxuatq5zu9qtzmk.gif" alt="Sort Content Human Readable Format"></p><br><p>17、 在上一篇文章中，我们在例子4中创建了一个名为‘sorted.txt’的文件，在例子6中创建了一个‘lsl.txt’。‘sorted.txt’已经排好序了而’lsl.txt‘还没有。让我们使用sort命令来检查两个文件是否已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c sorted</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702lsqqcyrsncwcffqj.gif" alt="Check File is Sorted"></p><br><p>如果它返回0，则表示文件已经排好序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">c lsl</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702gyahwzs46p5s21a2.gif" alt="Check File Sorted Status"></p><br><p>报告无序。存在矛盾……</p><br><p>18、 如果文字之间的分隔符是空格，sort命令自动地将空格后的东西当做一个新文字单元，如果分隔符不是空格呢？</p><br><p>考虑这样一个文本文件，里面的内容可以由除了空格之外的任何符号分隔，比如‘|’，‘\’，‘+’，‘.’等……</p><br><p>创建一个分隔符为+的文本文件。使用‘cat‘命令查看文件内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="str">“21+linux+server+production\n11+debian+RedHat+CentOS\n131+Apache+Mysql+PHP\n7+Shell Scripting+python+perl\n111+postfix+exim+sendmail”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><hr><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ cat delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105702uxrgssqxvglzlstn.gif" alt="Check File Content by Delimiter"></p><br><p>现在基于由数字组成的第一个域来进行排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">t </span><span class="str">‘+’</span><span class="pln"> </span><span class="pun">-</span><span class="pln">nk1 delimiter</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703mnrarjnx7nddwnb0.gif" alt="Sort File By Fields"></p><br><p>然后再基于非数字的第四个域排序。</p><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105703nxjyhizvvx8j5nxk.gif" alt="Sort Content By Non Numeric"></p><br><p>如果分隔符是制表符，你需要在’+‘的位置上用$’\t’代替，如上例所示。</p><br><p>19、 对主用户目录下使用‘ls -l’命令得到的结果基于第五列（‘文件大小’）进行一个乱序排列。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ ls </span><span class="pun">-</span><span class="pln">l </span><span class="pun">/</span><span class="pln">home</span><span class="pun">/</span><span class="pln">avi</span><span class="pun">/</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> sort </span><span class="pun">-</span><span class="pln">k5 </span><span class="pun">-</span><span class="pln">R </span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105704pw69nw6hwhcwavww.gif" alt="Sort Content by Column in Random Order"></p><br><p>每一次你运行上面的脚本，你得到结果可能都不一样，因为结果是随机生成的。</p><br><p>正如我在上一篇文章中提到的规则2所说——sort命令会将以小写字母开始的行排在大写字母开始的行前面。看一下上一篇文章的例3，字符串‘laptop’在‘LAPTOP’前出现。</p><br><p>20、 如何覆盖默认的排序优先权？在这之前我们需要先将环境变量LC_ALL的值设置为C。在命令行提示栏中运行下面的代码。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ </span><span class="kwd">export</span><span class="pln"> LC_ALL</span><span class="pun">=</span><span class="pln">C</span></code></li></ol></pre><br><p>然后以非默认优先权的方式对‘tecmint.txt’文件重新排序。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706occ4t7a7h4m999m9.gif" alt="Override Sorting Preferences"></p><br><p><em>覆盖排序优先权</em></p><br><p>不要忘记与example 3中得到的输出结果做比较，并且你可以使用‘-f’，又叫‘-ignore-case’（忽略大小写）的选项来获取更有序的输出。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ sort </span><span class="pun">-</span><span class="pln">f tecmint</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105706sn54r2dspz2nbr2v.gif" alt="Compare Sorting Preferences"></p><br><p>21、 给两个输入文件进行‘sort‘，然后把它们连接成一行！</p><br><p>我们创建两个文本文档’file1.txt‘以及’file2.txt‘，并用数据填充，如下所示，并用’cat‘命令查看文件的内容。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Reliable</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Fast</span><span class="pln">\n</span><span class="lit">3</span><span class="pln"> </span><span class="typ">Secure</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> open</span><span class="pun">-</span><span class="pln">source\n</span><span class="lit">4</span><span class="pln"> customizable</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file1</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file1</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707j38vk01w78yt0g00.gif" alt="Populate Content with Numbers"></p><br><p>用如下数据填充’file2.txt‘。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ echo </span><span class="pun">-</span><span class="pln">e </span><span class="pun">“</span><span class="lit">3</span><span class="pln"> </span><span class="typ">RedHat</span><span class="pln">\n</span><span class="lit">1</span><span class="pln"> </span><span class="typ">Debian</span><span class="pln">\n</span><span class="lit">5</span><span class="pln"> </span><span class="typ">Ubuntu</span><span class="pln">\n</span><span class="lit">2</span><span class="pln"> </span><span class="typ">Kali</span><span class="pln">\n</span><span class="lit">4</span><span class="pln"> </span><span class="typ">Fedora</span><span class="pun">”</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> file2</span><span class="pun">.</span><span class="pln">txt</span></code></li><li class="L1"><code><span class="pln">$ cat file2</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105707drz8fbflwl50enze.gif" alt="Populate File with Data"></p><br><p>现在我们对两个文件进行排序并连接。</p><br><pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><code><span class="pln">$ join </span><span class="pun">&lt;(</span><span class="pln">sort </span><span class="pun">-</span><span class="pln">n file1</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&lt;(</span><span class="pln">sort file2</span><span class="pun">.</span><span class="pln">txt</span><span class="pun">)</span></code></li></ol></pre><br><p><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/105708uumm00x22i5z2k07.gif" alt="Sort Join Two Files"></p><br><p>我所要讲的全部内容就在这里了，希望与各位保持联系，也希望各位经常来逛逛。有反馈就在下面评论吧。</p><br><hr><br><p>via: <a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank" rel="external">http://www.tecmint.com/linux-sort-command-examples/</a></p><br><p>作者：<a href="http://www.tecmint.com/author/avishek/" target="_blank" rel="external">Avishek Kumar</a> 译者：<a href="https://github.com/DongShuaike" target="_blank" rel="external">DongShuaike</a> 校对：<a href="https://github.com/wxy" target="_blank" rel="external">wxy</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><p class="copyright"><br><br>                                            <span class="z">原文：<a href="http://www.tecmint.com/linux-sort-command-examples/" target="_blank">http://www.tecmint.com/linux-sort-command-examples/</a></span><br>                        <span class="y">作者： Avishek Kumar</span>            <br class="clear"><br>                <span class="z">译文：<a href="http://lctt.github.io/" target="_blank">LCTT</a>&nbsp;&nbsp;<a href="http://linux.cn/article-5373-1.html" target="_blank">http://linux.cn/article-5373-1.html</a></span><br>                        <span class="y">译者： DongShuaike</span>            <br class="clear"><br>                <br class="clear"><br>                    <span>本文由 LCTT 原创翻译，<a href="http://linux.cn/article-5373-1.html" target="_blank" rel="external">Linux中国首发</a>。也想加入译者行列，为开源做一些自己的贡献么？欢迎加入 <a href="http://lctt.github.io/" target="_blank">LCTT</a>！<br>翻译工作和译文发表仅用于学习和交流目的，翻译工作遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>，如果我们的工作有侵犯到您的权益，请及时联系我们。</span><br>                        <br class="clear"><br>            <span style="color:red;">欢迎遵照<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC 协议规定</a>转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息。</span><br>                        <br class="clear"><br>                <span>文章仅代表作者的知识和看法，如有不同观点，请楼下排队<a href="javascript:void(0);" onclick="$('message').focus();" target="_blank" rel="external">吐槽</a> :D</span><br>        <br class="clear"><br>    </p><br><div class="hm"><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-5373-shareweibo.html','article_title','article_content','https://dn-linuxcn.qbox.me/data/attachment/album/201505/02/102959wecogvuagsouuvke.png.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br><a title="收藏" href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=5373&amp;handlekey=favoritearticlehk_5373" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="fav_large"></a><br></div><br></td>
+]]></content>
     </entry>
     
     <entry>
@@ -4951,6 +5678,39 @@ vam install youcompleteme
     </entry>
     
     <entry>
+      <title><![CDATA[关于Dialog的学习]]></title>
+      <url>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</url>
+      <content type="html"><![CDATA[<p>这里的Dialog是用的AlertDialog.build实现的，而且，支持多种方式自定义<br>不多说，直接上代码：</p>
+<pre><code>private void chosePercentAutoOpen() {
+AlertDialog.Builder builder=new Builder(PowerSaveModeActivity.this,R.style.YunDialogTheme);
+builder.setTitle(getResources().getString(R.string.auto_open_super_mode));
+builder.setSingleChoiceItems(new String[]{
+        getResources().getString(R.string.power_90),
+        getResources().getString(R.string.power_80),
+        getResources().getString(R.string.power_70),
+        getResources().getString(R.string.power_60),
+        getResources().getString(R.string.power_50),
+        getResources().getString(R.string.power_40)}
+, 5, new DialogInterface.OnClickListener(){
+    @Override
+    public void onClick(DialogInterface arg0, int position) {
+        System.out.println(&quot;你选择了第&quot;+position+&quot;项&quot;);
+
+    }
+}).setNegativeButton(getResources().getString(R.string.cancle),null).show();
+}
+</code></pre><blockquote>
+<p>如果弹出的弹出框是双层的，可以在那个主题下定义一个：</p>
+</blockquote>
+<pre><code>&lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/transparent&lt;/item&gt;
+</code></pre><blockquote>
+<p>这样就将后面的弹出框给隐藏了</p>
+</blockquote>
+<p>本次文章实现的是单选框。<a href="http://www.oschina.net/question/54100_32486" target="_blank" rel="external">更多详情可以点击这里进行学习</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android 中 字符替代的用法]]></title>
       <url>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</url>
       <content type="html"><![CDATA[<h2 id="一-使用xliff的用法："><a href="#一-使用xliff的用法：" class="headerlink" title="一. 使用xliff的用法："></a>一. 使用xliff的用法：</h2><p>####<xliff:g>标签介绍：</xliff:g></p>
@@ -5008,39 +5768,6 @@ vam install youcompleteme
 <pre><code>String sAgeFormatString sAgeFormat1= getResources().getString(R.string.alert);
 String sFinal1 = String.format(sAgeFormat1, &quot;李四&quot;,&quot;首都北京&quot;);
 </code></pre><p>这里两个string需要替换的，按照上面程序的顺序依次对应。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[关于Dialog的学习]]></title>
-      <url>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</url>
-      <content type="html"><![CDATA[<p>这里的Dialog是用的AlertDialog.build实现的，而且，支持多种方式自定义<br>不多说，直接上代码：</p>
-<pre><code>private void chosePercentAutoOpen() {
-AlertDialog.Builder builder=new Builder(PowerSaveModeActivity.this,R.style.YunDialogTheme);
-builder.setTitle(getResources().getString(R.string.auto_open_super_mode));
-builder.setSingleChoiceItems(new String[]{
-        getResources().getString(R.string.power_90),
-        getResources().getString(R.string.power_80),
-        getResources().getString(R.string.power_70),
-        getResources().getString(R.string.power_60),
-        getResources().getString(R.string.power_50),
-        getResources().getString(R.string.power_40)}
-, 5, new DialogInterface.OnClickListener(){
-    @Override
-    public void onClick(DialogInterface arg0, int position) {
-        System.out.println(&quot;你选择了第&quot;+position+&quot;项&quot;);
-
-    }
-}).setNegativeButton(getResources().getString(R.string.cancle),null).show();
-}
-</code></pre><blockquote>
-<p>如果弹出的弹出框是双层的，可以在那个主题下定义一个：</p>
-</blockquote>
-<pre><code>&lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/transparent&lt;/item&gt;
-</code></pre><blockquote>
-<p>这样就将后面的弹出框给隐藏了</p>
-</blockquote>
-<p>本次文章实现的是单选框。<a href="http://www.oschina.net/question/54100_32486" target="_blank" rel="external">更多详情可以点击这里进行学习</a></p>
 ]]></content>
     </entry>
     
@@ -5993,6 +6720,26 @@ do
     </entry>
     
     <entry>
+      <title><![CDATA[adb查看android系统相关命令]]></title>
+      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
+      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
+<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
+<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
+</code></pre><p>注：bs可以从分区信息中读取</p>
+<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
+adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
+cat /proc/dumchar_info
+</code></pre><p>其中的 android分区就是 system分区</p>
+<p>其中的 userdata分区就是data分区</p>
+<p>对于古老的机器可以尝试:</p>
+<pre><code>cat /proc/mtd
+</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
+</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
+</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[五种开源协议的比较]]></title>
       <url>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</url>
       <content type="html"><![CDATA[<p><strong>当我将开源当做一种习惯的时候，我突然意识到，使用一种开源协议是一件必不可少的事情了</strong></p>
@@ -6033,26 +6780,6 @@ do
 <p>GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品</p>
 <h3 id="MIT（MIT）"><a href="#MIT（MIT）" class="headerlink" title="MIT（MIT）"></a>MIT（MIT）</h3><p>MIT是和BSD一样宽范的许可协议,作者只想保留版权,而无任何其他了限制.也就是说,你必须在你的发行版里包含原许可协议的声明,无论你是以二进制发布的还是以源代码发布的.</p>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[adb查看android系统相关命令]]></title>
-      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
-      <content type="html"><![CDATA[<p>####其实很多命令我在其它文章中都介绍过了，今天整合一下</p>
-<h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
-<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
-</code></pre><p>注：bs可以从分区信息中读取</p>
-<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
-adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
-cat /proc/dumchar_info
-</code></pre><p>其中的 android分区就是 system分区</p>
-<p>其中的 userdata分区就是data分区</p>
-<p>对于古老的机器可以尝试:</p>
-<pre><code>cat /proc/mtd
-</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
-</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
-</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
-</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -7649,13 +8376,6 @@ brunch find7 -j32或者 brunch find7
     </entry>
     
     <entry>
-      <title><![CDATA[sublime_text 常用快捷键]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</url>
-      <content type="html"><![CDATA[<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt"><br><tbody><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;background:white; mso-background-themecolor:background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+L</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;background:#F8eDeD;mso-background-themecolor: accent2;mso-background-themetint:25;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span style="font-family: 宋体;">选择整行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span></b><b><span style="font-family: 宋体;">按住</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span></b><b><span style="font-family: 宋体;">继续选择下行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></b></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KK</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行尾</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+K</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">删除整行</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">复制光标所在整行，插入在该行之前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+J</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">合并行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">已选择需要合并的多行时</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KU</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为大写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KL</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为小写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选词</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择下个相同的字符串</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标移动至括号内开始或结束的位置</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择括号内的内容</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择父括号</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释整行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">如已选择内容，同</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">“Ctrl+Shift+/”</span><span style="font-family: 宋体;">效果</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释已选择内容</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Space</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">自动完成</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(win</span><span style="font-family: 宋体;">与系统快捷键冲突，需修改</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Z</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Y</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">恢复撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+V</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">粘贴并自动缩进</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">其它兄弟写的，实测</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">win</span><span style="font-family: 宋体;">系统自动缩进无效</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标跳至对应的括号</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Alt+.</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">闭合当前标签</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+A</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择光标位置父标签对儿</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+[</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+]</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KT</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠属性</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K0</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开所有</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+U</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">软撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+T</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">词互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行后</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift<br>Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K<br>Backspace</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行首</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+UP</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与上行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+DOWN</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与下行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Shift+Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">去除缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">F9</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">行排序</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">a-z)</span></p><br></td><br></tr><br></tbody><br></table>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[vim常用快捷键]]></title>
       <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
       <content type="html"><![CDATA[<p>###一、移动光标</p>
@@ -8032,16 +8752,9 @@ dir/file2.cpp
     </entry>
     
     <entry>
-      <title><![CDATA[便签的发布！]]></title>
-      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
-      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
-<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
-<p>更新说明</p>
-<blockquote>
-<p>2014年9月10日增加长微博功能</p>
-</blockquote>
-<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
-<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
+      <title><![CDATA[sublime_text 常用快捷键]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</url>
+      <content type="html"><![CDATA[<table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border:none;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt"><br><tbody><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;background:white; mso-background-themecolor:background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+L</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;background:#F8eDeD;mso-background-themecolor: accent2;mso-background-themetint:25;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span style="font-family: 宋体;">选择整行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span></b><b><span style="font-family: 宋体;">按住</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span></b><b><span style="font-family: 宋体;">继续选择下行</span></b><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></b></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KK</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行尾</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+K</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">删除整行</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">复制光标所在整行，插入在该行之前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+J</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">合并行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">已选择需要合并的多行时</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KU</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为大写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KL</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">改为小写</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+D</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选词</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择下个相同的字符串</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标移动至括号内开始或结束的位置</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择括号内的内容</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按住</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">-</span><span style="font-family: 宋体;">继续选择父括号</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释整行</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">如已选择内容，同</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">“Ctrl+Shift+/”</span><span style="font-family: 宋体;">效果</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+/</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">注释已选择内容</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Space</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">自动完成</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(win</span><span style="font-family: 宋体;">与系统快捷键冲突，需修改</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Z</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Y</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">恢复撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+V</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">粘贴并自动缩进</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">其它兄弟写的，实测</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">win</span><span style="font-family: 宋体;">系统自动缩进无效</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">)</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+M</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">光标跳至对应的括号</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Alt+.</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">闭合当前标签</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+A</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">选择光标位置父标签对儿</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+[</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+]</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开代码</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+KT</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">折叠属性</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K0</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">展开所有</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+U</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">软撤销</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+T</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">词互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行后</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift<br>Enter</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">插入行前</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+K<br>Backspace</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">从光标处删除至行首</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+UP</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与上行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Ctrl+Shift+DOWN</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">与下行互换</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Shift+Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">去除缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">Tab</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;mso-border-alt:solid #C0504D 1.0pt; mso-border-themecolor:accent2;mso-border-left-alt:solid #C0504D .75pt; mso-border-left-themecolor:accent2;background:#DFA7A6;mso-background-themecolor: accent2;mso-background-themetint:127;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">缩进</span></p><br></td><br></tr><br><tr><br><td width="114" valign="top" style="width:85.45pt;border:none;border-top:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:white;mso-background-themecolor: background1;padding:0cm 5.4pt 0cm 5.4pt"><br><p><b><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">F9</span></b></p><br></td><br><td width="454" valign="top" style="width:340.65pt;border:solid #C0504D 1.0pt; mso-border-themecolor:accent2;border-top:none;mso-border-top-alt:solid #C0504D 1.0pt; mso-border-top-themecolor:accent2;background:#eFD3D2;mso-background-themecolor: accent2;mso-background-themetint:63;padding:0cm 5.4pt 0cm 5.4pt"><br><p><span style="font-family: 宋体;">行排序</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">(</span><span style="font-family: 宋体;">按</span><span lang="EN-US" style="font-family: Cambria, serif;" xml:lang="EN-US">a-z)</span></p><br></td><br></tr><br></tbody><br></table>
 ]]></content>
     </entry>
     
@@ -8064,6 +8777,20 @@ dir/file2.cpp
 
 &lt;/div&gt;
 </code></pre></div>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[便签的发布！]]></title>
+      <url>http://percychen.com/2014/09/10/2014-09-10-notes/</url>
+      <content type="html"><![CDATA[<h1 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h1><p>####这个apk基于MIUI 的便签，感谢他们无偿贡献的代码！</p>
+<p>####这些代码大部分是miui的源码，本人稍微做了布局修改，精简了代码，并且修改风格为实时磨砂透明背景</p>
+<p>更新说明</p>
+<blockquote>
+<p>2014年9月10日增加长微博功能</p>
+</blockquote>
+<h2 id="便签源代码地址："><a href="#便签源代码地址：" class="headerlink" title="便签源代码地址："></a>便签源代码地址：</h2><p><a href="https://github.com/YunLiCode/packages_notes" target="_blank" rel="external">https://github.com/YunLiCode/packages_notes</a></p>
+<h2 id="截图预览"><a href="#截图预览" class="headerlink" title="截图预览:"></a>截图预览:</h2><p><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/prevew1.png" alt="github" title="日记列表"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview2.png" alt="github" title="编辑日记"><br><img src="https://raw.githubusercontent.com/YunLiCode/packages_notes/master/preview.png" alt="github" title="长微博列表"></p>
+]]></content>
     </entry>
     
     <entry>
@@ -9387,13 +10114,6 @@ poweroff
     </entry>
     
     <entry>
-      <title><![CDATA[般若波罗蜜多心经]]></title>
-      <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
-      <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[jekyll搭建过程中的错误解决办法]]></title>
       <url>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</url>
       <content type="html"><![CDATA[<h2 id="错误1"><a href="#错误1" class="headerlink" title="错误1"></a>错误1</h2><pre><code>终端安装：yunsun@chenyun:~$ gem install --verbose rdiscount
@@ -9425,171 +10145,9 @@ sudo apt-get install  nodejs
     </entry>
     
     <entry>
-      <title><![CDATA[省电模式部分代码]]></title>
-      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
-      <content type="html"><![CDATA[<p>####这是我写的一个电量管理的一些代码</p>
-<p>以下皆在android 4.3 平台上测试通过<br></p>
-<ol>
-<li><p>将 休眠时间调制 15秒：</p>
-<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
-</code></pre></li>
-<li><p>蓝牙：</p>
-<pre><code>关闭：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-打开：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-是否已经打开:
-if(!bluetoothadapter.isEnabled()){}
-权限:
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
-</code></pre></li>
-</ol>
-<ol>
-<li><p>wifi</p>
-<pre><code>关闭：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(false);
-
-打开：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(true);
-
-判断是否打开：
-public String checkWifi(Activity activitiy,String string) {
-WifiManager mWifiManager = (WifiManager) activitiy
-        .getSystemService(Context.WIFI_SERVICE);
-WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
-int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
-if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
-else {return string;}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>数据流量：</p>
-<pre><code>打开：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-        Class ownerClass = connectivityManager.getClass();
-        Class[] argsClass = new Class[1];
-        argsClass[0] = boolean.class;
-        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-        method.invoke(connectivityManager, false);
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-    }
-
-关闭：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-    Class ownerClass = connectivityManager.getClass();
-    Class[] argsClass = new Class[1];
-    argsClass[0] = boolean.class;
-    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-    method.invoke(connectivityManager, true);
-
-} catch (Exception e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-}
-
-判断是否开启：
-public String checkdata(String string) {
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-if (false == networkInfo.isConnectedOrConnecting()) {
-    string=&quot;close&quot;;
-    return string;
-} else {
-    string=&quot;open&quot;;
-    return string;
-}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>屏幕旋转</p>
-<pre><code>如果开启就关闭，关闭就开启：
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
-Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
-
-检查是否开启：
-public String checkrotate(String string){
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
- if (0 == flag) {
-     string=&quot;close&quot;;
-        return string;
-}
- else {
-     string=&quot;open&quot;;
-        return string;
- }
-}
-</code></pre></li>
-<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
-<pre><code>try {
-screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
-Log.i(TAG, &quot;screenMode = &quot; + screenMode);
-
-// 获得当前屏幕亮度值 0--255
-screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
-
-// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
-if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-}
-
-// 设置屏幕亮度值为最大值0
-setScreenBrightness(0.0F);
-} catch (SettingNotFoundException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-然后添加两个执行函数
-
- private void setScreenMode(int value) {
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
- }
- private void setScreenBrightness(float value) {
- Window mWindow = getWindow();
- WindowManager.LayoutParams mParams = mWindow.getAttributes();
- float f = value / 255.0F;
- mParams.screenBrightness = f;
- mWindow.setAttributes(mParams);
-
- // 保存设置的屏幕亮度值
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
- }
-
-还有private 几个变量
-
-private int screenMode;
-private static final String TAG = &quot;ScreenLuminance&quot;;
-private int screenBrightness;
-
-亮度部分需要权限：
-
-&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
-</code></pre></li>
-</ol>
-<p>####最后更新时间：2014-09-24</p>
+      <title><![CDATA[般若波罗蜜多心经]]></title>
+      <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
+      <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
 ]]></content>
     </entry>
     
@@ -9969,6 +10527,175 @@ String EXTRA_AUTHORITIES
 String EXTRA_INPUT_METHOD_ID
 </code></pre></li>
 </ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[省电模式部分代码]]></title>
+      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
+      <content type="html"><![CDATA[<p>####这是我写的一个电量管理的一些代码</p>
+<p>以下皆在android 4.3 平台上测试通过<br></p>
+<ol>
+<li><p>将 休眠时间调制 15秒：</p>
+<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
+</code></pre></li>
+<li><p>蓝牙：</p>
+<pre><code>关闭：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+打开：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+是否已经打开:
+if(!bluetoothadapter.isEnabled()){}
+权限:
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>wifi</p>
+<pre><code>关闭：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(false);
+
+打开：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(true);
+
+判断是否打开：
+public String checkWifi(Activity activitiy,String string) {
+WifiManager mWifiManager = (WifiManager) activitiy
+        .getSystemService(Context.WIFI_SERVICE);
+WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
+if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
+else {return string;}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>数据流量：</p>
+<pre><code>打开：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+        Class ownerClass = connectivityManager.getClass();
+        Class[] argsClass = new Class[1];
+        argsClass[0] = boolean.class;
+        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+        method.invoke(connectivityManager, false);
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+    }
+
+关闭：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+    Class ownerClass = connectivityManager.getClass();
+    Class[] argsClass = new Class[1];
+    argsClass[0] = boolean.class;
+    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+    method.invoke(connectivityManager, true);
+
+} catch (Exception e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+}
+
+判断是否开启：
+public String checkdata(String string) {
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+if (false == networkInfo.isConnectedOrConnecting()) {
+    string=&quot;close&quot;;
+    return string;
+} else {
+    string=&quot;open&quot;;
+    return string;
+}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>屏幕旋转</p>
+<pre><code>如果开启就关闭，关闭就开启：
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
+
+检查是否开启：
+public String checkrotate(String string){
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+ if (0 == flag) {
+     string=&quot;close&quot;;
+        return string;
+}
+ else {
+     string=&quot;open&quot;;
+        return string;
+ }
+}
+</code></pre></li>
+<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
+<pre><code>try {
+screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
+Log.i(TAG, &quot;screenMode = &quot; + screenMode);
+
+// 获得当前屏幕亮度值 0--255
+screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
+
+// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
+if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+}
+
+// 设置屏幕亮度值为最大值0
+setScreenBrightness(0.0F);
+} catch (SettingNotFoundException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+然后添加两个执行函数
+
+ private void setScreenMode(int value) {
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
+ }
+ private void setScreenBrightness(float value) {
+ Window mWindow = getWindow();
+ WindowManager.LayoutParams mParams = mWindow.getAttributes();
+ float f = value / 255.0F;
+ mParams.screenBrightness = f;
+ mWindow.setAttributes(mParams);
+
+ // 保存设置的屏幕亮度值
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
+ }
+
+还有private 几个变量
+
+private int screenMode;
+private static final String TAG = &quot;ScreenLuminance&quot;;
+private int screenBrightness;
+
+亮度部分需要权限：
+
+&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
+</code></pre></li>
+</ol>
+<p>####最后更新时间：2014-09-24</p>
 ]]></content>
     </entry>
     
