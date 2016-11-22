@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://percychen.com/2016/11/22/pycurl/</loc>
+    
+    <lastmod>2016-11-22T08:17:23.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://percychen.com/2016/11/10/jingangjing/</loc>
     
     <lastmod>2016-11-10T01:14:21.000Z</lastmod>
@@ -100,14 +107,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</loc>
+    <loc>http://percychen.com/2016/10/13/2016-10-13-viminstall/</loc>
     
     <lastmod>2016-10-13T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/10/13/2016-10-13-viminstall/</loc>
+    <loc>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</loc>
     
     <lastmod>2016-10-13T05:14:00.000Z</lastmod>
     
@@ -268,14 +275,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</loc>
+    <loc>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</loc>
     
     <lastmod>2016-01-08T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</loc>
+    <loc>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</loc>
     
     <lastmod>2016-01-08T05:14:00.000Z</lastmod>
     
@@ -457,14 +464,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</loc>
+    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</loc>
     
     <lastmod>2015-03-14T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</loc>
+    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</loc>
     
     <lastmod>2015-03-14T05:14:00.000Z</lastmod>
     
@@ -625,14 +632,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/31/2014-10-31-androidadb/</loc>
+    <loc>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</loc>
     
     <lastmod>2014-10-31T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</loc>
+    <loc>http://percychen.com/2014/10/31/2014-10-31-androidadb/</loc>
     
     <lastmod>2014-10-31T05:14:00.000Z</lastmod>
     
@@ -709,14 +716,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/08/2014-10-08-echodemo/</loc>
+    <loc>http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/</loc>
     
     <lastmod>2014-10-08T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/</loc>
+    <loc>http://percychen.com/2014/10/08/2014-10-08-echodemo/</loc>
     
     <lastmod>2014-10-08T05:14:00.000Z</lastmod>
     
@@ -793,7 +800,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</loc>
     
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
     
@@ -821,7 +828,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</loc>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
     
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
     
@@ -863,14 +870,7 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
-    
-    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-color/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</loc>
     
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     
@@ -891,21 +891,28 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-color/</loc>
     
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
+    
+    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</loc>
     
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</loc>
+    <loc>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</loc>
     
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
     
@@ -919,14 +926,14 @@
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/08/07/2014-08-07-androidactivity/</loc>
+    <loc>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</loc>
     
     <lastmod>2014-08-07T05:14:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</loc>
+    <loc>http://percychen.com/2014/08/07/2014-08-07-androidactivity/</loc>
     
     <lastmod>2014-08-07T05:14:00.000Z</lastmod>
     

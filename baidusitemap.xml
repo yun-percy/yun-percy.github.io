@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://percychen.com/2016/11/22/pycurl/</loc>
+    <lastmod>2016-11-22T08:17:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>pycurl的使用</title>
+        <pubTime>2016-11-22T08:09:20.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>网络</tag>
+         
+        <tag>curl</tag>
+         
+        <tag>pycurl</tag>
+         
+         
+           
+             
+              <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://percychen.com/2016/11/10/jingangjing/</loc>
     <lastmod>2016-11-10T01:14:21.000Z</lastmod>
     <data>
@@ -146,30 +172,6 @@
     
     
   <url>
-    <loc>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</loc>
-    <lastmod>2016-10-13T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>转:使用Python的Pexpect模块执行SSH登陆</title>
-        <pubTime>2016-10-13T05:14:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>note</tag>
-         
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2016/10/13/2016-10-13-viminstall/</loc>
     <lastmod>2016-10-13T05:14:00.000Z</lastmod>
     <data>
@@ -187,6 +189,30 @@
            
              
               <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</loc>
+    <lastmod>2016-10-13T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>转:使用Python的Pexpect模块执行SSH登陆</title>
+        <pubTime>2016-10-13T05:14:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>note</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
           
         </display>
     </data>
@@ -698,24 +724,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</loc>
-    <lastmod>2016-01-08T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>shell 数组操作</title>
-        <pubTime>2016-01-08T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</loc>
     <lastmod>2016-01-08T05:14:00.000Z</lastmod>
     <data>
@@ -727,6 +735,24 @@
            
              
               <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</loc>
+    <lastmod>2016-01-08T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>shell 数组操作</title>
+        <pubTime>2016-01-08T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
           
         </display>
     </data>
@@ -1184,11 +1210,11 @@
 
     
   <url>
-    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</loc>
+    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</loc>
     <lastmod>2015-03-14T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>Android 中 字符替代的用法</title>
+        <title>关于Dialog的学习</title>
         <pubTime>2015-03-14T05:14:00.000Z</pubTime>
         
          
@@ -1202,11 +1228,11 @@
 
     
   <url>
-    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidDialog/</loc>
+    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</loc>
     <lastmod>2015-03-14T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>关于Dialog的学习</title>
+        <title>Android 中 字符替代的用法</title>
         <pubTime>2015-03-14T05:14:00.000Z</pubTime>
         
          
@@ -1616,24 +1642,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/10/31/2014-10-31-androidadb/</loc>
-    <lastmod>2014-10-31T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>adb查看android系统相关命令</title>
-        <pubTime>2014-10-31T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</loc>
     <lastmod>2014-10-31T05:14:00.000Z</lastmod>
     <data>
@@ -1647,6 +1655,24 @@
            
              
               <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2014/10/31/2014-10-31-androidadb/</loc>
+    <lastmod>2014-10-31T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>adb查看android系统相关命令</title>
+        <pubTime>2014-10-31T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
           
         </display>
     </data>
@@ -1834,24 +1860,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/10/08/2014-10-08-echodemo/</loc>
-    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux中的15个‘echo’ 命令实例</title>
-        <pubTime>2014-10-08T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/</loc>
     <lastmod>2014-10-08T05:14:00.000Z</lastmod>
     <data>
@@ -1863,6 +1871,24 @@
            
              
               <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2014/10/08/2014-10-08-echodemo/</loc>
+    <lastmod>2014-10-08T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux中的15个‘echo’ 命令实例</title>
+        <pubTime>2014-10-08T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
           
         </display>
     </data>
@@ -2050,17 +2076,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</loc>
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>vim常用快捷键</title>
+        <title>sublime_text 常用快捷键</title>
         <pubTime>2014-09-11T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
+              <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
           
         </display>
     </data>
@@ -2122,17 +2148,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-sublimetextkey/</loc>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
     <lastmod>2014-09-11T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>sublime_text 常用快捷键</title>
+        <title>vim常用快捷键</title>
         <pubTime>2014-09-11T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
           
         </display>
     </data>
@@ -2230,35 +2256,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</loc>
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>双击退出程序-java代码</title>
+        <title>Android 系统初始值修改(源码)</title>
         <pubTime>2014-09-03T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-color/</loc>
-    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>颜色代码表</title>
-        <pubTime>2014-09-03T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Photoshop" url="http://percychen.com/categories/Photoshop/"/>
+              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
           
         </display>
     </data>
@@ -2302,17 +2310,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/</loc>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-color/</loc>
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>Android 系统初始值修改(源码)</title>
+        <title>颜色代码表</title>
         <pubTime>2014-09-03T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
+              <breadCrumb title="Photoshop" url="http://percychen.com/categories/Photoshop/"/>
           
         </display>
     </data>
@@ -2320,17 +2328,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</loc>
-    <lastmod>2014-09-02T05:14:00.000Z</lastmod>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</loc>
+    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>jekyll搭建过程中的错误解决办法</title>
-        <pubTime>2014-09-02T05:14:00.000Z</pubTime>
+        <title>双击退出程序-java代码</title>
+        <pubTime>2014-09-03T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+              <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
           
         </display>
     </data>
@@ -2356,6 +2364,24 @@
 
     
   <url>
+    <loc>http://percychen.com/2014/09/02/2014-09-02-jekyllerrorfix/</loc>
+    <lastmod>2014-09-02T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>jekyll搭建过程中的错误解决办法</title>
+        <pubTime>2014-09-02T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://percychen.com/2014/09/02/2014-09-02-somelinuxcode/</loc>
     <lastmod>2014-09-02T05:14:00.000Z</lastmod>
     <data>
@@ -2374,11 +2400,11 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/08/07/2014-08-07-androidactivity/</loc>
+    <loc>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</loc>
     <lastmod>2014-08-07T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>android 外部启动activity，自定义action，action常量大全</title>
+        <title>省电模式部分代码</title>
         <pubTime>2014-08-07T05:14:00.000Z</pubTime>
         
          
@@ -2392,11 +2418,11 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</loc>
+    <loc>http://percychen.com/2014/08/07/2014-08-07-androidactivity/</loc>
     <lastmod>2014-08-07T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>省电模式部分代码</title>
+        <title>android 外部启动activity，自定义action，action常量大全</title>
         <pubTime>2014-08-07T05:14:00.000Z</pubTime>
         
          

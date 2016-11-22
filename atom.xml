@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://percychen.com/"/>
-  <updated>2016-11-10T01:14:21.000Z</updated>
+  <updated>2016-11-22T08:17:23.000Z</updated>
   <id>http://percychen.com/</id>
   
   <author>
@@ -14,6 +14,81 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pycurl的使用</title>
+    <link href="http://percychen.com/2016/11/22/pycurl/"/>
+    <id>http://percychen.com/2016/11/22/pycurl/</id>
+    <published>2016-11-22T08:09:20.000Z</published>
+    <updated>2016-11-22T08:17:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>pycurl是curl的一个python版本。</p>
+</blockquote>
+<h2 id="pycurl的使用说明："><a href="#pycurl的使用说明：" class="headerlink" title="pycurl的使用说明："></a>pycurl的使用说明：</h2><ul>
+<li>pycurl的使用主要是一些参数的设定。</li>
+</ul>
+<p>设定链接地址</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.URL,myurl)</div></pre></td></tr></table></figure>
+<p>设置http的包头信息。注意，长度的字符传是用于put或者post等方法传参数的。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.HTTPHEADER,[<span class="string">'Content-Type: application/json'</span>,<span class="string">'Content-Length: '</span>+str(len(remove_str))])</div></pre></td></tr></table></figure>
+<p>设置封装方法，有put，post，get，delete等多种方法<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.CUSTOMREQUEST,<span class="string">"DELETE"</span>)</div></pre></td></tr></table></figure></p>
+<p>设置psot过去的数据，注意是一个字典样式的字符串    </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.POSTFIELDS,remove_str)</div></pre></td></tr></table></figure>
+<p>设置写的回调，所有输出都定向到b.write中。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.WRITEFUNCTION,b.write)</div></pre></td></tr></table></figure>
+<p>设置重定向次数</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.MAXDEDIRS,<span class="number">5</span>)</div></pre></td></tr></table></figure>
+<p>设置链接超时，设置下载超时</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.CONNECTTIMEOUT,<span class="number">60</span>)</div><div class="line">c.setopt(pycurl.TIMEOUT,<span class="number">600</span>)</div><div class="line">```	</div><div class="line"></div><div class="line">设置代理浏览器</div><div class="line"></div><div class="line">```py</div><div class="line">c.setopt(pycurl.USERAGENT,<span class="string">"xxxx"</span>)</div></pre></td></tr></table></figure>
+<p>开启包头输出    </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">c.setopt(pycurl.HEADER,<span class="number">1</span>)</div><div class="line">```	</div><div class="line"></div><div class="line">将包头输出到header_str.write流中</div><div class="line"></div><div class="line">```py</div><div class="line">c.setopt(pycurl.HEADERFUNCTION,header_str.write)</div></pre></td></tr></table></figure>
+<p>执行curl命令    </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.perform()</div></pre></td></tr></table></figure>
+<p>打印消息</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> b.getvalue()//打印消息</div><div class="line"><span class="keyword">print</span> c.getinfo(c.HTTP_CODE) //答应返回值</div><div class="line">Print c.getinfo(c.CONTENT_TYPE) //打印文本类型</div><div class="line">Print c.getinfo(c.EFFECTIVE_URL) //打印重定向URL</div></pre></td></tr></table></figure>
+<p>上传文件</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c.setopt(c.HTTPPOST, [(<span class="string">"textname"</span>, (c.FORM_FILE, <span class="string">"/home/ubuntu/avatar.jpg"</span>))])</div></pre></td></tr></table></figure>
+<h3 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h3><pre><code class="py"><span class="keyword">import</span> pycurl
+<span class="keyword">import</span> StringIO
+post_data_dic = {<span class="string">"md5"</span>:md5, <span class="string">"desc"</span>:<span class="string">"the file md5"</span>}
+c = pycurl.Curl() <span class="comment">#创建一个同libcurl中的CURL处理器相对应的Curl对象</span>
+fp = StringIO.StringIO()
+c.setopt(pycurl.WRITEFUNCTION, fp.write)
+c.setopt(pycurl.FOLLOWLOCATION, <span class="number">1</span>)    
+c.setopt(pycurl.MAXREDIRS, <span class="number">5</span>)
+c.setopt(pycurl.CONNECTTIMEOUT, <span class="number">60</span>)
+c.setopt(pycurl.TIMEOUT, <span class="number">300</span>)    
+c.setopt(c.POST, <span class="number">1</span>)    
+c.setopt(c.URL, <span class="string">"http://localhost:8080/post.action"</span>) <span class="comment">#设置要访问的网址</span>
+c.setopt(c.POSTFIELDS, urllib.urlencode(post_data_dic))
+c.perform() <span class="comment">#执行上述访问网址的操作</span>
+c.close() <span class="comment">#Curl对象无操作时，也会自动执行close操作</span>
+<span class="keyword">print</span> <span class="string">"the python shell over!"</span>
+</code></pre>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;pycurl是curl的一个python版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;pycurl的使用说明：&quot;&gt;&lt;a href=&quot;#pycurl的使用说明：&quot; class=&quot;headerlink&quot; title=&quot;pycurl的使用说
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="网络" scheme="http://percychen.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="curl" scheme="http://percychen.com/tags/curl/"/>
+    
+      <category term="pycurl" scheme="http://percychen.com/tags/pycurl/"/>
+    
+  </entry>
   
   <entry>
     <title>金刚经</title>
@@ -768,46 +843,6 @@
   </entry>
   
   <entry>
-    <title>Mac下安装Ant</title>
-    <link href="http://percychen.com/2016/11/09/macinstallant/"/>
-    <id>http://percychen.com/2016/11/09/macinstallant/</id>
-    <published>2016-11-09T03:03:43.000Z</published>
-    <updated>2016-11-09T03:03:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：<a href="http://zh.wikipedia.org/wiki/Apache_Ant" target="_blank" rel="external">wikipedia-ant</a> 或者这里 <a href="http://baike.baidu.com/link?url=vhok9QFeg3nXU7Zk514dusV5C5IuuGWVornzYbOQS1Cc-r4BBctGm1osrXFlzZVQ#3" target="_blank" rel="external">baidu-ant</a></p>
-</blockquote>
-<p><a href="http://blog.csdn.net/crazybigfish/article/details/18215439" target="_blank" rel="external">原文地址</a> 在此基础上有删减和更新及改进</p>
-<p>最近整理了一下ant的下载和安装方法，步骤如下：</p>
-<h3 id="1-下载ant：官网下载"><a href="#1-下载ant：官网下载" class="headerlink" title="1. 下载ant：官网下载"></a>1. 下载ant：官网下载</h3><p>当前最新版是Apache Ant 1.9.7，可以下载那个zip包，如下图：</p>
-<p><img src="http://img.blog.csdn.net/20140113110440437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3JhenliaWdmaXNo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ant 下载"></p>
-<h3 id="2-将下载的zip包解压到一个目录下，如-usr-local"><a href="#2-将下载的zip包解压到一个目录下，如-usr-local" class="headerlink" title="2. 将下载的zip包解压到一个目录下，如/usr/local"></a>2. 将下载的zip包解压到一个目录下，如/usr/local</h3><p>这时候需要你提供修改权限，输入密码。</p>
-<h3 id="3-配置环境变量："><a href="#3-配置环境变量：" class="headerlink" title="3. 配置环境变量："></a>3. 配置环境变量：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
-<p>将下面两行加入到最后，保存就可以了</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ANT_HOME=/usr/<span class="built_in">local</span>/apache-ant-1.9.7 </div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;ANT_HOME&#125;</span>/bin</div></pre></td></tr></table></figure>
-<h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><p>重新打开终端并输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ant</span> -version  </div><div class="line"><span class="comment">#配置成功则显示如下：</span></div><div class="line">Apache Ant(TM) version 1.9.3 compiled on December 23 2013</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：&lt;a href=&quot;http://zh.wikipedia.org/wiki/Apache_Ant&quot; target=&quot;_blank&quot; rel=&quot;exte
-    
-    </summary>
-    
-      <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
-    
-    
-      <category term="ant" scheme="http://percychen.com/tags/ant/"/>
-    
-      <category term="编译" scheme="http://percychen.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-      <category term="mac" scheme="http://percychen.com/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Ant笔记</title>
     <link href="http://percychen.com/2016/11/09/antnote/"/>
     <id>http://percychen.com/2016/11/09/antnote/</id>
@@ -847,33 +882,42 @@
   </entry>
   
   <entry>
-    <title>Cmake的安装</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
-    <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2016-10-16T06:17:23.000Z</updated>
+    <title>Mac下安装Ant</title>
+    <link href="http://percychen.com/2016/11/09/macinstallant/"/>
+    <id>http://percychen.com/2016/11/09/macinstallant/</id>
+    <published>2016-11-09T03:03:43.000Z</published>
+    <updated>2016-11-09T03:03:43.000Z</updated>
     
-    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：<a href="http://zh.wikipedia.org/wiki/Apache_Ant" target="_blank" rel="external">wikipedia-ant</a> 或者这里 <a href="http://baike.baidu.com/link?url=vhok9QFeg3nXU7Zk514dusV5C5IuuGWVornzYbOQS1Cc-r4BBctGm1osrXFlzZVQ#3" target="_blank" rel="external">baidu-ant</a></p>
+</blockquote>
+<p><a href="http://blog.csdn.net/crazybigfish/article/details/18215439" target="_blank" rel="external">原文地址</a> 在此基础上有删减和更新及改进</p>
+<p>最近整理了一下ant的下载和安装方法，步骤如下：</p>
+<h3 id="1-下载ant：官网下载"><a href="#1-下载ant：官网下载" class="headerlink" title="1. 下载ant：官网下载"></a>1. 下载ant：官网下载</h3><p>当前最新版是Apache Ant 1.9.7，可以下载那个zip包，如下图：</p>
+<p><img src="http://img.blog.csdn.net/20140113110440437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY3JhenliaWdmaXNo/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="ant 下载"></p>
+<h3 id="2-将下载的zip包解压到一个目录下，如-usr-local"><a href="#2-将下载的zip包解压到一个目录下，如-usr-local" class="headerlink" title="2. 将下载的zip包解压到一个目录下，如/usr/local"></a>2. 将下载的zip包解压到一个目录下，如/usr/local</h3><p>这时候需要你提供修改权限，输入密码。</p>
+<h3 id="3-配置环境变量："><a href="#3-配置环境变量：" class="headerlink" title="3. 配置环境变量："></a>3. 配置环境变量：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>将下面两行加入到最后，保存就可以了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ANT_HOME=/usr/<span class="built_in">local</span>/apache-ant-1.9.7 </div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$&#123;ANT_HOME&#125;</span>/bin</div></pre></td></tr></table></figure>
+<h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><p>重新打开终端并输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ant</span> -version  </div><div class="line"><span class="comment">#配置成功则显示如下：</span></div><div class="line">Apache Ant(TM) version 1.9.3 compiled on December 23 2013</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
-&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+      &lt;blockquote&gt;
+&lt;p&gt;如果你不知道什么是ant，请不要浪费你的时间继续读下去了。或者你对ant是什么感兴趣，可以看这里：&lt;a href=&quot;http://zh.wikipedia.org/wiki/Apache_Ant&quot; target=&quot;_blank&quot; rel=&quot;exte
     
     </summary>
     
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+      <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
     
     
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
+      <category term="ant" scheme="http://percychen.com/tags/ant/"/>
     
-      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="编译" scheme="http://percychen.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="mac" scheme="http://percychen.com/tags/mac/"/>
     
   </entry>
   
@@ -1053,6 +1097,37 @@ def getwinsize():
       <category term="source" scheme="http://percychen.com/tags/source/"/>
     
       <category term="vim" scheme="http://percychen.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cmake的安装</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-16T06:17:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
+&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -3164,60 +3239,6 @@ def getwinsize():
       <category term="密钥" scheme="http://percychen.com/tags/%E5%AF%86%E9%92%A5/"/>
     
       <category term="签名" scheme="http://percychen.com/tags/%E7%AD%BE%E5%90%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dos2unix：一条命令搞定换行符问题</title>
-    <link href="http://percychen.com/2016/06/06/2016-06-06-dos2unix/"/>
-    <id>http://percychen.com/2016/06/06/2016-06-06-dos2unix/</id>
-    <published>2016-06-06T05:14:00.000Z</published>
-    <updated>2016-06-06T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>项目伊始，开始拿着代码搭构建,刚开始无疑是痛苦的，各种编译出错。只能一个个解决，今天解掉了换行符问题，于是记录一下。</p>
-</blockquote>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
-<li>windows中的换行符是\r\n，</li>
-<li>linux/unix下的换行符是\n。</li>
-</ul>
-<p>其中:<br>回车符：\r=0x0d  (13)          return； #回车（carriage return）<br>换行符：\n=0x0a (10)           newline。#换行（newline）</p>
-<p>文本文件的行结束符,windows 用 CRLF，mac用CR，unix 用 LF。【CR – 回车符，c语言’\r’】。【LF – 换行符， c语言’\n’】。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>整个项目开发环境比较复杂，大多数是用windows进行开发。但是一些公共组件是采用的mac，还有一些脚本类是采用的linux开发。所以，所有的文本都有可能换行符不会。</p>
-<p>首先，我们要找出所有的文件</p>
-<p><code>find . -type f</code></p>
-<p>找到之后，我们要对每个文件进行检测，是什么换行符</p>
-<p><code>file $file &gt; file.txt</code></p>
-<p>然后过滤出windows的换行符出来，既过滤带有 <code>CRLF</code>关键字的输出</p>
-<p><code>cat file.txt| grep CRLF &gt;output.txt</code></p>
-<p>分离出文件</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> line;<span class="keyword">do</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$line</span> |awk -F : <span class="string">'&#123;print $1&#125;'</span>&gt;output2.txt</div><div class="line"><span class="keyword">done</span>&lt; output.txt</div></pre></td></tr></table></figure>
-<p>最后进行转换处理</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">read</span> line;<span class="keyword">do</span></div><div class="line">    dos2unix <span class="variable">$line</span></div><div class="line"><span class="keyword">done</span>&lt; output2.txt</div></pre></td></tr></table></figure>
-<p>整个过程就搞定了</p>
-<h2 id="写代码"><a href="#写代码" class="headerlink" title="写代码"></a>写代码</h2><p><code>find . -type f| xargs file | grep CRLF| awk -F : &#39;{print $1}&#39;|xargs dos2unix</code></p>
-<p>就完成了上面第二步中所有的代码</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;项目伊始，开始拿着代码搭构建,刚开始无疑是痛苦的，各种编译出错。只能一个个解决，今天解掉了换行符问题，于是记录一下。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; ti
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="xargs" scheme="http://percychen.com/tags/xargs/"/>
-    
-      <category term="find" scheme="http://percychen.com/tags/find/"/>
-    
-      <category term="换行符" scheme="http://percychen.com/tags/%E6%8D%A2%E8%A1%8C%E7%AC%A6/"/>
-    
-      <category term="dos2unix" scheme="http://percychen.com/tags/dos2unix/"/>
     
   </entry>
   
