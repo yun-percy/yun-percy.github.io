@@ -296,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -321,8 +321,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/2016-09-26-pythonmysqlnote/" itemprop="url">
-                  python mysql查询笔迹
+                <a class="post-title-link" href="/2016/09/26/2016-09-26-mysqlpasswordreset/" itemprop="url">
+                  mysql重置密码
                 </a>
               
             
@@ -331,42 +331,47 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-26T13:14:00+08:00">
-              2016-09-26
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-26T13:14:00+08:00">
+                2016-09-26
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-09-26T13:14:00+08:00">
-              2016-09-26
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-09-26T13:14:00+08:00">
+                2016-09-26
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/语法/" itemprop="url" rel="index">
-                    <span itemprop="name">语法</span>
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
                   </a>
                 </span>
 
                 
                 
-
               
             </span>
           
@@ -374,9 +379,9 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/26/2016-09-26-pythonmysqlnote/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/2016-09-26-pythonmysqlnote/" itemprop="commentCount"></span>
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/09/26/2016-09-26-mysqlpasswordreset/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/2016-09-26-mysqlpasswordreset/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -386,8 +391,8 @@
 
           
           
-             <span id="/2016/09/26/2016-09-26-pythonmysqlnote/" class="leancloud_visitors" data-flag-title="python mysql查询笔迹">
-               &nbsp; | &nbsp;
+             <span id="/2016/09/26/2016-09-26-mysqlpasswordreset/" class="leancloud_visitors" data-flag-title="mysql重置密码">
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -397,7 +402,7 @@
           
 
           
-          
+
           
 
         </div>
@@ -413,12 +418,23 @@
       
         
           
-          连接数据库1db = MySQLdb.connect(host="www.gyyx.com",user="user",passwd="xxx",db="mysql" )
-新建数据库12sql="create database if not exists mysql"cursor.execute(sq
+          原文地址
+
+忘了MySQL密码，从网上找到的解决方案记录在这里。
+
+
+编辑mysql的配置文件/etc/mysql/my.cnf，在[mysqld]段下加入一行skip-grant-tables。
+
+重启mysql服务
+
+
+1sudo service mysql restart
+
+用空密码进入mys
           ...
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/26/2016-09-26-pythonmysqlnote/#more" rel="contents">
+            <a class="btn" href="/2016/09/26/2016-09-26-mysqlpasswordreset/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -494,28 +510,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-13T13:14:00+08:00">
-              2016-08-13
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-13T13:14:00+08:00">
+                2016-08-13
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-08-13T13:14:00+08:00">
-              2016-08-13
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-08-13T13:14:00+08:00">
+                2016-08-13
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -529,7 +551,6 @@
 
                 
                 
-
               
             </span>
           
@@ -537,7 +558,7 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/08/13/2016-08-13-nodejsNotes/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/2016-08-13-nodejsNotes/" itemprop="commentCount"></span>
                 </a>
@@ -550,7 +571,7 @@
           
           
              <span id="/2016/08/13/2016-08-13-nodejsNotes/" class="leancloud_visitors" data-flag-title="js调用python">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -560,7 +581,7 @@
           
 
           
-          
+
           
 
         </div>
@@ -656,28 +677,34 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-08T13:14:00+08:00">
-              2016-08-08
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-08T13:14:00+08:00">
+                2016-08-08
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-08-08T13:14:00+08:00">
-              2016-08-08
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-08-08T13:14:00+08:00">
+                2016-08-08
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -691,7 +718,6 @@
 
                 
                 
-
               
             </span>
           
@@ -699,7 +725,7 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/08/08/2016-08-08-nodejsallpython/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/2016-08-08-nodejsallpython/" itemprop="commentCount"></span>
                 </a>
@@ -712,7 +738,7 @@
           
           
              <span id="/2016/08/08/2016-08-08-nodejsallpython/" class="leancloud_visitors" data-flag-title="Nodejs调用python,python返回json">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -722,7 +748,7 @@
           
 
           
-          
+
           
 
         </div>
@@ -821,28 +847,34 @@ Nodejs调用python
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-21T13:14:00+08:00">
-              2016-07-21
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-21T13:14:00+08:00">
+                2016-07-21
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-07-21T13:14:00+08:00">
-              2016-07-21
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-07-21T13:14:00+08:00">
+                2016-07-21
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -856,7 +888,6 @@ Nodejs调用python
 
                 
                 
-
               
             </span>
           
@@ -864,7 +895,7 @@ Nodejs调用python
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/07/21/2016-07-21-linuxoperationcommand/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/2016-07-21-linuxoperationcommand/" itemprop="commentCount"></span>
                 </a>
@@ -877,7 +908,7 @@ Nodejs调用python
           
           
              <span id="/2016/07/21/2016-07-21-linuxoperationcommand/" class="leancloud_visitors" data-flag-title="linux 运维相关知识">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -887,7 +918,7 @@ Nodejs调用python
           
 
           
-          
+
           
 
         </div>
@@ -991,28 +1022,34 @@ Nodejs调用python
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-18T13:14:00+08:00">
-              2016-07-18
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-18T13:14:00+08:00">
+                2016-07-18
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-07-18T13:14:00+08:00">
-              2016-07-18
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-07-18T13:14:00+08:00">
+                2016-07-18
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1026,7 +1063,6 @@ Nodejs调用python
 
                 
                 
-
               
             </span>
           
@@ -1034,7 +1070,7 @@ Nodejs调用python
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/07/18/2016-07-18-wxpythonnote/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/18/2016-07-18-wxpythonnote/" itemprop="commentCount"></span>
                 </a>
@@ -1047,7 +1083,7 @@ Nodejs调用python
           
           
              <span id="/2016/07/18/2016-07-18-wxpythonnote/" class="leancloud_visitors" data-flag-title="WxPython初学笔记">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -1057,7 +1093,7 @@ Nodejs调用python
           
 
           
-          
+
           
 
         </div>
@@ -1154,28 +1190,34 @@ Nodejs调用python
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-08T13:14:00+08:00">
-              2016-07-08
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-08T13:14:00+08:00">
+                2016-07-08
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-07-08T13:14:00+08:00">
-              2016-07-08
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-07-08T13:14:00+08:00">
+                2016-07-08
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1189,7 +1231,6 @@ Nodejs调用python
 
                 
                 
-
               
             </span>
           
@@ -1197,7 +1238,7 @@ Nodejs调用python
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/07/08/2016-07-08-pythonREnote/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/08/2016-07-08-pythonREnote/" itemprop="commentCount"></span>
                 </a>
@@ -1210,7 +1251,7 @@ Nodejs调用python
           
           
              <span id="/2016/07/08/2016-07-08-pythonREnote/" class="leancloud_visitors" data-flag-title="Python RE 正则表达式笔记">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -1220,7 +1261,7 @@ Nodejs调用python
           
 
           
-          
+
           
 
         </div>
@@ -1337,28 +1378,34 @@ $
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-06T13:14:00+08:00">
-              2016-07-06
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-06T13:14:00+08:00">
+                2016-07-06
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-07-06T13:14:00+08:00">
-              2016-07-06
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-07-06T13:14:00+08:00">
+                2016-07-06
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1372,7 +1419,6 @@ $
 
                 
                 
-
               
             </span>
           
@@ -1380,7 +1426,7 @@ $
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/07/06/2016-07-06-7zipcommand/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/2016-07-06-7zipcommand/" itemprop="commentCount"></span>
                 </a>
@@ -1393,7 +1439,7 @@ $
           
           
              <span id="/2016/07/06/2016-07-06-7zipcommand/" class="leancloud_visitors" data-flag-title="7z命令行详解及示例">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -1403,7 +1449,7 @@ $
           
 
           
-          
+
           
 
         </div>
@@ -1504,28 +1550,34 @@ $
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-05T13:14:00+08:00">
-              2016-07-05
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-05T13:14:00+08:00">
+                2016-07-05
+              </time>
+            
 
-            &nbsp;|&nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
 
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-check-o"></i>
-            </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-07-05T13:14:00+08:00">
-              2016-07-05
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-07-05T13:14:00+08:00">
+                2016-07-05
+              </time>
             
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
@@ -1539,7 +1591,6 @@ $
 
                 
                 
-
               
             </span>
           
@@ -1547,7 +1598,7 @@ $
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/07/05/2016-07-05-linuxcommandshowb/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/2016-07-05-linuxcommandshowb/" itemprop="commentCount"></span>
                 </a>
@@ -1560,7 +1611,7 @@ $
           
           
              <span id="/2016/07/05/2016-07-05-linuxcommandshowb/" class="leancloud_visitors" data-flag-title="linux装逼命令行，瞬间黑客范">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -1570,7 +1621,7 @@ $
           
 
           
-          
+
           
 
         </div>
@@ -1914,7 +1965,7 @@ $
     // Search DB path;
     var search_path = "search.xml";
     if (search_path.length == 0) {
-       search_path = "search.xml";
+      search_path = "search.xml";
     }
     var path = "/" + search_path;
     // monitor main search box;
@@ -1922,96 +1973,95 @@ $
     function proceedsearch() {
       $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
       $('.popup').toggle();
-
     }
     // search function;
     var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
+      'use strict';
+      $.ajax({
         url: path,
         dataType: "xml",
         async: true,
         success: function( xmlResponse ) {
-            // get the contents from search data
-            isfetched = true;
-            $('.popup').detach().appendTo('.header-inner');
-            var datas = $( "entry", xmlResponse ).map(function() {
-                return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener('input', function(){
-                var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';
-                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                $resultContent.innerHTML = "";
-                if (this.value.trim().length > 1) {
-                // perform local searching
-                datas.forEach(function(data) {
-                    var isMatch = false;
-                    var content_index = [];
-                    var data_title = data.title.trim().toLowerCase();
-                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = decodeURIComponent(data.url);
-                    var index_title = -1;
-                    var index_content = -1;
-                    var first_occur = -1;
-                    // only match artiles with not empty titles and contents
-                    if(data_title != '') {
-                        keywords.forEach(function(keyword, i) {
-                            index_title = data_title.indexOf(keyword);
-                            index_content = data_content.indexOf(keyword);
-                            if( index_title >= 0 || index_content >= 0 ){
-                                isMatch = true;
-                if (i == 0) {
-                                    first_occur = index_content;
-                                }
-                            } 
-              
-                        });
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
                     }
-                    // show search results
-                    if (isMatch) {
-                        matchcounts += 1;
-                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-                        if (first_occur >= 0) {
-                            // cut out 100 characters
-                            var start = first_occur - 20;
-                            var end = first_occur + 80;
-                            if(start < 0){
-                                start = 0;
-                            }
-                            if(start == 0){
-                                end = 50;
-                            }
-                            if(end > content.length){
-                                end = content.length;
-                            }
-                            var match_content = content.substring(start, end);
-                            // highlight all keywords
-                            keywords.forEach(function(keyword){
-                                var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                            });
 
-                            str += "<p class=\"search-result\">" + match_content +"...</p>"
-                        }
-                        str += "</li>";
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
                     }
-                })};
-                str += "</ul>";
-                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
         }
-    });}
+      });}
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
@@ -2021,7 +2071,6 @@ $
       } else {
         proceedsearch();
       };
-
     });
 
     $('.popup-btn-close').click(function(e){
