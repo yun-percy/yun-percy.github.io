@@ -51,6 +51,7 @@ menu_icons:
   home: home
   about: user
   categories: th
+  schedule: calendar
   tags: tags
   archives: archive
   sitemap: sitemap
@@ -65,7 +66,7 @@ menu_icons:
 
 # Schemes
 # scheme: Muse
-# scheme: Mist
+#scheme: Mist
 scheme: Pisces
 
 
@@ -192,6 +193,36 @@ links_title: 友情链接
 #links_layout: inline
 links:
   生活与小怪兽: http://xiangsunzi.com/
+# ---------------------------------------------------------------
+# Post Settings
+# ---------------------------------------------------------------
+
+# Automatically scroll page to section which is under <!-- more --> mark.
+scroll_to_more: true
+
+# Automatically excerpt description in homepage as preamble text.
+excerpt_description: true
+
+# Automatically Excerpt. Not recommand.
+# Please use <!-- more --> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: true
+  length: 150
+
+# Post meta display settings
+post_meta:
+  created_at: true
+  updated_at: true
+  categories: true
+
+
+# Wechat Subscriber
+wechat_subscriber:
+  enabled: false
+  qcode: /images/wechat-qcode.jpg
+  description: 欢迎您扫一扫上面的微信公众号，订阅我的博客！
+
+
 
 
 # ---------------------------------------------------------------
@@ -213,28 +244,6 @@ custom_logo:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
 highlight_theme: normal
-
-
-# Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
-
-# Automatically excerpt description in homepage as preamble text.
-excerpt_description: true
-
-# Automatically Excerpt. Not recommand.
-# Please use <!-- more --> in the post to control excerpt accurately.
-auto_excerpt:
-  enable: true
-  length: 150
-
-
-# Wechat Subscriber
-wechat_subscriber:
-  enabled: false
-  qcode: /images/wechat-qcode.jpg
-  description: 欢迎您扫一扫上面的微信公众号，订阅我的博客！
-
-
 
 
 # ---------------------------------------------------------------
@@ -261,7 +270,7 @@ duoshuo_hotartical: true
 #disqus_shortname:
 
 # Hypercomments
-#hypercomments_id: 
+#hypercomments_id:
 
 # Baidu Share
 # Available value:
@@ -289,6 +298,9 @@ duoshuo_share: true
 # CNZZ count
 #cnzz_siteid:
 
+# Application Insights
+# See https://azure.microsoft.com/en-us/services/application-insights/
+# application_insights:
 
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
@@ -318,6 +330,7 @@ facebook_comments_plugin:
   width: 100%       # default width is 550px
   scheme: light     # default scheme is light (light or dark)
 
+
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
@@ -343,12 +356,30 @@ busuanzi_count:
   page_pv_header: <i class="fa fa-file-o"></i>
   page_pv_footer:
 
+
 # Tencent analytics ID
 tencent_analytics:  58976570
+
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
 baidu_push: false
 
+# Google Calendar
+# Share your recent schedule to others via calendar page
+#
+# API Documentation:
+# https://developers.google.com/google-apps/calendar/v3/reference/events/list
+calendar:
+  enable: false
+  calendar_id: <required>
+  api_key: <required>
+  orderBy: startTime
+  offsetMax: 24
+  offsetMin: 4
+  timeZone:
+  showDeleted: false
+  singleEvents: true
+  maxResults: 250
 
 # Algolia Search
 algolia_search:

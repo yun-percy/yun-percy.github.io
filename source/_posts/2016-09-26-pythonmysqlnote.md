@@ -43,3 +43,11 @@ cursor.execute(sql)
 sql="""update main_page_data set id=1,rdm_info="7" where id="1""""
 cursor.execute(sql)
 ```
+
+排序
+---
+
+```py
+sql="""select * from table where id="1534" order by number desc"""
+cursor.execute(sql)
+```

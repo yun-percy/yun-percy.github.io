@@ -70,6 +70,23 @@ sys.exit(0)|退出
 sys.path[0]|当前路劲
 sys.path|系统环境变量
 
+platform类
+----
+
+函数|描述
+---|---
+platform.python_version()|获取Python版本
+print platform.architecture()|获取操作系统可执行程序的结构，，(’32bit’, ‘WindowsPE’)
+print platform.node()|计算机的网络名称，’acer-PC’
+print platform.platform()|获取操作系统名称及版本号，’Windows-7-6.1.7601-SP1′
+print platform.processor()|计算机处理器信息，’Intel64 Family 6 Model 42 Stepping 7, GenuineIntel’
+print platform.python_build()|获取操作系统中Python的构建日期
+print platform.python_compiler()|获取系统中python解释器的信息
+print platform.version()|获取操作系统的版本
+print platform.uname()|包含上面所有的信息汇总
+
+
+
 
 python类型转换
 -------
