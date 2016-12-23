@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://percychen.com/"/>
-  <updated>2016-12-13T01:44:09.000Z</updated>
+  <updated>2016-12-23T07:19:20.000Z</updated>
   <id>http://percychen.com/</id>
   
   <author>
@@ -14,6 +14,101 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python MySQLdb的安装笔记</title>
+    <link href="http://percychen.com/2016/12/23/installmysqlbdnote/"/>
+    <id>http://percychen.com/2016/12/23/installmysqlbdnote/</id>
+    <published>2016-12-23T07:19:18.000Z</published>
+    <updated>2016-12-23T07:19:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://blog.csdn.net/wklken/article/details/7271019" target="_blank" rel="external">原帖地址</a></p>
+<p>[python MySQLdb在windows环境下的快速安装、问题解决方式]<br>(<a href="http://blog.csdn.NET/wklken/article/details/7253245" target="_blank" rel="external">http://blog.csdn.NET/wklken/article/details/7253245</a>)</p>
+<h2 id="命令安装"><a href="#命令安装" class="headerlink" title="命令安装"></a>命令安装</h2><blockquote>
+<p>机器环境需要mysql环境</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install MySQL-python</div></pre></td></tr></table></figure>
+<p>可能遇到问题：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; import MySQLdb</div><div class="line">Traceback (most recent call last):</div><div class="line">  File "&lt;stdin&gt;", line 1, in ?</div><div class="line">  File "MySQLdb/__init__.py", line 22, in ?</div><div class="line">    raise ImportError("this is MySQLdb version %s, but _mysql is version %r" %</div><div class="line">ImportError: this is MySQLdb version (1, 2, 3, 'final', 0), but _mysql is version (1, 2, 1, 'final', 1)</div></pre></td></tr></table></figure>
+<p>原因：之前使用编译的方法进行安装，下的是1.2.3，但是用yum目前最高1.2.1，冲突</p>
+<p>解决方法：删除已经编译的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf MySQL-python-1.2.3/</div></pre></td></tr></table></figure>
+<p>再进行</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> MySQLdb</div></pre></td></tr></table></figure>
+<p>无错误，则表示成功了</p>
+<h2 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h2><p>需要：</p>
+<ul>
+<li>gcc</li>
+<li>setuptools   </li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -O setuptools-0.6c8.tar.gz  http://pypi.python.org/packages/<span class="built_in">source</span>/s/setuptools/setuptools-0.6c8.tar.gz</div></pre></td></tr></table></figure>
+<p>解压执行 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo easy_install.py </div><div class="line"><span class="comment">#或者 </span></div><div class="line">python setup.py build &amp;&amp; sudo python setup.py install]</div></pre></td></tr></table></figure>
+<ul>
+<li>python-dev    </li>
+</ul>
+<p>在 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-dev</div><div class="line">```   </div><div class="line"></div><div class="line">否则会报异常：</div></pre></td></tr></table></figure>
+<p>fatal error: Python.h: 没有那个文件或目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 步骤：</div><div class="line"></div><div class="line">```sh</div><div class="line">wget http://sourceforge.net/projects/mysql-python/files/latest/download</div><div class="line">$ tar xfz MySQL-python-1.2.3.tar.gz</div><div class="line">$ cd MySQL-python-1.2.3</div><div class="line">$whereis  mysql_config </div><div class="line">mysql_config: /usr/bin/mysql_config</div><div class="line">$ vim site.cfg</div></pre></td></tr></table></figure></p>
+<p>修改<code>mysql_config</code>为mysql配置文件的路径 <code>/usr/bin/mysql_config</code></p>
+<p>还要修改</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> threadsafe = False</div><div class="line">$ python setup.py build</div><div class="line">$ sudo python setup.py install</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/wklken/article/details/7271019&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原帖地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[python MySQLdb在windows环境下的快
+    
+    </summary>
+    
+      <category term="tools" scheme="http://percychen.com/categories/tools/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MAC下的几种磨皮插件</title>
+    <link href="http://percychen.com/2016/12/23/mac_ps_plugin/"/>
+    <id>http://percychen.com/2016/12/23/mac_ps_plugin/</id>
+    <published>2016-12-23T06:43:21.000Z</published>
+    <updated>2016-12-23T06:50:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>今天给大家分享的是期待已久的Adobe Photoshop CC2015 磨皮降噪滤镜三套装 Imagenomic Professional Plugin Suite 2015(破解版、算号器、注册码)，支持Adobe Photoshop CC 2015 与 Adobe Photoshop Elements </p>
+</blockquote>
+<p>包含插件：</p>
+<ul>
+<li>Portraiture</li>
+<li>Noiseware</li>
+<li>RealGrain</li>
+</ul>
+<blockquote>
+<p>Imagenomic滤镜外挂是一款用于人像图片润色，减少了人工选择图像区域的重复劳动。它能智能地对图像中的皮肤材质、头发、眉毛、睫毛等部位进行平滑和减少疵点处理!效果相当不错</p>
+</blockquote>
+<p>注册码：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Noiseware PS</span></div><div class="line">6A78470CAF326DD88F4C4E947C41F748</div><div class="line"><span class="comment">#Portraiture PS</span></div><div class="line">C059657AC5B67C881EFE3CF391D9B972</div><div class="line"><span class="comment">#Realgrain PS</span></div><div class="line">2960A66DC450ED0FAD17536DFE2EA6DD</div></pre></td></tr></table></figure>
+<p><a href="https://pan.baidu.com/s/1i5FOIep" target="_blank" rel="external">点击下载</a> 密码: t8m3</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;今天给大家分享的是期待已久的Adobe Photoshop CC2015 磨皮降噪滤镜三套装 Imagenomic Professional Plugin Suite 2015(破解版、算号器、注册码)，支持Adobe Photoshop CC 2
+    
+    </summary>
+    
+      <category term="Photoshop" scheme="http://percychen.com/categories/Photoshop/"/>
+    
+    
+      <category term="photoshop" scheme="http://percychen.com/tags/photoshop/"/>
+    
+      <category term="插件" scheme="http://percychen.com/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql 命令行语句笔记</title>
@@ -996,92 +1091,6 @@ c.close() <span class="comment">#Curl对象无操作时，也会自动执行clos
   </entry>
   
   <entry>
-    <title>Cmake的安装</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
-    <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2016-10-16T06:17:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
-&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>转:Linux中源码安装编译Vim</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-viminstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-viminstall/</id>
-    <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2016-10-13T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
-</blockquote>
-<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
-<ol>
-<li>下载所需工具</li>
-<li>卸载老版本vim</li>
-<li>下载新版</li>
-<li>编译安装</li>
-<li>下载所需工具</li>
-</ol>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
-<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
-<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
-<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
-<p>解压至 ~/downloads/vim74/</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
-<blockquote>
-<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
-</blockquote>
-<p>其中参数说明如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/zhongcq/p/3615980.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Linux下学习工作少不了编辑器，Vim能
-    
-    </summary>
-    
-      <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
-    
-    
-      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
-    
-      <category term="source" scheme="http://percychen.com/tags/source/"/>
-    
-      <category term="vim" scheme="http://percychen.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
     <title>转:使用Python的Pexpect模块执行SSH登陆</title>
     <link href="http://percychen.com/2016/10/13/2016-10-13-pythonexpect/"/>
     <id>http://percychen.com/2016/10/13/2016-10-13-pythonexpect/</id>
@@ -1199,9 +1208,95 @@ def getwinsize():
     
       <category term="python" scheme="http://percychen.com/tags/python/"/>
     
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
       <category term="note" scheme="http://percychen.com/tags/note/"/>
     
-      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+  </entry>
+  
+  <entry>
+    <title>转:Linux中源码安装编译Vim</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-viminstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-viminstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-13T05:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/zhongcq/p/3615980.html" target="_blank" rel="external">原文地址</a></p>
+<blockquote>
+<p>Linux下学习工作少不了编辑器，Vim能使你的工作效率成倍的提高。在Ubuntu上安装vim使用命令直接安装很简单。但有时还是需要自己手动编译安装。例如： vim中的杀手级插件——YouCompleteMe 要求Vim版本为7.3.548或者更高,自己升级成全功能的最新版,需要通过源码编译安装。</p>
+</blockquote>
+<p>自己在编译安装的过程中也查阅了很多资料，这里将整个编译安装的过程记录下来。</p>
+<ol>
+<li>下载所需工具</li>
+<li>卸载老版本vim</li>
+<li>下载新版</li>
+<li>编译安装</li>
+<li>下载所需工具</li>
+</ol>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编译Vim之前，需要下载编译的相关工具和一些库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial</div></pre></td></tr></table></figure>
+<h3 id="卸载老版本vim"><a href="#卸载老版本vim" class="headerlink" title="卸载老版本vim"></a>卸载老版本vim</h3><p>在安装新版本的Vim之前，你需要卸载原来安装的老版本Vim，依次在终端下执行下列命令：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove vim  </div><div class="line">sudo apt-get remove vim-runtime  </div><div class="line">sudo apt-get remove gvim  </div><div class="line">sudo apt-get remove vim-tiny  </div><div class="line">sudo apt-get remove vim-common  </div><div class="line">sudo apt-get remove vim-gui-common</div></pre></td></tr></table></figure>
+<h3 id="下载新版"><a href="#下载新版" class="headerlink" title="下载新版"></a>下载新版</h3><p><a href="ftp://ftp.vim.org/pub/vim/unix" target="_blank" rel="external">下载地址</a></p>
+<p>这里以<code>vim-7.4.tar.bz2</code>为例</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -xjvf vim<span class="number">-7.4</span>.tar.bz2</div></pre></td></tr></table></figure>
+<p>解压至 ~/downloads/vim74/</p>
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/downloads/vim74/</div><div class="line"></div><div class="line">#设置Vim源码的编译属性</div><div class="line"></div><div class="line">./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ --enable-perlinterp --enable-gui=gtk2 --enable-cscope --enable-luainterp --enable-perlinterp --enable-multibyte --prefix=/usr</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要重新配置可 输入 make distclean #清理一下上一次编译生成的所有文件</p>
+</blockquote>
+<p>其中参数说明如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/zhongcq/p/3615980.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Linux下学习工作少不了编辑器，Vim能
+    
+    </summary>
+    
+      <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
+    
+    
+      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
+    
+      <category term="source" scheme="http://percychen.com/tags/source/"/>
+    
+      <category term="vim" scheme="http://percychen.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cmake的安装</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2016-10-16T06:17:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
+&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -1231,9 +1326,9 @@ def getwinsize():
     
       <category term="python" scheme="http://percychen.com/tags/python/"/>
     
-      <category term="note" scheme="http://percychen.com/tags/note/"/>
-    
       <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
+    
+      <category term="note" scheme="http://percychen.com/tags/note/"/>
     
   </entry>
   
@@ -1522,9 +1617,9 @@ def getwinsize():
     
       <category term="python" scheme="http://percychen.com/tags/python/"/>
     
-      <category term="wxpython" scheme="http://percychen.com/tags/wxpython/"/>
-    
       <category term="note" scheme="http://percychen.com/tags/note/"/>
+    
+      <category term="wxpython" scheme="http://percychen.com/tags/wxpython/"/>
     
   </entry>
   
@@ -2743,506 +2838,6 @@ def getwinsize():
       <category term="args" scheme="http://percychen.com/tags/args/"/>
     
       <category term="函数" scheme="http://percychen.com/tags/%E5%87%BD%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python exception异常处理</title>
-    <link href="http://percychen.com/2016/06/16/2016-06-16-pythonexception/"/>
-    <id>http://percychen.com/2016/06/16/2016-06-16-pythonexception/</id>
-    <published>2016-06-16T05:14:00.000Z</published>
-    <updated>2016-06-16T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.runoob.com/python/python-exceptions.html" target="_blank" rel="external">原文地址</a></p>
-<blockquote>
-<p>python提供了两个非常重要(exception和Assertions)的功能来处理python程序在运行中出现的异常和错误。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>异常名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BaseException</td>
-<td>所有异常的基类</td>
-</tr>
-<tr>
-<td>SystemExit</td>
-<td>解释器请求退出</td>
-</tr>
-<tr>
-<td>KeyboardInterrupt</td>
-<td>用户中断执行(通常是输入^C)</td>
-</tr>
-<tr>
-<td>Exception</td>
-<td>常规错误的基类</td>
-</tr>
-<tr>
-<td>StopIteration</td>
-<td>迭代器没有更多的值</td>
-</tr>
-<tr>
-<td>GeneratorExit</td>
-<td>生成器(generator)发生异常来通知退出</td>
-</tr>
-<tr>
-<td>StandardError</td>
-<td>所有的内建标准异常的基类</td>
-</tr>
-<tr>
-<td>ArithmeticError</td>
-<td>所有数值计算错误的基类</td>
-</tr>
-<tr>
-<td>FloatingPointError</td>
-<td>浮点计算错误</td>
-</tr>
-<tr>
-<td>OverflowError</td>
-<td>数值运算超出最大限制</td>
-</tr>
-<tr>
-<td>ZeroDivisionError</td>
-<td>除(或取模)零(所有数据类型)</td>
-</tr>
-<tr>
-<td>AssertionError</td>
-<td>断言语句失败</td>
-</tr>
-<tr>
-<td>AttributeError</td>
-<td>对象没有这个属性</td>
-</tr>
-<tr>
-<td>EOFError</td>
-<td>没有内建输入,到达EOF标记</td>
-</tr>
-<tr>
-<td>EnvironmentError</td>
-<td>操作系统错误的基类</td>
-</tr>
-<tr>
-<td>IOError</td>
-<td>输入/输出操作失败</td>
-</tr>
-<tr>
-<td>OSError</td>
-<td>操作系统错误</td>
-</tr>
-<tr>
-<td>WindowsError</td>
-<td>系统调用失败</td>
-</tr>
-<tr>
-<td>ImportError</td>
-<td>导入模块/对象失败</td>
-</tr>
-<tr>
-<td>LookupError</td>
-<td>无效数据查询的基类</td>
-</tr>
-<tr>
-<td>IndexError</td>
-<td>序列中没有此索引(index)</td>
-</tr>
-<tr>
-<td>KeyError</td>
-<td>映射中没有这个键</td>
-</tr>
-<tr>
-<td>MemoryError</td>
-<td>内存溢出错误(对于Python解释器不是致命的)</td>
-</tr>
-<tr>
-<td>NameError</td>
-<td>未声明/初始化对象(没有属性)</td>
-</tr>
-<tr>
-<td>UnboundLocalError</td>
-<td>访问未初始化的本地变量</td>
-</tr>
-<tr>
-<td>ReferenceError</td>
-<td>弱引用(Weakreference)试图访问已经垃圾回收了的对象</td>
-</tr>
-<tr>
-<td>RuntimeError</td>
-<td>一般的运行时错误</td>
-</tr>
-<tr>
-<td>NotImplementedError</td>
-<td>尚未实现的方法</td>
-</tr>
-<tr>
-<td>SyntaxError</td>
-<td>Python语法错误</td>
-</tr>
-<tr>
-<td>IndentationError</td>
-<td>缩进错误</td>
-</tr>
-<tr>
-<td>TabError</td>
-<td>Tab和空格混用</td>
-</tr>
-<tr>
-<td>SystemError</td>
-<td>一般的解释器系统错误</td>
-</tr>
-<tr>
-<td>TypeError</td>
-<td>对类型无效的操作</td>
-</tr>
-<tr>
-<td>ValueError</td>
-<td>传入无效的参数</td>
-</tr>
-<tr>
-<td>UnicodeError</td>
-<td>Unicode相关的错误</td>
-</tr>
-<tr>
-<td>UnicodeDecodeError</td>
-<td>Unicode解码时的错误</td>
-</tr>
-<tr>
-<td>UnicodeEncodeError</td>
-<td>Unicode编码时错误</td>
-</tr>
-<tr>
-<td>UnicodeTranslateError</td>
-<td>Unicode转换时错误</td>
-</tr>
-<tr>
-<td>Warning</td>
-<td>警告的基类</td>
-</tr>
-<tr>
-<td>DeprecationWarning</td>
-<td>关于被弃用的特征的警告</td>
-</tr>
-<tr>
-<td>FutureWarning</td>
-<td>关于构造将来语义会有改变的警告</td>
-</tr>
-<tr>
-<td>OverflowWarning</td>
-<td>旧的关于自动提升为长整型(long)的警告</td>
-</tr>
-<tr>
-<td>PendingDeprecationWarning</td>
-<td>关于特性将会被废弃的警告</td>
-</tr>
-<tr>
-<td>RuntimeWarning</td>
-<td>可疑的运行时行为(runtime behavior)的警告</td>
-</tr>
-<tr>
-<td>SyntaxWarning</td>
-<td>可疑的语法的警告</td>
-</tr>
-<tr>
-<td>UserWarning</td>
-<td>用户代码生成的警告</td>
-</tr>
-</tbody>
-</table>
-<h2 id="什么是异常？"><a href="#什么是异常？" class="headerlink" title="什么是异常？"></a>什么是异常？</h2><blockquote>
-<p>异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。<br>一般情况下，在Python无法正常处理程序时就会发生一个异常。</p>
-<p>异常是Python对象，表示一个错误。<br>当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
-</blockquote>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><blockquote>
-<p>捕捉异常可以使用try/except语句。<br>try/except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。<br>如果你不想在异常发生时结束你的程序，只需在try里捕获它。</p>
-</blockquote>
-<p>try….except…else的语法：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line"><span class="comment">#&lt;语句&gt;        #运行别的代码</span></div><div class="line"><span class="keyword">except</span> &lt;名字&gt;：</div><div class="line"><span class="comment">#&lt;语句&gt;        #如果在try部份引发了'name'异常</span></div><div class="line"><span class="keyword">except</span> &lt;名字&gt;，&lt;数据&gt;:</div><div class="line"><span class="comment">#&lt;语句&gt;        #如果引发了'name'异常，获得附加的数据</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line"><span class="comment">#&lt;语句&gt;        #如果没有异常发生</span></div></pre></td></tr></table></figure>
-<p>try的工作原理是，当开始一个try语句后，python就在当前程序的上下文中作标记，这样当异常出现时就可以回到这里，try子句先执行，接下来会发生什么依赖于执行时是否出现异常。</p>
-<p>如果当try后的语句执行时发生异常，python就跳回到try并执行第一个匹配该异常的except子句，异常处理完毕，控制流就通过整个try语句（除非在处理异常时又引发新的异常）。</p>
-<p>如果在try后的语句里发生了异常，却没有匹配的except子句，异常将被递交到上层的try，或者到程序的最上层（这样将结束程序，并打印缺省的出错信息）。</p>
-<p>如果在try子句执行时没有发生异常，python将执行else语句后的语句（如果有else的话），然后控制流通过整个try语句。</p>
-<p><strong>实例</strong></p>
-<blockquote>
-<p>下面是简单的例子，它打开一个文件，在该文件中的内容写入内容，且并未发生异常：</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line"><span class="keyword">except</span> IOError:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"内容写入文件成功"</span></div><div class="line">    fh.close()</div></pre></td></tr></table></figure>
-<p>以上程序输出结果：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div></pre></td></tr></table></figure>
-<p>内容写入文件成功</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cat testfile       <span class="comment"># 查看写入的内容</span></div><div class="line">这是一个测试文件，用于测试异常!!</div></pre></td></tr></table></figure>
-<blockquote>
-<p>下面是简单的例子，它打开一个文件，在该文件中的内容写入内容，但文件没有写入权限，发生了异常：</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line"><span class="keyword">except</span> IOError:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"内容写入文件成功"</span></div><div class="line">    fh.close()</div></pre></td></tr></table></figure>
-<p>在执行代码前为了测试方便，我们可以先去掉 testfile 文件的写权限，命令如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod -w testfile</div></pre></td></tr></table></figure>
-<p>再执行以上代码：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">Error: 没有找到文件或读取文件失败</div></pre></td></tr></table></figure>
-<p>使用except而不带任何异常类型<br>你可以不带任何异常类型使用except，如下实例：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常的操作</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">except</span>:</div><div class="line">    <span class="comment">#发生异常，执行这块代码</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="comment">#如果没有异常执行这块代码</span></div></pre></td></tr></table></figure>
-<p>以上方式try-except语句捕获所有发生的异常。<br>但这不是一个很好的方式，我们不能通过该程序识别出具体的异常信息。因为它捕获所有的异常。<br>使用except而带多种异常类型<br>你也可以使用相同的except语句来处理多个异常信息，如下所示：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常的操作</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">except</span>(Exception1[, Exception2[,...ExceptionN]]]):</div><div class="line">    <span class="comment">#发生以上多个异常中的一个，执行这块代码</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="comment">#如果没有异常执行这块代码</span></div></pre></td></tr></table></figure>
-<h2 id="try-finally-语句"><a href="#try-finally-语句" class="headerlink" title="try-finally 语句"></a>try-finally 语句</h2><blockquote>
-<p>try-finally 语句无论是否发生异常都将执行最后的代码。</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#&lt;语句&gt;</span></div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    <span class="comment">#&lt;语句&gt;    #退出try时总会执行</span></div><div class="line"><span class="keyword">raise</span></div></pre></td></tr></table></figure>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div></pre></td></tr></table></figure>
-<p>如果打开的文件没有可写权限，输出如下所示：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">Error: 没有找到文件或读取文件失败</div></pre></td></tr></table></figure>
-<p>同样的例子也可以写成如下方式：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    fh = open(<span class="string">"testfile"</span>, <span class="string">"w"</span>)</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        fh.write(<span class="string">"这是一个测试文件，用于测试异常!!"</span>)</div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="keyword">print</span> <span class="string">"关闭文件"</span></div><div class="line">        fh.close()</div><div class="line"><span class="keyword">except</span> IOError:</div><div class="line">    <span class="keyword">print</span> <span class="string">"Error: 没有找到文件或读取文件失败"</span></div></pre></td></tr></table></figure>
-<p>当在try块中抛出一个异常，立即执行finally块代码。<br>finally块中的所有语句执行后，异常被再次触发，并执行except块代码。<br>参数的内容不同于异常。<br>异常的参数<br>一个异常可以带上参数，可作为输出的异常信息参数。<br>你可以通过except语句来捕获异常的参数，如下所示：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常的操作</span></div><div class="line">    <span class="comment">#......................</span></div><div class="line"><span class="keyword">except</span> ExceptionType, Argument:</div><div class="line">    <span class="comment">#你可以在这输出 Argument 的值...</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>变量接收的异常值通常包含在异常的语句中。在元组的表单中变量可以接收一个或者多个值。<br>元组通常包含错误字符串，错误数字，错误位置。</p>
-</blockquote>
-<p>以下为单个异常的实例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```py</div><div class="line">#!/usr/bin/python</div><div class="line"># -*- coding: UTF-8 -*-</div><div class="line"></div><div class="line"># 定义函数</div><div class="line">def temp_convert(var):</div><div class="line">    try:</div><div class="line">        return int(var)</div><div class="line">    except ValueError, Argument:</div><div class="line">        print &quot;参数没有包含数字\n&quot;, Argument</div><div class="line">temp_convert(&quot;xyz&quot;);</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">参数没有包含数字</div><div class="line">invalid literal <span class="keyword">for</span> int() with base 10: <span class="string">'xyz'</span></div></pre></td></tr></table></figure>
-<h2 id="触发异常"><a href="#触发异常" class="headerlink" title="触发异常"></a>触发异常</h2><blockquote>
-<p>我们可以使用raise语句自己触发异常</p>
-</blockquote>
-<p>raise语法格式如下：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">raise</span> [Exception [, args [, traceback]]]</div></pre></td></tr></table></figure>
-<p>语句中Exception是异常的类型（例如，NameError）参数是一个异常参数值。该参数是可选的，如果不提供，异常的参数是”None”。<br>最后一个参数是可选的（在实践中很少使用），如果存在，是跟踪异常对象。</p>
-<p><strong>实例</strong></p>
-<p>一个异常可以是一个字符串，类或对象。 Python的内核提供的异常，大多数都是实例化的类，这是一个类的实例的参数。<br>定义一个异常非常简单，如下所示：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">functionName</span><span class="params">( level )</span>:</span></div><div class="line">    <span class="keyword">if</span> level &lt; <span class="number">1</span>:</div><div class="line">        <span class="keyword">raise</span> Exception(<span class="string">"Invalid level!"</span>, level)</div><div class="line">        <span class="comment"># 触发异常后，后面的代码就不会再执行</span></div></pre></td></tr></table></figure>
-<ul>
-<li>注意：为了能够捕获异常，”except”语句必须有用相同的异常来抛出类对象或者字符串。<br>例如我们捕获以上异常，”except”语句如下所示：</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="comment">#正常逻辑</span></div><div class="line"><span class="keyword">except</span> <span class="string">"Invalid level!"</span>:</div><div class="line">    <span class="comment">#触发自定义异常</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="comment">#其余代码</span></div></pre></td></tr></table></figure>
-<p><strong>实例</strong></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line"></div><div class="line"><span class="comment"># 定义函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">mye</span><span class="params">( level )</span>:</span></div><div class="line">    <span class="keyword">if</span> level &lt; <span class="number">1</span>:</div><div class="line">        <span class="keyword">raise</span> Exception(<span class="string">"Invalid level!"</span>, level)</div><div class="line">        <span class="comment"># 触发异常后，后面的代码就不会再执行</span></div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    mye(<span class="number">0</span>)                // 触发异常</div><div class="line"><span class="keyword">except</span> <span class="string">"Invalid level!"</span>:</div><div class="line">    <span class="keyword">print</span> <span class="number">1</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> <span class="number">2</span></div></pre></td></tr></table></figure>
-<p>执行以上代码，输出结果为：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ python test.py</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"test.py"</span>, line 11, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    mye(0)</div><div class="line">  File <span class="string">"test.py"</span>, line 7, <span class="keyword">in</span> mye</div><div class="line">    raise Exception(<span class="string">"Invalid level!"</span>, level)</div><div class="line">Exception: (<span class="string">'Invalid level!'</span>, 0)</div></pre></td></tr></table></figure>
-<h2 id="用户自定义异常"><a href="#用户自定义异常" class="headerlink" title="用户自定义异常"></a>用户自定义异常</h2><blockquote>
-<p>通过创建一个新的异常类，程序可以命名它们自己的异常。异常应该是典型的继承自Exception类，通过直接或间接的方式。<br>以下为与RuntimeError相关的实例,实例中创建了一个类，基类为RuntimeError，用于在异常触发时输出更多的信息。<br>在try语句块中，用户自定义的异常后执行except块语句，变量 e 是用于创建Networkerror类的实例。</p>
-</blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Networkerror</span><span class="params">(RuntimeError)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg)</span>:</span></div><div class="line">        self.args = arg</div></pre></td></tr></table></figure>
-<p>在你定义以上类后，你可以触发该异常，如下所示：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="keyword">raise</span> Networkerror(<span class="string">"Bad hostname"</span>)</div><div class="line"><span class="keyword">except</span> Networkerror,e:</div><div class="line">    <span class="keyword">print</span> e.args</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.runoob.com/python/python-exceptions.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;python提供了两个非常重要
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="exception" scheme="http://percychen.com/tags/exception/"/>
-    
-      <category term="异常" scheme="http://percychen.com/tags/%E5%BC%82%E5%B8%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python中的time</title>
-    <link href="http://percychen.com/2016/06/08/2016-06-08-pythontime/"/>
-    <id>http://percychen.com/2016/06/08/2016-06-08-pythontime/</id>
-    <published>2016-06-08T05:14:00.000Z</published>
-    <updated>2016-06-08T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。时间间隔是以秒为单位的浮点小数。每个时间戳都以自从1970年1月1日午夜（历元）经过了多长时间来表示。</p>
-</blockquote>
-<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><p>头:<code>import time</code></p>
-<table>
-<thead>
-<tr>
-<th>常用表达式</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>time.time()</td>
-<td>1459994552.51</td>
-</tr>
-<tr>
-<td>time.localtime(time.time())</td>
-<td>time.struct_time(tm_year=2016, tm_mon=4, tm_mday=7, tm_hour=10, tm_min=3, tm_sec=27, tm_wday=3, tm_yday=98, tm_isdst=0)</td>
-</tr>
-<tr>
-<td>time.asctime( time.localtime(time.time()) )</td>
-<td>Thu Apr  7 10:05:21 2016</td>
-</tr>
-<tr>
-<td>time.strftime(“%Y-%m-%d %H:%M:%S”, time.localtime())</td>
-<td>2016-04-07 10:25:09</td>
-</tr>
-<tr>
-<td>print time.strftime(“%a %b %d %H:%M:%S %Y”, time.localtime())</td>
-<td>Thu Apr 07 10:25:09 2016</td>
-</tr>
-<tr>
-<td>print time.mktime(time.strptime(a,”%a %b %d %H:%M:%S %Y”))</td>
-<td>1459175064.0</td>
-</tr>
-</tbody>
-</table>
-<h2 id="日历"><a href="#日历" class="headerlink" title="日历"></a>日历</h2><p>头：<code>import calendar</code></p>
-<p>常用表达式：</p>
-<p><code>calendar.month(2016, 1)</code></p>
-<p>输出</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    January 2016</div><div class="line">Mo Tu We Th Fr Sa Su</div><div class="line">             1  2  3</div><div class="line"> 4  5  6  7  8  9 10</div><div class="line">11 12 13 14 15 16 17</div><div class="line">18 19 20 21 22 23 24</div><div class="line">25 26 27 28 29 30 31</div></pre></td></tr></table></figure>
-<h2 id="time常用函数"><a href="#time常用函数" class="headerlink" title="time常用函数"></a>time常用函数</h2><blockquote>
-<p>Time 模块包含了以下内置函数，既有时间处理相的，也有转换时间格式的：</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>time.altzone</td>
-<td>返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。</td>
-</tr>
-<tr>
-<td>time.asctime([tupletime])</td>
-<td>接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2008”（2008年12月11日 周二18时07分14秒）的24个字符的字符串。</td>
-</tr>
-<tr>
-<td>time.clock( )</td>
-<td>用以浮点数计算的秒数返回当前的CPU时间。用来衡量不同程序的耗时，比time.time()更有用。</td>
-</tr>
-<tr>
-<td>time.ctime([secs])</td>
-<td>作用相当于asctime(localtime(secs))，未给参数相当于asctime()</td>
-</tr>
-<tr>
-<td>time.gmtime([secs])</td>
-<td>接收时间辍（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0</td>
-</tr>
-<tr>
-<td>time.localtime([secs])</td>
-<td>接收时间辍（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。</td>
-</tr>
-<tr>
-<td>time.mktime(tupletime)</td>
-<td>接受时间元组并返回时间辍（1970纪元后经过的浮点秒数）。</td>
-</tr>
-<tr>
-<td>time.sleep(secs)</td>
-<td>推迟调用线程的运行，secs指秒数。</td>
-</tr>
-<tr>
-<td>time.strftime(fmt[,tupletime])</td>
-<td>接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。</td>
-</tr>
-<tr>
-<td>time.strptime(str,fmt=’%a %b %d %H:%M:%S %Y’)</td>
-<td>根据fmt的格式把一个时间字符串解析为时间元组。</td>
-</tr>
-<tr>
-<td>time.time( )</td>
-<td>返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</td>
-</tr>
-<tr>
-<td>time.tzset()</td>
-<td>根据环境变量TZ重新初始化时间相关设置。</td>
-</tr>
-<tr>
-<td>time.timezone</td>
-<td>属性time.timezone是当地时区（未启动夏令时）距离格林威治的偏移秒数（&gt;0，美洲;&lt;=0大部分欧洲，亚洲，非洲）。</td>
-</tr>
-<tr>
-<td>time.tzname</td>
-<td>属性time.tzname包含一对根据情况的不同而不同的字符串，分别是带夏令时的本地时区名称，和不带的。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="日历（Calendar）模块"><a href="#日历（Calendar）模块" class="headerlink" title="日历（Calendar）模块"></a>日历（Calendar）模块</h2><blockquote>
-<p>此模块的函数都是日历相关的，例如打印某月的字符月历。<br>星期一是默认的每周第一天，星期天是默认的最后一天。更改设置需调用calendar.setfirstweekday()函数。模块包含了以下内置函数：</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>calendar.calendar(year,w=2,l=1,c=6)</td>
-<td>返回一个多行字符串格式的year年年历，3个月一行，间隔距离为c。 每日宽度间隔为w字符。每行长度为21<em> W+18+2</em> C。l是每星期行数。</td>
-</tr>
-<tr>
-<td>calendar.firstweekday( )</td>
-<td>返回当前每周起始日期的设置。默认情况下，首次载入caendar模块时返回0，即星期一。</td>
-</tr>
-<tr>
-<td>calendar.isleap(year)</td>
-<td>是闰年返回True，否则为false。</td>
-</tr>
-<tr>
-<td>calendar.leapdays(y1,y2)</td>
-<td>返回在Y1，Y2两年之间的闰年总数。</td>
-</tr>
-<tr>
-<td>calendar.month(year,month,w=2,l=1)</td>
-<td>返回一个多行字符串格式的year年month月日历，两行标题，一周一行。每日宽度间隔为w字符。每行的长度为7* w+6。l是每星期的行数。</td>
-</tr>
-<tr>
-<td>calendar.monthcalendar(year,month)</td>
-<td>返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year年month月外的日期都设为0;范围内的日子都由该月第几日表示，从1开始。</td>
-</tr>
-<tr>
-<td>calendar.monthrange(year,month)</td>
-<td>返回两个整数。第一个是该月的星期几的日期码，第二个是该月的日期码。日从0（星期一）到6（星期日）;月从1到12。</td>
-</tr>
-<tr>
-<td>calendar.prcal(year,w=2,l=1,c=6)</td>
-<td>相当于 print calendar.calendar(year,w,l,c).</td>
-</tr>
-<tr>
-<td>calendar.prmonth(year,month,w=2,l=1)</td>
-<td>相当于 print calendar.calendar（year，w，l，c）。</td>
-</tr>
-<tr>
-<td>calendar.setfirstweekday(weekday)</td>
-<td>设置每周的起始日期码。0（星期一）到6（星期日）。</td>
-</tr>
-<tr>
-<td>calendar.timegm(tupletime)</td>
-<td>和time.gmtime相反：接受一个时间元组形式，返回该时刻的时间辍（1970纪元后经过的浮点秒数）。</td>
-</tr>
-<tr>
-<td>calendar.weekday(year,month,day)</td>
-<td>返回给定日期的日期码。0（星期一）到6（星期日）。月份为 1（一月） 到 12（12月）。</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。时间间隔是以秒为单位的浮点小数。每个时间戳都以自从1970年1月1日午夜（历元）经过
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="time" scheme="http://percychen.com/tags/time/"/>
-    
-      <category term="时间戳" scheme="http://percychen.com/tags/%E6%97%B6%E9%97%B4%E6%88%B3/"/>
     
   </entry>
   
