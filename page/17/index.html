@@ -296,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/08/07/2014-08-07-powersavecode/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/08/07/2014-08-07-androidactivity/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -321,8 +321,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/08/07/2014-08-07-powersavecode/" itemprop="url">
-                  省电模式部分代码
+                <a class="post-title-link" href="/2014/08/07/2014-08-07-androidactivity/" itemprop="url">
+                  android 外部启动activity，自定义action，action常量大全
                 </a>
               
             
@@ -380,8 +380,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2014/08/07/2014-08-07-powersavecode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-powersavecode/" itemprop="commentCount"></span>
+                <a href="/2014/08/07/2014-08-07-androidactivity/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-androidactivity/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,7 +391,7 @@
 
           
           
-             <span id="/2014/08/07/2014-08-07-powersavecode/" class="leancloud_visitors" data-flag-title="省电模式部分代码">
+             <span id="/2014/08/07/2014-08-07-androidactivity/" class="leancloud_visitors" data-flag-title="android 外部启动activity，自定义action，action常量大全">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,15 +418,16 @@
       
         
           
-          ####这是我写的一个电量管理的一些代码
-以下皆在android 4.3 平台上测试通过
+          转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/
+###从任意app，启动另外一个app的activity：
 
-将 休眠时间调制 15秒：
-Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TI
+第一种方式
+Intent i = new Intent();
+ ComponentName cn =
           ...
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/08/07/2014-08-07-powersavecode/#more" rel="contents">
+            <a class="btn" href="/2014/08/07/2014-08-07-androidactivity/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1786,7 +1787,7 @@ PRODUCT_LOCALES := en_US zh_CN zh_TW en_GB fr_FR it_I
         <div class="copyright" >
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
