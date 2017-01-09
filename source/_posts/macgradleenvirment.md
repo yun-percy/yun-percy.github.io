@@ -50,3 +50,18 @@ Ant:          Apache Ant(TM) version 1.9.6 compiled on June 29 2015
 JVM:          1.8.0_73 (Oracle Corporation 25.73-b02)
 OS:           Mac OS X 10.10.5 x86_64
 ```
+
+SDK安装
+-----
+
+gradle安装好后，还是不够的，因为gradle需要依赖SDK和JDK
+
+公司内部下载sdk:
+
+[http://android.oa.com/SDKTools/](http://android.oa.com/SDKTools/)
+
+解压后按照
+
+[http://android.oa.com/include/usage.html](http://android.oa.com/include/usage.html)中说明设置代理
+下载相对应的sdk
+
