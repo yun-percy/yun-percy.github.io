@@ -21,7 +21,7 @@ category: 综合
 			from /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
 			from extconf.rb:1:in `<main>'
 
-###解决
+### 解决
 		终端输入：
 		sudo apt-get install ruby1.9.1-dev
 		再次尝试安装：
@@ -34,7 +34,7 @@ category: 综合
 错误2
 --------
 
-###运行jekyll报错
+### 运行jekyll报错
 
 		终端输入： jekyll new blog 报错如下
 		*****in `autodetect': Could not find a JavaScript runtime.....

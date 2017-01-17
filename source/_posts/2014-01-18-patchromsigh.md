@@ -4,7 +4,7 @@ category: Android
 ---
 
 
-#####不知道最近怎么的，总有人问我一些patch ROM的问题，近期问得特别多的就是 下面这个错误信息：
+##### 不知道最近怎么的，总有人问我一些patch ROM的问题，近期问得特别多的就是 下面这个错误信息：
 
     ERROR: no key specified for:
     BaiduVoiceAssistant.apk

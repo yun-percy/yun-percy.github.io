@@ -4,7 +4,7 @@ title: linux桌面环境的安装
 category: Linux
 ---
 
-###elementary OS 桌面环境的安装：
+### elementary OS 桌面环境的安装：
 
 > 每日更新版本安装PPA（适用于ubuntu 11.04/11.10/12.04/12.10）:
 

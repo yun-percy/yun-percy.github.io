@@ -4,7 +4,7 @@ title: 关于作死的java环境变量设置（linux）
 category: Linux
 ---
 
-###之前
+### 之前
 
 > 以前一直用的是openjdk6，后来做解包的时候用的openjdk7，最近来了一套源码，竟然强制使用sun、oricle的java SE 1.6否则编译失败 ，去掉这个判断后发现容易出现各种莫名其妙的问题，于是决定乖乖的用 SE 1.6
 

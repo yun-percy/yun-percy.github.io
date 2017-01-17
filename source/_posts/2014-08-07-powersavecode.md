@@ -3,7 +3,7 @@ title: 省电模式部分代码
 category: Android
 ---
 
-####这是我写的一个电量管理的一些代码
+#### 这是我写的一个电量管理的一些代码
 
 以下皆在android 4.3 平台上测试通过<br/>
 
@@ -173,4 +173,4 @@ category: Android
 
         <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
-####最后更新时间：2014-09-24
+#### 最后更新时间：2014-09-24

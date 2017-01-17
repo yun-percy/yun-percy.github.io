@@ -4,14 +4,14 @@ title: Android Makefile 编译过程讲解
 category: Android
 ---
 
-###android make 系统
+### android make 系统
 
 + arch
 + board
 + device
 + product
 
-###Android.mk中的定义变量
+### Android.mk中的定义变量
 
 + include $(CLEAR_VARS)
 
@@ -23,7 +23,7 @@ category: Android
 
 + 其它以此类推
 
-###main.mk中的模块
+### main.mk中的模块
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -67,7 +67,7 @@ category: Android
     </tbody>
 </table>
 
-###makefile的文件结构
+### makefile的文件结构
 
 		LOCAL_PATH:=$(call my-dir) //获取当前目录
 		#include $(CLEAR_VARS) //make系统为子模块定义了很多的私有变量，这个调用是为了初始化所有的私有变量
@@ -76,7 +76,7 @@ category: Android
 		...
 		#include $(BUILD_XXX) //执行编译任务
 
-###编译apk
+### 编译apk
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -97,7 +97,7 @@ include $(BUILD_PACKAGE)
     </tbody>
 </table>
 
-###编译依赖静态java库的应用程序
+### 编译依赖静态java库的应用程序
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -119,7 +119,7 @@ include $(BUILD_PACKAGE)</code></pre>
     </tbody>
 </table>
 
-###编译一个需要用平台key签名的应用程序
+### 编译一个需要用平台key签名的应用程序
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -141,7 +141,7 @@ include $(BUILD_PACKAGE)</code></pre>
     </tbody>
 </table>
 
-###编译一个需要特定key的应用程序
+### 编译一个需要特定key的应用程序
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -163,7 +163,7 @@ include $(BUILD_PACKAGE)</code></pre>
     </tbody>
 </table>
 
-###添加一个预编译应用程序
+### 添加一个预编译应用程序
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -195,7 +195,7 @@ include $(BUILD_STATIC_JAVA_LIBRARY) </code></pre>
     </tbody>
 </table>
 
-###常用的mk分类
+### 常用的mk分类
 
 + Android.mk 用来编译模块或者apk的，module对应native code，package对应于java
 + AndroidProducts.mk 设置product，设置系统包含了那些应用target_<os>-<arch>.mk，host_<os>-<arch>.mk，<os>-<arch>.mk 针对不同的系统和CPU架框进行设置
@@ -205,7 +205,7 @@ include $(BUILD_STATIC_JAVA_LIBRARY) </code></pre>
 
 + frameworks/base/core/java 扩展SDK时，可以向里面添加自己的类
 
-###make参数
+### make参数
 
 + . build/envsetup.sh 可以设置环境，运行之后会支持mm命令，使make支持只编译一个模块
 <br>
@@ -379,7 +379,7 @@ include $(BUILD_EXECUTABLE) 编译成可执行程序</code></pre>
 </table>
 
 
-###常用函数
+### 常用函数
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">

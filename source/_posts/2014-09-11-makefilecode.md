@@ -3,7 +3,7 @@ title: Android.mk 变量讲解
 category: Android
 ---
 
-####今天逛 @杨万荣 网站看到的。访问太慢，就直接clone文章，重新用markdown排了版。
+#### 今天逛 @杨万荣 网站看到的。访问太慢，就直接clone文章，重新用markdown排了版。
 [原文地址:http://sndnvaps.github.io/](http://sndnvaps.github.io/)
 
 

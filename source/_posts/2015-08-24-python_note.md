@@ -20,7 +20,7 @@ pwd
 
 ---
 
-###python判断文件和文件夹是否存在
+### python判断文件和文件夹是否存在
 
 ```
 import os
@@ -35,11 +35,11 @@ os.removedirs()#递归删除空目录
 import shutil
 shutil.rmtree()
 ```
-###sys.exit(0)
+### sys.exit(0)
 
 退出值设定
 
-###获取当前路径
+### 获取当前路径
 
 ```
 import sys

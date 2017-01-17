@@ -4,7 +4,7 @@ title: python 数组list笔记
 category: 语法
 ---
 
-###P数组类型：
+### P数组类型：
 
 1. list 数组，初始化后可以通过特定方法动态增加元素。<br>
 定义方式：`arr = [元素]`
@@ -15,9 +15,9 @@ category: 语法
 3. Dictionary 字典， 即是Hash数组。<br>
 定义方式：`arr = {元素k:v}`
 
-###使用方法和技巧：
+### 使用方法和技巧：
 
-####list
+#### list
 
 > 初始化
 
@@ -62,7 +62,7 @@ test=' '.join(list)
 test=list(set(list))
 ```
 
-###Tuple 元组
+### Tuple 元组
 
 > Tuple 是不可变 list，一旦创建了一个 tuple 就不能以任何方式改变它。
 
@@ -76,12 +76,12 @@ t[1:3] #[4] 这里 1:3 是 i>=1 and i<3 的区间
 ('b', 'mpilgrim')
 ```
 
-####Tuple 没有的方法：
+#### Tuple 没有的方法：
 + 不能向 tuple 增加元素，没有 append 、 extend 、insert 等方法。
 + 不能从 tuple 删除元素，没有 remove 或 pop 方法。
 + 不能在 tuple 中查找元素，没有 index 方法（index是查找而不是索引，索引直接用下标即可，如：t[0]）。
 
-####使用 tuple 的好处：
+#### 使用 tuple 的好处：
 
 + Tuple 比 list 操作速度快。如果您定义了一个值的常量集, 并且唯一要用它做的是不断地遍历它, 请使用 tuple 代替 list。
 + 如果对不需要修改的数据进行 “写保护”, 可以使代码更安全。使用 tuple 而不是 list 如同拥有一个隐含的 assert 语句, 说明这一数据是常量。如果必须要改变这些值, 则需要执行 tuple 到 list 的转换 (需要使用一个特殊的函数)。
@@ -96,7 +96,7 @@ t = list( t )
 arr = tuple( arr )
 ```
 
-###Dictionary (哈希数组)词典数组
+### Dictionary (哈希数组)词典数组
 
 > Dictionary 的用法比较简单，它可以存储任意值，并允许是不同类型的值，下面实例来说明：
 

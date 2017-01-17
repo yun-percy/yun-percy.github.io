@@ -4,9 +4,9 @@ category: Linux
 ---
 
 
-#####Mint是Ubuntu的衍生版，所以硬盘安装Mint和Ubuntu的步骤基本上是一致的，本文的方法，我已经在ubuntu10.04和和Mint 14以上全部试用通过。引导的方法很多，有用wubi，也有用变色龙的，这里用easybcd安装。
+> Mint是Ubuntu的衍生版，所以硬盘安装Mint和Ubuntu的步骤基本上是一致的，本文的方法，我已经在ubuntu10.04和和Mint 14以上全部试用通过。引导的方法很多，有用wubi，也有用变色龙的，这里用easybcd安装。
 
-#####安装前请先用磁盘分区软件对硬盘分区，如果你是要做android开发，请先分三个区：
+> 安装前请先用磁盘分区软件对硬盘分区，如果你是要做android开发，请先分三个区：
 
 + 一个分区10G的样子（土豪请随意），格式化为ext4或者ext3，用来挂载 / 目录。
 + 一个分区至少100G（我自己分区分的800G，代码太多），格式化ext4 或者ext3，用来挂载/home目录。
@@ -24,11 +24,12 @@ category: Linux
 
 4. 然后点击Configure，在弹出的窗口中输入如下内容：
 
-		root
-		kernel /vmlinuz iso-scan/filename=/(ubuntu/mint映像文件名).iso boot=casper splash
-		initrd /initrd.lz
-		boot</p>
-
+```sh
+root
+kernel /vmlinuz iso-scan/filename=/(ubuntu/mint映像文件名).iso boot=casper splash
+initrd /initrd.lz
+boot</p>
+```
 
 5. 电脑重启后，就会发现启动菜单会多了一项NeoGrub，选择后会进入Ubuntu/Mint的光盘系统，就是传说的是livecd模式，点击桌面上的图标进行相应的安装即可。
 

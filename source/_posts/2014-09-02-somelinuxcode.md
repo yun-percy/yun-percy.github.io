@@ -28,13 +28,13 @@ category: Linux
 - adb命令
 -------
 
-###直接启动应用 ：
+### 直接启动应用 ：
 
 ```sh
 adb shell am start -n "包名/类名"
 ```
 
-###查看包名类名：
+### 查看包名类名：
 
 ```sh
 aapt dump badging XX.apk
@@ -43,7 +43,7 @@ aapt dump badging XX.apk
 apt-get
 ----
 
-###ia32-libs
+### ia32-libs
 
 这是一个32位依赖包，很多常用软件依旧在是用这个依赖包，但是在ubuntu和mint的软件源里已经把这个依赖包给去掉了，那我们怎么来安装？<br/>添加软件源，下文中要添加的软件源是现在还能用的，也许以后就没了，因为安装过程中要经常使用sudo的授权，所以第一步我们就直接临时进root了。使用完了记得退出。<br/>直接上链接：
 
@@ -58,21 +58,21 @@ apt-get install ia32-libs
 
 搞定
 
-###find 命令
+### find 命令
 
 		find . -name "*.mk"  -exec grep -l "love" {} \;
 
 在所有后缀名为.mk中查找带love的文件，并且列出文件名
 
-###高通开机splash.img文件制作
+### 高通开机splash.img文件制作
 
 		convert -depth 8 logo.png  bgr:splash.img
 
-###linux下bootanimation制作
+### linux下bootanimation制作
 
 		zip -0 bootanimation.zip part0/*PNG part1/*PNG desc.txt
 
-###ls命令参数
+### ls命令参数
 
 		-h 将文件大小转换为方便阅读的单位
 		-R 遍历所有目录

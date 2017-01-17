@@ -8,7 +8,7 @@ category: Android
 XML篇
 -----------
 
-####AndroidManifest篇
+#### AndroidManifest篇
 
 + 在 Androidmannifest.xml相应 的activity中添加条属性:
 
@@ -22,13 +22,13 @@ XML篇
 
 		android:exported="true"
 
-####控件篇
+#### 控件篇
 
 + Edittext只允许输入数字
 
 		android:numeric="integer"
 
-####主题篇
+#### 主题篇
 
 + 去掉actionbar上面的阴影
 
@@ -39,7 +39,7 @@ XML篇
 JAVA篇
 ---------------
 
-####根据屏幕分辨率来设置字体等其它资源
+#### 根据屏幕分辨率来设置字体等其它资源
 
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		if(dm.widthPixels == 480){

@@ -4,7 +4,7 @@ title: ListView特效实现
 category: Android
 ---
 
-###添加一个入场动画：
+### 添加一个入场动画：
 
 +  在listView中添加一个属性点:
 

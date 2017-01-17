@@ -6,7 +6,7 @@ category: Linux
 
 
 
-###zip命令
+### zip命令
 
 ```sh
 zip -r myfile.zip ./*
@@ -28,7 +28,7 @@ zip -r filename.zip file1 file2 file3 /usr/work/school
 
 以及 /usr/work/school 目录的内容（假设这个目录存在）压缩起来，然后放入 filename.zip 文件中。
 
-###unzip
+### unzip
 
 
 要抽取 zip 文件的内容，键入以下命令：
@@ -43,7 +43,7 @@ unzip -o -d /home/yun myfile.zip
 -o:不提示的情况下覆盖文件；<br>
 -d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下；
 
-###其他
+### 其他
 
 ```sh
 zip -d myfile.zip smart.txt
@@ -103,7 +103,7 @@ tar -cf all.tar *.jpg
 
 > 这条命令是解出all.tar包中所有文件，-t是解开的意思
 
-###各种文件压缩
+### 各种文件压缩
 
 ```sh
 tar –cvf jpg.tar *.jpg #将目录里所有jpg文件打包成tar.jpg
@@ -114,7 +114,7 @@ rar a jpg.rar *.jpg #rar格式的压缩，需要先下载rar for linux
 zip jpg.zip *.jpg #zip格式的压缩，需要先下载zip for linux
 ```
 
-###各种文件解压
+### 各种文件解压
 
 ```sh
 tar –xvf file.tar #解压 tar包

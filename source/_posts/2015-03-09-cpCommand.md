@@ -5,7 +5,7 @@ category: Shell
 ---
 [原帖地址](http://www.linuxso.com/command/cp.html)
 
-###参数：
+### 参数：
 
 	-a ：相当于 -pdr 的意思；
 	-d ：若来源文件为连结文件的属性(link file)，则复制连结文件属性而非档案本身；
@@ -20,7 +20,7 @@ category: Shell
 最后需要注意的，如果来源档有两个以上，则最后一个目的文件一定要是『目录』才行！
 
 
-###范例：
+### 范例：
 
 > 范例一：将家目录下的 .bashrc 复制到 /tmp 下，并更名为 bashrc
 

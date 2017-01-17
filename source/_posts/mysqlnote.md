@@ -28,7 +28,7 @@ mysql>
 
 注意，如果是连接到另外的机器上，则需要加入一个参数-h机器IP
 
-###增加新用户
+### 增加新用户
 
 > 格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by "密码"
 
@@ -101,7 +101,7 @@ select * from 表名;
 
 ### 导出和导入数据
 
-####导出数据：
+#### 导出数据：
 
 ```sh
 mysqldump --opt test > mysql.test
@@ -193,5 +193,15 @@ mysql -h110.110.110.110 -uroot -pabcd123 # 远程登录
 
 (注:u与root可以不用加空格，其它也一样)
 
+####查询条目数量
+
+```sh
+select count(*) from tablename;
+```
+
+
+
 #### 退出MYSQL命令： exit (回车)
+
+
 

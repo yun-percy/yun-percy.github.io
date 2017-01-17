@@ -48,7 +48,7 @@ category: Android
 		adb logcat -b events — 查看和事件相关的的缓冲区.
 		adb logcat -b main — 查看主要的日志缓冲区
 
-###adb monkey 测试
+### adb monkey 测试
 
 + 黑名单测试
 

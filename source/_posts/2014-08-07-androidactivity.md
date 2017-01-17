@@ -7,7 +7,7 @@ category: Android
 
 ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 
-###从任意app，启动另外一个app的activity：
+### 从任意app，启动另外一个app的activity：
 
 + 第一种方式
 
@@ -33,7 +33,7 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 		Intent it = new Intent("com.qylk.call.main");
 		startActivity(it);
 
-###使用adb启动activity：
+### 使用adb启动activity：
 
 + 启动RootExolorer：
 
@@ -47,7 +47,7 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
 附（转载）：android系统Action常量(其实不算全)
 -------
 
-####android intent和intent action大全
+#### android intent和intent action大全
 
 
 1. 从google搜索内容
@@ -273,7 +273,7 @@ ___转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/___
             startActivity(Intent.createChooser(it, "Choose Email Client"));
 
 
-####★intent action大全：
+#### ★intent action大全：
 
 
 > ACTION_MAIN                         作为一个主要的进入口，而并不期望去接受数据

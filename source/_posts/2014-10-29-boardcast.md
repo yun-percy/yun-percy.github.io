@@ -4,9 +4,9 @@ title: 广播的注册发送和接受
 category: Android
 ---
 
-###发送
+### 发送
 
-####先注册一个动作：
+#### 先注册一个动作：
 
 		public static final String SONG_NAME = "hehe";
 
@@ -30,7 +30,7 @@ sendBroadcast(song);</code></pre>
     </tbody>
 </table>
 
-###注册
+### 注册
 
 静态注册直接在AndroidManifest里面注册就可以了，这里主要讲动态注册：
 先注册两个变量
@@ -60,7 +60,7 @@ registerReceiver(songReceiver,songfilter);</code></pre>
     </tbody>
 </table>
 
-###直接注册
+### 直接注册
 
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
@@ -78,7 +78,7 @@ registerReceiver(songReceiver,songfilter);</code></pre>
     </tbody>
 </table>
 
-###接收
+### 接收
 <table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;">
     <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">
         <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;">

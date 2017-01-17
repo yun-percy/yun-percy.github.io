@@ -12,10 +12,10 @@ tags:
 
 [点击阅读原文](http://python.jobbole.com/81519/)
 
-###笔记
+### 笔记
 
 
-####ZipFile方法和属性：
+#### ZipFile方法和属性：
 
 `ZipFile.getinfo(name)`
 
@@ -87,7 +87,7 @@ zipFile.close()
 
 > writestr()支持将二进制数据直接写入到压缩文档。
 
-###ZipInfo类
+### ZipInfo类
 
 
 ZipFile.getinfo(name) 方法返回的是一个ZipInfo对象，表示zip文档中相应文件的信息。它支持如下属性：
