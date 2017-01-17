@@ -101,7 +101,7 @@
 连 untracked 的目录也一起删掉git clean -fd
 连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）git clean -xfd
 在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删git clean">
-<meta property="og:updated_time" content="2014-12-01T05:14:00.000Z">
+<meta property="og:updated_time" content="2017-01-17T07:03:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git的一些简单用法">
 <meta name="twitter:description" content="删除 untracked filesgit clean -f
@@ -355,8 +355,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-12-01T13:14:00+08:00">
-                2014-12-01
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:17+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -427,10 +427,8 @@
 </code></pre><h3 id="在用上述-git-clean-前，墙裂建议加上-n-参数来先看看会删掉哪些文件，防止重要文件被误删"><a href="#在用上述-git-clean-前，墙裂建议加上-n-参数来先看看会删掉哪些文件，防止重要文件被误删" class="headerlink" title="在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删"></a>在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删</h3><pre><code>git clean -nxfd
 git clean -nf
 git clean -nfd
-</code></pre><p>###添加一个远程仓库地址：</p>
-<pre><code>git  remote add origin git@XXXXXXXXXXXXXXX
-</code></pre><p>###清楚你的修改</p>
-<pre><code>git reset --hard
+</code></pre><h3 id="添加一个远程仓库地址："><a href="#添加一个远程仓库地址：" class="headerlink" title="添加一个远程仓库地址："></a>添加一个远程仓库地址：</h3><pre><code>git  remote add origin git@XXXXXXXXXXXXXXX
+</code></pre><h3 id="清楚你的修改"><a href="#清楚你的修改" class="headerlink" title="清楚你的修改"></a>清楚你的修改</h3><pre><code>git reset --hard
 </code></pre><h2 id="免密码输入"><a href="#免密码输入" class="headerlink" title="免密码输入"></a>免密码输入</h2><blockquote>
 <p>使用git push提交时，每次都要输入密码，使用git-credentials就可以解决，难点是容易泄漏密码</p>
 </blockquote>
@@ -578,7 +576,7 @@ vim ~/.git-credentials
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -595,7 +593,7 @@ vim ~/.git-credentials
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -673,7 +671,7 @@ vim ~/.git-credentials
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-untracked-files"><span class="nav-number">1.</span> <span class="nav-text">删除 untracked files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连-untracked-的目录也一起删掉"><span class="nav-number">2.</span> <span class="nav-text">连 untracked 的目录也一起删掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连-gitignore-的untrack-文件-目录也一起删掉-（慎用，一般这个是用来删掉编译出来的-o之类的文件用的）"><span class="nav-number">3.</span> <span class="nav-text">连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在用上述-git-clean-前，墙裂建议加上-n-参数来先看看会删掉哪些文件，防止重要文件被误删"><span class="nav-number">4.</span> <span class="nav-text">在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#免密码输入"><span class="nav-number"></span> <span class="nav-text">免密码输入</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-untracked-files"><span class="nav-number">1.</span> <span class="nav-text">删除 untracked files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连-untracked-的目录也一起删掉"><span class="nav-number">2.</span> <span class="nav-text">连 untracked 的目录也一起删掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连-gitignore-的untrack-文件-目录也一起删掉-（慎用，一般这个是用来删掉编译出来的-o之类的文件用的）"><span class="nav-number">3.</span> <span class="nav-text">连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在用上述-git-clean-前，墙裂建议加上-n-参数来先看看会删掉哪些文件，防止重要文件被误删"><span class="nav-number">4.</span> <span class="nav-text">在用上述 git clean 前，墙裂建议加上 -n 参数来先看看会删掉哪些文件，防止重要文件被误删</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加一个远程仓库地址："><span class="nav-number">5.</span> <span class="nav-text">添加一个远程仓库地址：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清楚你的修改"><span class="nav-number">6.</span> <span class="nav-text">清楚你的修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#免密码输入"><span class="nav-number"></span> <span class="nav-text">免密码输入</span></a></div>
             
 
           </div>

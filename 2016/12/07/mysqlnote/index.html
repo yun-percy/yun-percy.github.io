@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,mysql,命令行,mac," />
+  <meta name="keywords" content="linux,命令行,mysql,mac," />
 
 
 
@@ -94,7 +94,8 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
 登陆mysql语法如下： mysql -u用户名 -p用户密码键入命令mysql -uroot -p， 回车后提示你输入密码，输入12345，然后回车即可进入到mysql中了，mysql的提示符是：
 1mysql&amp;gt;
 注意，如果是连接到另外的机器上，则需要加入一个参数-h机器IP
-###增加新用">
+增加新用户
+格">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql 命令行语句笔记">
 <meta property="og:url" content="http://percychen.com/2016/12/07/mysqlnote/index.html">
@@ -104,8 +105,9 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
 登陆mysql语法如下： mysql -u用户名 -p用户密码键入命令mysql -uroot -p， 回车后提示你输入密码，输入12345，然后回车即可进入到mysql中了，mysql的提示符是：
 1mysql&amp;gt;
 注意，如果是连接到另外的机器上，则需要加入一个参数-h机器IP
-###增加新用">
-<meta property="og:updated_time" content="2016-12-13T01:44:09.000Z">
+增加新用户
+格">
+<meta property="og:updated_time" content="2017-01-17T07:08:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql 命令行语句笔记">
 <meta name="twitter:description" content="原帖地址
@@ -113,7 +115,8 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
 登陆mysql语法如下： mysql -u用户名 -p用户密码键入命令mysql -uroot -p， 回车后提示你输入密码，输入12345，然后回车即可进入到mysql中了，mysql的提示符是：
 1mysql&amp;gt;
 注意，如果是连接到另外的机器上，则需要加入一个参数-h机器IP
-###增加新用">
+增加新用户
+格">
 
 
 
@@ -361,8 +364,8 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-12-13T09:44:09+08:00">
-                2016-12-13
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:09+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -432,8 +435,7 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
 <h3 id="登陆mysql"><a href="#登陆mysql" class="headerlink" title="登陆mysql"></a>登陆mysql</h3><p>语法如下： mysql -u用户名 -p用户密码<br>键入命令mysql -uroot -p， 回车后提示你输入密码，输入12345，然后回车即可进入到mysql中了，mysql的提示符是：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt;</div></pre></td></tr></table></figure>
 <p>注意，如果是连接到另外的机器上，则需要加入一个参数-h机器IP</p>
-<p>###增加新用户</p>
-<blockquote>
+<h3 id="增加新用户"><a href="#增加新用户" class="headerlink" title="增加新用户"></a>增加新用户</h3><blockquote>
 <p>格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码”</p>
 </blockquote>
 <p>   如，增加一个用户user1密码为password1，让其可以在本机上登录， 并对所有数  据库有查询、插入、修改、删除的权限。首先用以root用户连入mysql，然后键入以下命令：</p>
@@ -452,8 +454,7 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
 <h4 id="建表："><a href="#建表：" class="headerlink" title="建表："></a>建表：</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">use 库名;</div><div class="line">create table 表名(字段列表);</div><div class="line">drop table 表名;</div></pre></td></tr></table></figure>
 <h4 id="清空表中记录："><a href="#清空表中记录：" class="headerlink" title="清空表中记录："></a>清空表中记录：</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete from 表名;</div></pre></td></tr></table></figure>
 <h4 id="显示表中的记录："><a href="#显示表中的记录：" class="headerlink" title="显示表中的记录："></a>显示表中的记录：</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select * from 表名;</div></pre></td></tr></table></figure>
-<h3 id="导出和导入数据"><a href="#导出和导入数据" class="headerlink" title="导出和导入数据"></a>导出和导入数据</h3><p>####导出数据：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump --opt <span class="built_in">test</span> &gt; mysql.test</div></pre></td></tr></table></figure>
+<h3 id="导出和导入数据"><a href="#导出和导入数据" class="headerlink" title="导出和导入数据"></a>导出和导入数据</h3><h4 id="导出数据："><a href="#导出数据：" class="headerlink" title="导出数据："></a>导出数据：</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump --opt <span class="built_in">test</span> &gt; mysql.test</div></pre></td></tr></table></figure>
 <p>即将数据库test数据库导出到mysql.test文件，后者是一个文本文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p123456 --databases dbname &gt; mysql.dbname</div></pre></td></tr></table></figure>
 <p>就是把数据库dbname导出到文件mysql.dbname中。</p>
@@ -472,6 +473,8 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
 <h4 id="连接到远程主机上的MYSQL"><a href="#连接到远程主机上的MYSQL" class="headerlink" title="连接到远程主机上的MYSQL"></a>连接到远程主机上的MYSQL</h4><p>假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h110.110.110.110 -uroot -pabcd123 <span class="comment"># 远程登录</span></div></pre></td></tr></table></figure>
 <p>(注:u与root可以不用加空格，其它也一样)</p>
+<p>####查询条目数量</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select count(*) from tablename;</div></pre></td></tr></table></figure>
 <h4 id="退出MYSQL命令：-exit-回车"><a href="#退出MYSQL命令：-exit-回车" class="headerlink" title="退出MYSQL命令： exit (回车)"></a>退出MYSQL命令： exit (回车)</h4>
       
     </div>
@@ -496,9 +499,9 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
           
             <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
-          
             <a href="/tags/命令行/" rel="tag"># 命令行</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
             <a href="/tags/mac/" rel="tag"># mac</a>
           
@@ -615,7 +618,7 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -632,7 +635,7 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -710,7 +713,7 @@ mysql服务的启动和停止12net stop mysqlnet start mysql
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql服务的启动和停止"><span class="nav-number">1.</span> <span class="nav-text">mysql服务的启动和停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登陆mysql"><span class="nav-number">2.</span> <span class="nav-text">登陆mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作数据库"><span class="nav-number">3.</span> <span class="nav-text">操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示数据库列表。"><span class="nav-number">3.1.</span> <span class="nav-text">显示数据库列表。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示库中的数据表："><span class="nav-number">3.2.</span> <span class="nav-text">显示库中的数据表：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示数据表的结构："><span class="nav-number">3.3.</span> <span class="nav-text">显示数据表的结构：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建库与删库："><span class="nav-number">4.</span> <span class="nav-text">建库与删库：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#建表："><span class="nav-number">4.1.</span> <span class="nav-text">建表：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清空表中记录："><span class="nav-number">4.2.</span> <span class="nav-text">清空表中记录：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示表中的记录："><span class="nav-number">4.3.</span> <span class="nav-text">显示表中的记录：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出和导入数据"><span class="nav-number">5.</span> <span class="nav-text">导出和导入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导入数据"><span class="nav-number">5.1.</span> <span class="nav-text">导入数据:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将文本数据导入数据库"><span class="nav-number">5.2.</span> <span class="nav-text">将文本数据导入数据库:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#往表中加入记录"><span class="nav-number">5.3.</span> <span class="nav-text">往表中加入记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除一条记录"><span class="nav-number">5.4.</span> <span class="nav-text">删除一条记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用文本方式将数据装入数据库表中-例如D-mysql-txt"><span class="nav-number">5.5.</span> <span class="nav-text">用文本方式将数据装入数据库表中(例如D:/mysql.txt)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入-sql文件命令-例如D-mysql-sql"><span class="nav-number">5.6.</span> <span class="nav-text">导入.sql文件命令(例如D:/mysql.sql)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除表"><span class="nav-number">5.7.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清空表"><span class="nav-number">5.8.</span> <span class="nav-text">清空表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新表中数据"><span class="nav-number">5.9.</span> <span class="nav-text">更新表中数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备份数据库"><span class="nav-number">5.10.</span> <span class="nav-text">备份数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接到远程主机上的MYSQL"><span class="nav-number">5.11.</span> <span class="nav-text">连接到远程主机上的MYSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出MYSQL命令：-exit-回车"><span class="nav-number">5.12.</span> <span class="nav-text">退出MYSQL命令： exit (回车)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql服务的启动和停止"><span class="nav-number">1.</span> <span class="nav-text">mysql服务的启动和停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登陆mysql"><span class="nav-number">2.</span> <span class="nav-text">登陆mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加新用户"><span class="nav-number">3.</span> <span class="nav-text">增加新用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作数据库"><span class="nav-number">4.</span> <span class="nav-text">操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示数据库列表。"><span class="nav-number">4.1.</span> <span class="nav-text">显示数据库列表。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示库中的数据表："><span class="nav-number">4.2.</span> <span class="nav-text">显示库中的数据表：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示数据表的结构："><span class="nav-number">4.3.</span> <span class="nav-text">显示数据表的结构：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建库与删库："><span class="nav-number">5.</span> <span class="nav-text">建库与删库：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#建表："><span class="nav-number">5.1.</span> <span class="nav-text">建表：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清空表中记录："><span class="nav-number">5.2.</span> <span class="nav-text">清空表中记录：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示表中的记录："><span class="nav-number">5.3.</span> <span class="nav-text">显示表中的记录：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出和导入数据"><span class="nav-number">6.</span> <span class="nav-text">导出和导入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导出数据："><span class="nav-number">6.1.</span> <span class="nav-text">导出数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入数据"><span class="nav-number">6.2.</span> <span class="nav-text">导入数据:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将文本数据导入数据库"><span class="nav-number">6.3.</span> <span class="nav-text">将文本数据导入数据库:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#往表中加入记录"><span class="nav-number">6.4.</span> <span class="nav-text">往表中加入记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除一条记录"><span class="nav-number">6.5.</span> <span class="nav-text">删除一条记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用文本方式将数据装入数据库表中-例如D-mysql-txt"><span class="nav-number">6.6.</span> <span class="nav-text">用文本方式将数据装入数据库表中(例如D:/mysql.txt)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入-sql文件命令-例如D-mysql-sql"><span class="nav-number">6.7.</span> <span class="nav-text">导入.sql文件命令(例如D:/mysql.sql)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除表"><span class="nav-number">6.8.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清空表"><span class="nav-number">6.9.</span> <span class="nav-text">清空表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新表中数据"><span class="nav-number">6.10.</span> <span class="nav-text">更新表中数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备份数据库"><span class="nav-number">6.11.</span> <span class="nav-text">备份数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接到远程主机上的MYSQL"><span class="nav-number">6.12.</span> <span class="nav-text">连接到远程主机上的MYSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#退出MYSQL命令：-exit-回车"><span class="nav-number">6.13.</span> <span class="nav-text">退出MYSQL命令： exit (回车)</span></a></li></ol></li></ol></div>
             
 
           </div>

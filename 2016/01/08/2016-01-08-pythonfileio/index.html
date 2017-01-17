@@ -90,36 +90,36 @@
 
 
 <meta name="description" content="Python提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用file对象做大部分的文件操作。
-####open()
-
+open()
 你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的辅助方法才可以调用它进行读写。
 
 语法：
 1file object = open(file_name [, access_mode][, buffering])
-各个参数的细节如下：">
+各个参数的细节如下：
+file_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python的文件操作">
 <meta property="og:url" content="http://percychen.com/2016/01/08/2016-01-08-pythonfileio/index.html">
 <meta property="og:site_name" content="风之子的世界">
 <meta property="og:description" content="Python提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用file对象做大部分的文件操作。
-####open()
-
+open()
 你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的辅助方法才可以调用它进行读写。
 
 语法：
 1file object = open(file_name [, access_mode][, buffering])
-各个参数的细节如下：">
-<meta property="og:updated_time" content="2016-01-08T05:14:00.000Z">
+各个参数的细节如下：
+file_">
+<meta property="og:updated_time" content="2017-01-17T07:08:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python的文件操作">
 <meta name="twitter:description" content="Python提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用file对象做大部分的文件操作。
-####open()
-
+open()
 你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的辅助方法才可以调用它进行读写。
 
 语法：
 1file object = open(file_name [, access_mode][, buffering])
-各个参数的细节如下：">
+各个参数的细节如下：
+file_">
 
 
 
@@ -367,8 +367,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-01-08T13:14:00+08:00">
-                2016-01-08
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:01+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -434,8 +434,7 @@
 
       
         <p>Python提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用file对象做大部分的文件操作。</p>
-<p>####open()</p>
-<blockquote>
+<h4 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h4><blockquote>
 <p>你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的辅助方法才可以调用它进行读写。</p>
 </blockquote>
 <p>语法：</p>
@@ -503,8 +502,7 @@
 </tr>
 </tbody>
 </table>
-<p>####File对象的属性</p>
-<p>以下是和file对象相关的所有属性的列表：</p>
+<h4 id="File对象的属性"><a href="#File对象的属性" class="headerlink" title="File对象的属性"></a>File对象的属性</h4><p>以下是和file对象相关的所有属性的列表：</p>
 <table>
 <thead>
 <tr>
@@ -535,36 +533,29 @@
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line">fo = open(<span class="string">"foo.txt"</span>, <span class="string">"wb"</span>)</div><div class="line"><span class="keyword">print</span> <span class="string">"Name of the file: "</span>, fo.name</div><div class="line"><span class="keyword">print</span> <span class="string">"Closed or not : "</span>, fo.closed</div><div class="line"><span class="keyword">print</span> <span class="string">"Opening mode : "</span>, fo.mode</div><div class="line"><span class="keyword">print</span> <span class="string">"Softspace flag : "</span>, fo.softspace</div></pre></td></tr></table></figure>
 <p>以上实例输出结果：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Name of the file:  foo.txt</div><div class="line">Closed or not :  False</div><div class="line">Opening mode :  wb</div><div class="line">Softspace flag :  0</div></pre></td></tr></table></figure>
-<p>####Close()方法</p>
-<blockquote>
+<h4 id="Close-方法"><a href="#Close-方法" class="headerlink" title="Close()方法"></a>Close()方法</h4><blockquote>
 <p>File对象的close（）方法刷新缓冲区里任何还没写入的信息，并关闭该文件，这之后便不能再进行写入。<br>当一个文件对象的引用被重新指定给另一个文件时，Python会关闭之前的文件。用close（）方法关闭文件是一个很好的习惯。</p>
 </blockquote>
 <p>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fileObject.close();</div></pre></td></tr></table></figure>
-<p>###读写文件：</p>
-<blockquote>
+<h3 id="读写文件："><a href="#读写文件：" class="headerlink" title="读写文件："></a>读写文件：</h3><blockquote>
 <p>file对象提供了一系列方法，能让我们的文件访问更轻松。来看看如何使用read()和write()方法来读取和写入文件。</p>
 </blockquote>
-<p>####Write()方法</p>
-<blockquote>
+<h4 id="Write-方法"><a href="#Write-方法" class="headerlink" title="Write()方法"></a>Write()方法</h4><blockquote>
 <p>Write()方法可将任何字符串写入一个打开的文件。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
 </blockquote>
 <p><strong>Write()方法不在字符串的结尾不添加换行符(‘\n’)：</strong></p>
 <p>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fileObject.write(string);</div></pre></td></tr></table></figure>
-<p>####read()方法</p>
-<blockquote>
+<h4 id="read-方法"><a href="#read-方法" class="headerlink" title="read()方法"></a>read()方法</h4><blockquote>
 <p>read（）方法从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。</p>
 </blockquote>
 <p>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fileObject.read([count]);</div></pre></td></tr></table></figure>
-<p>###文件位置：</p>
-<p>####tell()</p>
-<blockquote>
+<h3 id="文件位置："><a href="#文件位置：" class="headerlink" title="文件位置："></a>文件位置：</h3><h4 id="tell"><a href="#tell" class="headerlink" title="tell()"></a>tell()</h4><blockquote>
 <p>告诉你文件内的当前位置；换句话说，下一次的读写会发生在文件开头这么多字节之后：</p>
 </blockquote>
-<p>####seek（offset [,from]）</p>
-<blockquote>
+<h4 id="seek（offset-from-）"><a href="#seek（offset-from-）" class="headerlink" title="seek（offset [,from]）"></a>seek（offset [,from]）</h4><blockquote>
 <p>方法改变当前文件的位置。Offset变量表示要移动的字节数。From变量指定开始移动字节的参考位置。</p>
 </blockquote>
 <p>如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。如果设为1，则使用当前的位置作为参考位置。如果它被设为2，那么该文件的末尾将作为参考位置。</p>
@@ -572,37 +563,30 @@
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></div><div class="line">fo = open(<span class="string">"/tmp/foo.txt"</span>, <span class="string">"r+"</span>)</div><div class="line">str = fo.read(<span class="number">10</span>);</div><div class="line"><span class="keyword">print</span> <span class="string">"Read String is : "</span>, str</div><div class="line">position = fo.tell();</div><div class="line"><span class="keyword">print</span> <span class="string">"Current file position : "</span>, position</div><div class="line">position = fo.seek(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">str = fo.read(<span class="number">10</span>);</div><div class="line"><span class="keyword">print</span> <span class="string">"Again read String is : "</span>, str</div><div class="line">fo.close()</div></pre></td></tr></table></figure>
 <p>以上实例输出结果：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Read String is :  Python is</div><div class="line">Current file position :  10</div><div class="line">Again <span class="built_in">read</span> String is :  Python is</div></pre></td></tr></table></figure>
-<p>###重命名和删除文件</p>
-<blockquote>
+<h3 id="重命名和删除文件"><a href="#重命名和删除文件" class="headerlink" title="重命名和删除文件"></a>重命名和删除文件</h3><blockquote>
 <p>Python的os模块提供了帮你执行文件处理操作的方法，比如重命名和删除文件。<br>要使用这个模块，你必须先导入它，然后可以调用相关的各种功能。</p>
 </blockquote>
-<p>####rename()方法：</p>
-<p>rename()方法需要两个参数，当前的文件名和新文件名。<br>语法：</p>
+<h4 id="rename-方法："><a href="#rename-方法：" class="headerlink" title="rename()方法："></a>rename()方法：</h4><p>rename()方法需要两个参数，当前的文件名和新文件名。<br>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.rename(current_file_name, new_file_name)</div></pre></td></tr></table></figure>
-<p>####remove()方法</p>
-<p>你可以用remove()方法删除文件，需要提供要删除的文件名作为参数。<br>语法：</p>
+<h4 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove()方法"></a>remove()方法</h4><p>你可以用remove()方法删除文件，需要提供要删除的文件名作为参数。<br>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.remove(file_name)</div></pre></td></tr></table></figure>
-<p>###Python里的目录：</p>
-<blockquote>
+<h3 id="Python里的目录："><a href="#Python里的目录：" class="headerlink" title="Python里的目录："></a>Python里的目录：</h3><blockquote>
 <p>所有文件都包含在各个不同的目录下，不过Python也能轻松处理。os模块有许多方法能帮你创建，删除和更改目录。</p>
 </blockquote>
-<p>####mkdir()方法</p>
-<blockquote>
+<h4 id="mkdir-方法"><a href="#mkdir-方法" class="headerlink" title="mkdir()方法"></a>mkdir()方法</h4><blockquote>
 <p>可以使用os模块的mkdir()方法在当前目录下创建新的目录们。你需要提供一个包含了要创建的目录名称的参数。</p>
 </blockquote>
 <p>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.mkdir(<span class="string">"newdir"</span>)</div></pre></td></tr></table></figure>
 <h4 id="chdir-方法"><a href="#chdir-方法" class="headerlink" title="chdir()方法"></a>chdir()方法</h4><p>可以用chdir()方法来改变当前的目录。chdir()方法需要的一个参数是你想设成当前目录的目录名称。<br>语法：<br>os.chdir(“newdir”)</p>
-<p>####getcwd()方法：</p>
-<p>getcwd()方法显示当前的工作目录。<br>语法：</p>
+<h4 id="getcwd-方法："><a href="#getcwd-方法：" class="headerlink" title="getcwd()方法："></a>getcwd()方法：</h4><p>getcwd()方法显示当前的工作目录。<br>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.getcwd()</div></pre></td></tr></table></figure>
 <h4 id="rmdir-方法"><a href="#rmdir-方法" class="headerlink" title="rmdir()方法"></a>rmdir()方法</h4><blockquote>
 <p>rmdir()方法删除目录，目录名称以参数传递。<br>在删除这个目录之前，它的所有内容应该先被清除。</p>
 </blockquote>
 <p>语法：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.rmdir(<span class="string">'dirname'</span>)</div></pre></td></tr></table></figure>
-<p>###读取文件内容</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">"foo.txt"</span>)</div><div class="line">line = f.readline()</div><div class="line"><span class="keyword">while</span> line:</div><div class="line">    <span class="keyword">print</span> line</div><div class="line">    line = f.readline()</div><div class="line">f.close()</div></pre></td></tr></table></figure>
+<h3 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">"foo.txt"</span>)</div><div class="line">line = f.readline()</div><div class="line"><span class="keyword">while</span> line:</div><div class="line">    <span class="keyword">print</span> line</div><div class="line">    line = f.readline()</div><div class="line">f.close()</div></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"foo.txt"</span>):</div><div class="line">    <span class="keyword">print</span> line</div></pre></td></tr></table></figure>
 
@@ -736,7 +720,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -753,7 +737,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -831,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#chdir-方法"><span class="nav-number">1.</span> <span class="nav-text">chdir()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rmdir-方法"><span class="nav-number">2.</span> <span class="nav-text">rmdir()方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#open"><span class="nav-number">1.</span> <span class="nav-text">open()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#File对象的属性"><span class="nav-number">2.</span> <span class="nav-text">File对象的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Close-方法"><span class="nav-number">3.</span> <span class="nav-text">Close()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写文件："><span class="nav-number"></span> <span class="nav-text">读写文件：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Write-方法"><span class="nav-number">1.</span> <span class="nav-text">Write()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#read-方法"><span class="nav-number">2.</span> <span class="nav-text">read()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件位置："><span class="nav-number"></span> <span class="nav-text">文件位置：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tell"><span class="nav-number">1.</span> <span class="nav-text">tell()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#seek（offset-from-）"><span class="nav-number">2.</span> <span class="nav-text">seek（offset [,from]）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重命名和删除文件"><span class="nav-number"></span> <span class="nav-text">重命名和删除文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#rename-方法："><span class="nav-number">1.</span> <span class="nav-text">rename()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-方法"><span class="nav-number">2.</span> <span class="nav-text">remove()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python里的目录："><span class="nav-number"></span> <span class="nav-text">Python里的目录：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdir-方法"><span class="nav-number">1.</span> <span class="nav-text">mkdir()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chdir-方法"><span class="nav-number">2.</span> <span class="nav-text">chdir()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getcwd-方法："><span class="nav-number">3.</span> <span class="nav-text">getcwd()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rmdir-方法"><span class="nav-number">4.</span> <span class="nav-text">rmdir()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取文件内容"><span class="nav-number"></span> <span class="nav-text">读取文件内容</span></a></div>
             
 
           </div>

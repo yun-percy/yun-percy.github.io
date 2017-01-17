@@ -90,30 +90,27 @@
 
 
 <meta name="description" content="转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/
-###从任意app，启动另外一个app的activity：
-
+从任意app，启动另外一个app的activity：
 第一种方式
 Intent i = new Intent();
- ComponentName cn = new ComponentName(&amp;quot;com.book.android2&amp;quot;,">
+ ComponentName cn = new ComponentName(&amp;quot;com.book.android2&amp;quot;,  &amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android 外部启动activity，自定义action，action常量大全">
 <meta property="og:url" content="http://percychen.com/2014/08/07/2014-08-07-androidactivity/index.html">
 <meta property="og:site_name" content="风之子的世界">
 <meta property="og:description" content="转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/
-###从任意app，启动另外一个app的activity：
-
+从任意app，启动另外一个app的activity：
 第一种方式
 Intent i = new Intent();
- ComponentName cn = new ComponentName(&amp;quot;com.book.android2&amp;quot;,">
-<meta property="og:updated_time" content="2014-08-07T05:14:00.000Z">
+ ComponentName cn = new ComponentName(&amp;quot;com.book.android2&amp;quot;,  &amp;qu">
+<meta property="og:updated_time" content="2017-01-17T07:08:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 外部启动activity，自定义action，action常量大全">
 <meta name="twitter:description" content="转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/
-###从任意app，启动另外一个app的activity：
-
+从任意app，启动另外一个app的activity：
 第一种方式
 Intent i = new Intent();
- ComponentName cn = new ComponentName(&amp;quot;com.book.android2&amp;quot;,">
+ ComponentName cn = new ComponentName(&amp;quot;com.book.android2&amp;quot;,  &amp;qu">
 
 
 
@@ -361,8 +358,8 @@ Intent i = new Intent();
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-08-07T13:14:00+08:00">
-                2014-08-07
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:06+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -428,8 +425,7 @@ Intent i = new Intent();
 
       
         <p><strong><em>转自：<a href="http://www.qylk.blog.163.com/blog/static/13468735620130913043889/" target="_blank" rel="external">http://www.qylk.blog.163.com/blog/static/13468735620130913043889/</a></em></strong></p>
-<p>###从任意app，启动另外一个app的activity：</p>
-<ul>
+<h3 id="从任意app，启动另外一个app的activity："><a href="#从任意app，启动另外一个app的activity：" class="headerlink" title="从任意app，启动另外一个app的activity："></a>从任意app，启动另外一个app的activity：</h3><ul>
 <li><p>第一种方式</p>
 <pre><code>Intent i = new Intent();
  ComponentName cn = new ComponentName(&quot;com.book.android2&quot;,  &quot;com.book.android2.AndroidSearch&quot;);
@@ -449,8 +445,7 @@ startActivity(it);
 <p>&gt;<br>如果你需要启动一个你自己写的另一个app的activity，你可以在那个的menifest.xml里自定义activity的action:<br>其他地方启动它：</p>
 <pre><code>Intent it = new Intent(&quot;com.qylk.call.main&quot;);
 startActivity(it);
-</code></pre><p>###使用adb启动activity：</p>
-<ul>
+</code></pre><h3 id="使用adb启动activity："><a href="#使用adb启动activity：" class="headerlink" title="使用adb启动activity："></a>使用adb启动activity：</h3><ul>
 <li><p>启动RootExolorer：</p>
 <pre><code>am start -a android.intent.action.MAIN -n com.speedsoftware.rootexplorer/.RootExplorer
 </code></pre></li>
@@ -458,8 +453,7 @@ startActivity(it);
 <pre><code>am start -a android.settings.SETTINGS
 </code></pre></li>
 </ul>
-<h2 id="附（转载）：android系统Action常量-其实不算全"><a href="#附（转载）：android系统Action常量-其实不算全" class="headerlink" title="附（转载）：android系统Action常量(其实不算全)"></a>附（转载）：android系统Action常量(其实不算全)</h2><p>####android intent和intent action大全</p>
-<ol>
+<h2 id="附（转载）：android系统Action常量-其实不算全"><a href="#附（转载）：android系统Action常量-其实不算全" class="headerlink" title="附（转载）：android系统Action常量(其实不算全)"></a>附（转载）：android系统Action常量(其实不算全)</h2><h4 id="android-intent和intent-action大全"><a href="#android-intent和intent-action大全" class="headerlink" title="android intent和intent action大全"></a>android intent和intent action大全</h4><ol>
 <li><p>从google搜索内容</p>
 <pre><code>Intent intent = new Intent();
 intent.setAction(Intent.ACTION_WEB_SEARCH);
@@ -648,8 +642,7 @@ it.setType(&quot;text/plain&quot;);
 startActivity(Intent.createChooser(it, &quot;Choose Email Client&quot;));
 </code></pre></li>
 </ol>
-<p>####★intent action大全：</p>
-<blockquote>
+<h4 id="★intent-action大全："><a href="#★intent-action大全：" class="headerlink" title="★intent action大全："></a>★intent action大全：</h4><blockquote>
 <p>ACTION_MAIN                         作为一个主要的进入口，而并不期望去接受数据</p>
 <p>ACTION_VIEW                         向用户去显示数据</p>
 <p>ACTION_ATTACH_DATA                  用于指定一些数据应该附属于一些其他的地方，例如，图片数据应该附属于联系人</p>
@@ -931,7 +924,7 @@ String EXTRA_INPUT_METHOD_ID
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -948,7 +941,7 @@ String EXTRA_INPUT_METHOD_ID
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1026,7 +1019,7 @@ String EXTRA_INPUT_METHOD_ID
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#附（转载）：android系统Action常量-其实不算全"><span class="nav-number">1.</span> <span class="nav-text">附（转载）：android系统Action常量(其实不算全)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准的广播Actions"><span class="nav-number">2.</span> <span class="nav-text">标准的广播Actions</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#从任意app，启动另外一个app的activity："><span class="nav-number">1.</span> <span class="nav-text">从任意app，启动另外一个app的activity：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用adb启动activity："><span class="nav-number">2.</span> <span class="nav-text">使用adb启动activity：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附（转载）：android系统Action常量-其实不算全"><span class="nav-number"></span> <span class="nav-text">附（转载）：android系统Action常量(其实不算全)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#android-intent和intent-action大全"><span class="nav-number">0.1.</span> <span class="nav-text">android intent和intent action大全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#★intent-action大全："><span class="nav-number">0.2.</span> <span class="nav-text">★intent action大全：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准的广播Actions"><span class="nav-number"></span> <span class="nav-text">标准的广播Actions</span></a></div>
             
 
           </div>

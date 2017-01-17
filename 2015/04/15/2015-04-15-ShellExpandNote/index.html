@@ -89,31 +89,28 @@
 
 
 
-<meta name="description" content="###read
--n 控制输入字符数量然后自动继续执行。
+<meta name="description" content="read-n 控制输入字符数量然后自动继续执行。
 read -n 1 option
 -t 超以秒为单位
 read -t 5 -p &amp;quot;请输入选项，５秒后默认放弃&amp;quot;　options
-History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的文件  HISTCONTROL=erasedups  删除重复命令  HISTCONTROL=ignor">
+History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的文件  HISTCONTROL=erasedups  删除重复命令  HISTCONTROL=ignoredup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell 补漏笔记">
 <meta property="og:url" content="http://percychen.com/2015/04/15/2015-04-15-ShellExpandNote/index.html">
 <meta property="og:site_name" content="风之子的世界">
-<meta property="og:description" content="###read
--n 控制输入字符数量然后自动继续执行。
+<meta property="og:description" content="read-n 控制输入字符数量然后自动继续执行。
 read -n 1 option
 -t 超以秒为单位
 read -t 5 -p &amp;quot;请输入选项，５秒后默认放弃&amp;quot;　options
-History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的文件  HISTCONTROL=erasedups  删除重复命令  HISTCONTROL=ignor">
-<meta property="og:updated_time" content="2015-04-15T05:14:00.000Z">
+History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的文件  HISTCONTROL=erasedups  删除重复命令  HISTCONTROL=ignoredup">
+<meta property="og:updated_time" content="2017-01-17T07:12:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell 补漏笔记">
-<meta name="twitter:description" content="###read
--n 控制输入字符数量然后自动继续执行。
+<meta name="twitter:description" content="read-n 控制输入字符数量然后自动继续执行。
 read -n 1 option
 -t 超以秒为单位
 read -t 5 -p &amp;quot;请输入选项，５秒后默认放弃&amp;quot;　options
-History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的文件  HISTCONTROL=erasedups  删除重复命令  HISTCONTROL=ignor">
+History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的文件  HISTCONTROL=erasedups  删除重复命令  HISTCONTROL=ignoredup">
 
 
 
@@ -361,8 +358,8 @@ History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的�
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2015-04-15T13:14:00+08:00">
-                2015-04-15
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:12:05+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -427,19 +424,16 @@ History  Ctrl ＋ R搜索历史命令  !ad    将会自动执行 以ad开头的�
       
 
       
-        <p>###read</p>
-<p>-n 控制输入字符数量然后自动继续执行。</p>
+        <h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><p>-n 控制输入字符数量然后自动继续执行。</p>
 <pre><code>read -n 1 option
 </code></pre><p>-t 超以秒为单位</p>
 <pre><code>read -t 5 -p &quot;请输入选项，５秒后默认放弃&quot;　options
 </code></pre><h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p>  Ctrl ＋ R搜索历史命令<br><br>  !ad    将会自动执行 以ad开头的文件<br><br>  HISTCONTROL=erasedups  删除重复命令<br><br>  HISTCONTROL=ignoredups 不记录重复命令<br></p>
 <h2 id="字段分隔符"><a href="#字段分隔符" class="headerlink" title="字段分隔符"></a>字段分隔符</h2><p> 默认分隔符为：　空格，制表符，换行符</p>
-<p>###IFS的用法</p>
-<pre><code>IFS=$&apos;\n&apos;  　　表示分隔符仅为换行符
+<h3 id="IFS的用法"><a href="#IFS的用法" class="headerlink" title="IFS的用法"></a>IFS的用法</h3><pre><code>IFS=$&apos;\n&apos;  　　表示分隔符仅为换行符
 IFS=$&apos;\n;:&quot;&apos;     表示分隔符为换行符，分号，冒号，双引号
 </code></pre><h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><pre><code>$#   计算参数的个数
-</code></pre><p>#####$*和$@的区别</p>
-<blockquote>
+</code></pre><h4 id="和-的区别"><a href="#和-的区别" class="headerlink" title="$*和$@的区别"></a>$*和$@的区别</h4><blockquote>
 <p>$* 会把　we have a question　当做　“we have a question”处理</p>
 <p>$@ 会把　we have a question　当做　“we” “have” “a” “question”处理</p>
 </blockquote>
@@ -667,7 +661,7 @@ IFS=$&apos;\n;:&quot;&apos;     表示分隔符为换行符，分号，冒号，
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -684,7 +678,7 @@ IFS=$&apos;\n;:&quot;&apos;     表示分隔符为换行符，分号，冒号，
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -762,7 +756,7 @@ IFS=$&apos;\n;:&quot;&apos;     表示分隔符为换行符，分号，冒号，
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#History"><span class="nav-number">1.</span> <span class="nav-text">History</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字段分隔符"><span class="nav-number">1.1.</span> <span class="nav-text">字段分隔符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数传递"><span class="nav-number">1.2.</span> <span class="nav-text">参数传递</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wget"><span class="nav-number">2.</span> <span class="nav-text">wget</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wc"><span class="nav-number">2.1.</span> <span class="nav-text">wc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除重复行"><span class="nav-number">2.2.</span> <span class="nav-text">删除重复行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if条件语句判断"><span class="nav-number">2.3.</span> <span class="nav-text">if条件语句判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#date计算"><span class="nav-number">2.4.</span> <span class="nav-text">date计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大小写转换"><span class="nav-number">2.5.</span> <span class="nav-text">大小写转换</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#read"><span class="nav-number">1.</span> <span class="nav-text">read</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#History"><span class="nav-number"></span> <span class="nav-text">History</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字段分隔符"><span class="nav-number"></span> <span class="nav-text">字段分隔符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IFS的用法"><span class="nav-number">1.</span> <span class="nav-text">IFS的用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数传递"><span class="nav-number"></span> <span class="nav-text">参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#和-的区别"><span class="nav-number">0.1.</span> <span class="nav-text">$*和$@的区别</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wget"><span class="nav-number"></span> <span class="nav-text">wget</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wc"><span class="nav-number"></span> <span class="nav-text">wc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除重复行"><span class="nav-number"></span> <span class="nav-text">删除重复行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if条件语句判断"><span class="nav-number"></span> <span class="nav-text">if条件语句判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#date计算"><span class="nav-number"></span> <span class="nav-text">date计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大小写转换"><span class="nav-number"></span> <span class="nav-text">大小写转换</span></a></div>
             
 
           </div>

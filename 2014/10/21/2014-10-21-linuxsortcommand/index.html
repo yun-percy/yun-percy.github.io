@@ -89,37 +89,19 @@
 
 
 
-<meta name="description" content="######sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：
-　　    sort [-bcfMnrtk][源文件][-o 输出文件]
-######补充说明：sort可针对文本文件的内容，以行为单位来排序。
-####参    数：
--b   忽略每行前面开始出的空格字符
--c   检查文件是否已经按照顺序排序
--f   排序时，忽略大小写字母
--M   将前面3个字母依照月份">
+<meta name="description" content="sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：　　    sort [-bcfMnrtk][源文件][-o 输出文件]
+补充说明：sort可针对文本文件的内容，以行为单位来排序。参    数：123456789-b   忽略每行前面开始出的空格字符-c   检查文件是否已经按照顺序排序-f   排序时，忽略大小写字母-M   将前面3个字母依照月份的缩写进行排序-n   依">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sort的用法">
 <meta property="og:url" content="http://percychen.com/2014/10/21/2014-10-21-linuxsortcommand/index.html">
 <meta property="og:site_name" content="风之子的世界">
-<meta property="og:description" content="######sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：
-　　    sort [-bcfMnrtk][源文件][-o 输出文件]
-######补充说明：sort可针对文本文件的内容，以行为单位来排序。
-####参    数：
--b   忽略每行前面开始出的空格字符
--c   检查文件是否已经按照顺序排序
--f   排序时，忽略大小写字母
--M   将前面3个字母依照月份">
-<meta property="og:updated_time" content="2014-10-21T05:14:00.000Z">
+<meta property="og:description" content="sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：　　    sort [-bcfMnrtk][源文件][-o 输出文件]
+补充说明：sort可针对文本文件的内容，以行为单位来排序。参    数：123456789-b   忽略每行前面开始出的空格字符-c   检查文件是否已经按照顺序排序-f   排序时，忽略大小写字母-M   将前面3个字母依照月份的缩写进行排序-n   依">
+<meta property="og:updated_time" content="2017-01-17T07:11:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sort的用法">
-<meta name="twitter:description" content="######sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：
-　　    sort [-bcfMnrtk][源文件][-o 输出文件]
-######补充说明：sort可针对文本文件的内容，以行为单位来排序。
-####参    数：
--b   忽略每行前面开始出的空格字符
--c   检查文件是否已经按照顺序排序
--f   排序时，忽略大小写字母
--M   将前面3个字母依照月份">
+<meta name="twitter:description" content="sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：　　    sort [-bcfMnrtk][源文件][-o 输出文件]
+补充说明：sort可针对文本文件的内容，以行为单位来排序。参    数：123456789-b   忽略每行前面开始出的空格字符-c   检查文件是否已经按照顺序排序-f   排序时，忽略大小写字母-M   将前面3个字母依照月份的缩写进行排序-n   依">
 
 
 
@@ -367,8 +349,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-21T13:14:00+08:00">
-                2014-10-21
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:11:43+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -433,138 +415,41 @@
       
 
       
-        <p>######sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：</p>
-<p>　　    sort [-bcfMnrtk][源文件][-o 输出文件]</p>
-<p>######补充说明：sort可针对文本文件的内容，以行为单位来排序。</p>
-<p>####参    数：</p>
-<pre><code>-b   忽略每行前面开始出的空格字符
--c   检查文件是否已经按照顺序排序
--f   排序时，忽略大小写字母
--M   将前面3个字母依照月份的缩写进行排序
--n   依照数值的大小排序
--o (输出文件)   将排序后的结果存入指定的文件
--r   以相反的顺序来排序
--t (分隔字符)   指定排序时所用的栏位分隔字符
--k  选择以哪个区间进行排序&lt;/code&gt;&lt;/pre&gt;
-</code></pre><p>#####Sort的使用</p>
-<ul>
-<li><p>sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。exmaple:</p>
-<pre><code>cat seq.txt---&gt;
-        banana
-        apple
-        pear
-        orange
-sort seq.txt---&gt;
-        apple
-        banana
-        orange
-        pear
-</code></pre></li>
-<li><p>sort的-u选项,它的作用很简单，就是在输出行中去除重复行。</p>
-<pre><code>        cat seq.txt---&gt;
-banana
-apple
-pear
-orange
-pear
-</code></pre><p> sort seq.txt—&gt;</p>
-<pre><code>apple
-banana
-orange
-pear
-pear
-</code></pre><p> sort -u seq.txt—&gt;</p>
-<pre><code>apple
-banana
-orange
-pear
-</code></pre></li>
+        <h3 id="sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式："><a href="#sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：" class="headerlink" title="sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式："></a>sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：</h3><p>　　    sort [-bcfMnrtk][源文件][-o 输出文件]</p>
+<h3 id="补充说明：sort可针对文本文件的内容，以行为单位来排序。"><a href="#补充说明：sort可针对文本文件的内容，以行为单位来排序。" class="headerlink" title="补充说明：sort可针对文本文件的内容，以行为单位来排序。"></a>补充说明：sort可针对文本文件的内容，以行为单位来排序。</h3><h3 id="参-数："><a href="#参-数：" class="headerlink" title="参    数："></a>参    数：</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-b   忽略每行前面开始出的空格字符</div><div class="line">-c   检查文件是否已经按照顺序排序</div><div class="line"><span class="_">-f</span>   排序时，忽略大小写字母</div><div class="line">-M   将前面3个字母依照月份的缩写进行排序</div><div class="line">-n   依照数值的大小排序</div><div class="line">-o (输出文件)   将排序后的结果存入指定的文件</div><div class="line">-r   以相反的顺序来排序</div><div class="line">-t (分隔字符)   指定排序时所用的栏位分隔字符</div><div class="line">-k  选择以哪个区间进行排序&lt;/code&gt;&lt;/pre&gt;</div></pre></td></tr></table></figure>
+<h3 id="Sort的使用"><a href="#Sort的使用" class="headerlink" title="Sort的使用"></a>Sort的使用</h3><ul>
+<li>sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。exmaple:</li>
 </ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cat seq.txt---&gt;</div><div class="line">		banana</div><div class="line">		apple</div><div class="line">		pear</div><div class="line">		orange</div><div class="line">sort seq.txt---&gt;</div><div class="line">		apple</div><div class="line">		banana</div><div class="line">		orange</div><div class="line">		pear</div></pre></td></tr></table></figure>
+<ul>
+<li>sort的-u选项,它的作用很简单，就是在输出行中去除重复行。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">cat seq.txt---&gt;</div><div class="line">	banana</div><div class="line">	apple</div><div class="line">	pear</div><div class="line">	orange</div><div class="line">	pear</div><div class="line">sort seq.txt---&gt;</div><div class="line">	apple</div><div class="line">	banana</div><div class="line">	orange</div><div class="line">	pear</div><div class="line">	pear</div><div class="line">sort -u seq.txt---&gt;</div><div class="line">	apple</div><div class="line">	banana</div><div class="line">	orange</div><div class="line">	pear</div></pre></td></tr></table></figure>
 <p>pear由于重复被-u选项无情的删除了。</p>
 <ul>
-<li><p>sort的-r选项,sort默认的排序方式是升序，如果想改成降序，就加个-r就搞定了。</p>
-<pre><code>        cat number.txt ---&gt;
-1
-3
-5
-2
-4
-</code></pre><p> sort number.txt—&gt;</p>
-<pre><code>1
-2
-3
-4
-5
-</code></pre><p> sort -r number.txt—&gt;</p>
-<pre><code>5
-4
-3
-2
-1
-</code></pre></li>
-<li><p>sort的-o选项,由于sort默认是把结果输出到标准输出，所以需要用重定向才能将结果写入文件，形如sort filename &gt; newfile。<br><br>但是，如果你想把排序结果输出到原文件中，用重定向可就不行了。</p>
-<pre><code>sort -r number.txt &gt; number.txt
-cat number.txt
-什么都没有输出
-</code></pre></li>
+<li>sort的-r选项,sort默认的排序方式是升序，如果想改成降序，就加个-r就搞定了。</li>
 </ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">cat number.txt ---&gt;</div><div class="line">	1</div><div class="line">	3</div><div class="line">	5</div><div class="line">	2</div><div class="line">	4</div><div class="line">sort number.txt---&gt;</div><div class="line">	1</div><div class="line">	2</div><div class="line">	3</div><div class="line">	4</div><div class="line">	5</div><div class="line">sort -r number.txt---&gt;</div><div class="line">	5</div><div class="line">	4</div><div class="line">	3</div><div class="line">	2</div><div class="line">	1</div></pre></td></tr></table></figure>
+<ul>
+<li>sort的-o选项,由于sort默认是把结果输出到标准输出，所以需要用重定向才能将结果写入文件，形如sort filename &gt; newfile。<br><br>但是，如果你想把排序结果输出到原文件中，用重定向可就不行了。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sort -r number.txt &gt; number.txt</div><div class="line">cat number.txt</div><div class="line"><span class="comment">#什么都没有输出</span></div></pre></td></tr></table></figure>
 <p>看，竟然将number清空了。</p>
 <p>就在这个时候，-o选项出现了，它成功的解决了这个问题，让你放心的将结果写入原文件。这或许也是-o比重定向的唯一优势所在。</p>
-<pre><code>[rocrocket@rocrocket programming]$ cat number.txt
-1
-3
-5
-2
-4
-[rocrocket@rocrocket programming]$ sort -r number.txt -o number.txt
-[rocrocket@rocrocket programming]$ cat number.txt
-5
-4
-3
-2
-1
-</code></pre><ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[rocrocket@rocrocket programming]$ cat number.txt</div><div class="line">1</div><div class="line">3</div><div class="line">5</div><div class="line">2</div><div class="line">4</div><div class="line">[rocrocket@rocrocket programming]$ sort -r number.txt -o number.txt</div><div class="line">[rocrocket@rocrocket programming]$ cat number.txt</div><div class="line">5</div><div class="line">4</div><div class="line">3</div><div class="line">2</div><div class="line">1</div></pre></td></tr></table></figure>
+<ul>
 <li>sort的-n选项</li>
 </ul>
 <p>你有没有遇到过10比2小的情况。我反正遇到过。出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，显然1小，所以就将10放在2前面喽。这也是sort的一贯作风。</p>
 <p>我们如果想改变这种现状，就要使用-n选项，来告诉sort，“要以数值来排序”！</p>
-<pre><code>[rocrocket@rocrocket programming]$ cat number.txt
-1
-10
-19
-11
-2
-5
-[rocrocket@rocrocket programming]$ sort number.txt
-1
-10
-11
-19
-2
-5
-[rocrocket@rocrocket programming]$ sort -n number.txt
-1
-2
-5
-10
-11
-19
-</code></pre><ul>
-<li><p>sort的-t选项和-k选项,       如果有一个文件的内容是这样：</p>
-<pre><code>[rocrocket@rocrocket programming]$ cat facebook.txt
-banana:30:5.5
-apple:10:2.5
-pear:90:2.3
-orange:20:3.4
-</code></pre></li>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">[rocrocket@rocrocket programming]$ cat number.txt</div><div class="line">1</div><div class="line">10</div><div class="line">19</div><div class="line">11</div><div class="line">2</div><div class="line">5</div><div class="line">[rocrocket@rocrocket programming]$ sort number.txt</div><div class="line">1</div><div class="line">10</div><div class="line">11</div><div class="line">19</div><div class="line">2</div><div class="line">5</div><div class="line">[rocrocket@rocrocket programming]$ sort -n number.txt</div><div class="line">1</div><div class="line">2</div><div class="line">5</div><div class="line">10</div><div class="line">11</div><div class="line">19</div></pre></td></tr></table></figure>
+<ul>
+<li>sort的-t选项和-k选项,       如果有一个文件的内容是这样：</li>
 </ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[rocrocket@rocrocket programming]$ cat facebook.txt</div><div class="line">banana:30:5.5</div><div class="line">apple:10:2.5</div><div class="line">pear:90:2.3</div><div class="line">orange:20:3.4</div></pre></td></tr></table></figure>
 <p>这个文件有三列，列与列之间用冒号隔开了，第一列表示水果类型，第二列表示水果数量，第三列表示水果价格。那么我想以水果数量来排序，也就是以第二列来排序，如何利用sort实现？幸好，sort提供了-t选项，后面可以设定间隔符。指定了间隔符之后，就可以用-k来指定列数了。</p>
-<pre><code>[rocrocket@rocrocket programming]$ sort -n -k 2 -t ‘:’ facebook.txt
-apple:10:2.5
-orange:20:3.4
-banana:30:5.5
-pear:90:2.3
-</code></pre><ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[rocrocket@rocrocket programming]$ sort -n -k 2 -t ‘:’ facebook.txt</div><div class="line">apple:10:2.5</div><div class="line">orange:20:3.4</div><div class="line">banana:30:5.5</div><div class="line">pear:90:2.3</div></pre></td></tr></table></figure>
+<ul>
 <li>其他的sort常用选项</li>
 </ul>
 <blockquote>
@@ -600,8 +485,8 @@ pear:90:2.3
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/10/18/2014-10-18-codelayout/" rel="next" title="代码布局的一些零碎语法">
-                <i class="fa fa-chevron-left"></i> 代码布局的一些零碎语法
+              <a href="/2014/10/18/2014-10-18-zipcommand/" rel="next" title="linux下 解压zip,tar等压缩文件详解">
+                <i class="fa fa-chevron-left"></i> linux下 解压zip,tar等压缩文件详解
               </a>
             
           </div>
@@ -685,8 +570,17 @@ pear:90:2.3
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/yunicon.png"
@@ -697,7 +591,7 @@ pear:90:2.3
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -714,7 +608,7 @@ pear:90:2.3
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -782,6 +676,22 @@ pear:90:2.3
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式："><span class="nav-number">1.</span> <span class="nav-text">sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充说明：sort可针对文本文件的内容，以行为单位来排序。"><span class="nav-number">2.</span> <span class="nav-text">补充说明：sort可针对文本文件的内容，以行为单位来排序。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参-数："><span class="nav-number">3.</span> <span class="nav-text">参    数：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sort的使用"><span class="nav-number">4.</span> <span class="nav-text">Sort的使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

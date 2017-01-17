@@ -101,7 +101,7 @@ You don&amp;apos;t have write permissions into the /var/lib/gems/1.9.1 directory
 报错如下：
 ERROR:  While executing gem ... (Gem::FilePermissionError)
 You don&amp;apos;t have write permissions into the /var/lib/gems/1.9.1 directory.">
-<meta property="og:updated_time" content="2014-09-02T05:14:00.000Z">
+<meta property="og:updated_time" content="2017-01-17T07:01:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jekyll搭建过程中的错误解决办法">
 <meta name="twitter:description" content="错误1终端安装：yunsun@chenyun:~$ gem install --verbose rdiscount
@@ -355,8 +355,8 @@ You don&amp;apos;t have write permissions into the /var/lib/gems/1.9.1 directory
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-09-02T13:14:00+08:00">
-                2014-09-02
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:01:25+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -434,12 +434,15 @@ ERROR: Failed to build gem native extension.
 /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require&apos;: cannot load such file -- mkmf (LoadError)
     from /usr/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require&apos;
     from extconf.rb:1:in `&lt;main&gt;&apos;
-</code></pre><p>###解决<br>        终端输入：<br>        sudo apt-get install ruby1.9.1-dev<br>        再次尝试安装：<br>         rdiscount RedCloth</p>
-<pre><code>终端输入：sudo gem --verbose install jekyll
+</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><pre><code>终端输入：
+sudo apt-get install ruby1.9.1-dev
+再次尝试安装：
+ rdiscount RedCloth
+
+终端输入：sudo gem --verbose install jekyll
 
 安装完成！
-</code></pre><h2 id="错误2"><a href="#错误2" class="headerlink" title="错误2"></a>错误2</h2><p>###运行jekyll报错</p>
-<pre><code>终端输入： jekyll new blog 报错如下
+</code></pre><h2 id="错误2"><a href="#错误2" class="headerlink" title="错误2"></a>错误2</h2><h3 id="运行jekyll报错"><a href="#运行jekyll报错" class="headerlink" title="运行jekyll报错"></a>运行jekyll报错</h3><pre><code>终端输入： jekyll new blog 报错如下
 *****in `autodetect&apos;: Could not find a JavaScript runtime.....
 解决办法：终端输入：
 sudo gem install --verbose execjs
@@ -577,7 +580,7 @@ sudo apt-get install  nodejs
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -594,7 +597,7 @@ sudo apt-get install  nodejs
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -672,7 +675,7 @@ sudo apt-get install  nodejs
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误1"><span class="nav-number">1.</span> <span class="nav-text">错误1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误2"><span class="nav-number">2.</span> <span class="nav-text">错误2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误1"><span class="nav-number">1.</span> <span class="nav-text">错误1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决"><span class="nav-number">1.1.</span> <span class="nav-text">解决</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误2"><span class="nav-number">2.</span> <span class="nav-text">错误2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行jekyll报错"><span class="nav-number">2.1.</span> <span class="nav-text">运行jekyll报错</span></a></li></ol></li></ol></div>
             
 
           </div>

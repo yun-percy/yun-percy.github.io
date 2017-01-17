@@ -106,11 +106,10 @@ print 格式化输出，
 Python调用系统命令或者脚本
 Python 读写文件。
 
-###正则表达式替换
-
+正则表达式替换
 目标: 将字符串line中的 overview.gif 替换成其他字符串
 
-12345">
+12345678l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 常用的demo片段">
 <meta property="og:url" content="http://percychen.com/2016/01/26/2016-01-26-python_demo_command/index.html">
@@ -132,12 +131,11 @@ print 格式化输出，
 Python调用系统命令或者脚本
 Python 读写文件。
 
-###正则表达式替换
-
+正则表达式替换
 目标: 将字符串line中的 overview.gif 替换成其他字符串
 
-12345">
-<meta property="og:updated_time" content="2016-01-26T05:14:00.000Z">
+12345678l">
+<meta property="og:updated_time" content="2017-01-17T07:03:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 常用的demo片段">
 <meta name="twitter:description" content="原文地址
@@ -157,11 +155,10 @@ print 格式化输出，
 Python调用系统命令或者脚本
 Python 读写文件。
 
-###正则表达式替换
-
+正则表达式替换
 目标: 将字符串line中的 overview.gif 替换成其他字符串
 
-12345">
+12345678l">
 
 
 
@@ -409,8 +406,8 @@ Python 读写文件。
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-01-26T13:14:00+08:00">
-                2016-01-26
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:09+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -492,39 +489,33 @@ Python 读写文件。
 <li>Python调用系统命令或者脚本</li>
 <li>Python 读写文件。</li>
 </ul>
-<p>###正则表达式替换</p>
-<blockquote>
+<h3 id="正则表达式替换"><a href="#正则表达式替换" class="headerlink" title="正则表达式替换"></a>正则表达式替换</h3><blockquote>
 <p>目标: 将字符串line中的 overview.gif 替换成其他字符串</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">line = <span class="string">'&lt;IMG ALIGN="middle" SRC="overview.gif" BORDER="0" ALT=""&gt;'</span></div><div class="line">mo=re.compile(<span class="string">r'(?&lt;=SRC=)"([\w+\.]+)"'</span>,re.I)</div><div class="line">mo.sub(<span class="string">r'"\1****"'</span>,line)</div><div class="line"><span class="comment">#输出： &lt;IMG ALIGN="middle" SRC="cdn_overview.gif****" BORDER="0" ALT=""&gt;'</span></div><div class="line">mo.sub(<span class="string">r'replace_str_\1'</span>,line)</div><div class="line"><span class="comment">#输出：&lt;IMG ALIGN="middle" replace_str_overview.gif BORDER="0" ALT=""&gt;'&lt; /span&gt;</span></div><div class="line">mo.sub(<span class="string">r'"testetstset"'</span>,line)</div><div class="line"><span class="comment">#输出：&lt;IMG ALIGN="middle" SRC="testetstset" BORDER="0" ALT=""&gt;'</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>注意: 其中 \1 是匹配到的数据，可以通过这样的方式直接引用</p>
 </blockquote>
-<p>###遍历目录方法</p>
-<blockquote>
+<h3 id="遍历目录方法"><a href="#遍历目录方法" class="headerlink" title="遍历目录方法"></a>遍历目录方法</h3><blockquote>
 <p>在某些时候，我们需要遍历某个目录找出特定的文件列表，可以通过os.walk方法来遍历,非常方便</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">fileList = []</div><div class="line">rootdir = <span class="string">"/data"</span></div><div class="line"><span class="keyword">for</span> root, subFolders, files <span class="keyword">in</span> os.walk(rootdir):</div><div class="line"><span class="keyword">if</span> <span class="string">'.svn'</span> <span class="keyword">in</span> subFolders: subFolders.remove(<span class="string">'.svn'</span>)  <span class="comment"># 排除特定目录</span></div><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</div><div class="line">  <span class="keyword">if</span> file.find(<span class="string">".t2t"</span>) != <span class="number">-1</span>:<span class="comment"># 查找特定扩展名的文件</span></div><div class="line">      file_dir_path = os.path.join(root,file)</div><div class="line">      fileList.append(file_dir_path)</div><div class="line"></div><div class="line"><span class="keyword">print</span> fileList</div></pre></td></tr></table></figure>
-<p>###列表按列排序(list sort)</p>
-<blockquote>
+<h3 id="列表按列排序-list-sort"><a href="#列表按列排序-list-sort" class="headerlink" title="列表按列排序(list sort)"></a>列表按列排序(list sort)</h3><blockquote>
 <p>如果列表的每个元素都是一个元组(tuple),我们要根据元组的某列来排序的化，可参考如下方法<br>下面例子我们是根据元组的第2列和第3列数据来排序的,而且是倒序(reverse=True)</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a = [(<span class="string">'2011-03-17'</span>, <span class="string">'2.26'</span>, <span class="number">6429600</span>, <span class="string">'0.0'</span>), (<span class="string">'2011-03-16'</span>, <span class="string">'2.26'</span>, <span class="number">12036900</span>, <span class="string">'-3.0'</span>), (<span class="string">'2011-03-15'</span>, <span class="string">'2.33'</span>, <span class="number">15615500</span>,<span class="string">'-19.1'</span>)]</div><div class="line"><span class="keyword">print</span> a[<span class="number">0</span>][<span class="number">0</span>]</div><div class="line"><span class="comment">#输出：2011-03-17</span></div><div class="line">b = sorted(a, key=<span class="keyword">lambda</span> result: result[<span class="number">1</span>],reverse=<span class="keyword">True</span>)</div><div class="line"><span class="keyword">print</span> b</div><div class="line"><span class="comment">#输出：[('2011-03-15', '2.33', 15615500, '-19.1'), ('2011-03-17', '2.26', 6429600, '0.0'), ('2011-03-16', '2.26', 12036900, '-3.0')]</span></div><div class="line">c = sorted(a, key=<span class="keyword">lambda</span> result: result[<span class="number">2</span>],reverse=<span class="keyword">True</span>)</div><div class="line"><span class="keyword">print</span> c</div><div class="line"><span class="comment">#输出：[('2011-03-15', '2.33', 15615500, '-19.1'), ('2011-03-16', '2.26', 12036900, '-3.0'), ('2011-03-17', '2.26', 6429600, '0.0')]</span></div></pre></td></tr></table></figure>
-<p>###列表去重(list uniq)</p>
-<blockquote>
+<h3 id="列表去重-list-uniq"><a href="#列表去重-list-uniq" class="headerlink" title="列表去重(list uniq)"></a>列表去重(list uniq)</h3><blockquote>
 <p>有时候需要将list中重复的元素删除，就要使用如下方法</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">lst= [(<span class="number">1</span>,<span class="string">'sss'</span>),(<span class="number">2</span>,<span class="string">'fsdf'</span>),(<span class="number">1</span>,<span class="string">'sss'</span>),(<span class="number">3</span>,<span class="string">'fd'</span>)]</div><div class="line">set(lst)</div><div class="line"><span class="comment">#输出：set([(2, 'fsdf'), (3, 'fd'), (1, 'sss')])</span></div><div class="line">lst = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">6</span>]</div><div class="line">set(lst)</div><div class="line"><span class="comment">#输出：set([1, 3, 4, 5, 6, 7])</span></div></pre></td></tr></table></figure>
-<p>###字典排序(dict sort)</p>
-<blockquote>
+<h3 id="字典排序-dict-sort"><a href="#字典排序-dict-sort" class="headerlink" title="字典排序(dict sort)"></a>字典排序(dict sort)</h3><blockquote>
 <p>一般来说，我们都是根据字典的key来进行排序，但是我们如果想根据字典的value值来排序，就使用如下方法</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter</div><div class="line">aa = &#123;<span class="string">"a"</span>:<span class="string">"1"</span>,<span class="string">"sss"</span>:<span class="string">"2"</span>,<span class="string">"ffdf"</span>:<span class="string">'5'</span>,<span class="string">"ffff2"</span>:<span class="string">'3'</span>&#125;</div><div class="line">sort_aa = sorted(aa.items(),key=itemgetter(<span class="number">1</span>))</div><div class="line">sort_aa</div><div class="line"><span class="comment">#输出：[('a', '1'), ('sss', '2'), ('ffff2', '3'), ('ffdf', '5')]</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>从上面的运行结果看到，按照字典的value值进行排序的</p>
 </blockquote>
-<p>###字典,列表,字符串互转</p>
-<blockquote>
+<h3 id="字典-列表-字符串互转"><a href="#字典-列表-字符串互转" class="headerlink" title="字典,列表,字符串互转"></a>字典,列表,字符串互转</h3><blockquote>
 <p>以下是生成数据库连接字符串,从字典转换到字符串</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">params = &#123;<span class="string">"server"</span>:<span class="string">"mpilgrim"</span>, <span class="string">"database"</span>:<span class="string">"master"</span>, <span class="string">"uid"</span>:<span class="string">"sa"</span>, <span class="string">"pwd"</span>:<span class="string">"secret"</span>&#125;</div><div class="line">[<span class="string">"%s=%s"</span> % (k, v) <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()]</div><div class="line"><span class="comment">#输出：['server=mpilgrim', 'uid=sa', 'database=master', 'pwd=secret']</span></div><div class="line"><span class="string">";"</span>.join([<span class="string">"%s=%s"</span> % (k, v) <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items()])</div><div class="line"><span class="comment">#输出：'server=mpilgrim;uid=sa;database=master;pwd=secret'</span></div></pre></td></tr></table></figure>
@@ -532,8 +523,7 @@ Python 读写文件。
 <p>下面的例子 是将字符串转化为字典</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a = <span class="string">'server=mpilgrim;uid=sa;database=master;pwd=secret'</span></div><div class="line">aa = &#123;&#125;</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a.split(<span class="string">';'</span>):aa[i.split(<span class="string">'='</span>,<span class="number">1</span>)[<span class="number">0</span>]] = i.split(<span class="string">'='</span>,<span class="number">1</span>)[<span class="number">1</span>]</div><div class="line">aa</div><div class="line"><span class="comment">#输出：&#123;'pwd': 'secret', 'database': 'master', 'uid': 'sa', 'server': 'mpilgrim'&#125;</span></div></pre></td></tr></table></figure>
-<p>###时间对象操作</p>
-<blockquote>
+<h3 id="时间对象操作"><a href="#时间对象操作" class="headerlink" title="时间对象操作"></a>时间对象操作</h3><blockquote>
 <p>将时间对象转换成字符串</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> datetime</div><div class="line">datetime.datetime.now().strftime(<span class="string">"%Y-%m-%d %H:%M"</span>)</div><div class="line"><span class="comment">#输出：'2011-01-20 14:05'</span></div></pre></td></tr></table></figure>
@@ -557,8 +547,7 @@ Python 读写文件。
 <p>通常在编写一些日运维脚本时，需要根据不同的条件，输入不同的命令行选项来实现不同的功能<br>在Python中提供了getopt模块很好的实现了命令行参数的解析,下面距离说明。请看如下程序:</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/env python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> sys,os,getopt</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">usage</span><span class="params">()</span>:</span></div><div class="line"><span class="keyword">print</span> <span class="string">'''''</span></div><div class="line">Usage: analyse_stock.py [options...]</div><div class="line">Options:</div><div class="line">-e : Exchange Name</div><div class="line">-c : User-Defined Category Name</div><div class="line">-f : Read stock info from file and save to db</div><div class="line">-d : delete from db by stock code</div><div class="line">-n : stock name</div><div class="line">-s : stock code</div><div class="line">-h : this help info</div><div class="line">test.py -s haha -n "HA Ha"</div><div class="line">'''</div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">opts, args = getopt.getopt(sys.argv[<span class="number">1</span>:],<span class="string">'he:c:f:d:n:s:'</span>)</div><div class="line"><span class="keyword">except</span> getopt.GetoptError:</div><div class="line">usage()</div><div class="line">sys.exit()</div><div class="line"><span class="keyword">if</span> len(opts) == <span class="number">0</span>:</div><div class="line">usage()</div><div class="line">sys.exit()</div><div class="line"></div><div class="line"><span class="keyword">for</span> opt, arg <span class="keyword">in</span> opts:</div><div class="line"><span class="keyword">if</span> opt <span class="keyword">in</span> (<span class="string">'-h'</span>, <span class="string">'--help'</span>):</div><div class="line">  usage()</div><div class="line">  sys.exit()</div><div class="line"><span class="keyword">elif</span> opt == <span class="string">'-d'</span>:</div><div class="line">  <span class="keyword">print</span> <span class="string">"del stock %s"</span> % arg</div><div class="line"><span class="keyword">elif</span> opt == <span class="string">'-f'</span>:</div><div class="line">  <span class="keyword">print</span> <span class="string">"read file %s"</span> % arg</div><div class="line"><span class="keyword">elif</span> opt == <span class="string">'-c'</span>:</div><div class="line">  <span class="keyword">print</span> <span class="string">"user-defined %s "</span> % arg</div><div class="line"><span class="keyword">elif</span> opt == <span class="string">'-e'</span>:</div><div class="line">  <span class="keyword">print</span> <span class="string">"Exchange Name %s"</span> % arg</div><div class="line"><span class="keyword">elif</span> opt == <span class="string">'-s'</span>:</div><div class="line">  <span class="keyword">print</span> <span class="string">"Stock code %s"</span> % arg</div><div class="line"><span class="keyword">elif</span> opt == <span class="string">'-n'</span>:</div><div class="line">  <span class="keyword">print</span> <span class="string">"Stock name %s"</span> % arg</div><div class="line"></div><div class="line">sys.exit()</div></pre></td></tr></table></figure>
-<p>###print 格式化输出</p>
-<p><strong>格式化输出字符串</strong></p>
+<h3 id="print-格式化输出"><a href="#print-格式化输出" class="headerlink" title="print 格式化输出"></a>print 格式化输出</h3><p><strong>格式化输出字符串</strong></p>
 <blockquote>
 <p>截取字符串输出,下面例子将只输出字符串的前3个字母</p>
 </blockquote>
@@ -579,13 +568,11 @@ Python 读写文件。
 <p>对浮点数四舍五入,主要使用到round函数</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> decimal <span class="keyword">import</span> *</div><div class="line">a =<span class="string">"2.26"</span></div><div class="line">b =<span class="string">"2.29"</span></div><div class="line">c = Decimal(a) - Decimal(b)</div><div class="line"><span class="keyword">print</span> c</div><div class="line"><span class="comment">#输出：  -0.03</span></div><div class="line">c / Decimal(a) * <span class="number">100</span></div><div class="line"><span class="comment">#输出：  Decimal('-1.327433628318584070796460177')</span></div><div class="line">Decimal(str(round(c / Decimal(a) * <span class="number">100</span>, <span class="number">2</span>)))</div><div class="line"><span class="comment">#输出：  Decimal('-1.33')</span></div></pre></td></tr></table></figure>
-<p>###进制转换</p>
-<blockquote>
+<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><blockquote>
 <p>有些时候需要作不同进制转换，可以参考下面的例子(%x 十六进制,%d 十进制,%o 八进制)</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">num = <span class="number">10</span></div><div class="line"><span class="keyword">print</span> <span class="string">"Hex = %x,Dec = %d,Oct = %o"</span> %(num,num,num)</div><div class="line"><span class="comment">#输出：  Hex = a,Dec = 10,Oct = 12</span></div></pre></td></tr></table></figure>
-<p>###Python调用系统命令或者脚本</p>
-<blockquote>
+<h3 id="Python调用系统命令或者脚本"><a href="#Python调用系统命令或者脚本" class="headerlink" title="Python调用系统命令或者脚本"></a>Python调用系统命令或者脚本</h3><blockquote>
 <p>使用 os.system() 调用系统命令 , 程序中无法获得到输出和返回值</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">os.system(<span class="string">'ls -l /proc/cpuinfo'</span>)</div><div class="line"><span class="comment">#输出：  -r--r--r-- 1 root root 0  3月 29 16:53 /proc/cpuinfo  0</span></div></pre></td></tr></table></figure>
@@ -597,13 +584,11 @@ Python 读写文件。
 <p>使用 commands.getstatusoutput() 调用系统命令, 程序中可以获得命令输出和执行的返回值</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> commands</div><div class="line">commands.getstatusoutput(<span class="string">'ls /bin/ls'</span>)</div><div class="line"><span class="comment">#输出：  (0, '/bin/ls')</span></div></pre></td></tr></table></figure>
-<p>###Python 捕获用户 Ctrl+C ,Ctrl+D 事件</p>
-<blockquote>
+<h3 id="Python-捕获用户-Ctrl-C-Ctrl-D-事件"><a href="#Python-捕获用户-Ctrl-C-Ctrl-D-事件" class="headerlink" title="Python 捕获用户 Ctrl+C ,Ctrl+D 事件"></a>Python 捕获用户 Ctrl+C ,Ctrl+D 事件</h3><blockquote>
 <p>有些时候，需要在程序中捕获用户键盘事件，比如ctrl+c退出，这样可以更好的安全退出程序</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:</div><div class="line">    do_some_func()</div><div class="line"><span class="keyword">except</span> KeyboardInterrupt:</div><div class="line">    <span class="keyword">print</span> <span class="string">"User Press Ctrl+C,Exit"</span></div><div class="line"><span class="keyword">except</span> EOFError:</div><div class="line">    <span class="keyword">print</span> <span class="string">"User Press Ctrl+D,Exit"</span></div></pre></td></tr></table></figure>
-<p>###Python 读写文件</p>
-<blockquote>
+<h3 id="Python-读写文件"><a href="#Python-读写文件" class="headerlink" title="Python 读写文件"></a>Python 读写文件</h3><blockquote>
 <p>一次性读入文件到列表，速度较快，适用文件比较小的情况下</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">track_file = <span class="string">"track_stock.conf"</span></div><div class="line">fd = open(track_file)</div><div class="line">content_list = fd.readlines()</div><div class="line">fd.close()</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> content_list:</div><div class="line">    <span class="keyword">print</span> line</div></pre></td></tr></table></figure>
@@ -746,7 +731,7 @@ Python 读写文件。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -763,7 +748,7 @@ Python 读写文件。
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -841,7 +826,7 @@ Python 读写文件。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行参数解析-getopt"><span class="nav-number">1.</span> <span class="nav-text">命令行参数解析(getopt)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式替换"><span class="nav-number">1.</span> <span class="nav-text">正则表达式替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历目录方法"><span class="nav-number">2.</span> <span class="nav-text">遍历目录方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表按列排序-list-sort"><span class="nav-number">3.</span> <span class="nav-text">列表按列排序(list sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表去重-list-uniq"><span class="nav-number">4.</span> <span class="nav-text">列表去重(list uniq)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典排序-dict-sort"><span class="nav-number">5.</span> <span class="nav-text">字典排序(dict sort)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典-列表-字符串互转"><span class="nav-number">6.</span> <span class="nav-text">字典,列表,字符串互转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间对象操作"><span class="nav-number">7.</span> <span class="nav-text">时间对象操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行参数解析-getopt"><span class="nav-number">8.</span> <span class="nav-text">命令行参数解析(getopt)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#print-格式化输出"><span class="nav-number">9.</span> <span class="nav-text">print 格式化输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进制转换"><span class="nav-number">10.</span> <span class="nav-text">进制转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python调用系统命令或者脚本"><span class="nav-number">11.</span> <span class="nav-text">Python调用系统命令或者脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-捕获用户-Ctrl-C-Ctrl-D-事件"><span class="nav-number">12.</span> <span class="nav-text">Python 捕获用户 Ctrl+C ,Ctrl+D 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-读写文件"><span class="nav-number">13.</span> <span class="nav-text">Python 读写文件</span></a></li></ol></div>
             
 
           </div>

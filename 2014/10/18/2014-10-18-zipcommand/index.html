@@ -89,34 +89,31 @@
 
 
 
-<meta name="description" content="###zip命令
-1zip -r myfile.zip ./*
+<meta name="description" content="zip命令1zip -r myfile.zip ./*
 将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.
 要使用 zip 来压缩文件夹，在 shell 提示下键入下面的命令：
 1zip -r filename.zip filesdir
 你可以使用 zip 命令同时处理多个文件和目录，方法是将它们逐一列出，并用空格间隔：
-1zip -r f">
+1zip -r filen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下 解压zip,tar等压缩文件详解">
 <meta property="og:url" content="http://percychen.com/2014/10/18/2014-10-18-zipcommand/index.html">
 <meta property="og:site_name" content="风之子的世界">
-<meta property="og:description" content="###zip命令
-1zip -r myfile.zip ./*
+<meta property="og:description" content="zip命令1zip -r myfile.zip ./*
 将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.
 要使用 zip 来压缩文件夹，在 shell 提示下键入下面的命令：
 1zip -r filename.zip filesdir
 你可以使用 zip 命令同时处理多个文件和目录，方法是将它们逐一列出，并用空格间隔：
-1zip -r f">
-<meta property="og:updated_time" content="2014-10-18T05:14:00.000Z">
+1zip -r filen">
+<meta property="og:updated_time" content="2017-01-17T07:03:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下 解压zip,tar等压缩文件详解">
-<meta name="twitter:description" content="###zip命令
-1zip -r myfile.zip ./*
+<meta name="twitter:description" content="zip命令1zip -r myfile.zip ./*
 将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.
 要使用 zip 来压缩文件夹，在 shell 提示下键入下面的命令：
 1zip -r filename.zip filesdir
 你可以使用 zip 命令同时处理多个文件和目录，方法是将它们逐一列出，并用空格间隔：
-1zip -r f">
+1zip -r filen">
 
 
 
@@ -364,8 +361,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-18T13:14:00+08:00">
-                2014-10-18
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:23+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -430,20 +427,17 @@
       
 
       
-        <p>###zip命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip -r myfile.zip ./*</div></pre></td></tr></table></figure>
+        <h3 id="zip命令"><a href="#zip命令" class="headerlink" title="zip命令"></a>zip命令</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip -r myfile.zip ./*</div></pre></td></tr></table></figure>
 <p>将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.</p>
 <p>要使用 zip 来压缩文件夹，在 shell 提示下键入下面的命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip -r filename.zip filesdir</div></pre></td></tr></table></figure>
 <p>你可以使用 zip 命令同时处理多个文件和目录，方法是将它们逐一列出，并用空格间隔：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip -r filename.zip file1 file2 file3 /usr/work/school</div></pre></td></tr></table></figure>
 <p>以及 /usr/work/school 目录的内容（假设这个目录存在）压缩起来，然后放入 filename.zip 文件中。</p>
-<p>###unzip</p>
-<p>要抽取 zip 文件的内容，键入以下命令：</p>
+<h3 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h3><p>要抽取 zip 文件的内容，键入以下命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">unzip filename.zip</div><div class="line">unzip filename.zip <span class="string">"insidefile.xml"</span>  <span class="comment">#解压某个文件或者文件夹</span></div><div class="line">unzip -o <span class="_">-d</span> /home/yun myfile.zip</div></pre></td></tr></table></figure>
 <p>把myfile.zip文件解压到 /home/yun/ <br><br>-o:不提示的情况下覆盖文件；<br><br>-d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下；</p>
-<p>###其他</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip <span class="_">-d</span> myfile.zip smart.txt</div></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip <span class="_">-d</span> myfile.zip smart.txt</div></pre></td></tr></table></figure>
 <p>删除压缩文件中smart.txt文件</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zip -m myfile.zip ./rpm_info.txt</div></pre></td></tr></table></figure>
 <p>向压缩文件中myfile.zip中添加rpm_info.txt文件</p>
@@ -500,10 +494,8 @@
 <blockquote>
 <p>这条命令是解出all.tar包中所有文件，-t是解开的意思</p>
 </blockquote>
-<p>###各种文件压缩</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tar –cvf jpg.tar *.jpg <span class="comment">#将目录里所有jpg文件打包成tar.jpg</span></div><div class="line">tar –czf jpg.tar.gz *.jpg <span class="comment">#将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</span></div><div class="line">tar –cjf jpg.tar.bz2 *.jpg <span class="comment">#将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</span></div><div class="line">tar –cZf jpg.tar.Z *.jpg <span class="comment">#将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</span></div><div class="line">rar a jpg.rar *.jpg <span class="comment">#rar格式的压缩，需要先下载rar for linux</span></div><div class="line">zip jpg.zip *.jpg <span class="comment">#zip格式的压缩，需要先下载zip for linux</span></div></pre></td></tr></table></figure>
-<p>###各种文件解压</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tar –xvf file.tar <span class="comment">#解压 tar包</span></div><div class="line">tar -xzvf file.tar.gz <span class="comment">#解压tar.gz</span></div><div class="line">tar -xjvf file.tar.bz2 <span class="comment">#解压 tar.bz2</span></div><div class="line">tar –xZvf file.tar.Z <span class="comment">#解压tar.Z</span></div><div class="line">unrar e file.rar <span class="comment">#解压rar</span></div><div class="line">unzip file.zip <span class="comment">#解压zip</span></div></pre></td></tr></table></figure>
+<h3 id="各种文件压缩"><a href="#各种文件压缩" class="headerlink" title="各种文件压缩"></a>各种文件压缩</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tar –cvf jpg.tar *.jpg <span class="comment">#将目录里所有jpg文件打包成tar.jpg</span></div><div class="line">tar –czf jpg.tar.gz *.jpg <span class="comment">#将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</span></div><div class="line">tar –cjf jpg.tar.bz2 *.jpg <span class="comment">#将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</span></div><div class="line">tar –cZf jpg.tar.Z *.jpg <span class="comment">#将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</span></div><div class="line">rar a jpg.rar *.jpg <span class="comment">#rar格式的压缩，需要先下载rar for linux</span></div><div class="line">zip jpg.zip *.jpg <span class="comment">#zip格式的压缩，需要先下载zip for linux</span></div></pre></td></tr></table></figure>
+<h3 id="各种文件解压"><a href="#各种文件解压" class="headerlink" title="各种文件解压"></a>各种文件解压</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tar –xvf file.tar <span class="comment">#解压 tar包</span></div><div class="line">tar -xzvf file.tar.gz <span class="comment">#解压tar.gz</span></div><div class="line">tar -xjvf file.tar.bz2 <span class="comment">#解压 tar.bz2</span></div><div class="line">tar –xZvf file.tar.Z <span class="comment">#解压tar.Z</span></div><div class="line">unrar e file.rar <span class="comment">#解压rar</span></div><div class="line">unzip file.zip <span class="comment">#解压zip</span></div></pre></td></tr></table></figure>
 <p>##总结</p>
 <table>
 <thead>
@@ -587,8 +579,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/10/18/2014-10-18-codelayout/" rel="prev" title="代码布局的一些零碎语法">
-                代码布局的一些零碎语法 <i class="fa fa-chevron-right"></i>
+              <a href="/2014/10/21/2014-10-21-linuxsortcommand/" rel="prev" title="sort的用法">
+                sort的用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -683,7 +675,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -700,7 +692,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -778,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#tar-命令详解"><span class="nav-number">1.</span> <span class="nav-text">tar 命令详解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#zip命令"><span class="nav-number">1.</span> <span class="nav-text">zip命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip"><span class="nav-number">2.</span> <span class="nav-text">unzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tar-命令详解"><span class="nav-number">4.</span> <span class="nav-text">tar 命令详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种文件压缩"><span class="nav-number">5.</span> <span class="nav-text">各种文件压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种文件解压"><span class="nav-number">6.</span> <span class="nav-text">各种文件解压</span></a></li></ol></div>
             
 
           </div>

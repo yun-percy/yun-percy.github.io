@@ -99,7 +99,7 @@ tar是文件打包工具，split是文件分割工具，如果需要备份很多
 <meta property="og:description" content="文章为转载 原文地址
 tar是文件打包工具，split是文件分割工具，如果需要备份很多资料的时候，打包后的单个文件可能超出文件系统支持的单个文件大小限制的时候，需要分割成适合大小的文件包。所以就用这个实例来说明一下tar和split这两个指令，如何压缩、分割，再通过cat合并分割的文件解压还原，以及在管道“ | ”配合下的打包分割文件过程。
 例如：我的.skype文件已经有35M之多了，现在需要压">
-<meta property="og:updated_time" content="2014-11-19T05:14:00.000Z">
+<meta property="og:updated_time" content="2017-01-17T07:03:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用tar和split打包分割文件">
 <meta name="twitter:description" content="文章为转载 原文地址
@@ -352,8 +352,8 @@ tar是文件打包工具，split是文件分割工具，如果需要备份很多
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-11-19T13:14:00+08:00">
-                2014-11-19
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:17+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -421,8 +421,7 @@ tar是文件打包工具，split是文件分割工具，如果需要备份很多
         <p><strong>文章为转载</strong> <a href="http://www.cnblogs.com/xiaouisme/archive/2011/05/25/2057435.html" target="_blank" rel="external">原文地址</a></p>
 <p>tar是文件打包工具，split是文件分割工具，如果需要备份很多资料的时候，打包后的单个文件可能超出文件系统支持的单个文件大小限制的时候，需要分割成适合大小的文件包。<br><br>所以就用这个实例来说明一下tar和split这两个指令，如何压缩、分割，再通过cat合并分割的文件解压还原，以及在管道“ | ”配合下的打包分割文件过程。</p>
 <p>例如：我的.skype文件已经有35M之多了，现在需要压缩备份起来，直接用tar打包：</p>
-<p>###用tar压缩文件：</p>
-<pre>
+<h3 id="用tar压缩文件："><a href="#用tar压缩文件：" class="headerlink" title="用tar压缩文件："></a>用tar压缩文件：</h3><pre>
 [marco.chan@linuxhobby backup]$ ls
 skype_backup
 [marco.chan@linuxhobby backup]$ tar -czvp -f skype_backup.tar.gz skype_backup
@@ -441,8 +440,7 @@ skype_backup.tar.gz skype_backup
 
 <p>因为用了“-v”参数，所以中间会输出打包压缩的文件信息。<br><br>-c (create)当然是建立一个打包文件。<br><br>-z (gzip)调用gzip进行压缩，建议后缀名为<em>.tar.gz；也可以用-j(bzip2),建议后缀名为</em>.tar.bz2。<br><br>-p (preserve-permissions)小写的p，保持原先的文件属性，也就是rwx属性。<br><br>-f (file)输出的目标文件“skype_backup.tar.gz” 将要被处理的源文件“skype_backup”，可以将-f连写，但是为了容易记忆和区分，所以这里分开写了。<br></p>
 <p>打包后的skype_backup.tar.gz还有15M大小，但是我的邮件附件就支持6M大小，所以还得分割。</p>
-<p>###splite分割文件：</p>
-<pre>[marco.chan@linuxhobby backup]$ split -b 4000k skype_backup.tar.gz skype_backup_20090626.tar.gz. –verbose
+<h3 id="splite分割文件："><a href="#splite分割文件：" class="headerlink" title="splite分割文件："></a>splite分割文件：</h3><pre>[marco.chan@linuxhobby backup]$ split -b 4000k skype_backup.tar.gz skype_backup_20090626.tar.gz. –verbose
 creating file `skype_backup_20090626.tar.gz.aa’
 creating file `skype_backup_20090626.tar.gz.ab’
 creating file `skype_backup_20090626.tar.gz.ac’
@@ -455,8 +453,7 @@ skype_backup_20090626.tar_20090626.gz.ab skype_backup.tar.gz
 
 <p>-b 指定分割大小，例如k,m等单位。<br><br>–verbose 输出分割文件信息，可选。<br><br>skype_backup.tar.gz 被分割的文件。<br><br>skype_backup_20090626.tar.gz. 分割后的文件名(注意gz后面的”.”)，如果不指定的话，默认是xaa,xab,xac。</p>
 <p>现在通过tar，split，已经将skype_backup目录文件打包、分割为每个最大为4M大小的压缩包了。<br><br>以上是分步执行，如果用管道”|”，将tar,split写成一个执行语句：<br></p>
-<p>###使用管道“|”合并两个指令：</p>
-<pre>
+<h3 id="使用管道“-”合并两个指令："><a href="#使用管道“-”合并两个指令：" class="headerlink" title="使用管道“|”合并两个指令："></a>使用管道“|”合并两个指令：</h3><pre>
 [marco.chan@linuxhobby backup]$ tar -czvp -f – skype_backup |split -b 4000k – skype_backup_20090626.tar.gz. –verbose
 [marco.chan@linuxhobby backup]$ ls
 skype_backup
@@ -474,13 +471,12 @@ Use archive file or device F (default “-”, meaning stdin/stdout). Note that 
 </pre>
 
 <p>如何解压分割文件？<br><br>把文件分割了几个包，当然也要能合并解压了，合并文件当然用cat了，cat不仅仅是用来处理合并文本文件的，也可以用来合并压缩文件。<br></p>
-<p>###cat合并分割的文件：</p>
-<pre>
+<h3 id="cat合并分割的文件："><a href="#cat合并分割的文件：" class="headerlink" title="cat合并分割的文件："></a>cat合并分割的文件：</h3><pre>
 [marco.chan@linuxhobby backup]$ cat skype_backup_20090626.tar.gz.a* >skype_backup_cat.tar.gz
 </pre>
 将之前分割的压缩包合并成skype_backup_cat.tar.gz，然后可以通过tar -zxvf来解压skype_backup_cat.tar.gz，通过管道”|”可写成：
 
-###使用管道“|”合并两个指令：
+### 使用管道“|”合并两个指令：
 
 <pre>
 [marco.chan@linuxhobby backup]$ cat skype_backup_20090626.tar.gz.a* |tar -zxv
@@ -598,8 +594,17 @@ Use archive file or device F (default “-”, meaning stdin/stdout). Note that 
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/yunicon.png"
@@ -610,7 +615,7 @@ Use archive file or device F (default “-”, meaning stdin/stdout). Note that 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -627,7 +632,7 @@ Use archive file or device F (default “-”, meaning stdin/stdout). Note that 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -695,6 +700,22 @@ Use archive file or device F (default “-”, meaning stdin/stdout). Note that 
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#用tar压缩文件："><span class="nav-number">1.</span> <span class="nav-text">用tar压缩文件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#splite分割文件："><span class="nav-number">2.</span> <span class="nav-text">splite分割文件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用管道“-”合并两个指令："><span class="nav-number">3.</span> <span class="nav-text">使用管道“|”合并两个指令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat合并分割的文件："><span class="nav-number">4.</span> <span class="nav-text">cat合并分割的文件：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

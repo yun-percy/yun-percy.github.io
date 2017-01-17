@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="风之子的世界">
 <meta property="og:description" content="将一个字符串赋值给数组
 1234567891011str1=&apos;test1 test2 test3 test4&apos;array=($str1)    #数组赋值length=$&amp;#123;#array[@]&amp;#125;  #数组长度echo $&amp;#123;array[@]&amp;#125; #输出数组全部元素array[1]=5      #向数组的某个元素赋值和标c的语法一样echo $&amp;#123;arra">
-<meta property="og:updated_time" content="2016-01-08T05:14:00.000Z">
+<meta property="og:updated_time" content="2017-01-17T07:03:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell 数组操作">
 <meta name="twitter:description" content="将一个字符串赋值给数组
@@ -349,8 +349,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-01-08T13:14:00+08:00">
-                2016-01-08
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:10+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -417,10 +417,8 @@
       
         <p>将一个字符串赋值给数组</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">str1=<span class="string">'test1 test2 test3 test4'</span></div><div class="line">array=(<span class="variable">$str1</span>)    <span class="comment">#数组赋值</span></div><div class="line">length=<span class="variable">$&#123;#array[@]&#125;</span>  <span class="comment">#数组长度</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]&#125;</span> <span class="comment">#输出数组全部元素</span></div><div class="line">array[1]=5      <span class="comment">#向数组的某个元素赋值和标c的语法一样</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:1:2&#125;</span>        <span class="comment">#输出的是array[0]和array[1]的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:2&#125;</span>      <span class="comment">#输出数组第三个元素以后的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]::2&#125;</span>     <span class="comment">#输出数组下标小于2的值</span></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$&#123;#array[3]&#125;</span>     <span class="comment">#取得元素3的长度</span></div><div class="line"><span class="built_in">unset</span> array     <span class="comment">#清除array</span></div><div class="line">array=      <span class="comment">#清空array，赋给array空值</span></div></pre></td></tr></table></figure>
-<p>###遍历数组</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<p>###利用数组切割字符串</p>
-<p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
+<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h3 id="利用数组切割字符串"><a href="#利用数组切割字符串" class="headerlink" title="利用数组切割字符串"></a>利用数组切割字符串</h3><p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">"abd#ddd#ff"</span></div><div class="line">str2=($(<span class="built_in">echo</span> <span class="variable">$str</span>|tr <span class="string">'#'</span> <span class="string">' '</span>))</div></pre></td></tr></table></figure>
 
       
@@ -532,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/yunicon.png"
@@ -544,7 +551,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -561,7 +568,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -629,6 +636,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历数组"><span class="nav-number">1.</span> <span class="nav-text">遍历数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用数组切割字符串"><span class="nav-number">2.</span> <span class="nav-text">利用数组切割字符串</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

@@ -92,14 +92,13 @@
 <meta name="description" content="AWK命令介绍
 awk语言的最基本功能是在文件或字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作，完整的awk脚本通常用来格式化文本文件中的信息
 
-###awk的简单使用
-
+awk的简单使用
 第一种命令行方式，如:
 awk [-Field-separator] &amp;apos;commands&amp;apos; input-file(s)
 
 
 例如:
-awk -F ：&amp;apos;{print $1,">
+awk -F ：&amp;apos;{print $1,$4}&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="awk命令详解">
 <meta property="og:url" content="http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/index.html">
@@ -107,28 +106,26 @@ awk -F ：&amp;apos;{print $1,">
 <meta property="og:description" content="AWK命令介绍
 awk语言的最基本功能是在文件或字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作，完整的awk脚本通常用来格式化文本文件中的信息
 
-###awk的简单使用
-
+awk的简单使用
 第一种命令行方式，如:
 awk [-Field-separator] &amp;apos;commands&amp;apos; input-file(s)
 
 
 例如:
-awk -F ：&amp;apos;{print $1,">
-<meta property="og:updated_time" content="2014-10-08T05:14:00.000Z">
+awk -F ：&amp;apos;{print $1,$4}&amp;">
+<meta property="og:updated_time" content="2017-01-17T07:03:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="awk命令详解">
 <meta name="twitter:description" content="AWK命令介绍
 awk语言的最基本功能是在文件或字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作，完整的awk脚本通常用来格式化文本文件中的信息
 
-###awk的简单使用
-
+awk的简单使用
 第一种命令行方式，如:
 awk [-Field-separator] &amp;apos;commands&amp;apos; input-file(s)
 
 
 例如:
-awk -F ：&amp;apos;{print $1,">
+awk -F ：&amp;apos;{print $1,$4}&amp;">
 
 
 
@@ -376,8 +373,8 @@ awk -F ：&amp;apos;{print $1,">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-08T13:14:00+08:00">
-                2014-10-08
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:24+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -445,8 +442,7 @@ awk -F ：&amp;apos;{print $1,">
         <h2 id="AWK命令介绍"><a href="#AWK命令介绍" class="headerlink" title="AWK命令介绍"></a>AWK命令介绍</h2><blockquote>
 <p>awk语言的最基本功能是在文件或字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作，完整的awk脚本通常用来格式化文本文件中的信息</p>
 </blockquote>
-<p>###awk的简单使用</p>
-<ul>
+<h3 id="awk的简单使用"><a href="#awk的简单使用" class="headerlink" title="awk的简单使用"></a>awk的简单使用</h3><ul>
 <li><p>第一种命令行方式，如:</p>
 <pre><code>awk [-Field-separator] &apos;commands&apos; input-file(s)
 </code></pre></li>
@@ -462,8 +458,7 @@ awk -F ：&amp;apos;{print $1,">
 </code></pre></li>
 </ul>
 <p>解释： -f选项指明在文件awk-script-file的awk脚本，input-file是使用awk进行浏览的文件名</p>
-<p>###awk变量使用</p>
-<p>awk执行时，其浏览标记为$1，$2…$n，这种方法称为域标记。使用$1，$3表示参照第1和第3域，注意这里使用逗号分隔域，使用$0表示使用所有域。例如:</p>
+<h3 id="awk变量使用"><a href="#awk变量使用" class="headerlink" title="awk变量使用"></a>awk变量使用</h3><p>awk执行时，其浏览标记为$1，$2…$n，这种方法称为域标记。使用$1，$3表示参照第1和第3域，注意这里使用逗号分隔域，使用$0表示使用所有域。例如:</p>
 <pre><code>awk &apos;{print $0}&apos; temp.txt &gt; sav.txt
 </code></pre><h2 id="表示打印所有域并把结果重定向到sav-txt中"><a href="#表示打印所有域并把结果重定向到sav-txt中" class="headerlink" title="表示打印所有域并把结果重定向到sav.txt中"></a>表示打印所有域并把结果重定向到sav.txt中</h2><pre><code>awk &apos;{print $0}&apos; temp.txt|tee sav.txt
 </code></pre><h2 id="和上例相似，不同的是将在屏幕上显示出来"><a href="#和上例相似，不同的是将在屏幕上显示出来" class="headerlink" title="和上例相似，不同的是将在屏幕上显示出来"></a>和上例相似，不同的是将在屏幕上显示出来</h2><pre><code>awk &apos;{print $1,$4}&apos; temp.txt
@@ -472,8 +467,7 @@ awk -F ：&amp;apos;{print $1,">
 </code></pre><p>表示打信息头，即输入的内容的第一行前加上”NAME  GRADE\n————-“，同时内容以tab分开</p>
 <pre><code>awk &apos;BEGIN {print &quot;being&quot;} {print $1} END {print &quot;end&quot;}&apos; temp
 </code></pre><p>同时打印信息头和信息尾</p>
-<p>###awk的正则</p>
-<p>&lt;、&lt;=、==、!=、&gt;=、~匹配正则表达式、!~不匹配正则表达式</p>
+<h3 id="awk的正则"><a href="#awk的正则" class="headerlink" title="awk的正则"></a>awk的正则</h3><p>&lt;、&lt;=、==、!=、&gt;=、~匹配正则表达式、!~不匹配正则表达式</p>
 <p>匹配:</p>
 <pre><code>awk &apos;{if ($4~/ASIMA/) print $0}&apos; temp   表示如果第四个域包含ASIMA，就打印整条
 </code></pre><p>精确匹配:</p>
@@ -494,8 +488,7 @@ awk -F ：&amp;apos;{print $1,">
 <pre><code>awk &apos;{if ( $1==&quot;a&quot; &amp;&amp; $2==&quot;b&quot; ) print $0}&apos; temp
 </code></pre><p>OR或关系:</p>
 <pre><code>awk &apos;{if ($1==&quot;a&quot; || $1==&quot;b&quot;) print $0}&apos; temp
-</code></pre><p>###awk内置变量:</p>
-<table>
+</code></pre><h3 id="awk内置变量"><a href="#awk内置变量" class="headerlink" title="awk内置变量:"></a>awk内置变量:</h3><table>
 <thead>
 <tr>
 <th>参数</th>
@@ -561,8 +554,7 @@ awk &apos;{print NF，NR，$0} END {print FILENAME}&apos; temp
 <pre><code>awk &apos;{if (NR&gt;0 &amp;&amp; $4~/Brown/) print $0}&apos; temp
 </code></pre><p>NF的另一用法:</p>
 <pre><code>echo $PWD | awk -F/ &apos;{print $NF}&apos;   显示当前目录名
-</code></pre><p>###awk操作符:</p>
-<p>在awk中使用操作符，基本表达式可以划分成数字型、字符串型、变量型、域及数组元素</p>
+</code></pre><h3 id="awk操作符"><a href="#awk操作符" class="headerlink" title="awk操作符:"></a>awk操作符:</h3><p>在awk中使用操作符，基本表达式可以划分成数字型、字符串型、变量型、域及数组元素</p>
 <p>设置输入域到变量名:</p>
 <pre><code>awk &apos;{name=$1;six=$3; if (six==&quot;man&quot;) print name &quot; is &quot; six}&apos; temp
 </code></pre><p>域值比较操作:</p>
@@ -610,19 +602,16 @@ gsub(r，s，t)         在整个t中用s替代r
 <li><p>substr(s，p，n)       返回字符串s中从p开始长度为n的后缀部分</p>
 </li>
 </ul>
-<p>###printf函数的使用:</p>
-<p>字符转换:</p>
+<h3 id="printf函数的使用"><a href="#printf函数的使用" class="headerlink" title="printf函数的使用:"></a>printf函数的使用:</h3><p>字符转换:</p>
 <pre><code>echo &quot;65&quot; |awk &apos;{printf &quot;%c\n&quot;，$0}&apos;    输出A
 awk &apos;BEGIN {printf &quot;%f\n&quot;，999}&apos;        输出999.000000
 </code></pre><p>格式化输出:</p>
 <pre><code>awk &apos;{printf &quot;%-15s %s\n&quot;，$1，$3}&apos; temp 将第一个域全部左对齐显示
-</code></pre><p>###其他awk用法:</p>
-<p>向一行awk命令传值:</p>
+</code></pre><h3 id="其他awk用法"><a href="#其他awk用法" class="headerlink" title="其他awk用法:"></a>其他awk用法:</h3><p>向一行awk命令传值:</p>
 <pre><code>awk &apos;{if ($5&lt;AGE) print $0}&apos; AGE=10 temp
 </code></pre><p>使用环境变量</p>
 <pre><code>who | awk &apos;{if ($1==user) print $1 &quot; are in &quot; $2 &apos; user=$LOGNAME
-</code></pre><p>###awk脚本命令:</p>
-<blockquote>
+</code></pre><h3 id="awk脚本命令"><a href="#awk脚本命令" class="headerlink" title="awk脚本命令:"></a>awk脚本命令:</h3><blockquote>
 <p>开头使用 !/bin/awk -f  ，如果没有这句话自含脚本将不能执行，例子:</p>
 </blockquote>
 <pre><code>!/bin/awk -f
@@ -645,15 +634,13 @@ END
     print &quot;Club student total points :&quot; tot
     print &quot;Average Club Student points :&quot; tot/N
 }
-</code></pre><p>###awk数组:</p>
-<p>awk的循环基本结构</p>
+</code></pre><h3 id="awk数组"><a href="#awk数组" class="headerlink" title="awk数组:"></a>awk数组:</h3><p>awk的循环基本结构</p>
 <pre><code>For (element in array) print array[element]
 
 awk &apos;BEGIN {record=&quot;123#456#789&quot;;split(record，myarray，&quot;#&quot;)}
 
 END { for (i in myarray) {print myarray[i]} }
-</code></pre><p>###awk中自定义语句</p>
-<ul>
+</code></pre><h3 id="awk中自定义语句"><a href="#awk中自定义语句" class="headerlink" title="awk中自定义语句"></a>awk中自定义语句</h3><ul>
 <li><p>条件判断语句(if)</p>
 <pre><code>if(表达式) #if ( Variable in Array )
 语句1
@@ -819,8 +806,8 @@ print total;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/09/28/2014-09-28-fastblursmailcode/" rel="next" title="高斯模糊动态壁纸的三段smail插值代码：">
-                <i class="fa fa-chevron-left"></i> 高斯模糊动态壁纸的三段smail插值代码：
+              <a href="/2014/10/08/2014-10-08-blackantpoem/" rel="next" title="黑蚂蚁——白连春">
+                <i class="fa fa-chevron-left"></i> 黑蚂蚁——白连春
               </a>
             
           </div>
@@ -829,8 +816,8 @@ print total;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/10/08/2014-10-08-echodemo/" rel="prev" title="Linux中的15个‘echo’ 命令实例">
-                Linux中的15个‘echo’ 命令实例 <i class="fa fa-chevron-right"></i>
+              <a href="/2014/10/09/2014-10-09-someshellcommand/" rel="prev" title="shell 常用语法段">
+                shell 常用语法段 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -925,7 +912,7 @@ print total;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -942,7 +929,7 @@ print total;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1020,7 +1007,7 @@ print total;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AWK命令介绍"><span class="nav-number">1.</span> <span class="nav-text">AWK命令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表示打印所有域并把结果重定向到sav-txt中"><span class="nav-number">2.</span> <span class="nav-text">表示打印所有域并把结果重定向到sav.txt中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和上例相似，不同的是将在屏幕上显示出来"><span class="nav-number">3.</span> <span class="nav-text">和上例相似，不同的是将在屏幕上显示出来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他实例："><span class="nav-number">4.</span> <span class="nav-text">其他实例：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AWK命令介绍"><span class="nav-number">1.</span> <span class="nav-text">AWK命令介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#awk的简单使用"><span class="nav-number">1.1.</span> <span class="nav-text">awk的简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk变量使用"><span class="nav-number">1.2.</span> <span class="nav-text">awk变量使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表示打印所有域并把结果重定向到sav-txt中"><span class="nav-number">2.</span> <span class="nav-text">表示打印所有域并把结果重定向到sav.txt中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和上例相似，不同的是将在屏幕上显示出来"><span class="nav-number">3.</span> <span class="nav-text">和上例相似，不同的是将在屏幕上显示出来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#awk的正则"><span class="nav-number">3.1.</span> <span class="nav-text">awk的正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk内置变量"><span class="nav-number">3.2.</span> <span class="nav-text">awk内置变量:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk操作符"><span class="nav-number">3.3.</span> <span class="nav-text">awk操作符:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#printf函数的使用"><span class="nav-number">3.4.</span> <span class="nav-text">printf函数的使用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他awk用法"><span class="nav-number">3.5.</span> <span class="nav-text">其他awk用法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk脚本命令"><span class="nav-number">3.6.</span> <span class="nav-text">awk脚本命令:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk数组"><span class="nav-number">3.7.</span> <span class="nav-text">awk数组:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk中自定义语句"><span class="nav-number">3.8.</span> <span class="nav-text">awk中自定义语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他实例："><span class="nav-number">4.</span> <span class="nav-text">其他实例：</span></a></li></ol></div>
             
 
           </div>

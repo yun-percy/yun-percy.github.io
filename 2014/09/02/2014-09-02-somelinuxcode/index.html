@@ -115,7 +115,7 @@ reboot
 halt
 poweroff
 用法">
-<meta property="og:updated_time" content="2014-09-02T05:14:00.000Z">
+<meta property="og:updated_time" content="2017-01-17T07:01:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些linux下的零碎语法和命令">
 <meta name="twitter:description" content="- 查看计算机状态who: 查看有谁在线
@@ -376,8 +376,8 @@ poweroff
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-09-02T13:14:00+08:00">
-                2014-09-02
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:01:26+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -453,23 +453,16 @@ reboot
 halt
 poweroff
 用法： sudo shutdown -h 3   (-h:关机 -r：重启 3代表时间，可以设置为now立即执行)
-</code></pre><h2 id="adb命令"><a href="#adb命令" class="headerlink" title="- adb命令"></a>- adb命令</h2><p>###直接启动应用 ：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell am start -n <span class="string">"包名/类名"</span></div></pre></td></tr></table></figure>
-<p>###查看包名类名：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aapt dump badging XX.apk</div></pre></td></tr></table></figure>
-<h2 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h2><p>###ia32-libs</p>
-<p>这是一个32位依赖包，很多常用软件依旧在是用这个依赖包，但是在ubuntu和mint的软件源里已经把这个依赖包给去掉了，那我们怎么来安装？<br>添加软件源，下文中要添加的软件源是现在还能用的，也许以后就没了，因为安装过程中要经常使用sudo的授权，所以第一步我们就直接临时进root了。使用完了记得退出。<br>直接上链接：</p>
+</code></pre><h2 id="adb命令"><a href="#adb命令" class="headerlink" title="- adb命令"></a>- adb命令</h2><h3 id="直接启动应用-："><a href="#直接启动应用-：" class="headerlink" title="直接启动应用 ："></a>直接启动应用 ：</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell am start -n <span class="string">"包名/类名"</span></div></pre></td></tr></table></figure>
+<h3 id="查看包名类名："><a href="#查看包名类名：" class="headerlink" title="查看包名类名："></a>查看包名类名：</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aapt dump badging XX.apk</div></pre></td></tr></table></figure>
+<h2 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h2><h3 id="ia32-libs"><a href="#ia32-libs" class="headerlink" title="ia32-libs"></a>ia32-libs</h3><p>这是一个32位依赖包，很多常用软件依旧在是用这个依赖包，但是在ubuntu和mint的软件源里已经把这个依赖包给去掉了，那我们怎么来安装？<br>添加软件源，下文中要添加的软件源是现在还能用的，也许以后就没了，因为安装过程中要经常使用sudo的授权，所以第一步我们就直接临时进root了。使用完了记得退出。<br>直接上链接：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo -i</div><div class="line"><span class="built_in">cd</span> /etc/apt/sources.list.d</div><div class="line"><span class="built_in">echo</span> <span class="string">"deb http://archive.ubuntu.com/ubuntu/ raring main restricted universe multiverse"</span> &gt;ia32-libs-raring.list</div><div class="line">apt-get update</div><div class="line">apt-get <span class="_">-f</span> install</div><div class="line">apt-get install ia32-libs</div></pre></td></tr></table></figure>
 <p>搞定</p>
-<p>###find 命令</p>
-<pre><code>find . -name &quot;*.mk&quot;  -exec grep -l &quot;love&quot; {} \;
+<h3 id="find-命令"><a href="#find-命令" class="headerlink" title="find 命令"></a>find 命令</h3><pre><code>find . -name &quot;*.mk&quot;  -exec grep -l &quot;love&quot; {} \;
 </code></pre><p>在所有后缀名为.mk中查找带love的文件，并且列出文件名</p>
-<p>###高通开机splash.img文件制作</p>
-<pre><code>convert -depth 8 logo.png  bgr:splash.img
-</code></pre><p>###linux下bootanimation制作</p>
-<pre><code>zip -0 bootanimation.zip part0/*PNG part1/*PNG desc.txt
-</code></pre><p>###ls命令参数</p>
-<pre><code>-h 将文件大小转换为方便阅读的单位
+<h3 id="高通开机splash-img文件制作"><a href="#高通开机splash-img文件制作" class="headerlink" title="高通开机splash.img文件制作"></a>高通开机splash.img文件制作</h3><pre><code>convert -depth 8 logo.png  bgr:splash.img
+</code></pre><h3 id="linux下bootanimation制作"><a href="#linux下bootanimation制作" class="headerlink" title="linux下bootanimation制作"></a>linux下bootanimation制作</h3><pre><code>zip -0 bootanimation.zip part0/*PNG part1/*PNG desc.txt
+</code></pre><h3 id="ls命令参数"><a href="#ls命令参数" class="headerlink" title="ls命令参数"></a>ls命令参数</h3><pre><code>-h 将文件大小转换为方便阅读的单位
 -R 遍历所有目录
 -F 添加文件类型标记
 -S 按文件大小排序输出
@@ -512,8 +505,8 @@ poweroff
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/09/03/2014-09-03-Android_change_initial_value/" rel="prev" title="Android 系统初始值修改(源码)">
-                Android 系统初始值修改(源码) <i class="fa fa-chevron-right"></i>
+              <a href="/2014/09/03/2014-09-03-2014CPUarrange/" rel="prev" title="CPU性能天梯图（2014年7月）">
+                CPU性能天梯图（2014年7月） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -608,7 +601,7 @@ poweroff
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -625,7 +618,7 @@ poweroff
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -703,7 +696,7 @@ poweroff
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看计算机状态"><span class="nav-number">1.</span> <span class="nav-text">- 查看计算机状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关机命令"><span class="nav-number">2.</span> <span class="nav-text">- 关机命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adb命令"><span class="nav-number">3.</span> <span class="nav-text">- adb命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get"><span class="nav-number">4.</span> <span class="nav-text">apt-get</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改系统日期和时间"><span class="nav-number">4.1.</span> <span class="nav-text">修改系统日期和时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使-51-Android生效"><span class="nav-number">4.2.</span> <span class="nav-text">使 51 Android生效</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看计算机状态"><span class="nav-number">1.</span> <span class="nav-text">- 查看计算机状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关机命令"><span class="nav-number">2.</span> <span class="nav-text">- 关机命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adb命令"><span class="nav-number">3.</span> <span class="nav-text">- adb命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接启动应用-："><span class="nav-number">3.1.</span> <span class="nav-text">直接启动应用 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看包名类名："><span class="nav-number">3.2.</span> <span class="nav-text">查看包名类名：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get"><span class="nav-number">4.</span> <span class="nav-text">apt-get</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ia32-libs"><span class="nav-number">4.1.</span> <span class="nav-text">ia32-libs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#find-命令"><span class="nav-number">4.2.</span> <span class="nav-text">find 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高通开机splash-img文件制作"><span class="nav-number">4.3.</span> <span class="nav-text">高通开机splash.img文件制作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux下bootanimation制作"><span class="nav-number">4.4.</span> <span class="nav-text">linux下bootanimation制作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls命令参数"><span class="nav-number">4.5.</span> <span class="nav-text">ls命令参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改系统日期和时间"><span class="nav-number">4.6.</span> <span class="nav-text">修改系统日期和时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使-51-Android生效"><span class="nav-number">4.7.</span> <span class="nav-text">使 51 Android生效</span></a></li></ol></li></ol></div>
             
 
           </div>

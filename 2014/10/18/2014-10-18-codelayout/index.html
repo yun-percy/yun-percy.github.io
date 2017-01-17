@@ -89,28 +89,25 @@
 
 
 
-<meta name="description" content="###前言
-越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。
+<meta name="description" content="前言越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。
 虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？
 以下是日常研发中的一些笔记
-FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTE">
+FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="代码布局的一些零碎语法">
 <meta property="og:url" content="http://percychen.com/2014/10/18/2014-10-18-codelayout/index.html">
 <meta property="og:site_name" content="风之子的世界">
-<meta property="og:description" content="###前言
-越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。
+<meta property="og:description" content="前言越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。
 虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？
 以下是日常研发中的一些笔记
-FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTE">
-<meta property="og:updated_time" content="2014-10-18T05:14:00.000Z">
+FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);">
+<meta property="og:updated_time" content="2017-01-17T07:03:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码布局的一些零碎语法">
-<meta name="twitter:description" content="###前言
-越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。
+<meta name="twitter:description" content="前言越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。
 虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？
 以下是日常研发中的一些笔记
-FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTE">
+FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);">
 
 
 
@@ -358,8 +355,8 @@ FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameL
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-18T13:14:00+08:00">
-                2014-10-18
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:23+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -424,25 +421,21 @@ FrameLayout下动态设置按钮居中FrameLayout.LayoutParams lytp = new FrameL
       
 
       
-        <p>###前言</p>
-<p>越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>越来越喜欢代码布局，因为它的高效和迅速，如果熟练掌握，将比xml的效率更加高。</p>
 <p>虽然可读性差了点，但是，你写的代码如果足够好，谁还会拆开去看呢？</p>
 <p>以下是日常研发中的一些笔记</p>
 <h3 id="FrameLayout下动态设置按钮居中"><a href="#FrameLayout下动态设置按钮居中" class="headerlink" title="FrameLayout下动态设置按钮居中"></a>FrameLayout下动态设置按钮居中</h3><pre><code>FrameLayout.LayoutParams lytp = new FrameLayout.LayoutParams(80,LayoutParams.WRAP_CONTENT);
 lytp .gravity = Gravity.CENTER;
 btn.setLayoutParams(lytp);
-</code></pre><p>###RelativeLayout下动态设置子控件居中：</p>
-<pre><code>RelativeLayout.LayoutParams lp=new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+</code></pre><h3 id="RelativeLayout下动态设置子控件居中："><a href="#RelativeLayout下动态设置子控件居中：" class="headerlink" title="RelativeLayout下动态设置子控件居中："></a>RelativeLayout下动态设置子控件居中：</h3><pre><code>RelativeLayout.LayoutParams lp=new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
 lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
 btn1.setLayoutParams(lp);
-</code></pre><p>###添加一个控件（以TextView为例）：</p>
-<pre><code>TextView mlocation=new TextView(context);
+</code></pre><h3 id="添加一个控件（以TextView为例）："><a href="#添加一个控件（以TextView为例）：" class="headerlink" title="添加一个控件（以TextView为例）："></a>添加一个控件（以TextView为例）：</h3><pre><code>TextView mlocation=new TextView(context);
 String mlocation1=GetLocationByNumber.getCallerInfo(phonenumber,context);
 mlocation.setText(mlocation1);
         this.addView(mlocation);
-</code></pre><p>###给文字设置阴影值：</p>
-<pre><code>mlocation.setShadowLayer(10, 1, 1, 0xff000000);//（模糊度（半径），阴影x方向位移，阴影y方向位移，阴影颜色）
+</code></pre><h3 id="给文字设置阴影值："><a href="#给文字设置阴影值：" class="headerlink" title="给文字设置阴影值："></a>给文字设置阴影值：</h3><pre><code>mlocation.setShadowLayer(10, 1, 1, 0xff000000);//（模糊度（半径），阴影x方向位移，阴影y方向位移，阴影颜色）
 </code></pre>
       
     </div>
@@ -468,8 +461,8 @@ mlocation.setText(mlocation1);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/10/18/2014-10-18-zipcommand/" rel="next" title="linux下 解压zip,tar等压缩文件详解">
-                <i class="fa fa-chevron-left"></i> linux下 解压zip,tar等压缩文件详解
+              <a href="/2014/10/13/2014-10-13-androidmakefile/" rel="next" title="Android Makefile 编译过程讲解">
+                <i class="fa fa-chevron-left"></i> Android Makefile 编译过程讲解
               </a>
             
           </div>
@@ -478,8 +471,8 @@ mlocation.setText(mlocation1);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/10/21/2014-10-21-linuxsortcommand/" rel="prev" title="sort的用法">
-                sort的用法 <i class="fa fa-chevron-right"></i>
+              <a href="/2014/10/18/2014-10-18-curlcommand/" rel="prev" title="命令行浏览器 curl 命令详解">
+                命令行浏览器 curl 命令详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -574,7 +567,7 @@ mlocation.setText(mlocation1);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -591,7 +584,7 @@ mlocation.setText(mlocation1);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -669,7 +662,7 @@ mlocation.setText(mlocation1);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#FrameLayout下动态设置按钮居中"><span class="nav-number">1.</span> <span class="nav-text">FrameLayout下动态设置按钮居中</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FrameLayout下动态设置按钮居中"><span class="nav-number">2.</span> <span class="nav-text">FrameLayout下动态设置按钮居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RelativeLayout下动态设置子控件居中："><span class="nav-number">3.</span> <span class="nav-text">RelativeLayout下动态设置子控件居中：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加一个控件（以TextView为例）："><span class="nav-number">4.</span> <span class="nav-text">添加一个控件（以TextView为例）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给文字设置阴影值："><span class="nav-number">5.</span> <span class="nav-text">给文字设置阴影值：</span></a></li></ol></div>
             
 
           </div>

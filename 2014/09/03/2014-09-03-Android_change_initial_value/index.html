@@ -93,15 +93,14 @@
 比如改成大：
 
 def_font_scale&amp;quot;&amp;gt;115%
-2.修改浏览器的默认标签###分别在以下资源文件中添加自定义的标签
-
+2.修改浏览器的默认标签分别在以下资源文件中添加自定义的标签
 编辑packages\apps\Browser\res\values\strings.xml
 
 Google
 http://www.google.com/
 
 Picasa
-http://picasaweb.google.c">
+http://picasaweb.google.com/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 系统初始值修改(源码)">
 <meta property="og:url" content="http://percychen.com/2014/09/03/2014-09-03-Android_change_initial_value/index.html">
@@ -110,31 +109,29 @@ http://picasaweb.google.c">
 比如改成大：
 
 def_font_scale&amp;quot;&amp;gt;115%
-2.修改浏览器的默认标签###分别在以下资源文件中添加自定义的标签
-
+2.修改浏览器的默认标签分别在以下资源文件中添加自定义的标签
 编辑packages\apps\Browser\res\values\strings.xml
 
 Google
 http://www.google.com/
 
 Picasa
-http://picasaweb.google.c">
-<meta property="og:updated_time" content="2014-09-03T05:14:00.000Z">
+http://picasaweb.google.com/">
+<meta property="og:updated_time" content="2017-01-17T07:01:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 系统初始值修改(源码)">
 <meta name="twitter:description" content="1.在4.1上修改默认字体大小：
 比如改成大：
 
 def_font_scale&amp;quot;&amp;gt;115%
-2.修改浏览器的默认标签###分别在以下资源文件中添加自定义的标签
-
+2.修改浏览器的默认标签分别在以下资源文件中添加自定义的标签
 编辑packages\apps\Browser\res\values\strings.xml
 
 Google
 http://www.google.com/
 
 Picasa
-http://picasaweb.google.c">
+http://picasaweb.google.com/">
 
 
 
@@ -382,8 +379,8 @@ http://picasaweb.google.c">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2014-09-03T13:14:00+08:00">
-                2014-09-03
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:01:27+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -452,8 +449,7 @@ http://picasaweb.google.c">
 <p>比如改成大：</p>
 </blockquote>
 <pre><code>def_font_scale&quot;&gt;115%
-</code></pre><h2 id="2-修改浏览器的默认标签"><a href="#2-修改浏览器的默认标签" class="headerlink" title="2.修改浏览器的默认标签"></a>2.修改浏览器的默认标签</h2><p>###分别在以下资源文件中添加自定义的标签</p>
-<blockquote>
+</code></pre><h2 id="2-修改浏览器的默认标签"><a href="#2-修改浏览器的默认标签" class="headerlink" title="2.修改浏览器的默认标签"></a>2.修改浏览器的默认标签</h2><h3 id="分别在以下资源文件中添加自定义的标签"><a href="#分别在以下资源文件中添加自定义的标签" class="headerlink" title="分别在以下资源文件中添加自定义的标签"></a>分别在以下资源文件中添加自定义的标签</h3><blockquote>
 <p>编辑packages\apps\Browser\res\values\strings.xml</p>
 </blockquote>
 <pre><code>Google
@@ -497,8 +493,7 @@ http://www.weather.com/
 
 BBC
 http://www.bbc.co.uk/
-</code></pre><p>###编辑 packages\apps\Browser\res\values\bookmarks_icons.xml ，</p>
-<blockquote>
+</code></pre><h3 id="编辑-packages-apps-Browser-res-values-bookmarks-icons-xml-，"><a href="#编辑-packages-apps-Browser-res-values-bookmarks-icons-xml-，" class="headerlink" title="编辑 packages\apps\Browser\res\values\bookmarks_icons.xml ，"></a>编辑 packages\apps\Browser\res\values\bookmarks_icons.xml ，</h3><blockquote>
 <p>注意：这里每个网站对应一个缩略图和一个favicon</p>
 </blockquote>
 <pre><code>@raw/favicon_google
@@ -532,13 +527,11 @@ http://www.bbc.co.uk/
 </code></pre><blockquote>
 <p>对应的图片在 packages\apps\Browser\res\raw</p>
 </blockquote>
-<h2 id="3-LockScreen-解锁界面四个方向添加一个setting入口"><a href="#3-LockScreen-解锁界面四个方向添加一个setting入口" class="headerlink" title="3.LockScreen 解锁界面四个方向添加一个setting入口"></a>3.LockScreen 解锁界面四个方向添加一个setting入口</h2><p>###frameworks\base\core\res\res\values/arrays.xml</p>
-<pre><code>@drawable/ic_lockscreen_unlock
+<h2 id="3-LockScreen-解锁界面四个方向添加一个setting入口"><a href="#3-LockScreen-解锁界面四个方向添加一个setting入口" class="headerlink" title="3.LockScreen 解锁界面四个方向添加一个setting入口"></a>3.LockScreen 解锁界面四个方向添加一个setting入口</h2><h3 id="frameworks-base-core-res-res-values-arrays-xml"><a href="#frameworks-base-core-res-res-values-arrays-xml" class="headerlink" title="frameworks\base\core\res\res\values/arrays.xml"></a>frameworks\base\core\res\res\values/arrays.xml</h3><pre><code>@drawable/ic_lockscreen_unlock
 @drawable/ic_action_assist_generic
 @drawable/ic_lockscreen_camera
 @drawable/ic_lockscreen_settings
-</code></pre><p>###在 frameworks\base\core\res\res\drawable 增加 ic_lockscreen_settings.xml 文件 并添加 ic_lockscreen_settings_normal.phg ic_lockscreen_settings_activated.png 资源文件</p>
-<pre><code>http://schemas.android.com/apk/res/android&quot;&gt;
+</code></pre><h3 id="在-frameworks-base-core-res-res-drawable-增加-ic-lockscreen-settings-xml-文件-并添加-ic-lockscreen-settings-normal-phg-ic-lockscreen-settings-activated-png-资源文件"><a href="#在-frameworks-base-core-res-res-drawable-增加-ic-lockscreen-settings-xml-文件-并添加-ic-lockscreen-settings-normal-phg-ic-lockscreen-settings-activated-png-资源文件" class="headerlink" title="在 frameworks\base\core\res\res\drawable 增加 ic_lockscreen_settings.xml 文件 并添加 ic_lockscreen_settings_normal.phg ic_lockscreen_settings_activated.png 资源文件"></a>在 frameworks\base\core\res\res\drawable 增加 ic_lockscreen_settings.xml 文件 并添加 ic_lockscreen_settings_normal.phg ic_lockscreen_settings_activated.png 资源文件</h3><pre><code>http://schemas.android.com/apk/res/android&quot;&gt;
     android:state_active=&quot;false&quot;
     android:state_focused=&quot;false&quot;
     android:drawable=&quot;@drawable/ic_lockscreen_settings_normal&quot; /&gt;
@@ -550,16 +543,14 @@ http://www.bbc.co.uk/
     android:state_active=&quot;false&quot;
     android:state_focused=&quot;true&quot;
     android:drawable=&quot;@drawable/ic_lockscreen_settings_activated&quot; /&gt;
-</code></pre><p>###打开 frameworks\base\policy\src\com\android\internal\policy\impl\LockScreen.java</p>
-<pre><code>public void onTrigger(View v, int target) {
+</code></pre><h3 id="打开-frameworks-base-policy-src-com-android-internal-policy-impl-LockScreen-java"><a href="#打开-frameworks-base-policy-src-com-android-internal-policy-impl-LockScreen-java" class="headerlink" title="打开 frameworks\base\policy\src\com\android\internal\policy\impl\LockScreen.java"></a>打开 frameworks\base\policy\src\com\android\internal\policy\impl\LockScreen.java</h3><pre><code>public void onTrigger(View v, int target) {
        final int resId = mGlowPadView.getResourceIdForTarget(target);
        switch (resId) {
             case com.android.internal.R.drawable.ic_lockscreen_settings: //启动setting 应用
                launchActivity(new Intent().setComponent(new ComponentName(&quot;com.android.settings&quot;,&quot;com.android.settings.Settings&quot;)));
                mCallback.pokeWakelock();
                break;
-</code></pre><p>###进入frameworks/base/media/java/android/media/AudioService.java</p>
-<pre><code>private final int[] MAX_STREAM_VOLUME = new int[] {
+</code></pre><h3 id="进入frameworks-base-media-java-android-media-AudioService-java"><a href="#进入frameworks-base-media-java-android-media-AudioService-java" class="headerlink" title="进入frameworks/base/media/java/android/media/AudioService.java"></a>进入frameworks/base/media/java/android/media/AudioService.java</h3><pre><code>private final int[] MAX_STREAM_VOLUME = new int[] {
         5,  // STREAM_VOICE_CALL
         7,  // STREAM_SYSTEM
         7,  // STREAM_RING
@@ -571,8 +562,7 @@ http://www.bbc.co.uk/
         15, // STREAM_DTMF
         15  // STREAM_TTS
     };
-</code></pre><p>###进入frameworks/base/media/java/android/media/AudioManager.java</p>
-<pre><code>public static final int[] DEFAULT_STREAM_VOLUME = new int[] {
+</code></pre><h3 id="进入frameworks-base-media-java-android-media-AudioManager-java"><a href="#进入frameworks-base-media-java-android-media-AudioManager-java" class="headerlink" title="进入frameworks/base/media/java/android/media/AudioManager.java"></a>进入frameworks/base/media/java/android/media/AudioManager.java</h3><pre><code>public static final int[] DEFAULT_STREAM_VOLUME = new int[] {
         4,  // STREAM_VOICE_CALL
         7,  // STREAM_SYSTEM
         5,  // STREAM_RING
@@ -609,8 +599,8 @@ http://www.bbc.co.uk/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/09/02/2014-09-02-somelinuxcode/" rel="next" title="一些linux下的零碎语法和命令">
-                <i class="fa fa-chevron-left"></i> 一些linux下的零碎语法和命令
+              <a href="/2014/09/03/2014-09-03-2014CPUarrange/" rel="next" title="CPU性能天梯图（2014年7月）">
+                <i class="fa fa-chevron-left"></i> CPU性能天梯图（2014年7月）
               </a>
             
           </div>
@@ -619,8 +609,8 @@ http://www.bbc.co.uk/
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/09/03/2014-09-03-doubleexit/" rel="prev" title="双击退出程序-java代码">
-                双击退出程序-java代码 <i class="fa fa-chevron-right"></i>
+              <a href="/2014/09/03/2014-09-03-androidplantso/" rel="prev" title="（未完成）Android系统拼包移植各个系统驱动对应的so文件">
+                （未完成）Android系统拼包移植各个系统驱动对应的so文件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -715,7 +705,7 @@ http://www.bbc.co.uk/
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">139</span>
+              <span class="site-state-item-count">140</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -732,7 +722,7 @@ http://www.bbc.co.uk/
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -810,7 +800,7 @@ http://www.bbc.co.uk/
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在4-1上修改默认字体大小："><span class="nav-number">1.</span> <span class="nav-text">1.在4.1上修改默认字体大小：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-修改浏览器的默认标签"><span class="nav-number">2.</span> <span class="nav-text">2.修改浏览器的默认标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LockScreen-解锁界面四个方向添加一个setting入口"><span class="nav-number">3.</span> <span class="nav-text">3.LockScreen 解锁界面四个方向添加一个setting入口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在4-1上修改默认字体大小："><span class="nav-number">1.</span> <span class="nav-text">1.在4.1上修改默认字体大小：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-修改浏览器的默认标签"><span class="nav-number">2.</span> <span class="nav-text">2.修改浏览器的默认标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分别在以下资源文件中添加自定义的标签"><span class="nav-number">2.1.</span> <span class="nav-text">分别在以下资源文件中添加自定义的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑-packages-apps-Browser-res-values-bookmarks-icons-xml-，"><span class="nav-number">2.2.</span> <span class="nav-text">编辑 packages\apps\Browser\res\values\bookmarks_icons.xml ，</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-LockScreen-解锁界面四个方向添加一个setting入口"><span class="nav-number">3.</span> <span class="nav-text">3.LockScreen 解锁界面四个方向添加一个setting入口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#frameworks-base-core-res-res-values-arrays-xml"><span class="nav-number">3.1.</span> <span class="nav-text">frameworks\base\core\res\res\values/arrays.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-frameworks-base-core-res-res-drawable-增加-ic-lockscreen-settings-xml-文件-并添加-ic-lockscreen-settings-normal-phg-ic-lockscreen-settings-activated-png-资源文件"><span class="nav-number">3.2.</span> <span class="nav-text">在 frameworks\base\core\res\res\drawable 增加 ic_lockscreen_settings.xml 文件 并添加 ic_lockscreen_settings_normal.phg ic_lockscreen_settings_activated.png 资源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开-frameworks-base-policy-src-com-android-internal-policy-impl-LockScreen-java"><span class="nav-number">3.3.</span> <span class="nav-text">打开 frameworks\base\policy\src\com\android\internal\policy\impl\LockScreen.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入frameworks-base-media-java-android-media-AudioService-java"><span class="nav-number">3.4.</span> <span class="nav-text">进入frameworks/base/media/java/android/media/AudioService.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入frameworks-base-media-java-android-media-AudioManager-java"><span class="nav-number">3.5.</span> <span class="nav-text">进入frameworks/base/media/java/android/media/AudioManager.java</span></a></li></ol></li></ol></div>
             
 
           </div>
