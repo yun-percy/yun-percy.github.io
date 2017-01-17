@@ -155,8 +155,7 @@
 <h4 id="连接到远程主机上的MYSQL"><a href="#连接到远程主机上的MYSQL" class="headerlink" title="连接到远程主机上的MYSQL"></a>连接到远程主机上的MYSQL</h4><p>假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h110.110.110.110 -uroot -pabcd123 <span class="comment"># 远程登录</span></div></pre></td></tr></table></figure>
 <p>(注:u与root可以不用加空格，其它也一样)</p>
-<p>####查询条目数量</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select count(*) from tablename;</div></pre></td></tr></table></figure>
+<h4 id="查询条目数量"><a href="#查询条目数量" class="headerlink" title="查询条目数量"></a>查询条目数量</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select count(*) from tablename;</div></pre></td></tr></table></figure>
 <h4 id="退出MYSQL命令：-exit-回车"><a href="#退出MYSQL命令：-exit-回车" class="headerlink" title="退出MYSQL命令： exit (回车)"></a>退出MYSQL命令： exit (回车)</h4>]]></content>
     </entry>
     
@@ -938,23 +937,6 @@ c.close() <span class="comment">#Curl对象无操作时，也会自动执行clos
     </entry>
     
     <entry>
-      <title><![CDATA[Ant笔记]]></title>
-      <url>http://percychen.com/2016/11/09/antnote/</url>
-      <content type="html"><![CDATA[<h2 id="condition"><a href="#condition" class="headerlink" title="condition"></a>condition</h2><h3 id="1-istrue-isfalse-断言-真-假"><a href="#1-istrue-isfalse-断言-真-假" class="headerlink" title="1. istrue isfalse:断言 真 假"></a>1. istrue isfalse:断言 真 假</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><h4 id="2-1、not-逻辑非"><a href="#2-1、not-逻辑非" class="headerlink" title="2.1、not 逻辑非"></a>2.1、not 逻辑非</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜not&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">not</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="2-2、and-逻辑与"><a href="#2-2、and-逻辑与" class="headerlink" title="2.2、and 逻辑与"></a>2.2、and 逻辑与</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜and&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">and</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>2.3、or 逻辑或 xor异或 (语法上与and类似)</p>
-</blockquote>
-<h3 id="3、available-是否可用"><a href="#3、available-是否可用" class="headerlink" title="3、available 是否可用"></a>3、available 是否可用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"all.test.classes"</span>&gt;</span>         </div><div class="line">         <span class="tag">&lt;<span class="name">pathelement</span> <span class="attr">location</span>=<span class="string">"bin"</span>/&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--在指定的classpath路径下是否存在资源 TestTest.class--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">available</span> <span class="attr">resource</span>=<span class="string">"TestTest.class"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">classpath</span> <span class="attr">refid</span>=<span class="string">"all.test.classes"</span> /&gt;</span>        </div><div class="line">            <span class="tag">&lt;/<span class="name">available</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="4、isset-指定属性是否存在"><a href="#4、isset-指定属性是否存在" class="headerlink" title="4、isset 指定属性是否存在"></a>4、isset 指定属性是否存在</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果属性name不存在则返回false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">isset</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="5、equals-是否相等"><a href="#5、equals-是否相等" class="headerlink" title="5、equals 是否相等"></a>5、equals 是否相等</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果arg1的值与arg2的值相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">equals</span> <span class="attr">arg1</span>=<span class="string">"$&#123;name&#125;"</span> <span class="attr">arg2</span>=<span class="string">"this is name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="6、filesmatch-比较文件"><a href="#6、filesmatch-比较文件" class="headerlink" title="6、filesmatch 比较文件"></a>6、filesmatch 比较文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果file1所代表的文件与file2所代表的文件相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filesmatch</span> <span class="attr">file1</span>=<span class="string">"testfile1.txt"</span> <span class="attr">file2</span>=<span class="string">"testfile2.txt"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><h3 id="系统自带时间"><a href="#系统自带时间" class="headerlink" title="系统自带时间"></a>系统自带时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!--以下的几个属性是系统自带的,初始了tstamp之后,它们就有值了--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"System:"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"DSTAMP = $&#123;DSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TSTAMP = $&#123;TSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TODAY = $&#123;TODAY&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="自定义时间"><a href="#自定义时间" class="headerlink" title="自定义时间"></a>自定义时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span> <span class="attr">prefix</span>=<span class="string">"my"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"day"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"time"</span> <span class="attr">pattern</span>=<span class="string">"HH:mm:ss"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"dt"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd HH:mm:ss.SSS"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">tstamp</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"show"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"default"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"-------------------------------------"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"Mine:"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.time = $&#123;my.time&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.day = $&#123;my.day&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.dt = $&#123;my.dt&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Mac下安装Ant]]></title>
       <url>http://percychen.com/2016/11/09/macinstallant/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -971,6 +953,23 @@ c.close() <span class="comment">#Curl对象无操作时，也会自动执行clos
 <h3 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h3><p>重新打开终端并输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ant</span> -version  </div><div class="line"><span class="comment">#配置成功则显示如下：</span></div><div class="line">Apache Ant(TM) version 1.9.3 compiled on December 23 2013</div></pre></td></tr></table></figure>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Ant笔记]]></title>
+      <url>http://percychen.com/2016/11/09/antnote/</url>
+      <content type="html"><![CDATA[<h2 id="condition"><a href="#condition" class="headerlink" title="condition"></a>condition</h2><h3 id="1-istrue-isfalse-断言-真-假"><a href="#1-istrue-isfalse-断言-真-假" class="headerlink" title="1. istrue isfalse:断言 真 假"></a>1. istrue isfalse:断言 真 假</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><h4 id="2-1、not-逻辑非"><a href="#2-1、not-逻辑非" class="headerlink" title="2.1、not 逻辑非"></a>2.1、not 逻辑非</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜not&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">not</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="2-2、and-逻辑与"><a href="#2-2、and-逻辑与" class="headerlink" title="2.2、and 逻辑与"></a>2.2、and 逻辑与</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            ＜and&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">istrue</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span>                    </div><div class="line">            <span class="tag">&lt;/<span class="name">and</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>2.3、or 逻辑或 xor异或 (语法上与and类似)</p>
+</blockquote>
+<h3 id="3、available-是否可用"><a href="#3、available-是否可用" class="headerlink" title="3、available 是否可用"></a>3、available 是否可用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">id</span>=<span class="string">"all.test.classes"</span>&gt;</span>         </div><div class="line">         <span class="tag">&lt;<span class="name">pathelement</span> <span class="attr">location</span>=<span class="string">"bin"</span>/&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">path</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--在指定的classpath路径下是否存在资源 TestTest.class--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">available</span> <span class="attr">resource</span>=<span class="string">"TestTest.class"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">classpath</span> <span class="attr">refid</span>=<span class="string">"all.test.classes"</span> /&gt;</span>        </div><div class="line">            <span class="tag">&lt;/<span class="name">available</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="4、isset-指定属性是否存在"><a href="#4、isset-指定属性是否存在" class="headerlink" title="4、isset 指定属性是否存在"></a>4、isset 指定属性是否存在</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果属性name不存在则返回false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">isset</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="5、equals-是否相等"><a href="#5、equals-是否相等" class="headerlink" title="5、equals 是否相等"></a>5、equals 是否相等</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性也可以通过ant参数-D来设置--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"this is name"</span>/&gt;</span>    </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果arg1的值与arg2的值相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">equals</span> <span class="attr">arg1</span>=<span class="string">"$&#123;name&#125;"</span> <span class="attr">arg2</span>=<span class="string">"this is name"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="6、filesmatch-比较文件"><a href="#6、filesmatch-比较文件" class="headerlink" title="6、filesmatch 比较文件"></a>6、filesmatch 比较文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"testCondition"</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">condition</span> <span class="attr">property</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">            <span class="comment">&lt;!--如果file1所代表的文件与file2所代表的文件相等返回true，否则为false--&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">filesmatch</span> <span class="attr">file1</span>=<span class="string">"testfile1.txt"</span> <span class="attr">file2</span>=<span class="string">"testfile2.txt"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">condition</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isTrue"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"isFalse"</span>&gt;</span><span class="tag">&lt;/<span class="name">antcall</span>&gt;</span>        </div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isTrue"</span> <span class="attr">if</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is ture<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"isFalse"</span> <span class="attr">unless</span>=<span class="string">"scondition"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">echo</span>&gt;</span>is false<span class="tag">&lt;/<span class="name">echo</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><h3 id="系统自带时间"><a href="#系统自带时间" class="headerlink" title="系统自带时间"></a>系统自带时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!--以下的几个属性是系统自带的,初始了tstamp之后,它们就有值了--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"System:"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"DSTAMP = $&#123;DSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TSTAMP = $&#123;TSTAMP&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"TODAY = $&#123;TODAY&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="自定义时间"><a href="#自定义时间" class="headerlink" title="自定义时间"></a>自定义时间</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">tstamp</span> <span class="attr">prefix</span>=<span class="string">"my"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"day"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"time"</span> <span class="attr">pattern</span>=<span class="string">"HH:mm:ss"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">format</span> <span class="attr">property</span>=<span class="string">"dt"</span> <span class="attr">pattern</span>=<span class="string">"yyyy-MM-dd HH:mm:ss.SSS"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">tstamp</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"show"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">antcall</span> <span class="attr">target</span>=<span class="string">"default"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"-------------------------------------"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"Mine:"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.time = $&#123;my.time&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.day = $&#123;my.day&#125;"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"my.dt = $&#123;my.dt&#125;"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
     </entry>
     
     <entry>
@@ -1004,18 +1003,6 @@ c.close() <span class="comment">#Curl对象无操作时，也会自动执行clos
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">--with-features=huge：支持最大特性</div><div class="line">--enable-rubyinterp：启用Vim对ruby编写的插件的支持</div><div class="line">--enable-pythoninterp：启用Vim对python编写的插件的支持</div><div class="line">--enable-luainterp：启用Vim对lua编写的插件的支持</div><div class="line">--enable-perlinterp：启用Vim对perl编写的插件的支持</div><div class="line">--enable-multibyte：多字节支持 可以在Vim中输入中文</div><div class="line">--enable-cscope：Vim对cscope支持</div><div class="line">--enable-gui=gtk2：gtk2支持,也可以使用gnome，表示生成gvim</div><div class="line">--with-python-config-dir=/usr/lib/python2.7/config-i386-linux-gnu/ 指定 python 路径</div><div class="line">--prefix=/usr：编译安装路径</div></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo make VIMRUNTIMEDIR=/usr/share/vim/vim74</div><div class="line"></div><div class="line">sudo make install</div></pre></td></tr></table></figure>
 <h3 id="Done"><a href="#Done" class="headerlink" title="Done!"></a>Done!</h3>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Cmake的安装]]></title>
-      <url>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</url>
-      <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
-]]></content>
     </entry>
     
     <entry>
@@ -1133,6 +1120,18 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
     <span class="keyword">pass</span>
 </code></pre>
 <p><a href="http://pexpect.sourceforge.net/pexpect.html" target="_blank" rel="external">参考链接</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Cmake的安装]]></title>
+      <url>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</url>
+      <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
 ]]></content>
     </entry>
     
@@ -3557,17 +3556,6 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
     </entry>
     
     <entry>
-      <title><![CDATA[shell 数组操作]]></title>
-      <url>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</url>
-      <content type="html"><![CDATA[<p>将一个字符串赋值给数组</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">str1=<span class="string">'test1 test2 test3 test4'</span></div><div class="line">array=(<span class="variable">$str1</span>)    <span class="comment">#数组赋值</span></div><div class="line">length=<span class="variable">$&#123;#array[@]&#125;</span>  <span class="comment">#数组长度</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]&#125;</span> <span class="comment">#输出数组全部元素</span></div><div class="line">array[1]=5      <span class="comment">#向数组的某个元素赋值和标c的语法一样</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:1:2&#125;</span>        <span class="comment">#输出的是array[0]和array[1]的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:2&#125;</span>      <span class="comment">#输出数组第三个元素以后的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]::2&#125;</span>     <span class="comment">#输出数组下标小于2的值</span></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$&#123;#array[3]&#125;</span>     <span class="comment">#取得元素3的长度</span></div><div class="line"><span class="built_in">unset</span> array     <span class="comment">#清除array</span></div><div class="line">array=      <span class="comment">#清空array，赋给array空值</span></div></pre></td></tr></table></figure>
-<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<h3 id="利用数组切割字符串"><a href="#利用数组切割字符串" class="headerlink" title="利用数组切割字符串"></a>利用数组切割字符串</h3><p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">"abd#ddd#ff"</span></div><div class="line">str2=($(<span class="built_in">echo</span> <span class="variable">$str</span>|tr <span class="string">'#'</span> <span class="string">' '</span>))</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[python的文件操作]]></title>
       <url>http://percychen.com/2016/01/08/2016-01-08-pythonfileio/</url>
       <content type="html"><![CDATA[<p>Python提供了必要的函数和方法进行默认情况下的文件基本操作。你可以用file对象做大部分的文件操作。</p>
@@ -3726,6 +3714,17 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
 <h3 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">"foo.txt"</span>)</div><div class="line">line = f.readline()</div><div class="line"><span class="keyword">while</span> line:</div><div class="line">    <span class="keyword">print</span> line</div><div class="line">    line = f.readline()</div><div class="line">f.close()</div></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"foo.txt"</span>):</div><div class="line">    <span class="keyword">print</span> line</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[shell 数组操作]]></title>
+      <url>http://percychen.com/2016/01/08/2016-01-08-shellarrary/</url>
+      <content type="html"><![CDATA[<p>将一个字符串赋值给数组</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">str1=<span class="string">'test1 test2 test3 test4'</span></div><div class="line">array=(<span class="variable">$str1</span>)    <span class="comment">#数组赋值</span></div><div class="line">length=<span class="variable">$&#123;#array[@]&#125;</span>  <span class="comment">#数组长度</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]&#125;</span> <span class="comment">#输出数组全部元素</span></div><div class="line">array[1]=5      <span class="comment">#向数组的某个元素赋值和标c的语法一样</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:1:2&#125;</span>        <span class="comment">#输出的是array[0]和array[1]的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]:2&#125;</span>      <span class="comment">#输出数组第三个元素以后的值</span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$&#123;array[@]::2&#125;</span>     <span class="comment">#输出数组下标小于2的值</span></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$&#123;#array[3]&#125;</span>     <span class="comment">#取得元素3的长度</span></div><div class="line"><span class="built_in">unset</span> array     <span class="comment">#清除array</span></div><div class="line">array=      <span class="comment">#清空array，赋给array空值</span></div></pre></td></tr></table></figure>
+<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ((i=0;i&lt;<span class="variable">$&#123;#array[@]&#125;</span>;i++))</div><div class="line"><span class="keyword">do</span></div><div class="line">   <span class="built_in">echo</span> <span class="variable">$&#123;array[$i]&#125;</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h3 id="利用数组切割字符串"><a href="#利用数组切割字符串" class="headerlink" title="利用数组切割字符串"></a>利用数组切割字符串</h3><p>数组默认的分隔符是空格，如果想改变默认的分隔符，用下面的方法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">"abd#ddd#ff"</span></div><div class="line">str2=($(<span class="built_in">echo</span> <span class="variable">$str</span>|tr <span class="string">'#'</span> <span class="string">' '</span>))</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -6124,49 +6123,6 @@ public class BaseListView extends ListView
     </entry>
     
     <entry>
-      <title><![CDATA[获取壁纸进行模糊片段代码]]></title>
-      <url>http://percychen.com/2015/02/02/2015-02-02-blurwallpaper/</url>
-      <content type="html"><![CDATA[<p>首先当然是功能函数代码啦：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.android.systemui.killyun;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by QIUJUER on 2014/4/19.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastBlur</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">doBlur</span><span class="params">(Bitmap sentBitmap, <span class="keyword">int</span> radius,<span class="keyword">boolean</span> canReuseInBitmap)</span> </span>&#123;</div><div class="line"></div><div class="line">		Bitmap bitmap;</div><div class="line">		<span class="keyword">if</span> (canReuseInBitmap) &#123;</div><div class="line">			bitmap = sentBitmap;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			bitmap = sentBitmap.copy(sentBitmap.getConfig(), <span class="keyword">true</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (radius &lt; <span class="number">1</span>) &#123;</div><div class="line">			<span class="keyword">return</span> (<span class="keyword">null</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">int</span> w = bitmap.getWidth();</div><div class="line">		<span class="keyword">int</span> h = bitmap.getHeight();</div><div class="line"></div><div class="line">		<span class="keyword">int</span>[] pix = <span class="keyword">new</span> <span class="keyword">int</span>[w * h];</div><div class="line">		bitmap.getPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> wm = w - <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> hm = h - <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> wh = w * h;</div><div class="line">		<span class="keyword">int</span> div = radius + radius + <span class="number">1</span>;</div><div class="line"></div><div class="line">		<span class="keyword">int</span> r[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">		<span class="keyword">int</span> g[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">		<span class="keyword">int</span> b[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">		<span class="keyword">int</span> rsum, gsum, bsum, x, y, i, p, yp, yi, yw;</div><div class="line">		<span class="keyword">int</span> vmin[] = <span class="keyword">new</span> <span class="keyword">int</span>[Math.max(w, h)];</div><div class="line"></div><div class="line">		<span class="keyword">int</span> divsum = (div + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</div><div class="line">		divsum *= divsum;</div><div class="line">		<span class="keyword">int</span> dv[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span> * divsum];</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">256</span> * divsum; i++) &#123;</div><div class="line">			dv[i] = (i / divsum);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		yw = yi = <span class="number">0</span>;</div><div class="line"></div><div class="line">		<span class="keyword">int</span>[][] stack = <span class="keyword">new</span> <span class="keyword">int</span>[div][<span class="number">3</span>];</div><div class="line">		<span class="keyword">int</span> stackpointer;</div><div class="line">		<span class="keyword">int</span> stackstart;</div><div class="line">		<span class="keyword">int</span>[] sir;</div><div class="line">		<span class="keyword">int</span> rbs;</div><div class="line">		<span class="keyword">int</span> r1 = radius + <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> routsum, goutsum, boutsum;</div><div class="line">		<span class="keyword">int</span> rinsum, ginsum, binsum;</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; h; y++) &#123;</div><div class="line">			rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = <span class="number">0</span>;</div><div class="line">			<span class="keyword">for</span> (i = -radius; i &lt;= radius; i++) &#123;</div><div class="line">				p = pix[yi + Math.min(wm, Math.max(i, <span class="number">0</span>))];</div><div class="line">				sir = stack[i + radius];</div><div class="line">				sir[<span class="number">0</span>] = (p &amp; <span class="number">0xff0000</span>) &gt;&gt; <span class="number">16</span>;</div><div class="line">				sir[<span class="number">1</span>] = (p &amp; <span class="number">0x00ff00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">				sir[<span class="number">2</span>] = (p &amp; <span class="number">0x0000ff</span>);</div><div class="line">				rbs = r1 - Math.abs(i);</div><div class="line">				rsum += sir[<span class="number">0</span>] * rbs;</div><div class="line">				gsum += sir[<span class="number">1</span>] * rbs;</div><div class="line">				bsum += sir[<span class="number">2</span>] * rbs;</div><div class="line">				<span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">					rinsum += sir[<span class="number">0</span>];</div><div class="line">					ginsum += sir[<span class="number">1</span>];</div><div class="line">					binsum += sir[<span class="number">2</span>];</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					routsum += sir[<span class="number">0</span>];</div><div class="line">					goutsum += sir[<span class="number">1</span>];</div><div class="line">					boutsum += sir[<span class="number">2</span>];</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			stackpointer = radius;</div><div class="line"></div><div class="line">			<span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; w; x++) &#123;</div><div class="line"></div><div class="line">				r[yi] = dv[rsum];</div><div class="line">				g[yi] = dv[gsum];</div><div class="line">				b[yi] = dv[bsum];</div><div class="line"></div><div class="line">				rsum -= routsum;</div><div class="line">				gsum -= goutsum;</div><div class="line">				bsum -= boutsum;</div><div class="line"></div><div class="line">				stackstart = stackpointer - radius + div;</div><div class="line">				sir = stack[stackstart % div];</div><div class="line"></div><div class="line">				routsum -= sir[<span class="number">0</span>];</div><div class="line">				goutsum -= sir[<span class="number">1</span>];</div><div class="line">				boutsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (y == <span class="number">0</span>) &#123;</div><div class="line">					vmin[x] = Math.min(x + radius + <span class="number">1</span>, wm);</div><div class="line">				&#125;</div><div class="line">				p = pix[yw + vmin[x]];</div><div class="line"></div><div class="line">				sir[<span class="number">0</span>] = (p &amp; <span class="number">0xff0000</span>) &gt;&gt; <span class="number">16</span>;</div><div class="line">				sir[<span class="number">1</span>] = (p &amp; <span class="number">0x00ff00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">				sir[<span class="number">2</span>] = (p &amp; <span class="number">0x0000ff</span>);</div><div class="line"></div><div class="line">				rinsum += sir[<span class="number">0</span>];</div><div class="line">				ginsum += sir[<span class="number">1</span>];</div><div class="line">				binsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rsum += rinsum;</div><div class="line">				gsum += ginsum;</div><div class="line">				bsum += binsum;</div><div class="line"></div><div class="line">				stackpointer = (stackpointer + <span class="number">1</span>) % div;</div><div class="line">				sir = stack[(stackpointer) % div];</div><div class="line"></div><div class="line">				routsum += sir[<span class="number">0</span>];</div><div class="line">				goutsum += sir[<span class="number">1</span>];</div><div class="line">				boutsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rinsum -= sir[<span class="number">0</span>];</div><div class="line">				ginsum -= sir[<span class="number">1</span>];</div><div class="line">				binsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				yi++;</div><div class="line">			&#125;</div><div class="line">			yw += w;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; w; x++) &#123;</div><div class="line">			rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = <span class="number">0</span>;</div><div class="line">			yp = -radius * w;</div><div class="line">			<span class="keyword">for</span> (i = -radius; i &lt;= radius; i++) &#123;</div><div class="line">				yi = Math.max(<span class="number">0</span>, yp) + x;</div><div class="line"></div><div class="line">				sir = stack[i + radius];</div><div class="line"></div><div class="line">				sir[<span class="number">0</span>] = r[yi];</div><div class="line">				sir[<span class="number">1</span>] = g[yi];</div><div class="line">				sir[<span class="number">2</span>] = b[yi];</div><div class="line"></div><div class="line">				rbs = r1 - Math.abs(i);</div><div class="line"></div><div class="line">				rsum += r[yi] * rbs;</div><div class="line">				gsum += g[yi] * rbs;</div><div class="line">				bsum += b[yi] * rbs;</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">					rinsum += sir[<span class="number">0</span>];</div><div class="line">					ginsum += sir[<span class="number">1</span>];</div><div class="line">					binsum += sir[<span class="number">2</span>];</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					routsum += sir[<span class="number">0</span>];</div><div class="line">					goutsum += sir[<span class="number">1</span>];</div><div class="line">					boutsum += sir[<span class="number">2</span>];</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (i &lt; hm) &#123;</div><div class="line">					yp += w;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			yi = x;</div><div class="line">			stackpointer = radius;</div><div class="line">			<span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; h; y++) &#123;</div><div class="line">				<span class="comment">// Preserve alpha channel: ( 0xff000000 &amp; pix[yi] )</span></div><div class="line">				pix[yi] = (<span class="number">0xff000000</span> &amp; pix[yi]) | (dv[rsum] &lt;&lt; <span class="number">16</span>)</div><div class="line">						| (dv[gsum] &lt;&lt; <span class="number">8</span>) | dv[bsum];</div><div class="line"></div><div class="line">				rsum -= routsum;</div><div class="line">				gsum -= goutsum;</div><div class="line">				bsum -= boutsum;</div><div class="line"></div><div class="line">				stackstart = stackpointer - radius + div;</div><div class="line">				sir = stack[stackstart % div];</div><div class="line"></div><div class="line">				routsum -= sir[<span class="number">0</span>];</div><div class="line">				goutsum -= sir[<span class="number">1</span>];</div><div class="line">				boutsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</div><div class="line">					vmin[y] = Math.min(y + r1, hm) * w;</div><div class="line">				&#125;</div><div class="line">				p = x + vmin[y];</div><div class="line"></div><div class="line">				sir[<span class="number">0</span>] = r[p];</div><div class="line">				sir[<span class="number">1</span>] = g[p];</div><div class="line">				sir[<span class="number">2</span>] = b[p];</div><div class="line"></div><div class="line">				rinsum += sir[<span class="number">0</span>];</div><div class="line">				ginsum += sir[<span class="number">1</span>];</div><div class="line">				binsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rsum += rinsum;</div><div class="line">				gsum += ginsum;</div><div class="line">				bsum += binsum;</div><div class="line"></div><div class="line">				stackpointer = (stackpointer + <span class="number">1</span>) % div;</div><div class="line">				sir = stack[stackpointer];</div><div class="line"></div><div class="line">				routsum += sir[<span class="number">0</span>];</div><div class="line">				goutsum += sir[<span class="number">1</span>];</div><div class="line">				boutsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rinsum -= sir[<span class="number">0</span>];</div><div class="line">				ginsum -= sir[<span class="number">1</span>];</div><div class="line">				binsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				yi += w;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		bitmap.setPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line">		<span class="keyword">return</span> (bitmap);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>调用函数:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">blur</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	    LocalActivityManager manager = <span class="keyword">new</span> LocalActivityManager(<span class="keyword">this</span>, <span class="keyword">true</span>);</div><div class="line">		manager.dispatchCreate(savedInstanceState);</div><div class="line">		WallpaperManager wallpaperManager = WallpaperManager.getInstance(<span class="keyword">this</span>); <span class="comment">// 获取壁纸管理器</span></div><div class="line">		<span class="comment">// 获取当前壁纸</span></div><div class="line">		Drawable wallpaperDrawable = wallpaperManager.getDrawable();</div><div class="line">		Bitmap bm = ((BitmapDrawable) wallpaperDrawable).getBitmap();</div><div class="line">		<span class="keyword">float</span> scaleFactor = <span class="number">1</span>;</div><div class="line">		<span class="keyword">float</span> radius = <span class="number">20</span>;</div><div class="line">		<span class="comment">// 缩放比例</span></div><div class="line">		scaleFactor = <span class="number">15</span>;</div><div class="line">		radius =<span class="number">3</span>;</div><div class="line">		rl_main = (RelativeLayout) <span class="keyword">this</span>.findViewById(R.id.rl_main);</div><div class="line">		Display mDisplay = getWindowManager().getDefaultDisplay();</div><div class="line">		<span class="keyword">int</span> w = mDisplay.getWidth();</div><div class="line">		<span class="keyword">int</span> h = mDisplay.getHeight();</div><div class="line">		Bitmap overlay = Bitmap.createBitmap((<span class="keyword">int</span>) (w / scaleFactor),</div><div class="line">				(<span class="keyword">int</span>) (h / scaleFactor), Bitmap.Config.ARGB_8888);</div><div class="line">		Canvas canvas = <span class="keyword">new</span> Canvas(overlay);</div><div class="line">		canvas.translate(-rl_main.getLeft() / scaleFactor, -rl_main.getTop()</div><div class="line">				/ scaleFactor);</div><div class="line">		canvas.scale(<span class="number">1</span> / scaleFactor, <span class="number">1</span> / scaleFactor);</div><div class="line">		Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">		paint.setFlags(Paint.FILTER_BITMAP_FLAG);</div><div class="line">		canvas.drawBitmap(bm, <span class="number">0</span>, <span class="number">0</span>, paint);</div><div class="line">		<span class="comment">// 执行模糊</span></div><div class="line">		overlay = FastBlur.doBlur(overlay, (<span class="keyword">int</span>) radius, <span class="keyword">true</span>);</div><div class="line"></div><div class="line">		rl_main.setBackgroundDrawable(<span class="keyword">new</span> BitmapDrawable(getResources(), overlay));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android 圆角Bitmap代码]]></title>
-      <url>http://percychen.com/2015/02/02/2015-02-02-roundbitmap/</url>
-      <content type="html"><![CDATA[<pre><code>//生成圆角图片
-public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
-    try {
-        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
-                bitmap.getHeight(), Config.ARGB_8888);
-        Canvas canvas = new Canvas(output);
-        final Paint paint = new Paint();
-        final Rect rect = new Rect(0, 0, bitmap.getWidth(),
-                bitmap.getHeight());
-        final RectF rectF = new RectF(new Rect(0, 0, bitmap.getWidth(),
-                bitmap.getHeight()));
-        final float roundPx = 14;
-        paint.setAntiAlias(true);
-        canvas.drawARGB(0, 0, 0, 0);
-        paint.setColor(Color.BLACK);
-        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
-        paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
-
-        final Rect src = new Rect(0, 0, bitmap.getWidth(),
-                bitmap.getHeight());
-
-        canvas.drawBitmap(bitmap, src, rect, paint);
-        return output;
-    } catch (Exception e) {
-        return bitmap;
-    }
-}
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[将系统应用导入eclipse进行开发]]></title>
       <url>http://percychen.com/2015/02/02/2015-02-02-import_system_app/</url>
       <content type="html"><![CDATA[<p>文章为转载，<a href="http://www.hovercool.com/en/%E5%B0%86packages/apps/%E4%B8%8B%E7%9A%84app%E5%AF%BC%E5%85%A5eclipse#a_1.E3.80.81.E5.B0.86Settings.E6.95.B4.E4.B8.AA.E6.96.87.E4.BB.B6.E5.A4.B9.E6.8B.B7.E8.B4.9D.E4.B8.80.E4.BB.BD.E5.A4.87.E7.94.A8" target="_blank" rel="external">原文地址</a></p>
@@ -6211,6 +6167,49 @@ public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
 </code></pre><p>否则在运行时会提示如下错误：</p>
 <pre><code>INSTALL_FAILED_SHARED_USER_INCOMPATIBLE
 </code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android 圆角Bitmap代码]]></title>
+      <url>http://percychen.com/2015/02/02/2015-02-02-roundbitmap/</url>
+      <content type="html"><![CDATA[<pre><code>//生成圆角图片
+public static Bitmap GetRoundedCornerBitmap(Bitmap bitmap) {
+    try {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                bitmap.getHeight(), Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(),
+                bitmap.getHeight());
+        final RectF rectF = new RectF(new Rect(0, 0, bitmap.getWidth(),
+                bitmap.getHeight()));
+        final float roundPx = 14;
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(Color.BLACK);
+        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+        paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
+
+        final Rect src = new Rect(0, 0, bitmap.getWidth(),
+                bitmap.getHeight());
+
+        canvas.drawBitmap(bitmap, src, rect, paint);
+        return output;
+    } catch (Exception e) {
+        return bitmap;
+    }
+}
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[获取壁纸进行模糊片段代码]]></title>
+      <url>http://percychen.com/2015/02/02/2015-02-02-blurwallpaper/</url>
+      <content type="html"><![CDATA[<p>首先当然是功能函数代码啦：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.android.systemui.killyun;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by QIUJUER on 2014/4/19.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastBlur</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">doBlur</span><span class="params">(Bitmap sentBitmap, <span class="keyword">int</span> radius,<span class="keyword">boolean</span> canReuseInBitmap)</span> </span>&#123;</div><div class="line"></div><div class="line">		Bitmap bitmap;</div><div class="line">		<span class="keyword">if</span> (canReuseInBitmap) &#123;</div><div class="line">			bitmap = sentBitmap;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			bitmap = sentBitmap.copy(sentBitmap.getConfig(), <span class="keyword">true</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (radius &lt; <span class="number">1</span>) &#123;</div><div class="line">			<span class="keyword">return</span> (<span class="keyword">null</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">int</span> w = bitmap.getWidth();</div><div class="line">		<span class="keyword">int</span> h = bitmap.getHeight();</div><div class="line"></div><div class="line">		<span class="keyword">int</span>[] pix = <span class="keyword">new</span> <span class="keyword">int</span>[w * h];</div><div class="line">		bitmap.getPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> wm = w - <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> hm = h - <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> wh = w * h;</div><div class="line">		<span class="keyword">int</span> div = radius + radius + <span class="number">1</span>;</div><div class="line"></div><div class="line">		<span class="keyword">int</span> r[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">		<span class="keyword">int</span> g[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">		<span class="keyword">int</span> b[] = <span class="keyword">new</span> <span class="keyword">int</span>[wh];</div><div class="line">		<span class="keyword">int</span> rsum, gsum, bsum, x, y, i, p, yp, yi, yw;</div><div class="line">		<span class="keyword">int</span> vmin[] = <span class="keyword">new</span> <span class="keyword">int</span>[Math.max(w, h)];</div><div class="line"></div><div class="line">		<span class="keyword">int</span> divsum = (div + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</div><div class="line">		divsum *= divsum;</div><div class="line">		<span class="keyword">int</span> dv[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span> * divsum];</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">256</span> * divsum; i++) &#123;</div><div class="line">			dv[i] = (i / divsum);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		yw = yi = <span class="number">0</span>;</div><div class="line"></div><div class="line">		<span class="keyword">int</span>[][] stack = <span class="keyword">new</span> <span class="keyword">int</span>[div][<span class="number">3</span>];</div><div class="line">		<span class="keyword">int</span> stackpointer;</div><div class="line">		<span class="keyword">int</span> stackstart;</div><div class="line">		<span class="keyword">int</span>[] sir;</div><div class="line">		<span class="keyword">int</span> rbs;</div><div class="line">		<span class="keyword">int</span> r1 = radius + <span class="number">1</span>;</div><div class="line">		<span class="keyword">int</span> routsum, goutsum, boutsum;</div><div class="line">		<span class="keyword">int</span> rinsum, ginsum, binsum;</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; h; y++) &#123;</div><div class="line">			rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = <span class="number">0</span>;</div><div class="line">			<span class="keyword">for</span> (i = -radius; i &lt;= radius; i++) &#123;</div><div class="line">				p = pix[yi + Math.min(wm, Math.max(i, <span class="number">0</span>))];</div><div class="line">				sir = stack[i + radius];</div><div class="line">				sir[<span class="number">0</span>] = (p &amp; <span class="number">0xff0000</span>) &gt;&gt; <span class="number">16</span>;</div><div class="line">				sir[<span class="number">1</span>] = (p &amp; <span class="number">0x00ff00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">				sir[<span class="number">2</span>] = (p &amp; <span class="number">0x0000ff</span>);</div><div class="line">				rbs = r1 - Math.abs(i);</div><div class="line">				rsum += sir[<span class="number">0</span>] * rbs;</div><div class="line">				gsum += sir[<span class="number">1</span>] * rbs;</div><div class="line">				bsum += sir[<span class="number">2</span>] * rbs;</div><div class="line">				<span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">					rinsum += sir[<span class="number">0</span>];</div><div class="line">					ginsum += sir[<span class="number">1</span>];</div><div class="line">					binsum += sir[<span class="number">2</span>];</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					routsum += sir[<span class="number">0</span>];</div><div class="line">					goutsum += sir[<span class="number">1</span>];</div><div class="line">					boutsum += sir[<span class="number">2</span>];</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			stackpointer = radius;</div><div class="line"></div><div class="line">			<span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; w; x++) &#123;</div><div class="line"></div><div class="line">				r[yi] = dv[rsum];</div><div class="line">				g[yi] = dv[gsum];</div><div class="line">				b[yi] = dv[bsum];</div><div class="line"></div><div class="line">				rsum -= routsum;</div><div class="line">				gsum -= goutsum;</div><div class="line">				bsum -= boutsum;</div><div class="line"></div><div class="line">				stackstart = stackpointer - radius + div;</div><div class="line">				sir = stack[stackstart % div];</div><div class="line"></div><div class="line">				routsum -= sir[<span class="number">0</span>];</div><div class="line">				goutsum -= sir[<span class="number">1</span>];</div><div class="line">				boutsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (y == <span class="number">0</span>) &#123;</div><div class="line">					vmin[x] = Math.min(x + radius + <span class="number">1</span>, wm);</div><div class="line">				&#125;</div><div class="line">				p = pix[yw + vmin[x]];</div><div class="line"></div><div class="line">				sir[<span class="number">0</span>] = (p &amp; <span class="number">0xff0000</span>) &gt;&gt; <span class="number">16</span>;</div><div class="line">				sir[<span class="number">1</span>] = (p &amp; <span class="number">0x00ff00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">				sir[<span class="number">2</span>] = (p &amp; <span class="number">0x0000ff</span>);</div><div class="line"></div><div class="line">				rinsum += sir[<span class="number">0</span>];</div><div class="line">				ginsum += sir[<span class="number">1</span>];</div><div class="line">				binsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rsum += rinsum;</div><div class="line">				gsum += ginsum;</div><div class="line">				bsum += binsum;</div><div class="line"></div><div class="line">				stackpointer = (stackpointer + <span class="number">1</span>) % div;</div><div class="line">				sir = stack[(stackpointer) % div];</div><div class="line"></div><div class="line">				routsum += sir[<span class="number">0</span>];</div><div class="line">				goutsum += sir[<span class="number">1</span>];</div><div class="line">				boutsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rinsum -= sir[<span class="number">0</span>];</div><div class="line">				ginsum -= sir[<span class="number">1</span>];</div><div class="line">				binsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				yi++;</div><div class="line">			&#125;</div><div class="line">			yw += w;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (x = <span class="number">0</span>; x &lt; w; x++) &#123;</div><div class="line">			rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = <span class="number">0</span>;</div><div class="line">			yp = -radius * w;</div><div class="line">			<span class="keyword">for</span> (i = -radius; i &lt;= radius; i++) &#123;</div><div class="line">				yi = Math.max(<span class="number">0</span>, yp) + x;</div><div class="line"></div><div class="line">				sir = stack[i + radius];</div><div class="line"></div><div class="line">				sir[<span class="number">0</span>] = r[yi];</div><div class="line">				sir[<span class="number">1</span>] = g[yi];</div><div class="line">				sir[<span class="number">2</span>] = b[yi];</div><div class="line"></div><div class="line">				rbs = r1 - Math.abs(i);</div><div class="line"></div><div class="line">				rsum += r[yi] * rbs;</div><div class="line">				gsum += g[yi] * rbs;</div><div class="line">				bsum += b[yi] * rbs;</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</div><div class="line">					rinsum += sir[<span class="number">0</span>];</div><div class="line">					ginsum += sir[<span class="number">1</span>];</div><div class="line">					binsum += sir[<span class="number">2</span>];</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					routsum += sir[<span class="number">0</span>];</div><div class="line">					goutsum += sir[<span class="number">1</span>];</div><div class="line">					boutsum += sir[<span class="number">2</span>];</div><div class="line">				&#125;</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (i &lt; hm) &#123;</div><div class="line">					yp += w;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			yi = x;</div><div class="line">			stackpointer = radius;</div><div class="line">			<span class="keyword">for</span> (y = <span class="number">0</span>; y &lt; h; y++) &#123;</div><div class="line">				<span class="comment">// Preserve alpha channel: ( 0xff000000 &amp; pix[yi] )</span></div><div class="line">				pix[yi] = (<span class="number">0xff000000</span> &amp; pix[yi]) | (dv[rsum] &lt;&lt; <span class="number">16</span>)</div><div class="line">						| (dv[gsum] &lt;&lt; <span class="number">8</span>) | dv[bsum];</div><div class="line"></div><div class="line">				rsum -= routsum;</div><div class="line">				gsum -= goutsum;</div><div class="line">				bsum -= boutsum;</div><div class="line"></div><div class="line">				stackstart = stackpointer - radius + div;</div><div class="line">				sir = stack[stackstart % div];</div><div class="line"></div><div class="line">				routsum -= sir[<span class="number">0</span>];</div><div class="line">				goutsum -= sir[<span class="number">1</span>];</div><div class="line">				boutsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				<span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</div><div class="line">					vmin[y] = Math.min(y + r1, hm) * w;</div><div class="line">				&#125;</div><div class="line">				p = x + vmin[y];</div><div class="line"></div><div class="line">				sir[<span class="number">0</span>] = r[p];</div><div class="line">				sir[<span class="number">1</span>] = g[p];</div><div class="line">				sir[<span class="number">2</span>] = b[p];</div><div class="line"></div><div class="line">				rinsum += sir[<span class="number">0</span>];</div><div class="line">				ginsum += sir[<span class="number">1</span>];</div><div class="line">				binsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rsum += rinsum;</div><div class="line">				gsum += ginsum;</div><div class="line">				bsum += binsum;</div><div class="line"></div><div class="line">				stackpointer = (stackpointer + <span class="number">1</span>) % div;</div><div class="line">				sir = stack[stackpointer];</div><div class="line"></div><div class="line">				routsum += sir[<span class="number">0</span>];</div><div class="line">				goutsum += sir[<span class="number">1</span>];</div><div class="line">				boutsum += sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				rinsum -= sir[<span class="number">0</span>];</div><div class="line">				ginsum -= sir[<span class="number">1</span>];</div><div class="line">				binsum -= sir[<span class="number">2</span>];</div><div class="line"></div><div class="line">				yi += w;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		bitmap.setPixels(pix, <span class="number">0</span>, w, <span class="number">0</span>, <span class="number">0</span>, w, h);</div><div class="line">		<span class="keyword">return</span> (bitmap);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用函数:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">blur</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	    LocalActivityManager manager = <span class="keyword">new</span> LocalActivityManager(<span class="keyword">this</span>, <span class="keyword">true</span>);</div><div class="line">		manager.dispatchCreate(savedInstanceState);</div><div class="line">		WallpaperManager wallpaperManager = WallpaperManager.getInstance(<span class="keyword">this</span>); <span class="comment">// 获取壁纸管理器</span></div><div class="line">		<span class="comment">// 获取当前壁纸</span></div><div class="line">		Drawable wallpaperDrawable = wallpaperManager.getDrawable();</div><div class="line">		Bitmap bm = ((BitmapDrawable) wallpaperDrawable).getBitmap();</div><div class="line">		<span class="keyword">float</span> scaleFactor = <span class="number">1</span>;</div><div class="line">		<span class="keyword">float</span> radius = <span class="number">20</span>;</div><div class="line">		<span class="comment">// 缩放比例</span></div><div class="line">		scaleFactor = <span class="number">15</span>;</div><div class="line">		radius =<span class="number">3</span>;</div><div class="line">		rl_main = (RelativeLayout) <span class="keyword">this</span>.findViewById(R.id.rl_main);</div><div class="line">		Display mDisplay = getWindowManager().getDefaultDisplay();</div><div class="line">		<span class="keyword">int</span> w = mDisplay.getWidth();</div><div class="line">		<span class="keyword">int</span> h = mDisplay.getHeight();</div><div class="line">		Bitmap overlay = Bitmap.createBitmap((<span class="keyword">int</span>) (w / scaleFactor),</div><div class="line">				(<span class="keyword">int</span>) (h / scaleFactor), Bitmap.Config.ARGB_8888);</div><div class="line">		Canvas canvas = <span class="keyword">new</span> Canvas(overlay);</div><div class="line">		canvas.translate(-rl_main.getLeft() / scaleFactor, -rl_main.getTop()</div><div class="line">				/ scaleFactor);</div><div class="line">		canvas.scale(<span class="number">1</span> / scaleFactor, <span class="number">1</span> / scaleFactor);</div><div class="line">		Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">		paint.setFlags(Paint.FILTER_BITMAP_FLAG);</div><div class="line">		canvas.drawBitmap(bm, <span class="number">0</span>, <span class="number">0</span>, paint);</div><div class="line">		<span class="comment">// 执行模糊</span></div><div class="line">		overlay = FastBlur.doBlur(overlay, (<span class="keyword">int</span>) radius, <span class="keyword">true</span>);</div><div class="line"></div><div class="line">		rl_main.setBackgroundDrawable(<span class="keyword">new</span> BitmapDrawable(getResources(), overlay));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
     </entry>
     
     <entry>
@@ -6812,6 +6811,25 @@ do
     </entry>
     
     <entry>
+      <title><![CDATA[adb查看android系统相关命令]]></title>
+      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
+      <content type="html"><![CDATA[<h4 id="其实很多命令我在其它文章中都介绍过了，今天整合一下"><a href="#其实很多命令我在其它文章中都介绍过了，今天整合一下" class="headerlink" title="其实很多命令我在其它文章中都介绍过了，今天整合一下"></a>其实很多命令我在其它文章中都介绍过了，今天整合一下</h4><h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
+<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
+</code></pre><p>注：bs可以从分区信息中读取</p>
+<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
+adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
+cat /proc/dumchar_info
+</code></pre><p>其中的 android分区就是 system分区</p>
+<p>其中的 userdata分区就是data分区</p>
+<p>对于古老的机器可以尝试:</p>
+<pre><code>cat /proc/mtd
+</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
+</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
+</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[五种开源协议的比较]]></title>
       <url>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</url>
       <content type="html"><![CDATA[<p><strong>当我将开源当做一种习惯的时候，我突然意识到，使用一种开源协议是一件必不可少的事情了</strong></p>
@@ -6855,22 +6873,20 @@ do
     </entry>
     
     <entry>
-      <title><![CDATA[adb查看android系统相关命令]]></title>
-      <url>http://percychen.com/2014/10/31/2014-10-31-androidadb/</url>
-      <content type="html"><![CDATA[<h4 id="其实很多命令我在其它文章中都介绍过了，今天整合一下"><a href="#其实很多命令我在其它文章中都介绍过了，今天整合一下" class="headerlink" title="其实很多命令我在其它文章中都介绍过了，今天整合一下"></a>其实很多命令我在其它文章中都介绍过了，今天整合一下</h4><h3 id="备份boot-img"><a href="#备份boot-img" class="headerlink" title="备份boot.img"></a>备份boot.img</h3><p> 今天刚从独行无疆那里学的</p>
-<pre><code>dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
-</code></pre><p>注：bs可以从分区信息中读取</p>
-<h3 id="查看分区表（三种方法）"><a href="#查看分区表（三种方法）" class="headerlink" title="查看分区表（三种方法）"></a>查看分区表（三种方法）</h3><pre><code>cat /proc/emmc
-adb pull /cache/recovery/last_log . &amp;&amp; cat last_log
-cat /proc/dumchar_info
-</code></pre><p>其中的 android分区就是 system分区</p>
-<p>其中的 userdata分区就是data分区</p>
-<p>对于古老的机器可以尝试:</p>
-<pre><code>cat /proc/mtd
-</code></pre><h3 id="测试键值"><a href="#测试键值" class="headerlink" title="测试键值"></a>测试键值</h3><pre><code>adb shell getevent
-</code></pre><h3 id="查看cpu和内存事实占用情况"><a href="#查看cpu和内存事实占用情况" class="headerlink" title="查看cpu和内存事实占用情况"></a>查看cpu和内存事实占用情况</h3><pre><code>adb shell top -m 15
-</code></pre><h3 id="查看内存使用详情"><a href="#查看内存使用详情" class="headerlink" title="查看内存使用详情"></a>查看内存使用详情</h3><pre><code>adb shell dumpsys meminfo
-</code></pre>]]></content>
+      <title><![CDATA[git cola的下载和使用]]></title>
+      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
+      <content type="html"><![CDATA[<h3 id="为什么使用它-WHY-USE-IT"><a href="#为什么使用它-WHY-USE-IT" class="headerlink" title="为什么使用它 | WHY USE IT"></a>为什么使用它 | WHY USE IT</h3><p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
+<h3 id="关于git-cola-ABOUT-GIT-COLA"><a href="#关于git-cola-ABOUT-GIT-COLA" class="headerlink" title="关于git cola | ABOUT GIT COLA"></a>关于git cola | ABOUT GIT COLA</h3><blockquote>
+<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
+</blockquote>
+<h3 id="安装-HOW-TO-INSTALL"><a href="#安装-HOW-TO-INSTALL" class="headerlink" title="安装 | HOW TO INSTALL"></a>安装 | HOW TO INSTALL</h3><table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
+
+<h3 id="使用-HOW-TO-USE"><a href="#使用-HOW-TO-USE" class="headerlink" title="使用 | HOW TO USE"></a>使用 | HOW TO USE</h3><blockquote>
+<p>git add –all (or  git add . )</p>
+<p>git cola (此步代替git commit)</p>
+<p>git push</p>
+</blockquote>
+]]></content>
     </entry>
     
     <entry>
@@ -6890,23 +6906,6 @@ public static final String SONG_NAME = &quot;hehe&quot;;
 <h3 id="接收"><a href="#接收" class="headerlink" title="接收"></a>接收</h3><table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">1<br>2<br>3<br>4<br>5<br>6<br>7</pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">public class SongReceiver extends BroadcastReceiver{<br>public void onReceive(Context context, Intent intent) {<br>String msg=intent.getStringExtra(“name”);//接收信息<br>list_song_name=(TextView)findViewById(R.id.list_song_name);<br>list_song_name.setText(msg);<br>}<br>}</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
 
 
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[git cola的下载和使用]]></title>
-      <url>http://percychen.com/2014/10/29/2014-10-29-gitcola/</url>
-      <content type="html"><![CDATA[<h3 id="为什么使用它-WHY-USE-IT"><a href="#为什么使用它-WHY-USE-IT" class="headerlink" title="为什么使用它 | WHY USE IT"></a>为什么使用它 | WHY USE IT</h3><p>原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。</p>
-<h3 id="关于git-cola-ABOUT-GIT-COLA"><a href="#关于git-cola-ABOUT-GIT-COLA" class="headerlink" title="关于git cola | ABOUT GIT COLA"></a>关于git cola | ABOUT GIT COLA</h3><blockquote>
-<p>Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一个GUI的git图形管理器</p>
-</blockquote>
-<h3 id="安装-HOW-TO-INSTALL"><a href="#安装-HOW-TO-INSTALL" class="headerlink" title="安装 | HOW TO INSTALL"></a>安装 | HOW TO INSTALL</h3><table style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; font-size: 18px; vertical-align: baseline; border-collapse: collapse; border-spacing: 0px;"><br>    <tbody style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>        <tr style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: inherit; vertical-align: baseline;"><br>            <td class="gutter" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle;"><br>            <pre class="line-numbers" style="margin-bottom: 0px; border-top-style: none; border-bottom-style: none; border-left-style: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(255, 255, 255); text-align: right; text-shadow: rgb(2, 16, 20) 0px -1px; padding: 0.8em !important; border-right-width: 1px !important; border-right-style: solid !important; border-right-color: rgb(0, 35, 44) !important; background-image: url(http://zh.lucida.me/images/noise.png?1388941295) !important; background-color: rgb(51, 51, 51) !important; background-position: 0% 0%;">arch<br>debian<br>fedora<br>gentoo<br>opensuse<br>ubuntu<br></pre><br>            </td><br>            <td class="code" style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-style: inherit; font-variant: inherit; line-height: inherit; font-size: 18px; vertical-align: middle; width: 4581px;"><br>            <pre style="margin-bottom: 0px; padding: 0px; border: none; font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; font-size: 13px; vertical-align: baseline; -webkit-box-shadow: none; box-shadow: none; background-image: none; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; color: rgb(220, 220, 222);"><code style="margin: 0px; padding: 0.8em; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; line-height: 1.45em; vertical-align: baseline; overflow-y: hidden; display: block; overflow-x: auto; background-color: rgb(41, 61, 73); font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace !important;">yaourt -S git-cola<br>apt-get install git-cola<br>yum install git-cola<br>emerge git-cola<br>use the one-click install link<br>apt-get install git-cola</code></pre><br>            </td><br>        </tr><br>    </tbody><br></table>
-
-<h3 id="使用-HOW-TO-USE"><a href="#使用-HOW-TO-USE" class="headerlink" title="使用 | HOW TO USE"></a>使用 | HOW TO USE</h3><blockquote>
-<p>git add –all (or  git add . )</p>
-<p>git cola (此步代替git commit)</p>
-<p>git push</p>
-</blockquote>
 ]]></content>
     </entry>
     
@@ -7755,6 +7754,13 @@ print total;
     </entry>
     
     <entry>
+      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
+      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
+      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[高斯模糊动态壁纸的三段smail插值代码：]]></title>
       <url>http://percychen.com/2014/09/28/2014-09-28-fastblursmailcode/</url>
       <content type="html"><![CDATA[<ol>
@@ -7949,13 +7955,6 @@ return-void
 <li><p>com/android/systemui/recent/ 下存放 FastBlur.smail</p>
 </li>
 </ol>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[10个 Ubuntu 用户一定要知道的博客]]></title>
-      <url>http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/</url>
-      <content type="html"><![CDATA[<td id="article_content"><p><a href="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" target="_blank"><img src="https://camo.githubusercontent.com/402f871af354595b15fcda548d67826810926a19/687474703a2f2f697473666f73732e697473666f73732e6e6574646e612d63646e2e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f30392f426573745f5562756e74755f426c6f67732e6a7067" alt="" data-canonical-src="http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg"></a></p><br><p><strong>想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？</strong></p><br><p>这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅的 Linux 桌面系统和一个普通的用户所要的关于 Ubuntu 的经验。</p><br><p>这些网站帮助你解决你正遇到的问题，提醒你关注各种应用和提供给你来自 Ubuntu 世界的最新消息。这个网站可以让你对 Ubuntu 更了解，所以，下面列出的是10个我最喜欢的博客，它们包括了 Ubuntu 的方方面面。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" name="user-content-10%E4%B8%AAubutun%E7%94%A8%E6%88%B7%E4%B8%80%E5%AE%9A%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external"></a>10个Ubutun用户一定要知道的博客</h3><br><p>从我开始在 itsfoss 网站上写作开始，我特意把它排除在外，没有列入名单。我也并没有把<a href="http://planet.ubuntu.com/" target="_blank" rel="external">Planet Ubuntu</a>列入名单，因为它不适合初学者。废话不多说，让我们一起来看下<strong>最好的乌邦图（ubuntu）博客</strong>（排名不分先后）：</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#omg-ubuntu" name="user-content-omg-ubuntu" target="_blank" rel="external"></a><a href="http://www.omgubuntu.co.uk/" target="_blank" rel="external">OMG! Ubuntu!</a></h3><br><p>这是一个只针对 ubuntu 爱好者的网站。无论多小，只要是和乌邦图有关系的，OMG!Ubuntu 都会收入站内！博客主要包括新闻和应用。你也可以再这里找到一些关于 Ubuntu 的教程，但不是很多。</p><br><p>这个博客会让你知道 Ubuntu 世界发生的各种事情。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#web-upd8" name="user-content-web-upd8" target="_blank" rel="external"></a><a href="http://www.webupd8.org/" target="_blank" rel="external">Web Upd8</a></h3><br><p>Web Upd8 是我最喜欢的博客。除了涵盖新闻，它有很多容易理解的教程。Web Upd8 还维护了几个PPAs。博主<a href="https://plus.google.com/+AlinAndrei" target="_blank" rel="external">Andrei</a>有时会在评论里回答你的问题，这对你来说也会是很有帮助的。</p><br><p>这是一个你可以了解新闻资讯，学习教程的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#noobs-lab" name="user-content-noobs-lab" target="_blank" rel="external"></a><a href="http://www.noobslab.com/" target="_blank" rel="external">Noobs Lab</a></h3><br><p>和Web Upd8一样，Noobs Lab上也有很多教程，新闻，并且它可能是PPA里最大的主题和图标集。</p><br><p>如果你是个新手，去Noobs Lab看看吧。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linux-scoop" name="user-content-linux-scoop" target="_blank" rel="external"></a><a href="http://linuxscoop.com/" target="_blank" rel="external">Linux Scoop</a></h3><br><p>大多数的博客都是“文字博客”。你通过看说明和截图来学习教程。而 Linux Scoop 上有很多录像来帮助初学者来学习，完全是一个视频博客。</p><br><p>比起阅读来，如果你更喜欢视频，Linux Scoop应该是最适合你的。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntu-geek" name="user-content-ubuntu-geek" target="_blank" rel="external"></a><a href="http://www.ubuntugeek.com/" target="_blank" rel="external">Ubuntu Geek</a></h3><br><p>这是一个相对比较老的博客。覆盖面很广，并且有很多快速安装的教程和说明。虽然，有时我发现其中的一些教程文章缺乏深度，当然这也许只是我个人的观点。</p><br><p>想要快速小贴士，去Ubuntu Geek。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#tech-drive-in" name="user-content-tech-drive-in" target="_blank" rel="external"></a><a href="http://www.techdrivein.com/" target="_blank" rel="external">Tech Drive-in</a></h3><br><p>这个网站的更新频率好像没有以前那么快了，可能是 Manuel 在忙于他的工作，但是仍然给我们提供了很多的东西。新闻，教程，应用评论是这个博客的亮点。</p><br><p>博客经常被收入到<a href="https://lists.ubuntu.com/mailman/listinfo/ubuntu-news" target="_blank" rel="external">Ubuntu的新闻邀请邮件中</a>，Tech Drive-in肯定是一个很值得你去学习的网站。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#ubuntuhandbook" name="user-content-ubuntuhandbook" target="_blank" rel="external"></a><a href="http://ubuntuhandbook.org/" target="_blank" rel="external">UbuntuHandbook</a></h3><br><p>快速小贴士，新闻和教程是UbuntuHandbook的USP。<a href="https://plus.google.com/u/0/+JimUbuntuHandbook" target="_blank" rel="external">Jim</a>最近也在参与维护一些PPAS。我必须很认真的说，这个博客的页面其实可以做得更好看点，纯属个人观点。</p><br><p>UbuntuHandbook 真的很方便。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#unixmen" name="user-content-unixmen" target="_blank" rel="external"></a><a href="http://www.unixmen.com/" target="_blank" rel="external">Unixmen</a></h3><br><p>这个网站是由很多人一起维护的，而且并不仅仅局限于Ubuntu，它也覆盖了很多的其他的Linux发行版。它有自己的论坛来帮助用户。</p><br><p>紧跟着 Unixmen 的步伐。。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#the-mukt" name="user-content-the-mukt" target="_blank" rel="external"></a><a href="http://www.themukt.com/" target="_blank" rel="external">The Mukt</a></h3><br><p>The Mukt是Muktware新的代表。Muktware是一个逐渐消亡的Linux组织，并以Mukt重生。Muktware是一个很严谨的Linux开源的博客，The Mukt涉及很多广泛的主题，包括，科技新闻，极客新闻，有时还有娱乐新闻（听起来是否有一种混搭风的感觉？）The Mukt也包括很多你感兴趣的Ubuntu新闻。</p><br><p>The Mukt 不仅仅是一个博客，它是一种文化潮流。</p><br><h3><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#linuxg" name="user-content-linuxg" target="_blank" rel="external"></a><a href="http://linuxg.net/" target="_blank" rel="external">LinuxG</a></h3><br><p>LinuxG是一个你可以找到所有关于“怎样安装”类型文章的站点。几乎所有的文章都开始于一句话“你好，Linux geeksters,正如你所知道的……”，博客可以在不同的主题上做得更好。我经常发现有些是文章缺乏深度，并且是急急忙忙写出来的，但是它仍然是一个关注应用最新版本的好地方。</p><br><p>这是个快速浏览新的应用和它们最新的版本好地方。</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" name="user-content-%E4%BD%A0%E8%BF%98%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E7%9A%84%E7%AB%99%E7%82%B9%E5%90%97" target="_blank" rel="external"></a>你还有什么好的站点吗？</p><br><p><a class="anchor" href="https://github.com/LCTT/TranslateProject/blob/master/translated/talk/20140922%20Ten%20Blogs%20Every%20Ubuntu%20User%20Must%20Follow.md#%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" name="user-content-%E8%BF%99%E4%BA%9B%E5%B0%B1%E6%98%AF%E6%88%91%E5%B9%B3%E6%97%B6%E7%BB%8F%E5%B8%B8%E6%B5%8F%E8%A7%88%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E6%88%91%E7%9F%A5%E9%81%93%E8%BF%98%E6%9C%89%E5%BE%88%E5%A4%9A%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E7%AB%99%E7%82%B9%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E6%88%91%E5%88%97%E5%87%BA%E6%9D%A5%E7%9A%84%E8%BF%99%E4%BA%9B%E6%9B%B4%E5%A5%BD%E6%89%80%E4%BB%A5%E6%AC%A2%E8%BF%8E%E6%8A%8A%E4%BD%A0%E6%9C%80%E5%96%9C%E7%88%B1%E7%9A%84-ubuntu-%E5%8D%9A%E5%AE%A2%E5%86%99%E5%9C%A8%E4%B8%8B%E9%9D%A2%E8%AF%84%E8%AE%BA%E5%8C%BA" target="_blank" rel="external"></a>这些就是我平时经常浏览的 Ubuntu 博客。我知道还有很多我不知道的站点，可能会比我列出来的这些更好。所以，欢迎把你最喜爱的 Ubuntu 博客写在下面评论区。</p><br><p>via:&nbsp;<a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank" rel="external">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a></p><br><p>作者：<a href="http://itsfoss.com/author/Abhishek/" target="_blank" rel="external">Abhishek</a>&nbsp;译者：<a href="https://github.com/barney-ro" target="_blank" rel="external">barney-ro</a>&nbsp;校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由&nbsp;<a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a>&nbsp;原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a>&nbsp;荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： itsfoss</div>    <div><br>        原文： <a href="http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/" target="_blank">http://itsfoss.com/ten-blogs-every-ubuntu-user-must-follow/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Abhishek     </div><br><br>    <div><br>                译者： barney-ro    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3910-1.html" target="_blank" rel="external">http://linux.cn/article-3910-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br><div class="hm"><br><a title="分享到腾讯微博" href="javascript:void( share_tqq(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tqq_large" target="_blank" rel="external"></a><br><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-3910-1.html','article_title','article_content','http://img.linux.net.cn/data/attachment/album/201409/27/092648ie0hlflepel1cggx.jpg.large.jpg') );" class="tsina_large" target="_blank" rel="external"></a><br></div><br></td>
 ]]></content>
     </entry>
     
@@ -8324,148 +8323,6 @@ brunch find7 -j32或者 brunch find7
     </entry>
     
     <entry>
-      <title><![CDATA[vim常用快捷键]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
-      <content type="html"><![CDATA[<h3 id="一、移动光标"><a href="#一、移动光标" class="headerlink" title="一、移动光标"></a>一、移动光标</h3><pre><code>h,j,k,l           上，下，左，右
-ctrl-e              移动页面
-ctrl-f                 上翻一页
-ctrl-b                 下翻一页
-ctrl-u                 上翻半页
-ctrl-d                 下翻半页
-w                     跳到下一个字首，按标点或单词分割
-W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
-e                     跳到下一个字尾
-E                     跳到下一个字尾，长跳
-b                     跳到上一个字
-B                     跳到上一个字，长跳
-0                     跳至行首，不管有无缩进，就是跳到第0个字符
-^                     跳至行首的第一个字符
-$                    跳至行尾
-gg                     跳至文首
-G                   调至文尾
-5gg/5G              调至第5行
-gd                     跳至当前光标所在的变量的声明处
-fx                     在当前行中找x字符，找到了就跳转至
-;                     重复上一个f命令，而不用重复的输入fx
-*                    查找光标所在处的单词，向下查找
-\#                     查找光标所在处的单词，向上查找
-</code></pre><h3 id="二、删除复制"><a href="#二、删除复制" class="headerlink" title="二、删除复制"></a>二、删除复制</h3><pre><code>dd                     删除光标所在行
-dw                  删除一个字(word)
-d$/D                删除到行末
-x                   删除当前字符
-X                     删除前一个字符
-yy                     复制一行
-yw                     复制一个字
-y$/Y                 复制到行末
-p                     粘贴粘贴板的内容到当前行的下面
-P                     粘贴粘贴板的内容到当前行的上面
-</code></pre><h3 id="三、插入模式"><a href="#三、插入模式" class="headerlink" title="三、插入模式"></a>三、插入模式</h3><pre><code>i                     从当前光标处进入插入模式
-I                     进入插入模式，并置光标于行首
-a                     追加模式，置光标于当前光标之后
-A                     追加模式，置光标于行末
-o                     在当前行之下新加一行，并进入插入模式
-O                     在当前行之上新加一行，并进入插入模式
-Esc                 退出插入模式
-</code></pre><h3 id="四、编辑"><a href="#四、编辑" class="headerlink" title="四、编辑"></a>四、编辑</h3><pre><code>J                     将下一行和当前行连接为一行
-cc                    删除当前行并进入编辑模式
-cw                     删除当前字，并进入编辑模式
-c$                     擦除从当前位置至行末的内容，并进入编辑模式
-s                     删除当前字符并进入编辑模式
-S                     删除光标所在行并进入编辑模式
-xp                     交换当前字符和下一个字符
-u                     撤销
-ctrl+r                 重做
-~                     切换大小写，当前字符
-\&gt;&gt;                 将当前行右移一个单位
-\&lt;&lt;                  将当前行左移一个单位(一个tab符)
-\==                    自动缩进当前行
-</code></pre><h3 id="五、查找替换"><a href="#五、查找替换" class="headerlink" title="五、查找替换"></a>五、查找替换</h3><pre><code>/pattern             向后搜索字符串pattern
-?pattern             向前搜索字符串pattern
-&quot;\c&quot;                 忽略大小写
-&quot;\C&quot;                 大小写敏感
-n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
-N                     上一个匹配(同上)
-:%s/old/new/g          搜索整个文件，将所有的old替换为new
-:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
-</code></pre><h3 id="六、退出编辑器"><a href="#六、退出编辑器" class="headerlink" title="六、退出编辑器"></a>六、退出编辑器</h3><pre><code>:w                    将缓冲区写入文件，即保存修改
-:wq                 保存修改并退出
-:x                     保存修改并退出
-:q                     退出，如果对缓冲区进行过修改，则会提示
-:q!                 强制退出，放弃修改
-</code></pre><h3 id="七、多文件编辑"><a href="#七、多文件编辑" class="headerlink" title="七、多文件编辑"></a>七、多文件编辑</h3><pre><code>vim file1..         同时打开多个文件
-:args                   显示当前编辑文件
-:next                   切换到下个文件
-:prev                   切换到前个文件
-:next！             不保存当前编辑文件并切换到下个文件
-:prev！             不保存当前编辑文件并切换到上个文件
-:wnext              保存当前编辑文件并切换到下个文件
-:wprev              保存当前编辑文件并切换到上个文件
-:first                  定位首文件
-:last                   定位尾文件
-ctrl+^                  快速在最近打开的两个文件间切换
-:split[sp]          把当前文件水平分割
-:split file             把当前窗口水平分割, file
-:vsplit[vsp] file     当前窗口垂直分割, file
-:new file            同split file
-:close               关闭当前窗口
-:only                只显示当前窗口, 关闭所有其他的窗口
-:all                     打开所有的窗口
-:vertical all        打开所有的窗口, 垂直打开
-:qall                 对所有窗口执行：q操作
-：qall!                对所有窗口执行：q!操作
-:wall                 对所有窗口执行：w操作
-:wqall                 对所有窗口执行：wq操作
-ctrl-w h             跳转到左边的窗口
-ctrl-w j             跳转到下面的窗口
-ctrl-w k             跳转到上面的窗口
-ctrl-w l             跳转到右边的窗口
-ctrl-w t             跳转到最顶上的窗口
-ctrl-w b             跳转到最底下的窗口
-</code></pre><h3 id="八、多标签编辑"><a href="#八、多标签编辑" class="headerlink" title="八、多标签编辑"></a>八、多标签编辑</h3><pre><code>:tabedit file         在新标签中打开文件file
-:tab split file         在新标签中打开文件file
-:tabp                 切换到前一个标签
-:tabn                 切换到后一个标签
-:tabc                  关闭当前标签
-:tabo                  关闭其他标签
-gt                        到下一个tab
-gT                        到上一个tab
-0gt                   跳到第一个tab
-5gt                   跳到第五个tab
-</code></pre><h3 id="九、执行shell命令"><a href="#九、执行shell命令" class="headerlink" title="九、执行shell命令"></a>九、执行shell命令</h3><pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
-2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
-3、用“Ctrl+Z“回到shell，用fg返回编辑
-4、:!make -&gt; 直接在当前目录下运行make指令
-</code></pre><h3 id="十、VIM启动项"><a href="#十、VIM启动项" class="headerlink" title="十、VIM启动项"></a>十、VIM启动项</h3><pre><code>-o[n] 以水平分屏的方式打开多个文件
--O[n] 以垂直分屏的方式打开多个文件
-</code></pre><h3 id="十一、自动排版"><a href="#十一、自动排版" class="headerlink" title="十一、自动排版"></a>十一、自动排版</h3><pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
-</code></pre><h3 id="十二、如何在vim中编译程序"><a href="#十二、如何在vim中编译程序" class="headerlink" title="十二、如何在vim中编译程序"></a>十二、如何在vim中编译程序</h3><pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
-编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
-</code></pre><h3 id="十三、buffer操作"><a href="#十三、buffer操作" class="headerlink" title="十三、buffer操作"></a>十三、buffer操作</h3><pre><code>1、buffer状态
-- （非活动的缓冲区）
-a （当前被激活缓冲区）
-h （隐藏的缓冲区）
-% （当前的缓冲区）
-# （交换缓冲区）
-= （只读缓冲区）
-+ （已经更改的缓冲区）
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android ROM大神的友情链接]]></title>
-      <url>http://percychen.com/2014/09/11/2014-09-11-romerlinks/</url>
-      <content type="html"><![CDATA[<h3 id="Ruling-爆乳"><a href="#Ruling-爆乳" class="headerlink" title="Ruling 爆乳"></a>Ruling 爆乳</h3><p><a href="http://www.1024team.com" target="_blank" rel="external">网址：http://www.1024team.com/</a><br><a href="http://weibo.com/rulingghost" target="_blank" rel="external">微博：http://weibo.com/rulingghost</a></p>
-<h3 id="apktools-晴天"><a href="#apktools-晴天" class="headerlink" title="apktools 晴天"></a>apktools 晴天</h3><p><a href="http://www.apktools.com/" target="_blank" rel="external">网址：http://www.apktools.com/</a><br><a href="http://weibo.com/timesunday" target="_blank" rel="external">微博：http://weibo.com/timesunday</a></p>
-<h3 id="Cofface"><a href="#Cofface" class="headerlink" title="Cofface"></a>Cofface</h3><p><a href="http://www.cofface.com/" target="_blank" rel="external">网址：http://www.cofface.com/</a><br><a href="http://weibo.com/cofface" target="_blank" rel="external">微博：http://weibo.com/cofface</a></p>
-<h3 id="大侠阿木"><a href="#大侠阿木" class="headerlink" title="大侠阿木"></a>大侠阿木</h3><p><a href="http://www.daxiaamu.com" target="_blank" rel="external">网址：http://www.daxiaamu.com</a></p>
-<h3 id="明月浩空"><a href="#明月浩空" class="headerlink" title="明月浩空"></a>明月浩空</h3><p><a href="http://limh.me" target="_blank" rel="external">网址：http://limh.me</a><br><a href="http://weibo.com/u/3496187780" target="_blank" rel="external">微博：http://weibo.com/u/3496187780</a></p>
-<h3 id="杨万荣"><a href="#杨万荣" class="headerlink" title="杨万荣"></a>杨万荣</h3><p><a href="http://sndnvaps.github.io" target="_blank" rel="external">网址：http://sndnvaps.github.io</a><br><a href="http://weibo.com/210124187" target="_blank" rel="external">微博：http://weibo.com/210124187</a></p>
-<h3 id="格诺"><a href="#格诺" class="headerlink" title="格诺"></a>格诺</h3><p><a href="http://iamgeno.com/" target="_blank" rel="external">网址：http://iamgeno.com/</a><br><a href="http://weibo.com/geno" target="_blank" rel="external">微博：http://weibo.com/geno</a></p>
-<h3 id="秋叶随风"><a href="#秋叶随风" class="headerlink" title="秋叶随风"></a>秋叶随风</h3><p><a href="http://www.3rdos.com" target="_blank" rel="external">网址：http://www.3rdos.com</a><br><a href="http://weibo.com/hqiwu" target="_blank" rel="external">微博：http://weibo.com/hqiwu</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[一些常用的shell 语句片段]]></title>
       <url>http://percychen.com/2014/09/11/2014-09-11-shellcode/</url>
       <content type="html"><![CDATA[<h2 id="失败重复执行"><a href="#失败重复执行" class="headerlink" title="失败重复执行"></a>失败重复执行</h2><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><pre><code>while [ $? = 1 ]; do
@@ -8493,6 +8350,20 @@ elif [[ $# -eq 3 ]]; then
 else echo please input 2 or 3 para
 fi
 </code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android ROM大神的友情链接]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-romerlinks/</url>
+      <content type="html"><![CDATA[<h3 id="Ruling-爆乳"><a href="#Ruling-爆乳" class="headerlink" title="Ruling 爆乳"></a>Ruling 爆乳</h3><p><a href="http://www.1024team.com" target="_blank" rel="external">网址：http://www.1024team.com/</a><br><a href="http://weibo.com/rulingghost" target="_blank" rel="external">微博：http://weibo.com/rulingghost</a></p>
+<h3 id="apktools-晴天"><a href="#apktools-晴天" class="headerlink" title="apktools 晴天"></a>apktools 晴天</h3><p><a href="http://www.apktools.com/" target="_blank" rel="external">网址：http://www.apktools.com/</a><br><a href="http://weibo.com/timesunday" target="_blank" rel="external">微博：http://weibo.com/timesunday</a></p>
+<h3 id="Cofface"><a href="#Cofface" class="headerlink" title="Cofface"></a>Cofface</h3><p><a href="http://www.cofface.com/" target="_blank" rel="external">网址：http://www.cofface.com/</a><br><a href="http://weibo.com/cofface" target="_blank" rel="external">微博：http://weibo.com/cofface</a></p>
+<h3 id="大侠阿木"><a href="#大侠阿木" class="headerlink" title="大侠阿木"></a>大侠阿木</h3><p><a href="http://www.daxiaamu.com" target="_blank" rel="external">网址：http://www.daxiaamu.com</a></p>
+<h3 id="明月浩空"><a href="#明月浩空" class="headerlink" title="明月浩空"></a>明月浩空</h3><p><a href="http://limh.me" target="_blank" rel="external">网址：http://limh.me</a><br><a href="http://weibo.com/u/3496187780" target="_blank" rel="external">微博：http://weibo.com/u/3496187780</a></p>
+<h3 id="杨万荣"><a href="#杨万荣" class="headerlink" title="杨万荣"></a>杨万荣</h3><p><a href="http://sndnvaps.github.io" target="_blank" rel="external">网址：http://sndnvaps.github.io</a><br><a href="http://weibo.com/210124187" target="_blank" rel="external">微博：http://weibo.com/210124187</a></p>
+<h3 id="格诺"><a href="#格诺" class="headerlink" title="格诺"></a>格诺</h3><p><a href="http://iamgeno.com/" target="_blank" rel="external">网址：http://iamgeno.com/</a><br><a href="http://weibo.com/geno" target="_blank" rel="external">微博：http://weibo.com/geno</a></p>
+<h3 id="秋叶随风"><a href="#秋叶随风" class="headerlink" title="秋叶随风"></a>秋叶随风</h3><p><a href="http://www.3rdos.com" target="_blank" rel="external">网址：http://www.3rdos.com</a><br><a href="http://weibo.com/hqiwu" target="_blank" rel="external">微博：http://weibo.com/hqiwu</a></p>
+]]></content>
     </entry>
     
     <entry>
@@ -8678,6 +8549,134 @@ dir/file2.cpp
     </entry>
     
     <entry>
+      <title><![CDATA[vim常用快捷键]]></title>
+      <url>http://percychen.com/2014/09/11/2014-09-11-vimkey/</url>
+      <content type="html"><![CDATA[<h3 id="一、移动光标"><a href="#一、移动光标" class="headerlink" title="一、移动光标"></a>一、移动光标</h3><pre><code>h,j,k,l           上，下，左，右
+ctrl-e              移动页面
+ctrl-f                 上翻一页
+ctrl-b                 下翻一页
+ctrl-u                 上翻半页
+ctrl-d                 下翻半页
+w                     跳到下一个字首，按标点或单词分割
+W                    跳到下一个字首，长跳，如end-of-line被认为是一个字
+e                     跳到下一个字尾
+E                     跳到下一个字尾，长跳
+b                     跳到上一个字
+B                     跳到上一个字，长跳
+0                     跳至行首，不管有无缩进，就是跳到第0个字符
+^                     跳至行首的第一个字符
+$                    跳至行尾
+gg                     跳至文首
+G                   调至文尾
+5gg/5G              调至第5行
+gd                     跳至当前光标所在的变量的声明处
+fx                     在当前行中找x字符，找到了就跳转至
+;                     重复上一个f命令，而不用重复的输入fx
+*                    查找光标所在处的单词，向下查找
+\#                     查找光标所在处的单词，向上查找
+</code></pre><h3 id="二、删除复制"><a href="#二、删除复制" class="headerlink" title="二、删除复制"></a>二、删除复制</h3><pre><code>dd                     删除光标所在行
+dw                  删除一个字(word)
+d$/D                删除到行末
+x                   删除当前字符
+X                     删除前一个字符
+yy                     复制一行
+yw                     复制一个字
+y$/Y                 复制到行末
+p                     粘贴粘贴板的内容到当前行的下面
+P                     粘贴粘贴板的内容到当前行的上面
+</code></pre><h3 id="三、插入模式"><a href="#三、插入模式" class="headerlink" title="三、插入模式"></a>三、插入模式</h3><pre><code>i                     从当前光标处进入插入模式
+I                     进入插入模式，并置光标于行首
+a                     追加模式，置光标于当前光标之后
+A                     追加模式，置光标于行末
+o                     在当前行之下新加一行，并进入插入模式
+O                     在当前行之上新加一行，并进入插入模式
+Esc                 退出插入模式
+</code></pre><h3 id="四、编辑"><a href="#四、编辑" class="headerlink" title="四、编辑"></a>四、编辑</h3><pre><code>J                     将下一行和当前行连接为一行
+cc                    删除当前行并进入编辑模式
+cw                     删除当前字，并进入编辑模式
+c$                     擦除从当前位置至行末的内容，并进入编辑模式
+s                     删除当前字符并进入编辑模式
+S                     删除光标所在行并进入编辑模式
+xp                     交换当前字符和下一个字符
+u                     撤销
+ctrl+r                 重做
+~                     切换大小写，当前字符
+\&gt;&gt;                 将当前行右移一个单位
+\&lt;&lt;                  将当前行左移一个单位(一个tab符)
+\==                    自动缩进当前行
+</code></pre><h3 id="五、查找替换"><a href="#五、查找替换" class="headerlink" title="五、查找替换"></a>五、查找替换</h3><pre><code>/pattern             向后搜索字符串pattern
+?pattern             向前搜索字符串pattern
+&quot;\c&quot;                 忽略大小写
+&quot;\C&quot;                 大小写敏感
+n                     下一个匹配(如果是/搜索，则是向下的下一个，?搜索则是向上的下一个)
+N                     上一个匹配(同上)
+:%s/old/new/g          搜索整个文件，将所有的old替换为new
+:%s/old/new/gc         搜索整个文件，将所有的old替换为new，每次都要你确认是否替换
+</code></pre><h3 id="六、退出编辑器"><a href="#六、退出编辑器" class="headerlink" title="六、退出编辑器"></a>六、退出编辑器</h3><pre><code>:w                    将缓冲区写入文件，即保存修改
+:wq                 保存修改并退出
+:x                     保存修改并退出
+:q                     退出，如果对缓冲区进行过修改，则会提示
+:q!                 强制退出，放弃修改
+</code></pre><h3 id="七、多文件编辑"><a href="#七、多文件编辑" class="headerlink" title="七、多文件编辑"></a>七、多文件编辑</h3><pre><code>vim file1..         同时打开多个文件
+:args                   显示当前编辑文件
+:next                   切换到下个文件
+:prev                   切换到前个文件
+:next！             不保存当前编辑文件并切换到下个文件
+:prev！             不保存当前编辑文件并切换到上个文件
+:wnext              保存当前编辑文件并切换到下个文件
+:wprev              保存当前编辑文件并切换到上个文件
+:first                  定位首文件
+:last                   定位尾文件
+ctrl+^                  快速在最近打开的两个文件间切换
+:split[sp]          把当前文件水平分割
+:split file             把当前窗口水平分割, file
+:vsplit[vsp] file     当前窗口垂直分割, file
+:new file            同split file
+:close               关闭当前窗口
+:only                只显示当前窗口, 关闭所有其他的窗口
+:all                     打开所有的窗口
+:vertical all        打开所有的窗口, 垂直打开
+:qall                 对所有窗口执行：q操作
+：qall!                对所有窗口执行：q!操作
+:wall                 对所有窗口执行：w操作
+:wqall                 对所有窗口执行：wq操作
+ctrl-w h             跳转到左边的窗口
+ctrl-w j             跳转到下面的窗口
+ctrl-w k             跳转到上面的窗口
+ctrl-w l             跳转到右边的窗口
+ctrl-w t             跳转到最顶上的窗口
+ctrl-w b             跳转到最底下的窗口
+</code></pre><h3 id="八、多标签编辑"><a href="#八、多标签编辑" class="headerlink" title="八、多标签编辑"></a>八、多标签编辑</h3><pre><code>:tabedit file         在新标签中打开文件file
+:tab split file         在新标签中打开文件file
+:tabp                 切换到前一个标签
+:tabn                 切换到后一个标签
+:tabc                  关闭当前标签
+:tabo                  关闭其他标签
+gt                        到下一个tab
+gT                        到上一个tab
+0gt                   跳到第一个tab
+5gt                   跳到第五个tab
+</code></pre><h3 id="九、执行shell命令"><a href="#九、执行shell命令" class="headerlink" title="九、执行shell命令"></a>九、执行shell命令</h3><pre><code>1、在命令模式下输入&quot;:sh&quot;，可以运行相当于在字符模式下，到输入结束想回到VIM编辑器中用exit，ctrl+D返回VIM编辑器
+2、可以&quot;!command&quot;，运行结束后自动回到VIM编辑器中
+3、用“Ctrl+Z“回到shell，用fg返回编辑
+4、:!make -&gt; 直接在当前目录下运行make指令
+</code></pre><h3 id="十、VIM启动项"><a href="#十、VIM启动项" class="headerlink" title="十、VIM启动项"></a>十、VIM启动项</h3><pre><code>-o[n] 以水平分屏的方式打开多个文件
+-O[n] 以垂直分屏的方式打开多个文件
+</code></pre><h3 id="十一、自动排版"><a href="#十一、自动排版" class="headerlink" title="十一、自动排版"></a>十一、自动排版</h3><pre><code>在粘贴了一些代码之后，vim变得比较乱，只要执行gg=G就能搞定
+</code></pre><h3 id="十二、如何在vim中编译程序"><a href="#十二、如何在vim中编译程序" class="headerlink" title="十二、如何在vim中编译程序"></a>十二、如何在vim中编译程序</h3><pre><code>在vim中可以完成make,而且可以将编译的结果也显示在vim里，先执行 :copen 命令，将结果输出的窗口打开，然后执行 :make
+编译后的结果就显示在了copen打开的小窗口里了，而且用鼠标双击错误信息，就会跳转到发生错误的行。
+</code></pre><h3 id="十三、buffer操作"><a href="#十三、buffer操作" class="headerlink" title="十三、buffer操作"></a>十三、buffer操作</h3><pre><code>1、buffer状态
+- （非活动的缓冲区）
+a （当前被激活缓冲区）
+h （隐藏的缓冲区）
+% （当前的缓冲区）
+# （交换缓冲区）
+= （只读缓冲区）
++ （已经更改的缓冲区）
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[专业设计师最常用的中文字体]]></title>
       <url>http://percychen.com/2014/09/10/2014-09-10-somefonts/</url>
       <content type="html"><![CDATA[<p>原文地址：<a href="http://www.80ue.com/chinese-fonts-for-designer/" target="_blank" rel="external">http://www.80ue.com/chinese-fonts-for-designer/</a></p>
@@ -8758,6 +8757,41 @@ dir/file2.cpp
       <url>http://percychen.com/2014/09/04/2014-09-04-markdownedit/</url>
       <content type="html"><![CDATA[<td id="article_content"><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212700fiihhhy877i7ny1h.png" alt=""></p><br><p><a href="http://remarkableapp.net/" target="_blank" rel="external">Remarkable</a>是一个全新，免费，功能齐全的Linux发行版Markdown编辑器。它拥有许多特性，比如：在线预览，这让你的Markdown编辑变得更加容易。它是一个轻量级的编辑器，而且它还有一个简洁的用户界面(UI)。</p><br><p>下面是Remarkable的主要特性：</p><br><ul><br><li>实时预览</li><br><li>支持Github Markdown 语法</li><br><li>支持导出为PDF和HTML</li><br><li>自定义CSS</li><br><li>语法高亮</li><br><td id="article_content"><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212700fiihhhy877i7ny1h.png" alt=""></p><br><p><a href="http://remarkableapp.net/" target="_blank" rel="external">Remarkable</a>是一个全新，免费，功能齐全的Linux发行版Markdown编辑器。它拥有许多特性，比如：在线预览，这让你的Markdown编辑变得更加容易。它是一个轻量级的编辑器，而且它还有一个简洁的用户界面(UI)。</p><br><p>下面是Remarkable的主要特性：</p><br><ul><br><li>实时预览</li><br><li>支持Github Markdown 语法</li><br><li>支持导出为PDF和HTML</li><br><li>自定义CSS</li><br><li>语法高亮</li><br><li>高度可定制</li><br><li><br><p class="p1">字数实时计数</p><br></li><br><li>键盘快捷键</li><br></ul><br><p><img src="http://img.linux.net.cn/data/attachment/album/201409/02/212702wus2fwm77y6uuu97.png" alt="" width="700"></p><br><p>你可以观看<a href="https://www.youtube.com/watch?v=UpjAIcXti9s" target="_blank" rel="external">这部YouTube视频</a>（请自备梯子:-]）了解Linux下的Remakable。</p><br><h3 id="toc_1">安装</h3><br><p>根据不同的Linux发行版本，Remarkable拥有许多可供使用的安装源，下面是不同Linux发行版以及它们对应的安装文件</p><br><h4 id="toc_2">Ubuntu / Linux Mint:</h4><br><ul><br><li><a href="http://remarkableapp.net/files/remarkable_0.965_all.deb" target="_blank" rel="external">Dowbnload .DEB</a></li><br></ul><br><h4 id="toc_3">Fedora:</h4><br><ul><br><li><a href="http://remarkableapp.net/files/remarkable-0.965.rpm" target="_blank" rel="external">Download .RPM</a></li><br></ul><br><h4 id="toc_4">Arch Linux (AUR):</h4><br><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">sudo yaourt </span><span class="pun">-</span><span class="pln">S remarkable</span></li></ol></pre><br><p>喜欢吗？</p><br><hr><br><p>via: <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/" target="_blank" rel="external">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a></p><br><p>作者：<a href="http://www.unixmen.com/author/seth/" target="_blank" rel="external">Enock Seth Nyamador</a> 译者：<a href="https://github.com/su-kaiyao" target="_blank" rel="external">su-kaiyao</a> 校对：<a href="https://github.com/carolinewuyan" target="_blank" rel="external">Caroline</a></p><br><p>本文由 <a href="https://github.com/LCTT/TranslateProject" target="_blank" rel="external">LCTT</a> 原创翻译，<a href="http://linux.cn/" target="_blank" rel="external">Linux中国</a> 荣誉推出</p><br><br><div class="copyright"><br>    <div>来源： unixmen</div>    <div><br>        原文： <a href="http://www.unixmen.com/remarkable-new-markdown-editor-linux/" target="_blank">http://www.unixmen.com/remarkable-new-markdown-editor-linux/</a>&nbsp;&nbsp;&nbsp;&nbsp;        作者： Enock Seth Nyamador    </div><br><br>    <div><br>                译者： su-kaiyao    </div><br><br>                    <div>本文是原创投递或翻译投递，<href="http: linux.cn="" "="">Linux中国首发地址：<a href="http://linux.cn/article-3741-1.html" target="_blank" rel="external">http://linux.cn/article-3741-1.html</a>&lt;/href=”http:&gt;</href="http:></div><div><span style="color:red;">欢迎转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息</span></div><br><br></div><br></td>
 </ul></td>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[双击退出程序-java代码]]></title>
+      <url>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</url>
+      <content type="html"><![CDATA[<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><h3 id="直接在函数最后一个括号“-”之前黏贴一下代码即可"><a href="#直接在函数最后一个括号“-”之前黏贴一下代码即可" class="headerlink" title="直接在函数最后一个括号“}”之前黏贴一下代码即可"></a>直接在函数最后一个括号“}”之前黏贴一下代码即可</h3><pre><code>@Override
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+    // TODO Auto-generated method stub
+    if(keyCode == KeyEvent.KEYCODE_BACK)
+       {  
+           exitBy2Click();      //调用双击退出函数
+       }
+    return false;
+}
+private static Boolean isExit = false;
+
+private void exitBy2Click() {
+    Timer tExit = null;
+    if (isExit == false) {
+        isExit = true; // 准备退出
+        Toast.makeText(this, &quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
+        tExit = new Timer();
+        tExit.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                isExit = false; // 取消退出
+            }
+        }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+    } else {
+        finish();
+        System.exit(0);
+    }
+}
+</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -9774,41 +9808,6 @@ dir/file2.cpp
     </entry>
     
     <entry>
-      <title><![CDATA[双击退出程序-java代码]]></title>
-      <url>http://percychen.com/2014/09/03/2014-09-03-doubleexit/</url>
-      <content type="html"><![CDATA[<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><h3 id="直接在函数最后一个括号“-”之前黏贴一下代码即可"><a href="#直接在函数最后一个括号“-”之前黏贴一下代码即可" class="headerlink" title="直接在函数最后一个括号“}”之前黏贴一下代码即可"></a>直接在函数最后一个括号“}”之前黏贴一下代码即可</h3><pre><code>@Override
-public boolean onKeyDown(int keyCode, KeyEvent event) {
-    // TODO Auto-generated method stub
-    if(keyCode == KeyEvent.KEYCODE_BACK)
-       {  
-           exitBy2Click();      //调用双击退出函数
-       }
-    return false;
-}
-private static Boolean isExit = false;
-
-private void exitBy2Click() {
-    Timer tExit = null;
-    if (isExit == false) {
-        isExit = true; // 准备退出
-        Toast.makeText(this, &quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();
-        tExit = new Timer();
-        tExit.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                isExit = false; // 取消退出
-            }
-        }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
-
-    } else {
-        finish();
-        System.exit(0);
-    }
-}
-</code></pre>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[（未完成）Android系统拼包移植各个系统驱动对应的so文件]]></title>
       <url>http://percychen.com/2014/09/03/2014-09-03-androidplantso/</url>
       <content type="html"><![CDATA[<h2 id="为什么要写这篇文章"><a href="#为什么要写这篇文章" class="headerlink" title="为什么要写这篇文章"></a>为什么要写这篇文章</h2><p>前段时间跟几个做移植的romer聊天，<br>发现他们所有的经验都是靠一个个对比得到的，<br>对于很多so文件的功能由于看不到C文件，所以不知道它的功能，<br>所以今天花点时间写一下各个java和C最后编译生成的so，可能对romer没什么用，<br>但多少能帮到点。</p>
@@ -10053,173 +10052,6 @@ sudo apt-get install  nodejs
       <url>http://percychen.com/2014/09/02/2014-09-02-Iloveyou/</url>
       <content type="html"><![CDATA[<h2 id="玄奘译本"><a href="#玄奘译本" class="headerlink" title="玄奘译本"></a>玄奘译本</h2><center><br>观自在菩萨<br>行深般若波罗蜜多时<br>照见五蕴皆空<br>度一切苦厄<br><br>舍利子<br>色不异空，空不异色<br>色即是空，空即是色<br>受想行识，亦复如是<br><br>舍利子，是诸法空相<br>不生不灭，不垢不净，不增不减<br>是故空中无色，无受想行识<br>无眼耳鼻舌身意，无色声香味触法<br>无眼界，乃至无意识界<br>无无明，亦无无明尽<br>乃至无老死，亦无老死尽<br>无苦集灭道，无智亦无得<br>以无所得故，菩提萨埵<br><br>依般若波罗蜜多故，心无挂碍<br>无挂碍故，无有恐怖<br>远离颠倒梦想<br>究竟涅槃,三世诸佛<br>依般若波罗蜜多故<br>得阿耨多罗三藐三菩提<br>故知般若波罗蜜多<br>是大神咒，是大明咒<br>是无上咒，是无等等咒<br>能除一切苦，真实不虚<br><br>故说般若波罗蜜多咒，即说咒曰：<br>揭谛揭谛，波罗揭谛<br>波罗僧揭谛，菩提萨婆诃。<br></center>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[省电模式部分代码]]></title>
-      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
-      <content type="html"><![CDATA[<h4 id="这是我写的一个电量管理的一些代码"><a href="#这是我写的一个电量管理的一些代码" class="headerlink" title="这是我写的一个电量管理的一些代码"></a>这是我写的一个电量管理的一些代码</h4><p>以下皆在android 4.3 平台上测试通过<br></p>
-<ol>
-<li><p>将 休眠时间调制 15秒：</p>
-<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
-</code></pre></li>
-<li><p>蓝牙：</p>
-<pre><code>关闭：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-打开：
-BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-bluetoothadapter.disable();
-是否已经打开:
-if(!bluetoothadapter.isEnabled()){}
-权限:
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
-</code></pre></li>
-</ol>
-<ol>
-<li><p>wifi</p>
-<pre><code>关闭：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(false);
-
-打开：
-WifiManager manager =null;
-manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
-manager.setWifiEnabled(true);
-
-判断是否打开：
-public String checkWifi(Activity activitiy,String string) {
-WifiManager mWifiManager = (WifiManager) activitiy
-        .getSystemService(Context.WIFI_SERVICE);
-WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
-int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
-if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
-else {return string;}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>数据流量：</p>
-<pre><code>打开：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-        Class ownerClass = connectivityManager.getClass();
-        Class[] argsClass = new Class[1];
-        argsClass[0] = boolean.class;
-        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-        method.invoke(connectivityManager, false);
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-    }
-
-关闭：
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-try {
-    Class ownerClass = connectivityManager.getClass();
-    Class[] argsClass = new Class[1];
-    argsClass[0] = boolean.class;
-    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
-    method.invoke(connectivityManager, true);
-
-} catch (Exception e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
-}
-
-判断是否开启：
-public String checkdata(String string) {
-ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
-        Context.CONNECTIVITY_SERVICE);
-NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-if (false == networkInfo.isConnectedOrConnecting()) {
-    string=&quot;close&quot;;
-    return string;
-} else {
-    string=&quot;open&quot;;
-    return string;
-}
-}
-
-权限：
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
-&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
-</code></pre></li>
-<li><p>屏幕旋转</p>
-<pre><code>如果开启就关闭，关闭就开启：
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
-Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
-
-检查是否开启：
-public String checkrotate(String string){
-int flag = Settings.System.getInt(getContentResolver(),
-        Settings.System.ACCELEROMETER_ROTATION, 0);
- if (0 == flag) {
-     string=&quot;close&quot;;
-        return string;
-}
- else {
-     string=&quot;open&quot;;
-        return string;
- }
-}
-</code></pre></li>
-<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
-<pre><code>try {
-screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
-Log.i(TAG, &quot;screenMode = &quot; + screenMode);
-
-// 获得当前屏幕亮度值 0--255
-screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
-
-// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
-if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-}
-
-// 设置屏幕亮度值为最大值0
-setScreenBrightness(0.0F);
-} catch (SettingNotFoundException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-然后添加两个执行函数
-
- private void setScreenMode(int value) {
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
- }
- private void setScreenBrightness(float value) {
- Window mWindow = getWindow();
- WindowManager.LayoutParams mParams = mWindow.getAttributes();
- float f = value / 255.0F;
- mParams.screenBrightness = f;
- mWindow.setAttributes(mParams);
-
- // 保存设置的屏幕亮度值
- Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
- }
-
-还有private 几个变量
-
-private int screenMode;
-private static final String TAG = &quot;ScreenLuminance&quot;;
-private int screenBrightness;
-
-亮度部分需要权限：
-
-&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
-</code></pre></li>
-</ol>
-<h4 id="最后更新时间：2014-09-24"><a href="#最后更新时间：2014-09-24" class="headerlink" title="最后更新时间：2014-09-24"></a>最后更新时间：2014-09-24</h4>]]></content>
     </entry>
     
     <entry>
@@ -10595,6 +10427,173 @@ String EXTRA_INPUT_METHOD_ID
 </code></pre></li>
 </ul>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[省电模式部分代码]]></title>
+      <url>http://percychen.com/2014/08/07/2014-08-07-powersavecode/</url>
+      <content type="html"><![CDATA[<h4 id="这是我写的一个电量管理的一些代码"><a href="#这是我写的一个电量管理的一些代码" class="headerlink" title="这是我写的一个电量管理的一些代码"></a>这是我写的一个电量管理的一些代码</h4><p>以下皆在android 4.3 平台上测试通过<br></p>
+<ol>
+<li><p>将 休眠时间调制 15秒：</p>
+<pre><code>Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT,-1);
+</code></pre></li>
+<li><p>蓝牙：</p>
+<pre><code>关闭：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+打开：
+BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
+bluetoothadapter.disable();
+是否已经打开:
+if(!bluetoothadapter.isEnabled()){}
+权限:
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH_ADMIN&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.BLUETOOTH&quot;/&gt;
+</code></pre></li>
+</ol>
+<ol>
+<li><p>wifi</p>
+<pre><code>关闭：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(false);
+
+打开：
+WifiManager manager =null;
+manager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+manager.setWifiEnabled(true);
+
+判断是否打开：
+public String checkWifi(Activity activitiy,String string) {
+WifiManager mWifiManager = (WifiManager) activitiy
+        .getSystemService(Context.WIFI_SERVICE);
+WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
+int ipAddress = wifiInfo == null ? 0 : wifiInfo.getIpAddress();
+if (mWifiManager.isWifiEnabled() &amp;&amp; ipAddress != 0) {return string;}
+else {return string;}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>数据流量：</p>
+<pre><code>打开：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+        Class ownerClass = connectivityManager.getClass();
+        Class[] argsClass = new Class[1];
+        argsClass[0] = boolean.class;
+        Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+        method.invoke(connectivityManager, false);
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+    }
+
+关闭：
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+try {
+    Class ownerClass = connectivityManager.getClass();
+    Class[] argsClass = new Class[1];
+    argsClass[0] = boolean.class;
+    Method method = ownerClass.getMethod(&quot;setMobileDataEnabled&quot;, argsClass);
+    method.invoke(connectivityManager, true);
+
+} catch (Exception e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+    System.out.println(&quot;移动数据设置错误: &quot; + e.toString());
+}
+
+判断是否开启：
+public String checkdata(String string) {
+ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(
+        Context.CONNECTIVITY_SERVICE);
+NetworkInfo networkInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+if (false == networkInfo.isConnectedOrConnecting()) {
+    string=&quot;close&quot;;
+    return string;
+} else {
+    string=&quot;open&quot;;
+    return string;
+}
+}
+
+权限：
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.CHANGE_NETWORK_STATE&quot;/&gt;
+</code></pre></li>
+<li><p>屏幕旋转</p>
+<pre><code>如果开启就关闭，关闭就开启：
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+Settings.System.putInt(this.getContentResolver(),Settings.System.ACCELEROMETER_ROTATION,flag==1?0:1);
+
+检查是否开启：
+public String checkrotate(String string){
+int flag = Settings.System.getInt(getContentResolver(),
+        Settings.System.ACCELEROMETER_ROTATION, 0);
+ if (0 == flag) {
+     string=&quot;close&quot;;
+        return string;
+}
+ else {
+     string=&quot;open&quot;;
+        return string;
+ }
+}
+</code></pre></li>
+<li><p>降低屏幕亮度<br>这个比较复杂,在主函数里添加：</p>
+<pre><code>try {
+screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
+Log.i(TAG, &quot;screenMode = &quot; + screenMode);
+
+// 获得当前屏幕亮度值 0--255
+screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+Log.i(TAG, &quot;screenBrightness = &quot; + screenBrightness);
+
+// 如果当前的屏幕亮度调节调节模式为自动调节，则改为手动调节屏幕亮度
+if (screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+    setScreenMode(Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+}
+
+// 设置屏幕亮度值为最大值0
+setScreenBrightness(0.0F);
+} catch (SettingNotFoundException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+然后添加两个执行函数
+
+ private void setScreenMode(int value) {
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, value);
+ }
+ private void setScreenBrightness(float value) {
+ Window mWindow = getWindow();
+ WindowManager.LayoutParams mParams = mWindow.getAttributes();
+ float f = value / 255.0F;
+ mParams.screenBrightness = f;
+ mWindow.setAttributes(mParams);
+
+ // 保存设置的屏幕亮度值
+ Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) value);
+ }
+
+还有private 几个变量
+
+private int screenMode;
+private static final String TAG = &quot;ScreenLuminance&quot;;
+private int screenBrightness;
+
+亮度部分需要权限：
+
+&lt;uses-permission android:name=&quot;android.permission.WRITE_SETTINGS&quot;/&gt;
+</code></pre></li>
+</ol>
+<h4 id="最后更新时间：2014-09-24"><a href="#最后更新时间：2014-09-24" class="headerlink" title="最后更新时间：2014-09-24"></a>最后更新时间：2014-09-24</h4>]]></content>
     </entry>
     
     <entry>
