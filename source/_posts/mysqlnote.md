@@ -193,7 +193,7 @@ mysql -h110.110.110.110 -uroot -pabcd123 # 远程登录
 
 (注:u与root可以不用加空格，其它也一样)
 
-####查询条目数量
+#### 查询条目数量
 
 ```sh
 select count(*) from tablename;
