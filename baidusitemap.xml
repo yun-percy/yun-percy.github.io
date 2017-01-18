@@ -138,24 +138,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/05/05/2014-05-05-linuxjdkinstall/</loc>
-    <lastmod>2017-01-17T07:08:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux下JDK的下载和使用</title>
-        <pubTime>2014-05-05T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2013/11/26/2013-11-26-statusbartranparent/</loc>
     <lastmod>2017-01-17T07:08:06.000Z</lastmod>
     <data>
@@ -167,6 +149,24 @@
            
              
               <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2014/05/05/2014-05-05-linuxjdkinstall/</loc>
+    <lastmod>2017-01-17T07:08:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下JDK的下载和使用</title>
+        <pubTime>2014-05-05T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
           
         </display>
     </data>
@@ -228,17 +228,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-shellcode/</loc>
+    <loc>http://percychen.com/2014/10/21/2014-10-21-shellreadline/</loc>
     <lastmod>2017-01-17T07:08:04.000Z</lastmod>
     <data>
         <display>
-        <title>一些常用的shell 语句片段</title>
-        <pubTime>2014-09-11T05:14:00.000Z</pubTime>
+        <title>shell读取文件每一行的方式</title>
+        <pubTime>2014-10-21T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
           
         </display>
     </data>
@@ -264,17 +264,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/10/21/2014-10-21-shellreadline/</loc>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-shellcode/</loc>
     <lastmod>2017-01-17T07:08:04.000Z</lastmod>
     <data>
         <display>
-        <title>shell读取文件每一行的方式</title>
-        <pubTime>2014-10-21T05:14:00.000Z</pubTime>
+        <title>一些常用的shell 语句片段</title>
+        <pubTime>2014-09-11T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
+              <breadCrumb title="语法" url="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
           
         </display>
     </data>
@@ -300,17 +300,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/11/03/2014-11-03-inotify_diff/</loc>
+    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</loc>
     <lastmod>2017-01-17T07:08:03.000Z</lastmod>
     <data>
         <display>
-        <title>文件夹检测，同步实例</title>
-        <pubTime>2014-11-03T05:14:00.000Z</pubTime>
+        <title>Android 中 字符替代的用法</title>
+        <pubTime>2015-03-14T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
+              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
           
         </display>
     </data>
@@ -372,35 +372,17 @@
 
     
   <url>
-    <loc>http://percychen.com/2015/03/14/2015-03-14-AndroidStringwildcard/</loc>
+    <loc>http://percychen.com/2014/11/03/2014-11-03-inotify_diff/</loc>
     <lastmod>2017-01-17T07:08:03.000Z</lastmod>
     <data>
         <display>
-        <title>Android 中 字符替代的用法</title>
-        <pubTime>2015-03-14T05:14:00.000Z</pubTime>
+        <title>文件夹检测，同步实例</title>
+        <pubTime>2014-11-03T05:14:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://percychen.com/2015/04/27/2015-04-27-sed/</loc>
-    <lastmod>2017-01-17T07:08:02.000Z</lastmod>
-    <data>
-        <display>
-        <title>sed用法进阶篇</title>
-        <pubTime>2015-04-27T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
+              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
           
         </display>
     </data>
@@ -414,6 +396,24 @@
         <display>
         <title>linux tail命令的使用方法详解</title>
         <pubTime>2015-09-21T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2015/04/27/2015-04-27-sed/</loc>
+    <lastmod>2017-01-17T07:08:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>sed用法进阶篇</title>
+        <pubTime>2015-04-27T05:14:00.000Z</pubTime>
         
          
            
@@ -530,24 +530,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
-    <lastmod>2017-01-17T07:03:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>vim常用快捷键</title>
-        <pubTime>2014-09-11T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2014/09/12/2014-09-12-makeandroid/</loc>
     <lastmod>2017-01-17T07:03:25.000Z</lastmod>
     <data>
@@ -559,6 +541,24 @@
            
              
               <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2014/09/11/2014-09-11-vimkey/</loc>
+    <lastmod>2017-01-17T07:03:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>vim常用快捷键</title>
+        <pubTime>2014-09-11T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
           
         </display>
     </data>
@@ -638,15 +638,13 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</loc>
+    <loc>http://percychen.com/2014/10/29/2014-10-29-gitcola/</loc>
     <lastmod>2017-01-17T07:03:21.000Z</lastmod>
     <data>
         <display>
-        <title>五种开源协议的比较</title>
-        <pubTime>2014-10-31T05:14:00.000Z</pubTime>
+        <title>git cola的下载和使用</title>
+        <pubTime>2014-10-29T05:14:00.000Z</pubTime>
         
-        <tag>协议</tag>
-         
          
            
              
@@ -658,13 +656,15 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/10/29/2014-10-29-gitcola/</loc>
+    <loc>http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/</loc>
     <lastmod>2017-01-17T07:03:21.000Z</lastmod>
     <data>
         <display>
-        <title>git cola的下载和使用</title>
-        <pubTime>2014-10-29T05:14:00.000Z</pubTime>
+        <title>五种开源协议的比较</title>
+        <pubTime>2014-10-31T05:14:00.000Z</pubTime>
         
+        <tag>协议</tag>
+         
          
            
              
@@ -712,6 +712,24 @@
 
     
   <url>
+    <loc>http://percychen.com/2014/11/18/2014-11-18-linuxdesktopinstall/</loc>
+    <lastmod>2017-01-17T07:03:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>linux桌面环境的安装</title>
+        <pubTime>2014-11-18T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://percychen.com/2014/11/17/2014-11-17-smailidautocarp/</loc>
     <lastmod>2017-01-17T07:03:18.000Z</lastmod>
     <data>
@@ -730,12 +748,12 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/11/18/2014-11-18-linuxdesktopinstall/</loc>
-    <lastmod>2017-01-17T07:03:18.000Z</lastmod>
+    <loc>http://percychen.com/2014/11/19/2014-11-19-tar_split/</loc>
+    <lastmod>2017-01-17T07:03:17.000Z</lastmod>
     <data>
         <display>
-        <title>linux桌面环境的安装</title>
-        <pubTime>2014-11-18T05:14:00.000Z</pubTime>
+        <title>使用tar和split打包分割文件</title>
+        <pubTime>2014-11-19T05:14:00.000Z</pubTime>
         
          
            
@@ -759,24 +777,6 @@
            
              
               <breadCrumb title="tools" url="http://percychen.com/categories/tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://percychen.com/2014/11/19/2014-11-19-tar_split/</loc>
-    <lastmod>2017-01-17T07:03:17.000Z</lastmod>
-    <data>
-        <display>
-        <title>使用tar和split打包分割文件</title>
-        <pubTime>2014-11-19T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="http://percychen.com/categories/Linux/"/>
           
         </display>
     </data>
@@ -1318,9 +1318,9 @@
         <title>mysql重置密码</title>
         <pubTime>2016-09-26T05:14:00.000Z</pubTime>
         
-        <tag>mysql</tag>
-         
         <tag>password</tag>
+         
+        <tag>mysql</tag>
          
         <tag>reset</tag>
          
@@ -1983,24 +1983,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2015/05/05/2015-05-05-sort/</loc>
-    <lastmod>2015-05-05T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>转： sort的7个应用实例</title>
-        <pubTime>2015-05-05T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2015/05/05/2015-05-05-GetBlockInfomation/</loc>
     <lastmod>2015-05-05T05:14:00.000Z</lastmod>
     <data>
@@ -2012,6 +1994,24 @@
            
              
               <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2015/05/05/2015-05-05-sort/</loc>
+    <lastmod>2015-05-05T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>转： sort的7个应用实例</title>
+        <pubTime>2015-05-05T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Shell" url="http://percychen.com/categories/Shell/"/>
           
         </display>
     </data>
@@ -2109,24 +2109,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</loc>
-    <lastmod>2015-02-06T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android 阻尼回弹 ListView控件</title>
-        <pubTime>2015-02-06T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2015/02/06/2015-02-06-changecolotutil/</loc>
     <lastmod>2015-02-06T05:14:00.000Z</lastmod>
     <data>
@@ -2145,11 +2127,29 @@
 
     
   <url>
-    <loc>http://percychen.com/2015/02/02/2015-02-02-roundbitmap/</loc>
+    <loc>http://percychen.com/2015/02/06/2015-02-06-Listviewzuni/</loc>
+    <lastmod>2015-02-06T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android 阻尼回弹 ListView控件</title>
+        <pubTime>2015-02-06T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Android" url="http://percychen.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2015/02/02/2015-02-02-import_system_app/</loc>
     <lastmod>2015-02-02T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>Android 圆角Bitmap代码</title>
+        <title>将系统应用导入eclipse进行开发</title>
         <pubTime>2015-02-02T05:14:00.000Z</pubTime>
         
          
@@ -2181,11 +2181,11 @@
 
     
   <url>
-    <loc>http://percychen.com/2015/02/02/2015-02-02-import_system_app/</loc>
+    <loc>http://percychen.com/2015/02/02/2015-02-02-roundbitmap/</loc>
     <lastmod>2015-02-02T05:14:00.000Z</lastmod>
     <data>
         <display>
-        <title>将系统应用导入eclipse进行开发</title>
+        <title>Android 圆角Bitmap代码</title>
         <pubTime>2015-02-02T05:14:00.000Z</pubTime>
         
          
@@ -2577,24 +2577,6 @@
 
     
   <url>
-    <loc>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</loc>
-    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>CPU性能天梯图（2014年7月）</title>
-        <pubTime>2014-09-03T05:14:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://percychen.com/2014/09/03/2014-09-03-androidplantso/</loc>
     <lastmod>2014-09-03T05:14:00.000Z</lastmod>
     <data>
@@ -2624,6 +2606,24 @@
            
              
               <breadCrumb title="Photoshop" url="http://percychen.com/categories/Photoshop/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://percychen.com/2014/09/03/2014-09-03-2014CPUarrange/</loc>
+    <lastmod>2014-09-03T05:14:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>CPU性能天梯图（2014年7月）</title>
+        <pubTime>2014-09-03T05:14:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="综合" url="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
           
         </display>
     </data>

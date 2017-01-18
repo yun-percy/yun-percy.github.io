@@ -89,15 +89,15 @@
 
 
 
-<meta name="description" content="愿我从此不再提起，再不提起过去，痛苦与幸福">
+<meta name="description" content="我歌我且笑，岁月共此生">
 <meta property="og:type" content="website">
 <meta property="og:title" content="风之子的世界">
 <meta property="og:url" content="http://percychen.com/page/17/index.html">
 <meta property="og:site_name" content="风之子的世界">
-<meta property="og:description" content="愿我从此不再提起，再不提起过去，痛苦与幸福">
+<meta property="og:description" content="我歌我且笑，岁月共此生">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="风之子的世界">
-<meta name="twitter:description" content="愿我从此不再提起，再不提起过去，痛苦与幸福">
+<meta name="twitter:description" content="我歌我且笑，岁月共此生">
 
 
 
@@ -177,7 +177,9 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle"></p>
+    
+      <p class="site-subtitle"></p>
+    
 </div>
 
 <div class="site-nav-toggle">
@@ -296,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/08/07/2014-08-07-androidactivity/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/08/07/2014-08-07-powersavecode/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -321,8 +323,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/08/07/2014-08-07-androidactivity/" itemprop="url">
-                  android 外部启动activity，自定义action，action常量大全
+                <a class="post-title-link" href="/2014/08/07/2014-08-07-powersavecode/" itemprop="url">
+                  省电模式部分代码
                 </a>
               
             
@@ -335,7 +337,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-08-07T13:14:00+08:00">
                 2014-08-07
               </time>
@@ -349,8 +351,8 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:06+08:00">
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:05+08:00">
                 2017-01-17
               </time>
             
@@ -358,11 +360,13 @@
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -380,8 +384,11 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2014/08/07/2014-08-07-androidactivity/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-androidactivity/" itemprop="commentCount"></span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/08/07/2014-08-07-powersavecode/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-powersavecode/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,14 +398,14 @@
 
           
           
-             <span id="/2014/08/07/2014-08-07-androidactivity/" class="leancloud_visitors" data-flag-title="android 外部启动activity，自定义action，action常量大全">
+             <span id="/2014/08/07/2014-08-07-powersavecode/" class="leancloud_visitors" data-flag-title="省电模式部分代码">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -418,15 +425,14 @@
       
         
           
-          转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/
-从任意app，启动另外一个app的activity：
-第一种方式
-Intent i = new Intent();
- ComponentName cn = new
+          这是我写的一个电量管理的一些代码以下皆在android 4.3 平台上测试通过
+
+将 休眠时间调制 15秒：
+Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/08/07/2014-08-07-androidactivity/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/07/2014-08-07-powersavecode/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -467,7 +473,7 @@ Intent i = new Intent();
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/08/07/2014-08-07-powersavecode/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/08/07/2014-08-07-androidactivity/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -492,8 +498,8 @@ Intent i = new Intent();
             
               
                 
-                <a class="post-title-link" href="/2014/08/07/2014-08-07-powersavecode/" itemprop="url">
-                  省电模式部分代码
+                <a class="post-title-link" href="/2014/08/07/2014-08-07-androidactivity/" itemprop="url">
+                  android 外部启动activity，自定义action，action常量大全
                 </a>
               
             
@@ -506,7 +512,7 @@ Intent i = new Intent();
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-08-07T13:14:00+08:00">
                 2014-08-07
               </time>
@@ -520,8 +526,8 @@ Intent i = new Intent();
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:05+08:00">
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:06+08:00">
                 2017-01-17
               </time>
             
@@ -529,11 +535,13 @@ Intent i = new Intent();
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -551,8 +559,11 @@ Intent i = new Intent();
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2014/08/07/2014-08-07-powersavecode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-powersavecode/" itemprop="commentCount"></span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/08/07/2014-08-07-androidactivity/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/07/2014-08-07-androidactivity/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -562,14 +573,14 @@ Intent i = new Intent();
 
           
           
-             <span id="/2014/08/07/2014-08-07-powersavecode/" class="leancloud_visitors" data-flag-title="省电模式部分代码">
+             <span id="/2014/08/07/2014-08-07-androidactivity/" class="leancloud_visitors" data-flag-title="android 外部启动activity，自定义action，action常量大全">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -589,14 +600,15 @@ Intent i = new Intent();
       
         
           
-          这是我写的一个电量管理的一些代码以下皆在android 4.3 平台上测试通过
-
-将 休眠时间调制 15秒：
-Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCREEN_OFF_TIMEOUT
+          转自：http://www.qylk.blog.163.com/blog/static/13468735620130913043889/
+从任意app，启动另外一个app的activity：
+第一种方式
+Intent i = new Intent();
+ ComponentName cn = new
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/08/07/2014-08-07-powersavecode/#more" rel="contents">
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/07/2014-08-07-androidactivity/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -676,7 +688,7 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-05-05T13:14:00+08:00">
                 2014-05-05
               </time>
@@ -690,7 +702,7 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
+              
               <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:06+08:00">
                 2017-01-17
               </time>
@@ -699,11 +711,13 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
@@ -721,6 +735,9 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2014/05/05/2014-05-05-linuxjdkinstall/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/05/2014-05-05-linuxjdkinstall/" itemprop="commentCount"></span>
                 </a>
@@ -737,9 +754,9 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -762,7 +779,7 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
           Linux下有mint/ubuntu/deepin/debian/opensuse/redhat等众多平台.而Orcle只为Linux发布一个JDK（当然包含64bit和32bit），这个JDK是tar.gz格式的初用ubuntu或者基于ubuntu衍生版的人就懵了，怎么安装呢？其实很简单，下面我就
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2014/05/05/2014-05-05-linuxjdkinstall/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -843,7 +860,7 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-05-02T13:14:00+08:00">
                 2014-05-02
               </time>
@@ -857,7 +874,7 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
+              
               <time title="更新于" itemprop="dateModified" datetime="2014-05-02T13:14:00+08:00">
                 2014-05-02
               </time>
@@ -866,11 +883,13 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -888,6 +907,9 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2014/05/02/2014-05-02-fixandroidcamera/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/02/2014-05-02-fixandroidcamera/" itemprop="commentCount"></span>
                 </a>
@@ -904,9 +926,9 @@ Settings.System.putInt(getContentResolver(),android.provider.Settings.System.SCR
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -931,7 +953,7 @@ code/cm10.1/packages/apps/camera
 发现字符串没有丢失，链接到java代码里面
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2014/05/02/2014-05-02-fixandroidcamera/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1012,7 +1034,7 @@ code/cm10.1/packages/apps/camera
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-04-08T13:14:00+08:00">
                 2014-04-08
               </time>
@@ -1026,7 +1048,7 @@ code/cm10.1/packages/apps/camera
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
+              
               <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:01:07+08:00">
                 2017-01-17
               </time>
@@ -1035,11 +1057,13 @@ code/cm10.1/packages/apps/camera
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Linux/" itemprop="url" rel="index">
@@ -1057,6 +1081,9 @@ code/cm10.1/packages/apps/camera
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2014/04/08/2014-04-08-autorunbash/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/08/2014-04-08-autorunbash/" itemprop="commentCount"></span>
                 </a>
@@ -1073,9 +1100,9 @@ code/cm10.1/packages/apps/camera
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1098,7 +1125,7 @@ code/cm10.1/packages/apps/camera
           bash是linux下经常用到的脚本，由于工作需要，我经常需要同步CM10.1，乐蛙和MIUI的patchrom。每次都要手动cd进去，然后repo sync。我比较会偷懒，所以写了一个脚本，自动同步这三个脚本，不过这样的话，每个星期也要运行一次，还是太麻烦了。于是我找到了这篇文章，介绍如何使用cr
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2014/04/08/2014-04-08-autorunbash/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1179,7 +1206,7 @@ code/cm10.1/packages/apps/camera
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-03-31T13:14:00+08:00">
                 2014-03-31
               </time>
@@ -1193,7 +1220,7 @@ code/cm10.1/packages/apps/camera
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
+              
               <time title="更新于" itemprop="dateModified" datetime="2014-03-31T13:14:00+08:00">
                 2014-03-31
               </time>
@@ -1202,11 +1229,13 @@ code/cm10.1/packages/apps/camera
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -1224,6 +1253,9 @@ code/cm10.1/packages/apps/camera
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2014/03/31/2014-03-31-unpackandroidimginlinux/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/31/2014-03-31-unpackandroidimginlinux/" itemprop="commentCount"></span>
                 </a>
@@ -1240,9 +1272,9 @@ code/cm10.1/packages/apps/camera
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1267,7 +1299,7 @@ code/cm10.1/packages/apps/camera
 ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_ext4fs、simg2img、mkusering.sh。make_ext4fs、simg2img、mk
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2014/03/31/2014-03-31-unpackandroidimginlinux/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1348,7 +1380,7 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-03-16T13:14:00+08:00">
                 2014-03-16
               </time>
@@ -1362,7 +1394,7 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
+              
               <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:01:06+08:00">
                 2017-01-17
               </time>
@@ -1371,11 +1403,13 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -1393,6 +1427,9 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2014/03/16/2014-03-16-androidphonenumbercode/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/16/2014-03-16-androidphonenumbercode/" itemprop="commentCount"></span>
                 </a>
@@ -1409,9 +1446,9 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1437,7 +1474,7 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
         info.updateGeoDescr
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2014/03/16/2014-03-16-androidphonenumbercode/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1518,7 +1555,7 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-01-18T13:14:00+08:00">
                 2014-01-18
               </time>
@@ -1532,7 +1569,7 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
-              <span class="post-meta-item-text">更新于</span>
+              
               <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:31+08:00">
                 2017-01-17
               </time>
@@ -1541,11 +1578,13 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
 
           
             <span class="post-category" >
+            
               <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -1563,6 +1602,9 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2014/01/18/2014-01-18-patchromsigh/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="2014/01/18/2014-01-18-patchromsigh/" itemprop="commentCount"></span>
                 </a>
@@ -1579,9 +1621,9 @@ ubuntu系统(其它衍生版和debian的衍生版也可以)，准备工具make_e
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -1609,7 +1651,7 @@ Calendar365.apk
 i
           ...
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/2014/01/18/2014-01-18-patchromsigh/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -1650,7 +1692,7 @@ i
   </nav>
 
 
-
+          
           </div>
           
 
@@ -1682,15 +1724,18 @@ i
                src="/yunicon.png"
                alt="percy|振云" />
           <p class="site-author-name" itemprop="name">percy|振云</p>
-          <p class="site-description motion-element" itemprop="description">愿我从此不再提起，再不提起过去，痛苦与幸福</p>
+          <p class="site-description motion-element" itemprop="description">我歌我且笑，岁月共此生</p>
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">140</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-categories">
@@ -1838,6 +1883,7 @@ i
 
 
 
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -1914,6 +1960,10 @@ i
     <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
+
+
+
+
 
 
 

@@ -189,7 +189,7 @@ body {
   font-size: 14px;
   line-height: 2;
   color: #555;
-  background: #fff;
+  background: #f5f7f9;
 }
 @media (max-width: 767px) {
   body {
@@ -659,8 +659,8 @@ pre .javascript .function {
 @media (min-width: 992px) {
   .full-image.full-image.full-image {
     max-width: none;
-    width: 126%;
-    margin: 0 -13%;
+    width: 118%;
+    margin: 0 -9%;
   }
 }
 .blockquote-center,
@@ -1393,7 +1393,6 @@ pre .javascript .function {
   margin: 0 0.5em;
 }
 .post-meta-item-icon {
-  display: none;
   margin-right: 3px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1430,6 +1429,11 @@ pre .javascript .function {
   background: #fff;
   border-radius: 2px;
   line-height: 2;
+  margin: 0 4px 8px 4px;
+}
+.post-more-link .fa-fw {
+  width: 1.285714285714286em;
+  text-align: left;
 }
 .posts-expand .post-tags {
   margin-top: 40px;
@@ -1683,7 +1687,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff240b;
+  background: #ff2a24;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2066,6 +2070,17 @@ pre .javascript .function {
   background-color: #78ace9 !important;
   border-color: #4cae4c !important;
 }
+.cloud-tie-wrapper img {
+  display: inline-block;
+}
+.cloud-tie-wrapper .total-txt {
+  font-size: 1em !important;
+}
+.cloud-tie-join-count .join-count {
+  color: #555 !important;
+  font-size: inherit !important;
+  margin: 0 !important;
+}
 .post-spread {
   margin-top: 20px;
   text-align: center;
@@ -2441,16 +2456,6 @@ a.search-result {
 .page-post-detail .comments {
   overflow: hidden;
 }
-body {
-  background: #f5f7f9;
-}
-@media (min-width: 992px) {
-  .full-image.full-image.full-image {
-    max-width: none;
-    width: 118%;
-    margin: 0 -9%;
-  }
-}
 .header {
   position: relative;
   margin: 0 auto;
@@ -2473,6 +2478,8 @@ body {
   padding: 0;
   width: 240px;
   background: #fff;
+  box-shadow: initial;
+  border-radius: initial;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
@@ -2483,12 +2490,14 @@ body {
   .header-inner {
     position: relative;
     width: auto;
+    border-radius: initial;
   }
 }
 @media (max-width: 767px) {
   .header-inner {
     position: relative;
     width: auto;
+    border-radius: initial;
   }
 }
 .main:before,
@@ -2529,11 +2538,14 @@ body {
   width: 700px;
   background: #fff;
   min-height: 700px;
+  box-shadow: initial;
+  border-radius: initial;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .content-wrap {
     width: 100%;
     padding: 20px;
+    border-radius: initial;
   }
 }
 @media (max-width: 767px) {
@@ -2541,6 +2553,7 @@ body {
     width: 100%;
     padding: 20px;
     min-height: auto;
+    border-radius: initial;
   }
 }
 .sidebar {
@@ -2548,7 +2561,7 @@ body {
   float: left;
   margin-top: 300px;
   width: 240px;
-  background: #fff;
+  background: #f5f7f9;
   box-shadow: none;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2625,7 +2638,8 @@ body {
   color: #fff;
 }
 .site-subtitle {
-  margin: 0;
+  margin: 10px 10px 0;
+  font-family: monospace;
 }
 .site-search form {
   display: none;
@@ -2682,8 +2696,15 @@ body {
   background-color: #fff;
 }
 .site-nav-toggle {
-  top: 20px;
   left: 20px;
+  top: 50%;
+  top: calc(50% - 3px);
+  -webkit-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav-toggle {
@@ -2704,6 +2725,8 @@ body {
   width: 240px;
   color: #555;
   background: #fff;
+  box-shadow: initial;
+  border-radius: initial;
 }
 .sidebar-inner.affix {
   position: fixed;
