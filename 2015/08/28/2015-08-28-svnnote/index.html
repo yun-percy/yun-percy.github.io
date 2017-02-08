@@ -97,7 +97,7 @@ list示例：123svn list http://svn.test.com/svn     #查看目录中的文件�
 <meta property="og:site_name" content="风之子的世界">
 <meta property="og:description" content="svn 常用主命令:1234svn cat  	#显示特定版本的某文件内容。svn list 	#显示一个目录或某一版本存在的文件列表。svn log  	#显示svn 的版本log，含作者、日期、路径等。svn diff 	#显示特定修改的行级详细信息。
 list示例：123svn list http://svn.test.com/svn     #查看目录中的文件。svn list -v ht">
-<meta property="og:updated_time" content="2015-08-28T05:14:00.000Z">
+<meta property="og:updated_time" content="2017-02-08T06:55:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="svn常用命令">
 <meta name="twitter:description" content="svn 常用主命令:1234svn cat  	#显示特定版本的某文件内容。svn list 	#显示一个目录或某一版本存在的文件列表。svn log  	#显示svn 的版本log，含作者、日期、路径等。svn diff 	#显示特定修改的行级详细信息。
@@ -351,8 +351,8 @@ list示例：123svn list http://svn.test.com/svn     #查看目录中的文件�
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2015-08-28T13:14:00+08:00">
-                2015-08-28
+              <time title="更新于" itemprop="dateModified" datetime="2017-02-08T14:55:54+08:00">
+                2017-02-08
               </time>
             
           </span>
@@ -445,9 +445,36 @@ list示例：123svn list http://svn.test.com/svn     #查看目录中的文件�
 <p>这样svn diff命令就会默认使用vimdiff比较文件。</p>
 <p>diffwrap.sh文件</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#! /bin/bash</span></div><div class="line"></div><div class="line"><span class="comment"># for svn diff: 修改~/.subversion/config，找到如下配置行：</span></div><div class="line"><span class="comment"># diff-cmd = diff_program (diff, gdiff, etc.)</span></div><div class="line"><span class="comment"># diff-cmd = ~/bin/diffwrap.sh</span></div><div class="line"></div><div class="line"><span class="comment"># 参数大于5时，去掉前5个参数；参数小于5，失败，什么也不做</span></div><div class="line"><span class="built_in">shift</span> 5</div><div class="line"></div><div class="line"><span class="comment"># 使用vimdiff比较</span></div><div class="line">vimdiff <span class="string">"<span class="variable">$@</span>"</span></div></pre></td></tr></table></figure>
+<h2 id="svn的分支操作"><a href="#svn的分支操作" class="headerlink" title="svn的分支操作"></a>svn的分支操作</h2><blockquote>
+<p>在使用源代码版本控制工具时，最佳实践是一直保持一个主干版本。但是为了应付实际开发中的各种情况，适时的开辟一些分支也是很有必要的。比如在持续开发新功能的同时，需要发布一个新版本，那么就需要从开发主干中建立一个用于发布的分支，在分支上进行bug fix，维护版本的稳定，并适时的将一些改动合并回主干。目前大红大紫的源代码版本控制工具git很受大家推崇，原因之一就是其在这方面的功能相当强大。其实老牌的SVN也是有这样的功能的，接下来就给大家讲解下。</p>
+</blockquote>
+<h3 id="Branch的创建"><a href="#Branch的创建" class="headerlink" title="Branch的创建"></a>Branch的创建</h3><blockquote>
+<p>在SVN中主干代码一般是放置在Trunk目录下的，如果要新建Branch的话则放置在Branchs目录下。(注意这是一种约定，SVN并不强制你这样做)注意Branhs和Trunk目录要平级，不能有嵌套，要不会引起混乱。</p>
+</blockquote>
+<p>但是在腾讯系的部分工具架构中一般要求把分支代码存放招待tags下面，故而，我们这里选择放在<strong>tags</strong>下面</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">myproject/</div><div class="line">    trunk/</div><div class="line">    branches/</div><div class="line">    tags/</div></pre></td></tr></table></figure>
+<p>创建一个Branch也相当简单，只需要一条命令即可。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svn copy http://example.com/repos/myproject/trunk http://example.com/repos/myproject/tags/201702W1 -m <span class="string">'create branch 201702W1'</span></div></pre></td></tr></table></figure>
+<p><em>note</em>: </p>
+<blockquote>
+<p>其实SVN并没有Branch的内部概念。我们只是创建了一个repo的副本，并自己赋予这个副本作为Branch的意义，所以这与git中的Branch有很大不同。</p>
+</blockquote>
+<p>需要注意的是Branch和Trunk使用同一套版本号，也就是说无论在Branch还是Trunk的提交都会引起主版本号的增加。这是因为svn copy只支持同一个repository内的文件copy，并不支持跨repository的copy，所以新创建的Branch和Trunk都属于同一个repository。</p>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><p>既然要创建分支也需要合并分支。基本的合并也是蛮简单的。</p>
+<p>假设现在Branch上fix了一系列的bug，现在我们想把针对Branch的改变同步到Trunk上，那么应该怎么做那？</p>
+<p><strong>保证当前Branch分支是clean的，也就是说使用svn status看不到任何的本地修改</strong>。</p>
+<p>命令行下切换到Trunk目录中，使用 <code>svn merge http://example.com/repos/myproject/tags/201702W1</code> 来将Branch分支上的改动merge回Trunk下。</p>
+<p>如果出现merge冲突则进行解决，然后执行svn ci -m ‘description’来提交变动。</p>
+<p>当然在merge你也可以指定Branch上那些版本变更可以合并到Trunk中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#示例中是将Branch的从版本150到当前版本的所有改动都合并到Trunk中。</span></div><div class="line">svn merge  http://example.com/repos/myproject/tags/201702W1 -r150:HEAD</div></pre></td></tr></table></figure>
+<p>你也可以将Trunk中的某些更新合并到Branch中，还是同样的方法。</p>
+<p>查看当前Branch和Trunk的合并情况<br>可以使用svn mergeinfo来查看merge情况。</p>
+<p>查看当前Branch中已经有那些改动已经被合并到Trunk中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># cd to trunk directory</div><div class="line">svn mergeinfo http://example.com/repos/myproject/tags/201702W1</div><div class="line">#查看Branch中那些改动还未合并。</div><div class="line">#cd to trunk directory</div><div class="line">svn merginfo http://example.com/repos/myproject/tags/201702W1 --show-revs eligible</div></pre></td></tr></table></figure>
 <p>参考文献</p>
 <p><a href="http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html" target="_blank" rel="external">使用vimdiff作为svn diff的查看代码工具</a></p>
 <p><a href="http://blog.csdn.net/sunboy_2050/article/details/6187464" target="_blank" rel="external">SVN常用命令</a></p>
+<p><a href="http://www.cnblogs.com/huang0925/p/3254243.html" target="_blank" rel="external">SVN中Branch的创建与合并</a></p>
 
       
     </div>
@@ -677,7 +704,7 @@ list示例：123svn list http://svn.test.com/svn     #查看目录中的文件�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#svn-常用主命令"><span class="nav-number">1.</span> <span class="nav-text">svn 常用主命令:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list示例："><span class="nav-number">2.</span> <span class="nav-text">list示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cat示例："><span class="nav-number">3.</span> <span class="nav-text">cat示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diff示例："><span class="nav-number">4.</span> <span class="nav-text">diff示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log示例："><span class="nav-number">5.</span> <span class="nav-text">log示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回滚事例"><span class="nav-number">6.</span> <span class="nav-text">回滚事例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检索出历史版本"><span class="nav-number">7.</span> <span class="nav-text">检索出历史版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset-–hard"><span class="nav-number">8.</span> <span class="nav-text">reset –hard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svn-add"><span class="nav-number">9.</span> <span class="nav-text">svn add .</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svn安静模式"><span class="nav-number">10.</span> <span class="nav-text">svn安静模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">11.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svn-diff个性化定制"><span class="nav-number">12.</span> <span class="nav-text">svn diff个性化定制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#svn-常用主命令"><span class="nav-number">1.</span> <span class="nav-text">svn 常用主命令:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list示例："><span class="nav-number">2.</span> <span class="nav-text">list示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cat示例："><span class="nav-number">3.</span> <span class="nav-text">cat示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diff示例："><span class="nav-number">4.</span> <span class="nav-text">diff示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log示例："><span class="nav-number">5.</span> <span class="nav-text">log示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回滚事例"><span class="nav-number">6.</span> <span class="nav-text">回滚事例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检索出历史版本"><span class="nav-number">7.</span> <span class="nav-text">检索出历史版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reset-–hard"><span class="nav-number">8.</span> <span class="nav-text">reset –hard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svn-add"><span class="nav-number">9.</span> <span class="nav-text">svn add .</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svn安静模式"><span class="nav-number">10.</span> <span class="nav-text">svn安静模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">11.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svn-diff个性化定制"><span class="nav-number">12.</span> <span class="nav-text">svn diff个性化定制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#svn的分支操作"><span class="nav-number">13.</span> <span class="nav-text">svn的分支操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Branch的创建"><span class="nav-number">13.1.</span> <span class="nav-text">Branch的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并"><span class="nav-number">13.2.</span> <span class="nav-text">合并</span></a></li></ol></li></ol></div>
             
 
           </div>
