@@ -199,7 +199,18 @@ mysql -h110.110.110.110 -uroot -pabcd123 # 远程登录
 select count(*) from tablename;
 ```
 
+### 去掉一个表里重复的字样
 
+
+```sh
+delete from  m_videograp_video_cate where v_id in ( select * from ( select v_id from m_videograp_video_cate group by v_id  having count(v_id) > 1 ) as temp) and vc_id=1006;
+```
+
+### 查找表并修改
+
+```sh
+UPDATE xxxx AS A INNER JOIN (SELECT id FROM `xxx` WHERE `xxx`=21310) AS B ON A.id=B.id SET A.xxxx='1002'
+```
 
 #### 退出MYSQL命令： exit (回车)
 
