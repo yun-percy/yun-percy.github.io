@@ -213,7 +213,7 @@ G
 
 
 h">
-<meta property="og:updated_time" content="2016-11-09T04:38:39.000Z">
+<meta property="og:updated_time" content="2017-02-08T12:05:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim学习笔记">
 <meta name="twitter:description" content="操作
@@ -525,8 +525,8 @@ h">
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2016-11-09T12:38:39+08:00">
-                2016-11-09
+              <time title="更新于" itemprop="dateModified" datetime="2017-02-08T20:05:30+08:00">
+                2017-02-08
               </time>
             
           </span>
@@ -787,6 +787,23 @@ h">
 </code></pre><p>通常情况下，会列出第一个找到的匹配项，如果有很多个那就悲剧了，不过这个时候，你可以在控制台输入</p>
 <pre><code>:cw
 </code></pre><p>就会列出所有匹配的文件了，然后通过ctrl+w切换到不同窗口去就可以了</p>
+<h2 id="批量操作"><a href="#批量操作" class="headerlink" title="批量操作"></a>批量操作</h2><h3 id="批量缩进"><a href="#批量缩进" class="headerlink" title="批量缩进"></a>批量缩进</h3><p>比如批量缩进12行</p>
+<p><code>12&gt;&gt;</code></p>
+<p>批量反缩进12行</p>
+<p><code>12&lt;&lt;</code></p>
+<h3 id="批量注释"><a href="#批量注释" class="headerlink" title="批量注释"></a>批量注释</h3><ul>
+<li>ctrl v</li>
+<li>选中</li>
+<li>I</li>
+<li>输入注释符</li>
+<li>Esc ＊2</li>
+</ul>
+<h3 id="批量反注释"><a href="#批量反注释" class="headerlink" title="批量反注释"></a>批量反注释</h3><ul>
+<li>ctrl v</li>
+<li>选中注释符</li>
+<li>d</li>
+<li>Esc ＊2 </li>
+</ul>
 <h2 id="vimrc配置"><a href="#vimrc配置" class="headerlink" title=".vimrc配置"></a>.vimrc配置</h2><blockquote>
 <p>set nu! “显示行号<br><br>hi linenr ctermfg=Darkgray    “行号颜色<br><br>let g:winManagerWindowLayout = “BufExplorer,FileExplorer”  “文件管理器界面，左文件管理。右边代码查看  </p>
 </blockquote>
@@ -1026,7 +1043,7 @@ vam install youcompleteme
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光标移动"><span class="nav-number">2.</span> <span class="nav-text">光标移动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本操作"><span class="nav-number"></span> <span class="nav-text">文本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#复制粘贴"><span class="nav-number">1.</span> <span class="nav-text">复制粘贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入"><span class="nav-number">3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换"><span class="nav-number">4.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以普通用户启动的Vim如何保存需要root权限的文件"><span class="nav-number">5.</span> <span class="nav-text">以普通用户启动的Vim如何保存需要root权限的文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件"><span class="nav-number"></span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cscope-使用"><span class="nav-number">1.</span> <span class="nav-text">cscope 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vimrc配置"><span class="nav-number">2.</span> <span class="nav-text">.vimrc配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">3.</span> <span class="nav-text">其它</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它插件安装"><span class="nav-number">4.</span> <span class="nav-text">其它插件安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光标移动"><span class="nav-number">2.</span> <span class="nav-text">光标移动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本操作"><span class="nav-number"></span> <span class="nav-text">文本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#复制粘贴"><span class="nav-number">1.</span> <span class="nav-text">复制粘贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入"><span class="nav-number">3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换"><span class="nav-number">4.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以普通用户启动的Vim如何保存需要root权限的文件"><span class="nav-number">5.</span> <span class="nav-text">以普通用户启动的Vim如何保存需要root权限的文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件"><span class="nav-number"></span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cscope-使用"><span class="nav-number">1.</span> <span class="nav-text">cscope 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量操作"><span class="nav-number">2.</span> <span class="nav-text">批量操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批量缩进"><span class="nav-number">2.1.</span> <span class="nav-text">批量缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批量注释"><span class="nav-number">2.2.</span> <span class="nav-text">批量注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批量反注释"><span class="nav-number">2.3.</span> <span class="nav-text">批量反注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vimrc配置"><span class="nav-number">3.</span> <span class="nav-text">.vimrc配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">4.</span> <span class="nav-text">其它</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它插件安装"><span class="nav-number">5.</span> <span class="nav-text">其它插件安装</span></a></li></ol></div>
             
 
           </div>

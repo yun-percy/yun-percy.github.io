@@ -210,7 +210,7 @@
     <link href="http://percychen.com/2016/12/07/mysqlnote/"/>
     <id>http://percychen.com/2016/12/07/mysqlnote/</id>
     <published>2016-12-07T04:57:42.000Z</published>
-    <updated>2017-01-17T07:15:11.000Z</updated>
+    <updated>2017-02-09T07:49:36.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/good_hans/archive/2010/03/29/1700046.html" target="_blank" rel="external">原帖地址</a></p>
 <h3 id="mysql服务的启动和停止"><a href="#mysql服务的启动和停止" class="headerlink" title="mysql服务的启动和停止"></a>mysql服务的启动和停止</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">net stop mysql</div><div class="line">net start mysql</div></pre></td></tr></table></figure>
@@ -256,6 +256,8 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h110.110.110.110 -uroot -pabcd123 <span class="comment"># 远程登录</span></div></pre></td></tr></table></figure>
 <p>(注:u与root可以不用加空格，其它也一样)</p>
 <h4 id="查询条目数量"><a href="#查询条目数量" class="headerlink" title="查询条目数量"></a>查询条目数量</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select count(*) from tablename;</div></pre></td></tr></table></figure>
+<h3 id="去掉一个表里重复的字样"><a href="#去掉一个表里重复的字样" class="headerlink" title="去掉一个表里重复的字样"></a>去掉一个表里重复的字样</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">delete from  m_videograp_video_cate <span class="built_in">where</span> v_id <span class="keyword">in</span> ( select * from ( select v_id from m_videograp_video_cate group by v_id  having count(v_id) &gt; 1 ) as temp) and vc_id=1006;</div></pre></td></tr></table></figure>
+<h3 id="查找表并修改"><a href="#查找表并修改" class="headerlink" title="查找表并修改"></a>查找表并修改</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UPDATE xxxx AS A INNER JOIN (SELECT id FROM `xxx` WHERE `xxx`=21310) AS B ON A.id=B.id SET A.xxxx=<span class="string">'1002'</span></div></pre></td></tr></table></figure>
 <h4 id="退出MYSQL命令：-exit-回车"><a href="#退出MYSQL命令：-exit-回车" class="headerlink" title="退出MYSQL命令： exit (回车)"></a>退出MYSQL命令： exit (回车)</h4>]]></content>
     
     <summary type="html">
@@ -1323,37 +1325,6 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
   </entry>
   
   <entry>
-    <title>Cmake的安装</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
-    <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2017-01-17T07:03:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
-&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>转:Linux中源码安装编译Vim</title>
     <link href="http://percychen.com/2016/10/13/2016-10-13-viminstall/"/>
     <id>http://percychen.com/2016/10/13/2016-10-13-viminstall/</id>
@@ -1409,6 +1380,37 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
   </entry>
   
   <entry>
+    <title>Cmake的安装</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2017-01-17T07:03:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
+&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>mysql重置密码</title>
     <link href="http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/"/>
     <id>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</id>
@@ -1450,9 +1452,9 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
       <category term="综合" scheme="http://percychen.com/categories/%E7%BB%BC%E5%90%88/"/>
     
     
-      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
-    
       <category term="password" scheme="http://percychen.com/tags/password/"/>
+    
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
     
       <category term="reset" scheme="http://percychen.com/tags/reset/"/>
     
@@ -1546,9 +1548,9 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
       <category term="Linux" scheme="http://percychen.com/categories/Linux/"/>
     
     
-      <category term="bash" scheme="http://percychen.com/tags/bash/"/>
-    
       <category term="Linux" scheme="http://percychen.com/tags/Linux/"/>
+    
+      <category term="bash" scheme="http://percychen.com/tags/bash/"/>
     
       <category term="运维" scheme="http://percychen.com/tags/%E8%BF%90%E7%BB%B4/"/>
     
@@ -1695,9 +1697,9 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
       <category term="Linux" scheme="http://percychen.com/categories/Linux/"/>
     
     
-      <category term="bash" scheme="http://percychen.com/tags/bash/"/>
-    
       <category term="Linux" scheme="http://percychen.com/tags/Linux/"/>
+    
+      <category term="bash" scheme="http://percychen.com/tags/bash/"/>
     
       <category term="运维" scheme="http://percychen.com/tags/%E8%BF%90%E7%BB%B4/"/>
     
