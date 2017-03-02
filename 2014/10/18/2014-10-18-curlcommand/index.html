@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux,Curl," />
 
 
 
@@ -89,16 +89,19 @@
 
 
 
-<meta name="description" content="CURL&amp;nbsp;—&amp;nbsp;命令行浏览器这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑1)二话不说，先从这里开始吧！curl&amp;nbsp;http://www.yahoo.com回车之后，www.yahoo.com&amp;nbsp;的html就稀里哗啦地显示在屏幕上了~2)嗯，要想把读过来页面存下来，是不是要这样呢？curl&amp;nbsp;http://www.yahoo.com&amp;n">
+<meta name="description" content="2017-03-02更新
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
 <meta property="og:type" content="article">
-<meta property="og:title" content="命令行浏览器 curl 命令详解">
+<meta property="og:title" content="curl 命令详解">
 <meta property="og:url" content="http://percychen.com/2014/10/18/2014-10-18-curlcommand/index.html">
 <meta property="og:site_name" content="风之子的世界">
-<meta property="og:description" content="CURL&amp;nbsp;—&amp;nbsp;命令行浏览器这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑1)二话不说，先从这里开始吧！curl&amp;nbsp;http://www.yahoo.com回车之后，www.yahoo.com&amp;nbsp;的html就稀里哗啦地显示在屏幕上了~2)嗯，要想把读过来页面存下来，是不是要这样呢？curl&amp;nbsp;http://www.yahoo.com&amp;n">
-<meta property="og:updated_time" content="2014-10-18T05:14:00.000Z">
+<meta property="og:description" content="2017-03-02更新
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
+<meta property="og:updated_time" content="2017-03-02T12:37:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="命令行浏览器 curl 命令详解">
-<meta name="twitter:description" content="CURL&amp;nbsp;—&amp;nbsp;命令行浏览器这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑1)二话不说，先从这里开始吧！curl&amp;nbsp;http://www.yahoo.com回车之后，www.yahoo.com&amp;nbsp;的html就稀里哗啦地显示在屏幕上了~2)嗯，要想把读过来页面存下来，是不是要这样呢？curl&amp;nbsp;http://www.yahoo.com&amp;n">
+<meta name="twitter:title" content="curl 命令详解">
+<meta name="twitter:description" content="2017-03-02更新
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
 
 
 
@@ -132,7 +135,7 @@
 
 
 
-  <title> 命令行浏览器 curl 命令详解 | 风之子的世界 </title>
+  <title> curl 命令详解 | 风之子的世界 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -321,7 +324,7 @@
             
             
               
-                命令行浏览器 curl 命令详解
+                curl 命令详解
               
             
           </h1>
@@ -348,8 +351,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-18T13:14:00+08:00">
-                2014-10-18
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-02T20:37:27+08:00">
+                2017-03-02
               </time>
             
           </span>
@@ -365,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
                   </a>
                 </span>
 
@@ -394,7 +397,7 @@
 
           
           
-             <span id="/2014/10/18/2014-10-18-curlcommand/" class="leancloud_visitors" data-flag-title="命令行浏览器 curl 命令详解">
+             <span id="/2014/10/18/2014-10-18-curlcommand/" class="leancloud_visitors" data-flag-title="curl 命令详解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,10 +422,8 @@
       
 
       
-        <div id="content" class="content mod-cs-content text-content clearfix"> <p>CURL&nbsp;—&nbsp;命令行浏览器<br><br>这东西现在已经是苹果机上内置的命令行工具之一了，可见其魅力之一斑<br><br>1)<br>二话不说，先从这里开始吧！<br><br>curl&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>回车之后，www.yahoo.com&nbsp;的html就稀里哗啦地显示在屏幕上了<del>~</del><br><br>2)<br>嗯，要想把读过来页面存下来，是不是要这样呢？<br>curl&nbsp;<a href="http://www.yahoo.com&nbsp;&gt;&nbsp;page.html" target="_blank" rel="external">http://www.yahoo.com&nbsp;&gt;&nbsp;page.html</a><br><br>当然可以，但不用这么麻烦的！<br>用curl的内置option就好，存下http的结果，用这个option:&nbsp;-o<br>curl&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，你就可以看到屏幕上出现一个下载页面进度指示。等进展到100%，自然就OK咯<br><br>3)<br>什么什么？！访问不到？肯定是你的proxy没有设定了。<br>使用curl的时候，用这个option可以指定http访问所使用的proxy服务器及其端口：&nbsp;-x<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br><br>4)<br>访问有些网站的时候比较讨厌，他使用cookie来记录session信息。<br>像IE/NN这样的浏览器，当然可以轻易处理cookie信息，但我们的curl呢？…..<br>我们来学习这个option:&nbsp;-D&nbsp;&lt;–&nbsp;这个是把http的response里面的cookie信息存到一个特别的文件中去<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，当页面被存到page.html的同时，cookie信息也被存到了cookie0001.txt里面了<br><br><br>5）<br>那么，下一次访问的时候，如何继续使用上次留下的cookie信息呢？要知道，很多网站都是靠监视你的cookie信息，<br>来判断你是不是不按规矩访问他们的网站的。<br>这次我们使用这个option来把上次的cookie信息追加到http&nbsp;request里面去：&nbsp;-b<br>curl&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page1.html&nbsp;-D&nbsp;cookie0002.txt&nbsp;-b&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，我们就可以几乎模拟所有的IE操作，去访问网页了！<br><br><br>6）<br>稍微等等<del>~</del>我好像忘记什么了<del>~</del><br>对了！是浏览器信息<del>~~<br><br>有些讨厌的网站总要我们使用某些特定的浏览器去访问他们，有时候更过分的是，还要使用某些特定的版本</del><del><br>NND，哪里有时间为了它去找这些怪异的浏览器呢！？<br><br>好在curl给我们提供了一个有用的option，可以让我们随意指定自己这次访问所宣称的自己的浏览器信息：&nbsp;-A<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，服务器端接到访问的要求，会认为你是一个运行在Windows&nbsp;2000上的IE6.0，嘿嘿嘿，其实也许你用的是苹果机呢！<br><br>而”Mozilla/4.73&nbsp;[en]&nbsp;(X11;&nbsp;U;&nbsp;Linux&nbsp;2.2;&nbsp;15&nbsp;i686”则可以告诉对方你是一台PC上跑着的Linux，用的是Netscape&nbsp;4.73，呵呵呵<br><br><br>7）<br>另外一个服务器端常用的限制方法，就是检查http访问的referer。比如你先访问首页，再访问里面所指定的下载页，这第二次访问的referer地址就是第一次访问成功后的页面地址。这样，服务器端只要发现对下载页面某次访问的referer地址不&nbsp;是首页的地址，就可以断定那是个盗连了</del><del>~<br><br>讨厌讨厌</del>~我就是要盗连<del>~</del>！！<br>幸好curl给我们提供了设定referer的option：&nbsp;-e<br>curl&nbsp;-A&nbsp;”Mozilla/4.0&nbsp;(compatible;&nbsp;MSIE&nbsp;6.0;&nbsp;Windows&nbsp;NT&nbsp;5.0)”&nbsp;-x&nbsp;123.45.67.89:1080&nbsp;-e&nbsp;”mail.yahoo.com”&nbsp;-o&nbsp;page.html&nbsp;-D&nbsp;cookie0001.txt&nbsp;<a href="http://www.yahoo.com" target="_blank" rel="external">http://www.yahoo.com</a><br><br>这样，就可以骗对方的服务器，你是从mail.yahoo.com点击某个链接过来的了，呵呵呵<br><br><br>8）<br>写着写着发现漏掉什么重要的东西了！—–&nbsp;利用curl&nbsp;下载文件<br><br>刚才讲过了，下载页面到一个文件里，可以使用&nbsp;-o&nbsp;，下载文件也是一样。<br>比如，&nbsp;curl&nbsp;-o&nbsp;1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这里教大家一个新的option：&nbsp;-O<br>大写的O，这么用：&nbsp;curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen1.JPG</a><br>这样，就可以按照服务器上的文件名，自动存在本地了！<br><br>再来一个更好用的。<br>如果screen1.JPG以外还有screen2.JPG、screen3.JPG、….、screen10.JPG需要下载，难不成还要让我们写一个script来完成这些操作？<br>不干！<br>在curl里面，这么写就可以了：<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/screen[1-10].JPG</a><br><br>呵呵呵，厉害吧？！<del>~<br><br>9）<br>再来，我们继续讲解下载！<br>curl&nbsp;-O&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>这样产生的下载，就是<br>~zzh/001.JPG<br>~zzh/002.JPG<br>…<br>~zzh/201.JPG<br>~nick/001.JPG<br>~nick/002.JPG<br>…<br>~nick/201.JPG<br><br>够方便的了吧？哈哈哈<br><br>咦？高兴得太早了。<br>由于zzh/nick下的文件名都是001，002…，201，下载下来的文件重名，后面的把前面的文件都给覆盖掉了</del>~<br><br>没关系，我们还有更狠的！<br>curl&nbsp;-o&nbsp;#2_#1.jpg&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~{zzh,nick}/[001-201].JPG</a><br><br>–这是…..自定义文件名的下载？<br>–对头，呵呵！<br><br>#1是变量，指的是{zzh,nick}这部分，第一次取值zzh，第二次取值nick<br>#2代表的变量，则是第二段可变部分—[001-201]，取值从001逐一加到201<br>这样，自定义出来下载下来的文件名，就变成了这样：<br>原来：&nbsp;~zzh/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-zzh.JPG<br>原来：&nbsp;~nick/001.JPG&nbsp;—&gt;&nbsp;下载后：&nbsp;001-nick.JPG<br><br>这样一来，就不怕文件重名啦，呵呵<br><br><br>9）<br>继续讲下载<br>我们平时在windows平台上，flashget这样的工具可以帮我们分块并行下载，还可以断线续传。<br>curl在这些方面也不输给谁，嘿嘿<br><br>比如我们下载screen1.JPG中，突然掉线了，我们就可以这样开始续传<br>curl&nbsp;-c&nbsp;-O&nbsp;<a href="http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG" target="_blank" rel="external">http://cgi2.tky.3wb.ne.jp/~zzh/screen1.JPG</a><br><br>当然，你不要拿个flashget下载了一半的文件来糊弄我<del>~~别的下载软件的半截文件可不一定能用哦</del>~<br><br>分块下载，我们使用这个option就可以了：&nbsp;-r<br>举例说明<br>比如我们有一个<a href="http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;要下载（赵老师的电话朗诵&nbsp;:D&nbsp;）</a><br>我们就可以用这样的命令：<br>curl&nbsp;-r&nbsp;0-10240&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;10241-20480&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;20481-40960&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3&nbsp;&amp;\<br>curl&nbsp;-r&nbsp;40961-&nbsp;-o&nbsp;”zhao.part1”&nbsp;http:/cgi2.tky.3web.ne.jp/~zzh/zhao1.mp3<br><br>这样就可以分块下载啦。<br>不过你需要自己把这些破碎的文件合并起来<br>如果你用UNIX或苹果，用&nbsp;cat&nbsp;zhao.part*&nbsp;&gt;&nbsp;zhao.mp3就可以<br>如果用的是Windows，用copy&nbsp;/b&nbsp;来解决吧，呵呵<br><br>上面讲的都是http协议的下载，其实ftp也一样可以用。<br>用法嘛，<br>curl&nbsp;-u&nbsp;name:passwd&nbsp;ftp://ip:port/path/file<br>或者大家熟悉的<br>curl&nbsp;ftp://name:passwd@ip:port/path/file<br><br><br><br>10)<br>说完了下载，接下来自然该讲上传咯<br>上传的option是&nbsp;-T<br><br>比如我们向ftp传一个文件：&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;-u&nbsp;name:passwd&nbsp;ftp://upload_site:port/path/<br><br>当然，向http服务器上传文件也可以<br>比如&nbsp;curl&nbsp;-T&nbsp;localfile&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/abc.cgi</a><br>注意，这时候，使用的协议是HTTP的PUT&nbsp;method<br><br>刚才说到PUT，嘿嘿，自然让老服想起来了其他几种methos还没讲呢！<br>GET和POST都不能忘哦。<br><br>http提交一个表单，比较常用的是POST模式和GET模式<br><br>GET模式什么option都不用，只需要把变量写在url里面就可以了<br>比如：<br>curl&nbsp;<a href="http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345" target="_blank" rel="external">http://www.yahoo.com/login.cgi?user=nickwolfe&amp;password=12345</a><br><br>而POST模式的option则是&nbsp;-d<br><br>比如，curl&nbsp;-d&nbsp;”user=nickwolfe&amp;password=12345”&nbsp;<a href="http://www.yahoo.com/login.cgi" target="_blank" rel="external">http://www.yahoo.com/login.cgi</a><br>就相当于向这个站点发出一次登陆申请<del>~</del><br><br>到底该用GET模式还是POST模式，要看对面服务器的程序设定。<br><br>一点需要注意的是，POST模式下的文件上的文件上传，比如<br>&lt;form&nbsp;method=”POST”&nbsp;enctype=”multipar/form-data”&nbsp;action=”<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi&quot;&amp;gt</a>;<br>&lt;input&nbsp;type=file&nbsp;name=upload&gt;<br>&lt;input&nbsp;type=submit&nbsp;name=nick&nbsp;value=”go”&gt;<br>&lt;/form&gt;<br>这样一个HTTP表单，我们要用curl进行模拟，就该是这样的语法：<br>curl&nbsp;-F&nbsp;upload=@localfile&nbsp;-F&nbsp;nick=go&nbsp;<a href="http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi" target="_blank" rel="external">http://cgi2.tky.3web.ne.jp/~zzh/up_file.cgi</a><br><br>罗罗嗦嗦讲了这么多，其实curl还有很多很多技巧和用法<br>比如&nbsp;https的时候使用本地证书，就可以这样<br>curl&nbsp;-E&nbsp;localcert.pem&nbsp;<a href="https://remote_server" target="_blank" rel="external">https://remote_server</a><br><br>再比如，你还可以用curl通过dict协议去查字典<del>~</del><br>curl&nbsp;dict://dict.org/d:computer <br></p> </div>
-
-<p>文章转自：<a href="http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff" target="_blank" rel="external">http://hi.baidu.com/oyvfhp/item/747ecf16e4619c3ab83180ff</a></p>
-
+        <p>2017-03-02更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line">-a/--append 上传文件时，附加到目标文件  </div><div class="line"> -A/--user-agent &lt;string&gt;  设置用户代理发送给服务器  </div><div class="line"> - anyauth   可以使用“任何”身份验证方法  </div><div class="line"> -b/--cookie &lt;name=string/file&gt; cookie字符串或文件读取位置  </div><div class="line"> - basic 使用HTTP基本验证  </div><div class="line"> -B/--use-ascii 使用ASCII /文本传输  </div><div class="line"> -c/--cookie-jar &lt;file&gt; 操作结束后把cookie写入到这个文件中  </div><div class="line"> -C/--continue-at &lt;offset&gt;  断点续转  </div><div class="line"> -d/--data &lt;data&gt;   HTTP POST方式传送数据  </div><div class="line"> --data-ascii &lt;data&gt;  以ascii的方式post数据  </div><div class="line"> --data-binary &lt;data&gt; 以二进制的方式post数据  </div><div class="line"> --negotiate     使用HTTP身份验证  </div><div class="line"> --digest        使用数字身份验证  </div><div class="line"> --disable-eprt  禁止使用EPRT或LPRT  </div><div class="line"> --disable-epsv  禁止使用EPSV  </div><div class="line"> -D/--dump-header &lt;file&gt; 把header信息写入到该文件中  </div><div class="line"> --egd-file &lt;file&gt; 为随机数据(SSL)设置EGD socket路径  </div><div class="line"> --tcp-nodelay   使用TCP_NODELAY选项  </div><div class="line"> -e/--referer 来源网址  </div><div class="line"> -E/--cert &lt;cert[:passwd]&gt; 客户端证书文件和密码 (SSL)  </div><div class="line"> --cert-type &lt;type&gt; 证书文件类型 (DER/PEM/ENG) (SSL)  </div><div class="line"> --key &lt;key&gt;     私钥文件名 (SSL)  </div><div class="line"> --key-type &lt;type&gt; 私钥文件类型 (DER/PEM/ENG) (SSL)  </div><div class="line"> --pass  &lt;pass&gt;  私钥密码 (SSL)  </div><div class="line"> --engine &lt;eng&gt;  加密引擎使用 (SSL). &quot;--engine list&quot; for list  </div><div class="line"> --cacert &lt;file&gt; CA证书 (SSL)  </div><div class="line"> --capath &lt;directory&gt; CA目录 (made using c_rehash) to verify peer against (SSL)  </div><div class="line"> --ciphers &lt;list&gt;  SSL密码  </div><div class="line"> --compressed    要求返回是压缩的形势 (using deflate or gzip)  </div><div class="line"> --connect-timeout &lt;seconds&gt; 设置最大请求时间  </div><div class="line"> --create-dirs   建立本地目录的目录层次结构  </div><div class="line"> --crlf          上传是把LF转变成CRLF  </div><div class="line"> -f/--fail          连接失败时不显示http错误  </div><div class="line"> --ftp-create-dirs 如果远程目录不存在，创建远程目录  </div><div class="line"> --ftp-method [multicwd/nocwd/singlecwd] 控制CWD的使用  </div><div class="line"> --ftp-pasv      使用 PASV/EPSV 代替端口  </div><div class="line"> --ftp-skip-pasv-ip 使用PASV的时候,忽略该IP地址  </div><div class="line"> --ftp-ssl       尝试用 SSL/TLS 来进行ftp数据传输  </div><div class="line"> --ftp-ssl-reqd  要求用 SSL/TLS 来进行ftp数据传输  </div><div class="line"> -F/--form &lt;name=content&gt; 模拟http表单提交数据  </div><div class="line"> -form-string &lt;name=string&gt; 模拟http表单提交数据  </div><div class="line"> -g/--globoff 禁用网址序列和范围使用&#123;&#125;和[]  </div><div class="line"> -G/--get 以get的方式来发送数据  </div><div class="line"> -h/--help 帮助  </div><div class="line"> -H/--header &lt;line&gt;自定义头信息传递给服务器  </div><div class="line"> --ignore-content-length  忽略的HTTP头信息的长度  </div><div class="line"> -i/--include 输出时包括protocol头信息  </div><div class="line"> -I/--head  只显示文档信息  </div><div class="line"> 从文件中读取-j/--junk-session-cookies忽略会话Cookie  </div><div class="line"> - 界面&lt;interface&gt;指定网络接口/地址使用  </div><div class="line"> - krb4 &lt;级别&gt;启用与指定的安全级别krb4  </div><div class="line"> -j/--junk-session-cookies 读取文件进忽略session cookie  </div><div class="line"> --interface &lt;interface&gt; 使用指定网络接口/地址  </div><div class="line"> --krb4 &lt;level&gt;  使用指定安全级别的krb4  </div><div class="line"> -k/--insecure 允许不使用证书到SSL站点  </div><div class="line"> -K/--config  指定的配置文件读取  </div><div class="line"> -l/--list-only 列出ftp目录下的文件名称  </div><div class="line"> --limit-rate &lt;rate&gt; 设置传输速度  </div><div class="line"> --local-port&lt;NUM&gt; 强制使用本地端口号  </div><div class="line"> -m/--max-time &lt;seconds&gt; 设置最大传输时间  </div><div class="line"> --max-redirs &lt;num&gt; 设置最大读取的目录数  </div><div class="line"> --max-filesize &lt;bytes&gt; 设置最大下载的文件总量  </div><div class="line"> -M/--manual  显示全手动  </div><div class="line"> -n/--netrc 从netrc文件中读取用户名和密码  </div><div class="line"> --netrc-optional 使用 .netrc 或者 URL来覆盖-n  </div><div class="line"> --ntlm          使用 HTTP NTLM 身份验证  </div><div class="line"> -N/--no-buffer 禁用缓冲输出  </div><div class="line"> -o/--output 把输出写到该文件中  </div><div class="line"> -O/--remote-name 把输出写到该文件中，保留远程文件的文件名  </div><div class="line"> -p/--proxytunnel   使用HTTP代理  </div><div class="line"> --proxy-anyauth 选择任一代理身份验证方法  </div><div class="line"> --proxy-basic   在代理上使用基本身份验证  </div><div class="line"> --proxy-digest  在代理上使用数字身份验证  </div><div class="line"> --proxy-ntlm    在代理上使用ntlm身份验证  </div><div class="line"> -P/--ftp-port &lt;address&gt; 使用端口地址，而不是使用PASV  </div><div class="line"> -Q/--quote &lt;cmd&gt;文件传输前，发送命令到服务器  </div><div class="line"> -r/--range &lt;range&gt;检索来自HTTP/1.1或FTP服务器字节范围  </div><div class="line"> --range-file 读取（SSL）的随机文件  </div><div class="line"> -R/--remote-time   在本地生成文件时，保留远程文件时间  </div><div class="line"> --retry &lt;num&gt;   传输出现问题时，重试的次数  </div><div class="line"> --retry-delay &lt;seconds&gt;  传输出现问题时，设置重试间隔时间  </div><div class="line"> --retry-max-time &lt;seconds&gt; 传输出现问题时，设置最大重试时间  </div><div class="line"> -s/--silent静音模式。不输出任何东西  </div><div class="line"> -S/--show-error   显示错误  </div><div class="line"> --socks4 &lt;host[:port]&gt; 用socks4代理给定主机和端口  </div><div class="line"> --socks5 &lt;host[:port]&gt; 用socks5代理给定主机和端口  </div><div class="line"> --stderr &lt;file&gt;  </div><div class="line"> -t/--telnet-option &lt;OPT=val&gt; Telnet选项设置  </div><div class="line"> --trace &lt;file&gt;  对指定文件进行debug  </div><div class="line"> --trace-ascii &lt;file&gt; Like --跟踪但没有hex输出  </div><div class="line"> --trace-time    跟踪/详细输出时，添加时间戳  </div><div class="line"> -T/--upload-file &lt;file&gt; 上传文件  </div><div class="line"> --url &lt;URL&gt;     Spet URL to work with  </div><div class="line"> -u/--user &lt;user[:password]&gt;设置服务器的用户和密码  </div><div class="line"> -U/--proxy-user &lt;user[:password]&gt;设置代理用户名和密码  </div><div class="line"> -v/--verbose  </div><div class="line"> -V/--version 显示版本信息  </div><div class="line"> -w/--write-out [format]什么输出完成后  </div><div class="line"> -x/--proxy &lt;host[:port]&gt;在给定的端口上使用HTTP代理  </div><div class="line"> -X/--request &lt;command&gt;指定什么命令  </div><div class="line"> -y/--speed-time 放弃限速所要的时间。默认为30  </div><div class="line"> -Y/--speed-limit 停止传输速度的限制，速度时间&apos;秒  </div><div class="line"> -z/--time-cond  传送时间设置  </div><div class="line"> -0/--http1.0  使用HTTP 1.0  </div><div class="line"> -1/--tlsv1  使用TLSv1（SSL）  </div><div class="line"> -2/--sslv2 使用SSLv2的（SSL）  </div><div class="line"> -3/--sslv3         使用的SSLv3（SSL）  </div><div class="line"> --3p-quote      like -Q for the source URL for 3rd party transfer  </div><div class="line"> --3p-url        使用url，进行第三方传送  </div><div class="line"> --3p-user       使用用户名和密码，进行第三方传送  </div><div class="line"> -4/--ipv4   使用IP4  </div><div class="line"> -6/--ipv6   使用IP6  </div><div class="line"> -#/--progress-bar 用进度条显示当前的传送状态</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -442,13 +443,21 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Curl/" rel="tag"># Curl</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/10/18/2014-10-18-codelayout/" rel="next" title="代码布局的一些零碎语法">
-                <i class="fa fa-chevron-left"></i> 代码布局的一些零碎语法
+              <a href="/2014/10/13/2014-10-13-androidmakefile/" rel="next" title="Android Makefile 编译过程讲解">
+                <i class="fa fa-chevron-left"></i> Android Makefile 编译过程讲解
               </a>
             
           </div>
@@ -457,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/10/18/2014-10-18-zipcommand/" rel="prev" title="linux下 解压zip,tar等压缩文件详解">
-                linux下 解压zip,tar等压缩文件详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2014/10/18/2014-10-18-codelayout/" rel="prev" title="代码布局的一些零碎语法">
+                代码布局的一些零碎语法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -475,7 +484,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2014/10/18/2014-10-18-curlcommand/"
-     data-title="命令行浏览器 curl 命令详解"
+     data-title="curl 命令详解"
      data-content=""
      data-url="http://percychen.com/2014/10/18/2014-10-18-curlcommand/">
   <div class="ds-share-inline">
@@ -508,7 +517,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2014/10/18/2014-10-18-curlcommand/"
-           data-title="命令行浏览器 curl 命令详解" data-url="http://percychen.com/2014/10/18/2014-10-18-curlcommand/">
+           data-title="curl 命令详解" data-url="http://percychen.com/2014/10/18/2014-10-18-curlcommand/">
       </div>
     
   </div>
@@ -564,7 +573,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
