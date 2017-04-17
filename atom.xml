@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://percychen.com/"/>
-  <updated>2017-01-17T06:55:50.000Z</updated>
+  <updated>2017-04-17T01:16:14.000Z</updated>
   <id>http://percychen.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>故事</title>
+    <link href="http://percychen.com/2017/04/17/story/"/>
+    <id>http://percychen.com/2017/04/17/story/</id>
+    <published>2017-04-17T01:15:37.000Z</published>
+    <updated>2017-04-17T01:16:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="../img/1.jpg" alt="xxx"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;../img/1.jpg&quot; alt=&quot;xxx&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="粮食" scheme="http://percychen.com/categories/%E7%B2%AE%E9%A3%9F/"/>
+    
+    
+      <category term="修心" scheme="http://percychen.com/tags/%E4%BF%AE%E5%BF%83/"/>
+    
+      <category term="小诗" scheme="http://percychen.com/tags/%E5%B0%8F%E8%AF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>初始地</title>
@@ -104,9 +130,9 @@
       <category term="tools" scheme="http://percychen.com/categories/tools/"/>
     
     
-      <category term="mac" scheme="http://percychen.com/tags/mac/"/>
-    
       <category term="gradle" scheme="http://percychen.com/tags/gradle/"/>
+    
+      <category term="mac" scheme="http://percychen.com/tags/mac/"/>
     
   </entry>
   
@@ -1187,6 +1213,37 @@ c.close() <span class="comment">#Curl对象无操作时，也会自动执行clos
   </entry>
   
   <entry>
+    <title>Cmake的安装</title>
+    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
+    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
+    <published>2016-10-13T05:14:00.000Z</published>
+    <updated>2017-01-17T07:03:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
+<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
+<p>给出一下信息表示安装成功</p>
+<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
+<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
+&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>转:Linux中源码安装编译Vim</title>
     <link href="http://percychen.com/2016/10/13/2016-10-13-viminstall/"/>
     <id>http://percychen.com/2016/10/13/2016-10-13-viminstall/</id>
@@ -1238,37 +1295,6 @@ c.close() <span class="comment">#Curl对象无操作时，也会自动执行clos
       <category term="source" scheme="http://percychen.com/tags/source/"/>
     
       <category term="vim" scheme="http://percychen.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cmake的安装</title>
-    <link href="http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/"/>
-    <id>http://percychen.com/2016/10/13/2016-10-13-cmakeinstall/</id>
-    <published>2016-10-13T05:14:00.000Z</published>
-    <updated>2017-01-17T07:03:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>cmake版本 2.8.10.2</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a><a href="https://cmake.org/download/" target="_blank" rel="external">下载地址</a></h3><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure</div><div class="line">make</div><div class="line">sudo make install</div></pre></td></tr></table></figure>
-<h3 id="检查是否安装成功："><a href="#检查是否安装成功：" class="headerlink" title="检查是否安装成功："></a>检查是否安装成功：</h3><p>输入shell命令: <code>cmake --version</code></p>
-<p>给出一下信息表示安装成功</p>
-<p>cmake 会默认安装在 <code>/usr/local/bin</code> 下面</p>
-<p>要改变安装路径，在bootstrap命令中加入<code>--prefix=PATH</code>选项。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;cmake版本 2.8.10.2&lt;/p&gt;
-&lt;h3 id=&quot;下载地址&quot;&gt;&lt;a href=&quot;#下载地址&quot; class=&quot;headerlink&quot; title=&quot;下载地址&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cmake.org/download/&quot; target=&quot;_bla
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="笔记" scheme="http://percychen.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -1411,38 +1437,6 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
   </entry>
   
   <entry>
-    <title>python mysql查询笔迹</title>
-    <link href="http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/"/>
-    <id>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</id>
-    <published>2016-09-26T05:14:00.000Z</published>
-    <updated>2016-12-06T15:17:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
-<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<p>更新数据</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""select * from table where id="1534" order by number desc"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;连接数据库&quot;&gt;&lt;a href=&quot;#连接数据库&quot; class=&quot;headerlink&quot; title=&quot;连接数据库&quot;&gt;&lt;/a&gt;连接数据库&lt;/h2&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
-    
-    </summary>
-    
-      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-      <category term="python" scheme="http://percychen.com/tags/python/"/>
-    
-      <category term="note" scheme="http://percychen.com/tags/note/"/>
-    
-      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
     <title>mysql重置密码</title>
     <link href="http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/"/>
     <id>http://percychen.com/2016/09/26/2016-09-26-mysqlpasswordreset/</id>
@@ -1489,6 +1483,38 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
       <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
     
       <category term="reset" scheme="http://percychen.com/tags/reset/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python mysql查询笔迹</title>
+    <link href="http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/"/>
+    <id>http://percychen.com/2016/09/26/2016-09-26-pythonmysqlnote/</id>
+    <published>2016-09-26T05:14:00.000Z</published>
+    <updated>2016-12-06T15:17:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db = MySQLdb.connect(host=<span class="string">"www.gyyx.com"</span>,user=<span class="string">"user"</span>,passwd=<span class="string">"xxx"</span>,db=<span class="string">"mysql"</span> )</div></pre></td></tr></table></figure>
+<h2 id="新建数据库"><a href="#新建数据库" class="headerlink" title="新建数据库"></a>新建数据库</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"create database if not exists mysql"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"CREATE TABLE `main_page_data` ( `id` int(11) NOT NULL DEFAULT '1' COMMENT 'id', `rdm_info` varchar(32) NOT NULL DEFAULT '' COMMENT 'rdm数据', PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='VCI首页数据'"</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""insert into main_page_data (id,rdm_info) values (1,"7")"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<p>更新数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql="""update main_page_data set id=1,rdm_info="7" where id="1""""</div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sql=<span class="string">"""select * from table where id="1534" order by number desc"""</span></div><div class="line">cursor.execute(sql)</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;连接数据库&quot;&gt;&lt;a href=&quot;#连接数据库&quot; class=&quot;headerlink&quot; title=&quot;连接数据库&quot;&gt;&lt;/a&gt;连接数据库&lt;/h2&gt;&lt;figure class=&quot;highlight py&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+    
+    </summary>
+    
+      <category term="语法" scheme="http://percychen.com/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="http://percychen.com/tags/python/"/>
+    
+      <category term="note" scheme="http://percychen.com/tags/note/"/>
+    
+      <category term="mysql" scheme="http://percychen.com/tags/mysql/"/>
     
   </entry>
   
@@ -2051,803 +2077,6 @@ signal.signal(signal.SIGWINCH, sigwinch_passthrough)
       <category term="python" scheme="http://percychen.com/tags/python/"/>
     
       <category term="re" scheme="http://percychen.com/tags/re/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>7z命令行详解及示例</title>
-    <link href="http://percychen.com/2016/07/06/2016-07-06-7zipcommand/"/>
-    <id>http://percychen.com/2016/07/06/2016-07-06-7zipcommand/</id>
-    <published>2016-07-06T05:14:00.000Z</published>
-    <updated>2016-07-06T05:14:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="常规简单用法"><a href="#常规简单用法" class="headerlink" title="常规简单用法"></a>常规简单用法</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip -p111 archive.7z txt.txt<span class="comment">#压缩 密码为111</span></div><div class="line">7z x -tzip -p111 archive.7z<span class="comment">#解压 密码为111</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>7z 是 7-Zip 的命令行版本。包含命令如下：</p>
-</blockquote>
-<p><strong>命令行选项</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z [命令行] [[选项]...] [基本档案名称] [[参数变量]...]</div><div class="line">7z [<span class="built_in">command</span>] [[switch]...] [base_archive_name] [[arguments]...]</div></pre></td></tr></table></figure>
-<ul>
-<li>文件列表</li>
-</ul>
-<blockquote>
-<p>您可以使用文件列表来对要操作的文件进行批量操作。在文件中的文件名必须用空格或另起一行隔开。(如使用空格，需要加引号)。</p>
-</blockquote>
-<p>example:</p>
-<p>listfile.txt包含下列内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;My programs\*.cpp&quot;</div><div class="line">Src\*.cpp</div></pre></td></tr></table></figure>
-<p>命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip @listfile.txt</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>添加</td>
-</tr>
-<tr>
-<td>d</td>
-<td>删除</td>
-</tr>
-<tr>
-<td>e</td>
-<td>释放</td>
-</tr>
-<tr>
-<td>l</td>
-<td>列表</td>
-</tr>
-<tr>
-<td>t</td>
-<td>测试</td>
-</tr>
-<tr>
-<td>u</td>
-<td>更新</td>
-</tr>
-<tr>
-<td>x</td>
-<td>完整路径释放</td>
-</tr>
-</tbody>
-</table>
-<p>可以和此命令结合使用的选项:</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td>包括文件名</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>设置压缩算法</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>设置密码</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归子目录</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>设置压缩档案格式</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>更新选项</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>设置工作目录</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>排除文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>a (添加) 命令</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip subdir\*</div><div class="line"><span class="comment">#从 subdir 文件夹添加所有文件到 archive.zip 压缩档案。</span></div><div class="line">7z a -tzip Files.zip <span class="string">"Program files\*"</span> -r</div><div class="line"><span class="comment">#从 Program 文件夹添加所有文件到 Files.zip 压缩档案。</span></div></pre></td></tr></table></figure>
-<ul>
-<li>d (删除) 命令</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z d archive.zip *.bak</div><div class="line"><span class="comment">#从 archive.zip 压缩档案中删除 *.bak 文件。</span></div></pre></td></tr></table></figure>
-<ul>
-<li>e (释放) 命令</li>
-</ul>
-<p>7z 冲突回应：<br>回应 |简写|描述<br>—|—|—<br>Yes(是) |y<br>No(否)| n<br>Always(总是)|a| 将所有的询问以 YES 来对待<br>Skip(跳过)| s |将所有的询问以 NO 来对待<br>Quit(退出)|q |退出程序</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z e archive.zip</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放所有文件到当前文件夹。</span></div><div class="line">7z e archive.zip -oc:\soft *.cpp</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。</span></div></pre></td></tr></table></figure>
-<p>可以和此命令结合使用的选项:</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-ao</td>
-<td>覆盖模式</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>包括文件名</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>设置输出目录</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>设置密码</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归子目录</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>排除文件</td>
-</tr>
-<tr>
-<td>-y</td>
-<td>全是</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>全否</td>
-</tr>
-<tr>
-<td>x</td>
-<td>完整路径释放</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>l (列表) 命令</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z l archive.zip</div><div class="line"><span class="comment">#列出压缩档案 archive.zip 的内容。</span></div></pre></td></tr></table></figure>
-<p>可以和此命令结合使用的选项:</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td>包括文件名</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归子目录</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>排除文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>t (测试) 命令</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t archive.zip *.doc</div><div class="line"><span class="comment">#在压缩档案 archive.zip 中测试 *.doc 文件的完整性。</span></div></pre></td></tr></table></figure>
-<p>可以和此命令结合使用的选项:</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td>包括文件名</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归子目录</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>设置密码</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>排除文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>u(更新)命令</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z u archive.zip *.doc</div><div class="line"><span class="comment">#在压缩档案 archive.zip 中更新 *.doc 文件。</span></div></pre></td></tr></table></figure>
-<p>可以和此命令结合使用的选项:</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td>包括文件名</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>设置压缩算法</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>设置密码</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归子目录</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>设置压缩档案格式</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>更新选项</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>设置工作目录</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>排除文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>x (完整路径释放) 命令</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z x archive.zip</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放所有文件到当前文件夹。</span></div><div class="line">7z x archive.zip -oc:\soft *.cpp</div><div class="line"><span class="comment">#从压缩档案 archive.zip 中释放 *.cpp 文件到 c:\soft 文件夹。</span></div></pre></td></tr></table></figure>
-<p>可以和此命令结合使用的选项</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-ao</td>
-<td>覆盖模式</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>包括文件名</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>设置输出目录</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>设置密码</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归子目录</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>排除文件</td>
-</tr>
-<tr>
-<td>-y</td>
-<td>全是</td>
-</tr>
-</tbody>
-</table>
-<h2 id="命令行选项"><a href="#命令行选项" class="headerlink" title="命令行选项"></a>命令行选项</h2><p>选项要点参考</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>–-</td>
-<td>阻止选项解析</td>
-</tr>
-<tr>
-<td>-ai</td>
-<td>附件档案文件名</td>
-</tr>
-<tr>
-<td>-an</td>
-<td>不解析档案名称</td>
-</tr>
-<tr>
-<td>-ao</td>
-<td>覆盖模式</td>
-</tr>
-<tr>
-<td>-ax</td>
-<td>排除档案文件名</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>包括文件名</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>设置压缩算法</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>设置输出目录</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>设置密码</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归子目录</td>
-</tr>
-<tr>
-<td>-sfx</td>
-<td>创建自释放档案</td>
-</tr>
-<tr>
-<td>-si</td>
-<td>从StdIn 读取数据</td>
-</tr>
-<tr>
-<td>-so</td>
-<td>从StdOut 写入数据</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>设置档案类型</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>更新选项</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>创建分卷</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>设置工作目录</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>文件名排除</td>
-</tr>
-<tr>
-<td>-y</td>
-<td>全是</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>– (阻止选项解析) 选项</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -- -ArchiveName.7z</div><div class="line">测试 -ArchiveName.7z 压缩档案.</div></pre></td></tr></table></figure>
-<ul>
-<li>-ai (附件档案文件名) 开关</li>
-</ul>
-<blockquote>
-<p>指定附加文件，包括压缩档案文件名及通配符。此选项可同时附加多个类型。</p>
-</blockquote>
-<p>语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-ai[[recurse_type]][file_ref]</div><div class="line">[recurse_type] ::= r[- | 0]</div><div class="line">[file_ref] ::= @&#123;listfile&#125; | !&#123;wildcard&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>-an (不解析档案名称) 选项</li>
-</ul>
-<blockquote>
-<p>不解析命令行中的 archive_name 区域。此选项必须和 -i (附加文件) 开关一起使用。比如您为压缩档案使用列表文件，您就需要指定 -ai 选项，所以您需要禁止解析命令行中的 archive_name 区域。</p>
-</blockquote>
-<p>语法</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -ai!*.7z -ax!a*.7z</div><div class="line">测试除 a*.7z 之外的 *.7z 压缩档案。</div></pre></td></tr></table></figure>
-<ul>
-<li>-ao (覆盖模式) 选项</li>
-</ul>
-<blockquote>
-<p>指定在释放期间如何覆盖硬盘上现有的同名文件。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-aoa</td>
-<td>直接覆盖现有文件，而没有任何提示。</td>
-</tr>
-<tr>
-<td>-aos</td>
-<td>跳过现有文件，其不会被覆盖。</td>
-</tr>
-<tr>
-<td>-aou</td>
-<td>如果相同文件名的文件已存在，将自动重命名被释放的文件。例如，文件 file.txt 将被自动重命名为 file_1.txt。</td>
-</tr>
-<tr>
-<td>-aot</td>
-<td>如果相同文件名的文件已存在，将自动重命名现有的文件。例如，文件 file.txt 将被自动重命名为 file_1.txt。</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z x test.zip -aoa</div><div class="line"><span class="comment">#从压缩档案 test.zip 中释放所有文件并却不做提示直接覆盖现有文件。</span></div></pre></td></tr></table></figure>
-<ul>
-<li>-ax (排除档案文件名) 选项</li>
-</ul>
-<blockquote>
-<p>指定必须从操作中排除的压缩档案，此选项可同时排除多个类型。<br>语法</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -ai!*.7z -ax!a*.7z</div><div class="line"><span class="comment">#测试除 a*.7z 之外的 *.7z 压缩档案</span></div></pre></td></tr></table></figure>
-<ul>
-<li>-an (不解析档案名称)</li>
-</ul>
-<blockquote>
-<p>指定通配符及文件名，此选项在这里必须使用。如果此选项未被指定，那么将自动使用递归。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>{listfile}</td>
-<td>指定文件列表的文件名。参见 列表文件 的说明。</td>
-</tr>
-<tr>
-<td>{wildcard}</td>
-<td>指定通配符或文件名。</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z t -an -air!*.7z</div><div class="line"><span class="comment">#在当前目录及子目录下测试 *.7z 压缩档案</span></div></pre></td></tr></table></figure>
-<ul>
-<li>-i (附加文件) 选项</li>
-</ul>
-<blockquote>
-<p>指定附加文件或一类文件，此选项可附件添加多个类型。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>{listfile}</td>
-<td>指定文件列表。请参考 文件列表 相关信息。</td>
-</tr>
-<tr>
-<td>{wildcard}</td>
-<td>指定文件名或通配符。</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip src.zip *.txt -ir!DIR1\*.cpp</div><div class="line"><span class="comment">#从当前目录中添加 *.txt 文件，和 DIR1 目录及其子目录中的 *.cpp 文件到 src.zip 压缩档案。</span></div></pre></td></tr></table></figure>
-<ul>
-<li>-m (设置压缩算法) 选项</li>
-</ul>
-<blockquote>
-<p>指定压缩算法。此选项的格式依压缩档案的类型而定。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Zip参数</th>
-<th>默认值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x=[0 \</td>
-<td>5\</td>
-<td>9 ]</td>
-<td>5</td>
-<td>设置压缩等级。</td>
-</tr>
-<tr>
-<td>m={MethodID}</td>
-<td>Deflate</td>
-<td>设置压缩算法：Copy、Deflate、Deflate64、BZip2。</td>
-</tr>
-<tr>
-<td>fb={NumFastBytes}</td>
-<td>32</td>
-<td>设置 Deflate 编码器的单词大小。</td>
-</tr>
-<tr>
-<td>pass={NumPasses}</td>
-<td>1</td>
-<td>设置 Deflate 编码器的传送大小。</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>X=[0 | 5 | 9 ]</li>
-</ul>
-<blockquote>
-<p>设置压缩等级</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>压缩等级</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>不压缩。</td>
-</tr>
-<tr>
-<td>5</td>
-<td>默认的压缩等级。</td>
-</tr>
-<tr>
-<td>9</td>
-<td>最大压缩等级。压缩后的文件会更小。但是在压缩的时候会比较慢而且需要较多的物理内存。</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>fb={NumFastBytes}</li>
-</ul>
-<blockquote>
-<p>设置 Deflate 编码器的单词大小。您可以在3到 255 范围之内更改。在 <code>Deflate</code> 算法下，它的默认值是 <code>32</code>；在 <code>Deflate 64</code> 算法下，它的默认值是<code>64</code>。</p>
-</blockquote>
-<ul>
-<li>pass={NumPasses}</li>
-</ul>
-<blockquote>
-<p>设置 Deflate 编码器的传送大小。</p>
-</blockquote>
-<p>您可以在 1 到 4 范围之内更改。在 <code>Deflate</code> 算法下，它的默认值是 <code>1</code>；在 Deflate 64 算法下，它的默认值是 3。此项可略微提升压缩比，但并不明显。</p>
-<h2 id="7z默认参数"><a href="#7z默认参数" class="headerlink" title="7z默认参数"></a>7z默认参数</h2><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>默认</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x=[0 \</td>
-<td>1 \</td>
-<td>5 \</td>
-<td>7 \</td>
-<td>9 ]</td>
-<td>5</td>
-<td>设置压缩等级。</td>
-</tr>
-<tr>
-<td>s=[off \</td>
-<td>on \</td>
-<td>[e] [{N}f] [{N}b \</td>
-<td>{N}k \</td>
-<td>{N}m \</td>
-<td>{N}g]</td>
-<td>on</td>
-<td>设置固实模式。</td>
-</tr>
-<tr>
-<td>f=[off \</td>
-<td>on]</td>
-<td>on</td>
-<td>开启或关闭可执行文件压缩过滤器。</td>
-</tr>
-<tr>
-<td>hc=[off \</td>
-<td>on]</td>
-<td>on</td>
-<td>开启或关闭档案文件头压缩。</td>
-</tr>
-<tr>
-<td>hcf=[off \</td>
-<td>on]</td>
-<td>on</td>
-<td>开启或关闭档案文件头完全压缩。</td>
-</tr>
-<tr>
-<td>he=[off \</td>
-<td>on]</td>
-<td>off</td>
-<td>开启或关闭档案文件头加密。</td>
-</tr>
-<tr>
-<td>b{C1}[s{S1}]:{C2}[s{S2}]</td>
-<td></td>
-<td>设置编码器之间绑定。</td>
-</tr>
-<tr>
-<td>{N}={MethodID}[:param1][:param2][..]</td>
-<td></td>
-<td>LZMA设置压缩算法：LZMA、PPMd、BZip2、Deflate、BCJ、BCJ2、Copy。</td>
-</tr>
-<tr>
-<td>mt=[off \</td>
-<td>on]</td>
-<td>off</td>
-<td>设置多线程模式。</td>
-</tr>
-</tbody>
-</table>
-<p>支持的压缩算法：</p>
-<table>
-<thead>
-<tr>
-<th>MethodID</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LZMA</td>
-<td>基于 LZ 之上的压缩算法。</td>
-</tr>
-<tr>
-<td>PPMd</td>
-<td>基于 Dmitry Shkarin 之上的算法 PPMdH 并加以优化。通常能对纯文本提供高压缩比及较快的解压缩速度。</td>
-</tr>
-<tr>
-<td>Bzip2</td>
-<td>基于 BWT 的标准压缩算法。通常能对纯文本提供较高压缩比及相当不错的解压缩速度。</td>
-</tr>
-<tr>
-<td>Deflate</td>
-<td>ZIP 及 GZip 格式的标准压缩算法。没有很高的压缩比。但是它拥有十分快的压缩及解压缩速度。Deflate 压缩算法只支持 32 KB 字典大小。</td>
-</tr>
-<tr>
-<td>BCJ</td>
-<td>(CALL、JUMP)32 位 x86 可执行文件转换器。</td>
-</tr>
-<tr>
-<td>BCJ2</td>
-<td>(CALL、JUMP、JCC)32 位 x86 可执行文件转换器(第二版)。</td>
-</tr>
-<tr>
-<td>Copy</td>
-<td>不压缩。</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.jpg -m0</div><div class="line"><span class="comment">#不压缩而直接将 *.jpg 文件添加到 archive.zip 档案。</span></div><div class="line">7z a -t7z archive.7z *.exe *.dll -m0=BCJ -m1=LZMA:d=21 -ms -mmt</div><div class="line"><span class="comment">#添加 *.exe 及 *.dll 文件到固实压缩档案 archive.7z。使用 LZMA 压缩算法、2 MB 字典大小及 BCJ 转换器。压缩将开启多线程优化(如果可用)。</span></div><div class="line">7z a -t7z archive.7z *.exe *.dll -m0=BCJ2 -m1=LZMA:d23 -m2=LZMA:d19 -m3=LZMA:d19 -mb0:1 -mb0s1:2 -mb0s2:3</div><div class="line"><span class="comment">#添加 *.exe 及 *.dll 文件到压缩档案 archive.7z。使用 LZMA 压缩算法、BCJ2 转换器、为主输出流(s0)使用 8 MB 字典大小、LZMA 算法为 BCJ2 转换器的 s1 及 s2 输出流使用 512 KB 字典大小。</span></div><div class="line">7z a -t7z archive.7z *.txt -m0=PPMd</div><div class="line"><span class="comment">#添加 *.txt 文件到压缩档案 archive.7z。 使用 PPMd 压缩算法。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z x archive.zip -psecret</div><div class="line"><span class="comment">#将设有密码“secret”的压缩档案 archive.zip 中所有文件释放。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip -r src\*.cpp src\*.h</div><div class="line">将 src 目录及其子目录中的 *.cpp 及 *.h 文件添加到 archive.zip 压缩档案。</div></pre></td></tr></table></figure>
-<h2 id="sfx-创建自释放档案-选项"><a href="#sfx-创建自释放档案-选项" class="headerlink" title="-sfx (创建自释放档案) 选项"></a>-sfx (创建自释放档案) 选项</h2><blockquote>
-<p>创建自释放档案。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>SFX_Module</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>7zC.sfx</td>
-<td>Windows 版本。</td>
-</tr>
-<tr>
-<td>7zCon.sfx</td>
-<td>命令行(DOS)版本。</td>
-</tr>
-<tr>
-<td>7zS.sfx</td>
-<td>Windows 安装版本。</td>
-</tr>
-<tr>
-<td>7zSD.sfx</td>
-<td>Windows 安装版本(需调用 MSVCRT.dll)。</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>自释放安装模块</li>
-</ul>
-<p>自释放安装模块(7zS.sfx 和 7zSD.sfx)可让您创建软件的安装程序。这类模块将释放文件到一临时文件夹，然后运行指定的程序来进行安装。安装之后再自动删除临时文件。 要创建自释放档案必须有三个文件：自释放模块、安装程序配置、7z 压缩档案。其中安装程序配置文件是可选的。您可以使用下列命令来创建安装程序：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copy /b 7zS.sfx + config.txt + archive.7z archive.exe</div></pre></td></tr></table></figure>
-<p>请注意上述文件的输入顺序：<em>.sfx、</em>.txt、*.7z。最后的 archive.exe 即为生成的安装程序。<br>选项 -y 使用在自释放安装模块中可设置释放时是否为安静模式。</p>
-<p>安装程序配置文件格式</p>
-<p>配置文件包括安装程序的命令行。文件要以字串 ;!@Install@!UTF-8! 开头，以 ;!@InstallEnd@! 结尾。且文件必须使用 UTF-8 编码。文件中还需包含下列变量：</p>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ID_String</td>
-<td>说明</td>
-</tr>
-<tr>
-<td>Title</td>
-<td>对话框信息标题。</td>
-</tr>
-<tr>
-<td>BeginPrompt</td>
-<td>安装前提示信息。</td>
-</tr>
-<tr>
-<td>RunProgram</td>
-<td>欲执行命令。若添加子命令 %%T 则会把文件释放到系统的临时目录。</td>
-</tr>
-</tbody>
-</table>
-<p>您可以省略上述任何一部分。</p>
-<p>配置文件示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">;!@Install@!UTF-8!</div><div class="line">Title=&quot;7-Zip 1.00&quot;</div><div class="line">BeginPrompt=&quot;应用程序将安装 7-Zip 1.00，是否继续？&quot;</div><div class="line">RunProgram=&quot;Setup.exe /T:%%T&quot;</div><div class="line">;!@InstallEnd@!</div></pre></td></tr></table></figure>
-<p>程序将以 BeginPrompt 中的信息提示用户，再执行 RunProgram 中的命令。然后程序将使用 .inf 文件的内容并调用压缩包中的 advpack.dll 文件进行安装。</p>
-<p>示例:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z a -sfx a.exe *.txt</div><div class="line">添加 *.txt 文件到自释放档案 a.exe 并使用默认的命令行自释放模块。</div><div class="line">7z a -sfx7zC.sfx a.exe * -r</div><div class="line">添加所有文件到自释放档案 a.exe 并使用 7zC.sfx Windows 版本的自释放模块。</div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a archive.gz -tgzip -siDoc2.txt [ Doc.txt</div><div class="line"><span class="comment">#使用 Doc2.txt 文件名压缩输入流从文件 Doc.txt 到压缩档案 archive.gz。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">7z x archive.gz -so ] Doc.txt</div><div class="line"><span class="comment">#解压缩 archive.gz 输出流并将该输出流写入到 Doc.txt 文件。</span></div><div class="line">7z a dummy -tgzip -so Doc.txt ] archive.gz</div><div class="line"><span class="comment">#压缩 Doc.txt 输出流并将该输出流写入到 archive.gz 压缩档案。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.txt</div><div class="line"><span class="comment">#使用 zip 格式从当前目录中添加所有 *.txt 文件到压缩档案 archive.zip。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z u c:\1\exist.7z -u- -up0q3x2z0!c:\1\update.7z * -r</div><div class="line"><span class="comment">#创建新压缩档案 update.7z 并将当前目录中的 exist.7z 压缩档案里所有不同文件写入此压缩档案。并不更改 exist.7z 压缩档案的内容。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a a.7z *.txt -v10k -v15k -v2m</div><div class="line"><span class="comment">#创建 a.7z 分卷压缩档案。第一个分卷为 10 KB，第二个为 15 KB，剩下全部为 2 MB。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.cpp -wc:\temp</div><div class="line"><span class="comment">#添加 *.cpp 文件到 archive.zip 压缩档案，并将临时压缩档案创建到 c:\temp 文件夹。</span></div></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">7z a -tzip archive.zip *.txt -x!temp.*</div><div class="line"><span class="comment">#添加除 temp.* 文件之外的所有 *.txt 文件到压缩档案 archive.zip。</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;常规简单用法&quot;&gt;&lt;a href=&quot;#常规简单用法&quot; class=&quot;headerlink&quot; title=&quot;常规简单用法&quot;&gt;&lt;/a&gt;常规简单用法&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
-    
-    </summary>
-    
-      <category term="Linux" scheme="http://percychen.com/categories/Linux/"/>
-    
-    
-      <category term="linux" scheme="http://percychen.com/tags/linux/"/>
-    
-      <category term="7z" scheme="http://percychen.com/tags/7z/"/>
-    
-      <category term="命令行" scheme="http://percychen.com/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
   </entry>
   
