@@ -298,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/13/2014-10-13-androidmakefile/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/31/2014-10-31-androidadb/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -323,8 +323,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/10/13/2014-10-13-androidmakefile/" itemprop="url">
-                  Android Makefile 编译过程讲解
+                <a class="post-title-link" href="/2014/10/31/2014-10-31-androidadb/" itemprop="url">
+                  adb查看android系统相关命令
                 </a>
               
             
@@ -338,8 +338,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-13T13:14:00+08:00">
-                2014-10-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-31T13:14:00+08:00">
+                2014-10-31
               </time>
             
 
@@ -352,7 +352,7 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:24+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:03+08:00">
                 2017-01-17
               </time>
             
@@ -387,8 +387,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2014/10/13/2014-10-13-androidmakefile/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/13/2014-10-13-androidmakefile/" itemprop="commentCount"></span>
+                <a href="/2014/10/31/2014-10-31-androidadb/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/31/2014-10-31-androidadb/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -398,7 +398,7 @@
 
           
           
-             <span id="/2014/10/13/2014-10-13-androidmakefile/" class="leancloud_visitors" data-flag-title="Android Makefile 编译过程讲解">
+             <span id="/2014/10/31/2014-10-31-androidadb/" class="leancloud_visitors" data-flag-title="adb查看android系统相关命令">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -425,20 +425,14 @@
       
         
           
-          android make 系统
-arch
-board
-device
-product
-
-Android.mk中的定义变量
-include $(CLEAR_VARS)
-
-它对应的是在./build/core/config.mk中的CLEAR_VARS:=$(BUILD_SYSTEM)/clear_var
+          其实很多命令我在其它文章中都介绍过了，今天整合一下备份boot.img 今天刚从独行无疆那里学的
+dd if=dev/bootimg of=sdcard/boot.img count=1 bs=$((0x1000000))
+注：bs可以从分区信息中读取
+查看分区表（三种方法）cat /proc/em
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/10/13/2014-10-13-androidmakefile/#more" rel="contents">
+            <a class="btn" href="/2014/10/31/2014-10-31-androidadb/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -479,7 +473,7 @@ include $(CLEAR_VARS)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/10/2014-10-10-sublimetext/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/31/2014-10-31-OpenSourcePritocol/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -504,8 +498,8 @@ include $(CLEAR_VARS)
             
               
                 
-                <a class="post-title-link" href="/2014/10/10/2014-10-10-sublimetext/" itemprop="url">
-                  转 Sublime Text 配置/快捷键/使用
+                <a class="post-title-link" href="/2014/10/31/2014-10-31-OpenSourcePritocol/" itemprop="url">
+                  五种开源协议的比较
                 </a>
               
             
@@ -519,8 +513,8 @@ include $(CLEAR_VARS)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-10T13:14:00+08:00">
-                2014-10-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-31T13:14:00+08:00">
+                2014-10-31
               </time>
             
 
@@ -533,8 +527,8 @@ include $(CLEAR_VARS)
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-10T13:14:00+08:00">
-                2014-10-10
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:21+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -568,8 +562,8 @@ include $(CLEAR_VARS)
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2014/10/10/2014-10-10-sublimetext/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/10/2014-10-10-sublimetext/" itemprop="commentCount"></span>
+                <a href="/2014/10/31/2014-10-31-OpenSourcePritocol/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/31/2014-10-31-OpenSourcePritocol/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -579,7 +573,7 @@ include $(CLEAR_VARS)
 
           
           
-             <span id="/2014/10/10/2014-10-10-sublimetext/" class="leancloud_visitors" data-flag-title="转 Sublime Text 配置/快捷键/使用">
+             <span id="/2014/10/31/2014-10-31-OpenSourcePritocol/" class="leancloud_visitors" data-flag-title="五种开源协议的比较">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -606,12 +600,13 @@ include $(CLEAR_VARS)
       
         
           
-          本文节选于 Sublime Text全称指南
-                                                                                                                               
+          当我将开源当做一种习惯的时候，我突然意识到，使用一种开源协议是一件必不可少的事情了
+今天于是花时间脑补了一下开源协议。记录下来，下次补脑的时候用：
+现今经过Open Source Initiative组织通过批准的开源协议目前有58种。我们在常见的开源协议如BSD, GPL, LGPL,MIT等都是
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/10/10/2014-10-10-sublimetext/#more" rel="contents">
+            <a class="btn" href="/2014/10/31/2014-10-31-OpenSourcePritocol/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -652,7 +647,7 @@ include $(CLEAR_VARS)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/09/2014-10-09-someshellcommand/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/29/2014-10-29-gitcola/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -677,8 +672,8 @@ include $(CLEAR_VARS)
             
               
                 
-                <a class="post-title-link" href="/2014/10/09/2014-10-09-someshellcommand/" itemprop="url">
-                  shell 常用语法段
+                <a class="post-title-link" href="/2014/10/29/2014-10-29-gitcola/" itemprop="url">
+                  git cola的下载和使用
                 </a>
               
             
@@ -692,8 +687,8 @@ include $(CLEAR_VARS)
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-09T13:14:00+08:00">
-                2014-10-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-29T13:14:00+08:00">
+                2014-10-29
               </time>
             
 
@@ -706,8 +701,8 @@ include $(CLEAR_VARS)
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-09T13:14:00+08:00">
-                2014-10-09
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:21+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -723,8 +718,8 @@ include $(CLEAR_VARS)
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/语法/" itemprop="url" rel="index">
-                    <span itemprop="name">语法</span>
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
                   </a>
                 </span>
 
@@ -741,8 +736,8 @@ include $(CLEAR_VARS)
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2014/10/09/2014-10-09-someshellcommand/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/09/2014-10-09-someshellcommand/" itemprop="commentCount"></span>
+                <a href="/2014/10/29/2014-10-29-gitcola/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/29/2014-10-29-gitcola/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -752,7 +747,7 @@ include $(CLEAR_VARS)
 
           
           
-             <span id="/2014/10/09/2014-10-09-someshellcommand/" class="leancloud_visitors" data-flag-title="shell 常用语法段">
+             <span id="/2014/10/29/2014-10-29-gitcola/" class="leancloud_visitors" data-flag-title="git cola的下载和使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -779,16 +774,13 @@ include $(CLEAR_VARS)
       
         
           
-          for循环语句例子：
-for m in *.m4a;do
-    echo &quot;&quot; &gt;&gt;README.md
-    echo &quot;$m&quot; &gt;&gt; README.md
-done
-说明：　在当前文件夹中找出以m4a结尾的文件，将文件名输出到REA
+          为什么使用它 | WHY USE IT原因很简单，以前在乐蛙工作的时候用过，很喜欢这个插件，一直以为是git自带，一直没找到。今天找到了。所以介绍下。
+关于git cola | ABOUT GIT COLA
+Python 编写，集成常用的pull，push，commit功能，可用来对比文件不同。是一
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/10/09/2014-10-09-someshellcommand/#more" rel="contents">
+            <a class="btn" href="/2014/10/29/2014-10-29-gitcola/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -829,7 +821,7 @@ done
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/08/2014-10-08-linuxawkcommand/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/29/2014-10-29-boardcast/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -854,8 +846,8 @@ done
             
               
                 
-                <a class="post-title-link" href="/2014/10/08/2014-10-08-linuxawkcommand/" itemprop="url">
-                  awk命令详解
+                <a class="post-title-link" href="/2014/10/29/2014-10-29-boardcast/" itemprop="url">
+                  广播的注册发送和接受
                 </a>
               
             
@@ -869,8 +861,8 @@ done
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-08T13:14:00+08:00">
-                2014-10-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-29T13:14:00+08:00">
+                2014-10-29
               </time>
             
 
@@ -883,7 +875,180 @@ done
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:24+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:03+08:00">
+                2017-01-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/10/29/2014-10-29-boardcast/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/29/2014-10-29-boardcast/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2014/10/29/2014-10-29-boardcast/" class="leancloud_visitors" data-flag-title="广播的注册发送和接受">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          发送先注册一个动作：public static final String SONG_NAME = &quot;hehe&quot;;
+                                    1234                                    Intent 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/10/29/2014-10-29-boardcast/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/21/2014-10-21-shellreadline/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/10/21/2014-10-21-shellreadline/" itemprop="url">
+                  shell读取文件每一行的方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-21T13:14:00+08:00">
+                2014-10-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:08:04+08:00">
                 2017-01-17
               </time>
             
@@ -918,8 +1083,8 @@ done
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2014/10/08/2014-10-08-linuxawkcommand/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/08/2014-10-08-linuxawkcommand/" itemprop="commentCount"></span>
+                <a href="/2014/10/21/2014-10-21-shellreadline/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/21/2014-10-21-shellreadline/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -929,7 +1094,7 @@ done
 
           
           
-             <span id="/2014/10/08/2014-10-08-linuxawkcommand/" class="leancloud_visitors" data-flag-title="awk命令详解">
+             <span id="/2014/10/21/2014-10-21-shellreadline/" class="leancloud_visitors" data-flag-title="shell读取文件每一行的方式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -956,16 +1121,21 @@ done
       
         
           
-          AWK命令介绍
-awk语言的最基本功能是在文件或字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作，完整的awk脚本通常用来格式化文本文件中的信息
+          
+使用read命令读取一行数据
+while read myline
+do
+echo &quot;LINE:&quot;$myline
+done &lt; datafile.txt
 
-awk的简单使用
-第一种命令行方式，如:
-awk [-Field-separator] &apos;commands&apos
+
+解决read在这个语法中失效的问题：read &lt;/dev/tty   #再给它重定向一次就可以了
+
+使用rea
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/10/08/2014-10-08-linuxawkcommand/#more" rel="contents">
+            <a class="btn" href="/2014/10/21/2014-10-21-shellreadline/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1006,7 +1176,7 @@ awk [-Field-separator] &apos;commands&apos
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/08/2014-10-08-echodemo/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/21/2014-10-21-linuxsortcommand/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -1031,8 +1201,8 @@ awk [-Field-separator] &apos;commands&apos
             
               
                 
-                <a class="post-title-link" href="/2014/10/08/2014-10-08-echodemo/" itemprop="url">
-                  Linux中的15个‘echo’ 命令实例
+                <a class="post-title-link" href="/2014/10/21/2014-10-21-linuxsortcommand/" itemprop="url">
+                  sort的用法
                 </a>
               
             
@@ -1046,8 +1216,8 @@ awk [-Field-separator] &apos;commands&apos
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-08T13:14:00+08:00">
-                2014-10-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-21T13:14:00+08:00">
+                2014-10-21
               </time>
             
 
@@ -1060,8 +1230,181 @@ awk [-Field-separator] &apos;commands&apos
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-08T13:14:00+08:00">
-                2014-10-08
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:11:43+08:00">
+                2017-01-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/10/21/2014-10-21-linuxsortcommand/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/21/2014-10-21-linuxsortcommand/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2014/10/21/2014-10-21-linuxsortcommand/" class="leancloud_visitors" data-flag-title="sort的用法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          sort命令是帮我们依据不同的数据类型进行排序，其语法及常用参数格式：　　    sort [-bcfMnrtk][源文件][-o 输出文件]
+补充说明：sort可针对文本文件的内容，以行为单位来排序。参    数：123456789-b   忽略每行前面开始出的空格字符-c   检查文件是否已经按
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/10/21/2014-10-21-linuxsortcommand/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/18/2014-10-18-zipcommand/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="percy|振云">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/yunicon.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="风之子的世界">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/10/18/2014-10-18-zipcommand/" itemprop="url">
+                  linux下 解压zip,tar等压缩文件详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-18T13:14:00+08:00">
+                2014-10-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-17T15:03:23+08:00">
+                2017-01-17
               </time>
             
           </span>
@@ -1095,8 +1438,8 @@ awk [-Field-separator] &apos;commands&apos
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2014/10/08/2014-10-08-echodemo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/08/2014-10-08-echodemo/" itemprop="commentCount"></span>
+                <a href="/2014/10/18/2014-10-18-zipcommand/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/18/2014-10-18-zipcommand/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1106,7 +1449,7 @@ awk [-Field-separator] &apos;commands&apos
 
           
           
-             <span id="/2014/10/08/2014-10-08-echodemo/" class="leancloud_visitors" data-flag-title="Linux中的15个‘echo’ 命令实例">
+             <span id="/2014/10/18/2014-10-18-zipcommand/" class="leancloud_visitors" data-flag-title="linux下 解压zip,tar等压缩文件详解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1133,27 +1476,15 @@ awk [-Field-separator] &apos;commands&apos
       
         
           
-          
-echo是一种最常用的与广泛使用的内置于Linux的bash和C shell的命令，通常用在脚本语言和批处理文件中来在标准输出或者文件中显示一行文本或者字符串。
-
-
-echo -e 处理特殊字符
-若字符串中出现以下字符，则特别加以处理，而不会将它当成一般文字输出：
-
-
-
-字符
-注释
-
-
-
-
-\a
-
+          zip命令1zip -r myfile.zip ./*
+将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.
+要使用 zip 来压缩文件夹，在 shell 提示下键入下面的命令：
+1zip -r filename.zip filesdir
+你可以使用 
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/10/08/2014-10-08-echodemo/#more" rel="contents">
+            <a class="btn" href="/2014/10/18/2014-10-18-zipcommand/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1194,7 +1525,7 @@ echo -e 处理特殊字符
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/08/2014-10-08-blackantpoem/">
+  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/10/18/2014-10-18-curlcommand/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="percy|振云">
@@ -1219,8 +1550,8 @@ echo -e 处理特殊字符
             
               
                 
-                <a class="post-title-link" href="/2014/10/08/2014-10-08-blackantpoem/" itemprop="url">
-                  黑蚂蚁——白连春
+                <a class="post-title-link" href="/2014/10/18/2014-10-18-curlcommand/" itemprop="url">
+                  curl 命令详解
                 </a>
               
             
@@ -1234,8 +1565,8 @@ echo -e 处理特殊字符
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-08T13:14:00+08:00">
-                2014-10-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-10-18T13:14:00+08:00">
+                2014-10-18
               </time>
             
 
@@ -1248,8 +1579,8 @@ echo -e 处理特殊字符
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2014-10-08T13:14:00+08:00">
-                2014-10-08
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-02T20:37:27+08:00">
+                2017-03-02
               </time>
             
           </span>
@@ -1265,8 +1596,8 @@ echo -e 处理特殊字符
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/food/" itemprop="url" rel="index">
-                    <span itemprop="name">food</span>
+                  <a href="/categories/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
                   </a>
                 </span>
 
@@ -1283,8 +1614,8 @@ echo -e 处理特殊字符
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2014/10/08/2014-10-08-blackantpoem/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/08/2014-10-08-blackantpoem/" itemprop="commentCount"></span>
+                <a href="/2014/10/18/2014-10-18-curlcommand/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/18/2014-10-18-curlcommand/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1294,7 +1625,7 @@ echo -e 处理特殊字符
 
           
           
-             <span id="/2014/10/08/2014-10-08-blackantpoem/" class="leancloud_visitors" data-flag-title="黑蚂蚁——白连春">
+             <span id="/2014/10/18/2014-10-18-curlcommand/" class="leancloud_visitors" data-flag-title="curl 命令详解">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1321,364 +1652,12 @@ echo -e 处理特殊字符
       
         
           
-          只要时间够用你不嫌我的心是黑的我就有一个爱你的理由像花朵举起春天像死亡举起生命给你我的一切虽然我知道我不能成为你的爱人但是我有一颗黑暗的心你要我牺牲什么怎么牺牲我都愿意我有使不完的力而且独自流浪重要的是经历了一万个不爱我学会了一个爱我就这样爱着穿梭在大地只要时间够用我就能抓住泥土里的草根把我向你举起
+          2017-03-02更新
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/10/08/2014-10-08-blackantpoem/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/09/28/2014-09-28-tenubuntublogs/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="percy|振云">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/yunicon.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="风之子的世界">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/28/2014-09-28-tenubuntublogs/" itemprop="url">
-                  10个 Ubuntu 用户一定要知道的博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-09-28T13:14:00+08:00">
-                2014-09-28
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2014-09-28T13:14:00+08:00">
-                2014-09-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/09/28/2014-09-28-tenubuntublogs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/28/2014-09-28-tenubuntublogs/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/09/28/2014-09-28-tenubuntublogs/" class="leancloud_visitors" data-flag-title="10个 Ubuntu 用户一定要知道的博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          想要了解更多关于 ubuntu 的资讯，我们应该追哪些网站呢？这是初学者经常会问的一个问题，在这里，我会告诉你们10个我最喜欢的博客，这些博客可以帮助我们解决问题，能让我们及时了解所有 Ubuntu 版本的更新消息。不，我谈论的不是通常的 Linux 和 shell 脚本一类的东东。我是在说一个流畅
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2014/09/28/2014-09-28-tenubuntublogs/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://percychen.com/2014/09/28/2014-09-28-fastblursmailcode/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="percy|振云">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/yunicon.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="风之子的世界">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="风之子的世界" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/28/2014-09-28-fastblursmailcode/" itemprop="url">
-                  高斯模糊动态壁纸的三段smail插值代码：
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-09-28T13:14:00+08:00">
-                2014-09-28
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2014-09-28T13:14:00+08:00">
-                2014-09-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/语法/" itemprop="url" rel="index">
-                    <span itemprop="name">语法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/09/28/2014-09-28-fastblursmailcode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/28/2014-09-28-fastblursmailcode/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2014/09/28/2014-09-28-fastblursmailcode/" class="leancloud_visitors" data-flag-title="高斯模糊动态壁纸的三段smail插值代码：">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-引导函数代码
-invoke-direct {p0}, Lxxx/xxx/xxx/xxx/xxxActivity;-&gt;wallpaper()V
-
-wallpaper 布置代码：
-.method private wallpaper()V
-.locals 4
-
-.prologue
-.line 28
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2014/09/28/2014-09-28-fastblursmailcode/#more" rel="contents">
+            <a class="btn" href="/2014/10/18/2014-10-18-curlcommand/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1714,7 +1693,7 @@ wallpaper 布置代码：
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1757,7 +1736,7 @@ wallpaper 布置代码：
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">141</span>
+                <span class="site-state-item-count">150</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
