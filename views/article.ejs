@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<%-include common/head%>
+<% var i=0%>
+<body>
+    <div class="headband"></div>
+    <div class="col-lg-1"> </div>
+	<div class="col-lg-3">
+		<%-include common/nav%>
+	</div>
+    <div class="col-lg-6">
+        <div class="panel article">
+            <div class="panel-body">
+                <div id="article">
+                    <h3 class="article_info_title"><%= info.attributes.title %></h3>
+                </div>
+                <div class="article_info">
+                        <%-include common/article_info%>
+                </div>
+                <div class="article_content">
+                
+                    <%-content%>
+                </div>
+                <div class="split-line"></div>
+                <div class="article-footer">
+                    <ul class="pager">
+                        <li class="previous"><a href="#">← Older</a></li>
+                        <li class="next"><a href="#">Newer →</a></li>
+                    </ul>
+                </div>
+                <div class="blog-tags">
+                    <a href="#">photoshop</a> <a href="#">illustrator</a> <a href="#">adobe</a> <a href="#">theme</a>
+                    <div class="pull-right tag-social">
+                        <a href="#" class="btn btn-share pull-right">Share</a>
+
+                        <ul class="pull-right">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="article-comment"></div>
+            </div>
+        </div>
+	</div>
+    <%-include common/footer%>
+<%-include common/js%>
+<%-include common/code_highlight%>
+  </body>
+</html>

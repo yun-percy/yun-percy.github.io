@@ -1,0 +1,42 @@
+<span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-calendar-o"></i>
+    </span>
+    <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-17T09:49:57+08:00">
+      <%=blog_list[i].creat_time%>
+    </time>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-calendar-check-o"></i>
+    </span>
+    <time title="更新于" itemprop="dateModified" datetime="2017-04-17T09:49:57+08:00">
+      <%=blog_list[i].update_time%>
+    </time>
+</span>
+<span class="post-category">
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-folder-o"></i>
+    </span>
+      <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+        <a href="/categories/粮食/" itemprop="url" rel="index">
+          <span itemprop="name"><%=blog_list[i].category%></span>
+        </a>
+      </span>
+</span>
+<span class="post-comments-count">
+      <span class="post-meta-divider">|</span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <a href="/2017/04/17/gravity_water/#comments" itemprop="discussionUrl">
+        <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/17/gravity_water/" itemprop="commentCount"><%=blog_list[i].comment_time%></span>
+      </a>
+</span>
+<span id="/2017/04/17/gravity_water/" class="leancloud_visitors" data-flag-title="重水">
+     <span class="post-meta-divider">|</span>
+     <span class="post-meta-item-icon">
+       <i class="fa fa-eye"></i>
+     </span>
+       <span class="leancloud-visitors-count"><%=blog_list[i].view_time%></span>
+</span>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<%-include common/head%>
+<body>
+    <div class="headband"></div>
+    <div class="col-lg-1"> </div>
+	<div class="col-lg-3">
+		<%-include common/nav%>
+	</div>
+	<div class="col-lg-6">
+        <% for(var i in blog_list){%>
+            <div class="panel">
+                <div class="panel-body">
+                    <div id="article">
+                        <h3 class="article_info_title"><%= blog_list[i].title %></h3>
+                    </div>
+                    <div class="article_info">
+                        <%-include common/article_info%>
+                    </div>
+                    <div class="article_content">
+                        <%=blog_list[i].brief%>
+                    </div>
+                    <div class="post-button text-center">
+                        <a class="read_article_btn" href="/article?id=<%=blog_list[i].id%>" rel="contents">
+                          阅读全文 »
+                        </a>
+                      </div>
+                </div>
+            </div>
+        <%}%>
+	</div>
+<%-include common/js%>
+<script type="text/javascript">
+    // $('p').val('<p>222222</p>');
+    console.log($('#article').val());
+</script>
+  </body>
+</html>
