@@ -16,7 +16,7 @@
                 }else{
                     for(var i in data){
                         $('.search-ret').append('<a style="font-weight:bold ; border-bottom: 1px solid #999" href="/article?id='+data[i].id+'">'+data[i].title+' »</a>');
-                        $('.search-ret').append('<p style="padding-top:10px"> '+data[i].brief+'</p>');
+                        $('.search-ret').append('<p style="padding-top:10px"> '+data[i].content.substring(0,300)+'</p>');
                         $('.search-ret').append('<div class="split-line" style="margin-top: 20px;border-top: 2px dotted #ccc;padding:10px 0 0"></div>');
                     }
                 }

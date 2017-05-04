@@ -36,7 +36,7 @@ router.get('/article', function(req, res, next) {
     });
 });
 router.get('/searchblog',function(req,res,next){
-    sql='select * from blog where concat(title,brief) like "%'+req.query.keyword+'%"';
+    sql='select * from blog where concat(title,content) like "%'+req.query.keyword+'%"';
     db.exesql("percy",sql,function(ret){
       console.log(ret);
       res.json(ret);
