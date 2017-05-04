@@ -24,6 +24,24 @@
                             关于
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="/about">
+                            <i class="fa fa-cloud"></i>
+                            分类
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/about">
+                            <i class="fa fa-cloud"></i>
+                            标签
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/about">
+                            <i class="fa fa-cloud"></i>
+                            归档
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -33,8 +51,8 @@
             <% if (blog_list.length>1){%>
                 <div class="nav-info" id="info">
                     <img class="nav-info img" src="/img/yunicon.png">
-                    <p class="nav-info name">振云|percy</p>
-                    <p class="nav-info sign">我歌我且笑，岁月共此生</p>
+                    <p class="nav-info name"><%=author%></p>
+                    <p class="nav-info sign"><%=personal_sign%></p>
                     <section class="panel">
                         <div class="carousel slide auto panel-body" id="c-slide">
                             <ol class="carousel-indicators out">

@@ -7,9 +7,9 @@
 	<div class="col-lg-3">
 		<%-include common/nav%>
 	</div>
-	<div class="col-lg-6">
+	<div class="col-lg-7">
         <% for(var i in blog_list){%>
-            <div class="panel">
+            <div class="panel article">
                 <div class="panel-body">
                     <div id="article">
                         <h3 class="article_info_title"><%= blog_list[i].title %></h3>
@@ -18,7 +18,7 @@
                         <%-include common/article_info%>
                     </div>
                     <div class="article_content">
-                        <%=blog_list[i].brief%>
+                        <%=blog_list[i].content.substring(0,300)%>
                     </div>
                     <div class="post-button text-center">
                         <a class="read_article_btn" href="/article?id=<%=blog_list[i].id%>" rel="contents">
@@ -28,11 +28,11 @@
                 </div>
             </div>
         <%}%>
+        <%-include common/search%>
 	</div>
+    <%-include common/footer%>
 <%-include common/js%>
 <script type="text/javascript">
-    // $('p').val('<p>222222</p>');
-    console.log($('#article').val());
 </script>
-  </body>
+</body>
 </html>

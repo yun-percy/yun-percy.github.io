@@ -32,7 +32,7 @@
   float: none !important;
   height: auto !important;
   left: auto !important;
-  line-height: 1.1em !important;
+  line-height: 1.8em !important;
   margin: 0 !important;
   outline: 0 !important;
   overflow: visible !important;
@@ -44,12 +44,13 @@
   vertical-align: baseline !important;
   width: auto !important;
   box-sizing: content-box !important;
-  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace !important;
   font-weight: normal !important;
   font-style: normal !important;
-  font-size: 0.8em !important;
+  font-size: 13px !important;
   min-height: inherit !important;
   min-height: auto !important;
+
 }
 
 .syntaxhighlighter {
@@ -176,7 +177,7 @@
   color: #bbbbbb !important;
 }
 .syntaxhighlighter.printing .line .content {
-  color: black !important;
+  color: #4d4d4c !important;
 }
 .syntaxhighlighter.printing .toolbar {
   display: none !important;
@@ -185,7 +186,7 @@
   text-decoration: none !important;
 }
 .syntaxhighlighter.printing .plain, .syntaxhighlighter.printing .plain a {
-  color: black !important;
+  color: #4d4d4c !important;
 }
 .syntaxhighlighter.printing .comments, .syntaxhighlighter.printing .comments a {
   color: #008200 !important;
@@ -225,7 +226,7 @@
   color: red !important;
 }
 .syntaxhighlighter.printing .break, .syntaxhighlighter.printing .break a {
-  color: black !important;
+  color: #4d4d4c !important;
 }
 
 .syntaxhighlighter {
@@ -244,7 +245,7 @@
   color: white !important;
 }
 .syntaxhighlighter table caption {
-  color: black !important;
+  color: #4d4d4c !important;
 }
 .syntaxhighlighter .gutter {
   padding: 10px 0 10px 0 !important;
@@ -287,7 +288,7 @@
   color: red !important;
 }
 .syntaxhighlighter .plain, .syntaxhighlighter .plain a {
-  color: black !important;
+  color: #4d4d4c !important;
 }
 .syntaxhighlighter .comments, .syntaxhighlighter .comments a {
   color: #008200 !important;

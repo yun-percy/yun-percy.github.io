@@ -8,7 +8,7 @@
 	<div class="col-lg-3">
 		<%-include common/nav%>
 	</div>
-    <div class="col-lg-6">
+    <div class="col-lg-7">
         <div class="panel article">
             <div class="panel-body">
                 <div id="article">
@@ -24,40 +24,74 @@
                 <div class="split-line"></div>
                 <div class="article-footer">
                     <ul class="pager">
-                        <li class="previous"><a href="#">← Older</a></li>
-                        <li class="next"><a href="#">Newer →</a></li>
+                        <li class="previous"><a href="#">← 上一篇</a></li>
+                        <li class="next"><a href="#">下一篇 →</a></li>
                     </ul>
                 </div>
                 <div class="blog-tags">
-                    <a href="#">photoshop</a> <a href="#">illustrator</a> <a href="#">adobe</a> <a href="#">theme</a>
+                    <%for (var m in info.attributes.tags){%>
+                        <a href="#"><%=info.attributes.tags[m]%></a>
+                     <%}%>
                     <div class="pull-right tag-social">
                         <a href="#" class="btn btn-share pull-right">Share</a>
-
                         <ul class="pull-right">
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-facebook"></i>
+                                    <i class="fa fa-wechat"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-weibo"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-google-plus"></i>
+                                    <i class="fa fa-qq"></i>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="article-comment"></div>
+                <div class="article-comment">
+                    <div class="panel-body">
+                        <h1 class="text-center cmnt-head ">看完了,评论一个呗</h1>
+                        <form role="form" class="form-horizontal leave-cmnt">
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <input type="text" class="col-lg-12 form-control" placeholder="名字|Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <input type="text" class="col-lg-12 form-control" placeholder="Email">
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <textarea class=" form-control" rows="8" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <p>
+                                <button class="btn btn-post-cmnt pull-right" >评论 | Comment</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+        <%-include common/search%>
 	</div>
     <%-include common/footer%>
 <%-include common/js%>
 <%-include common/code_highlight%>
-  </body>
+<script type="text/javascript">
+    $('.btn.btn-post-cmnt').click(function(){
+        if (1) {
+            return false;
+        };
+    })
+</script>
+</body>
 </html>
